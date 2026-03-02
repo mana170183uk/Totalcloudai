@@ -1505,53 +1505,218 @@ ul { list-style: none; }
 .pricing-check { color: var(--accent-2); font-weight: 700; font-size: 16px; }
 
 /* ============================================
-   BLOG — Overlapping Cards
+   BLOG — Modern Featured + Grid
    ============================================ */
+@property --blog-border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+@keyframes blog-border-rotate {
+  to { --blog-border-angle: 360deg; }
+}
+/* Featured card (first post — spans full width) */
+.blog-featured {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 0;
+  border-radius: 20px; overflow: hidden;
+  border: 1px solid rgba(96,165,250,0.12);
+  background: rgba(255,255,255,0.02);
+  margin-bottom: 32px;
+  transition: border-color 0.4s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.4s cubic-bezier(0.22,1,0.36,1),
+              transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+[data-theme="light"] .blog-featured {
+  background: rgba(255,255,255,0.7);
+  border-color: rgba(59,130,246,0.12);
+}
+.blog-featured:hover {
+  border-color: rgba(96,165,250,0.35);
+  box-shadow: 0 0 40px rgba(59,130,246,0.1);
+  transform: translateY(-4px);
+}
+.blog-featured-img {
+  position: relative; aspect-ratio: 16/10; overflow: hidden;
+}
+.blog-featured-img-bg {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #0f172a 100%);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  position: relative;
+}
+.blog-featured:hover .blog-featured-img-bg { transform: scale(1.04); }
+.blog-featured-img-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, transparent 60%);
+}
+.blog-featured-emoji {
+  font-size: 80px; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+  position: relative; z-index: 1;
+}
+.blog-featured-category {
+  position: absolute; top: 20px; left: 20px; z-index: 2;
+  padding: 6px 16px; border-radius: 100px;
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: #fff; background: rgba(59,130,246,0.4);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(96,165,250,0.3);
+}
+.blog-featured-body {
+  padding: 40px 36px; display: flex; flex-direction: column;
+  justify-content: center;
+}
+.blog-featured-meta {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--text-muted); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.blog-featured-meta .dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--accent-1);
+}
+.blog-featured h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem; font-weight: 700; line-height: 1.3;
+  letter-spacing: -0.02em; margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--text-primary) 0%, rgba(147,197,253,0.9) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+[data-theme="light"] .blog-featured h3 {
+  background: linear-gradient(135deg, var(--text-primary) 0%, #2563EB 100%);
+  -webkit-background-clip: text; background-clip: text;
+}
+.blog-featured p {
+  font-size: 1rem; color: var(--text-secondary); line-height: 1.7;
+  margin-bottom: 24px;
+  display: -webkit-box; -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.blog-featured-read {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 14px; font-weight: 600; color: var(--accent-1);
+  transition: gap 0.3s ease;
+}
+.blog-featured:hover .blog-featured-read { gap: 16px; }
+.blog-featured-read svg {
+  width: 18px; height: 18px;
+  transition: transform 0.3s ease;
+}
+.blog-featured:hover .blog-featured-read svg {
+  transform: translateX(4px);
+}
+/* Grid cards (3-column) */
 .blog-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 24px;
 }
 .blog-card {
-  border-radius: var(--radius-lg); overflow: hidden; cursor: none;
+  border-radius: 16px; overflow: hidden; cursor: pointer;
   display: flex; flex-direction: column;
+  border: 1px solid rgba(96,165,250,0.08);
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.4s cubic-bezier(0.22,1,0.36,1),
+              background 0.4s cubic-bezier(0.22,1,0.36,1),
+              transform 0.4s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.4s cubic-bezier(0.22,1,0.36,1);
+  position: relative;
 }
-.blog-card:hover { transform: translateY(-8px); }
+[data-theme="light"] .blog-card {
+  background: rgba(255,255,255,0.7);
+  border-color: rgba(59,130,246,0.1);
+}
+.blog-card::before {
+  content: ''; position: absolute; inset: -1px;
+  border-radius: 17px; padding: 1px; z-index: -1;
+  background: conic-gradient(from var(--blog-border-angle), #3B82F6, #8B5CF6, #EC4899, #3B82F6);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0;
+  animation: blog-border-rotate 3s linear infinite paused;
+  transition: opacity 0.4s ease;
+}
+.blog-card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+.blog-card:hover {
+  background: rgba(59,130,246,0.04);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 32px rgba(59,130,246,0.1);
+}
+[data-theme="light"] .blog-card:hover {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 8px 32px rgba(59,130,246,0.08);
+}
 .blog-thumb {
-  height: 200px; position: relative; overflow: hidden;
+  position: relative; aspect-ratio: 16/9; overflow: hidden;
 }
 .blog-thumb-bg {
   width: 100%; height: 100%;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex; align-items: center; justify-content: center;
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  position: relative;
 }
-.blog-card:hover .blog-thumb-bg { transform: scale(1.05); }
+.blog-card:hover .blog-thumb-bg { transform: scale(1.06); }
+.blog-thumb-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.5) 100%);
+  pointer-events: none;
+}
 .blog-thumb-icon {
-  font-size: 48px; opacity: 0.4;
+  font-size: 44px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  position: relative; z-index: 1;
 }
 .blog-category {
-  position: absolute; bottom: 16px; left: 16px;
-  padding: 6px 16px; border-radius: 100px;
-  font-family: var(--mono); font-size: 11px; font-weight: 500;
-  color: var(--text-primary); background: var(--bg-card);
-  backdrop-filter: blur(12px); border: 1px solid var(--border);
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  padding: 5px 14px; border-radius: 100px;
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.1);
 }
-.blog-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+.blog-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
 .blog-meta {
-  font-family: var(--mono); font-size: 12px;
-  color: var(--text-muted); margin-bottom: 14px;
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text-muted); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.blog-meta .dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--text-muted);
 }
 .blog-card h3 {
   font-family: var(--font-display);
-  font-size: 1.15rem; font-weight: 600;
-  line-height: 1.4; margin-bottom: 12px;
+  font-size: 1.1rem; font-weight: 600;
+  line-height: 1.4; margin-bottom: 10px;
+  letter-spacing: -0.01em;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+  transition: color 0.3s ease;
 }
-.blog-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; flex: 1; }
+.blog-card:hover h3 { color: #93C5FD; }
+[data-theme="light"] .blog-card:hover h3 { color: #2563EB; }
+.blog-card p {
+  font-size: 0.875rem; color: var(--text-secondary);
+  line-height: 1.65; flex: 1;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
 .blog-read {
   display: inline-flex; align-items: center; gap: 8px;
-  margin-top: 20px; font-size: 14px; font-weight: 600;
+  margin-top: 18px; font-size: 13px; font-weight: 600;
   color: var(--accent-1); transition: gap 0.3s ease;
 }
 .blog-card:hover .blog-read { gap: 14px; }
+.blog-read svg {
+  width: 16px; height: 16px;
+  transition: transform 0.3s ease;
+}
+.blog-card:hover .blog-read svg { transform: translateX(4px); }
 
 /* ============================================
    CTA — Gradient Box
@@ -1749,6 +1914,9 @@ ul { list-style: none; }
   .hero-stats { justify-content: center; }
   .hero-visual { display: none; }
   .services-grid, .testimonials-grid, .blog-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-featured { grid-template-columns: 1fr 1fr; }
+  .blog-featured-body { padding: 28px; }
+  .blog-featured h3 { font-size: 1.3rem; }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
   .platforms-flex { gap: 20px; }
   .platform-hex { width: calc(50% - 10px); }
@@ -1766,6 +1934,9 @@ ul { list-style: none; }
   .nav-links { display: none; }
   .menu-toggle { display: flex; }
   .services-grid, .testimonials-grid, .blog-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .blog-featured { grid-template-columns: 1fr; }
+  .blog-featured-body { padding: 28px 24px; }
+  .blog-featured h3 { font-size: 1.3rem; }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
   .platforms-flex { flex-direction: column; align-items: center; }
   .platform-hex { width: 100%; max-width: 320px; }
@@ -2616,51 +2787,115 @@ ul { list-style: none; }
     <div class="section-header reveal" style="text-align:center;">
       <span class="section-label">// Insights</span>
       <h2 class="section-title">Latest from <span class="gradient-text">Our Blog</span></h2>
+      <p class="section-subtitle" style="max-width:600px;margin:0 auto;">Expert perspectives on cloud architecture, DevOps, security, and digital transformation.</p>
     </div>
+
+    <!-- Featured Article -->
+    <div class="blog-featured reveal">
+      <div class="blog-featured-img">
+        <div class="blog-featured-img-bg" style="background:linear-gradient(135deg, #0c1929 0%, #1e3a5f 35%, #0f2747 70%, #162c50 100%);">
+          <span class="blog-featured-emoji">☁️</span>
+        </div>
+        <span class="blog-featured-category">Featured</span>
+      </div>
+      <div class="blog-featured-body">
+        <div class="blog-featured-meta">
+          <span>Cloud Transformation</span>
+          <span class="dot"></span>
+          <span>8 min read</span>
+          <span class="dot"></span>
+          <span>Mar 2026</span>
+        </div>
+        <h3>The Future of Cloud Transformation: How AI is Redefining Business Innovation</h3>
+        <p>In today's fast-paced digital landscape, businesses must stay ahead by leveraging the power of cloud computing combined with AI. Discover how multi-cloud strategies and intelligent automation are reshaping enterprise architecture.</p>
+        <span class="blog-featured-read">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+      </div>
+    </div>
+
+    <!-- Blog Grid -->
     <div class="blog-grid">
-      <div class="blog-card glass-card reveal stagger-1">
-        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));"><span class="blog-thumb-icon">☁️</span></div><span class="blog-category">Cloud</span></div>
-        <div class="blog-body">
-          <div class="blog-meta">Cloud Transformation · 8 min</div>
-          <h3>The Future of Cloud Transformation: How Total Cloud AI is Redefining Business Innovation</h3>
-          <p>In today's fast-paced digital landscape, businesses must stay ahead by leveraging the power of cloud computing.</p>
-          <span class="blog-read">Read More →</span>
+      <div class="blog-card reveal stagger-1">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg" style="background:linear-gradient(135deg, #1a1034 0%, #2d1b69 50%, #1a1034 100%);">
+            <span class="blog-thumb-icon">🔀</span>
+          </div>
+          <span class="blog-category">Strategy</span>
         </div>
-      </div>
-      <div class="blog-card glass-card reveal stagger-2">
-        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));"><span class="blog-thumb-icon">🔀</span></div><span class="blog-category">Cloud Models</span></div>
         <div class="blog-body">
-          <div class="blog-meta">Cloud Strategy · 6 min</div>
+          <div class="blog-meta"><span>Cloud Strategy</span><span class="dot"></span><span>6 min</span></div>
           <h3>How to Choose the Right Cloud Model: Public, Private, or Hybrid?</h3>
-          <p>Choosing the right cloud model is a crucial decision that impacts your business's scalability, security, cost, and flexibility.</p>
-          <span class="blog-read">Read More →</span>
+          <p>A crucial decision that impacts your business's scalability, security, cost, and flexibility.</p>
+          <span class="blog-read">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
         </div>
       </div>
-      <div class="blog-card glass-card reveal stagger-3">
-        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));"><span class="blog-thumb-icon">🚀</span></div><span class="blog-category">Migration</span></div>
+      <div class="blog-card reveal stagger-2">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg" style="background:linear-gradient(135deg, #0d2818 0%, #1a4731 50%, #0d2818 100%);">
+            <span class="blog-thumb-icon">🚀</span>
+          </div>
+          <span class="blog-category">Migration</span>
+        </div>
         <div class="blog-body">
-          <div class="blog-meta">Cloud Migration · 7 min</div>
-          <h3>5 Cloud Migration Mistakes to Avoid</h3>
-          <p>Migrating to the cloud is essential for businesses looking to scale, but it's crucial to avoid common pitfalls.</p>
-          <span class="blog-read">Read More →</span>
+          <div class="blog-meta"><span>Cloud Migration</span><span class="dot"></span><span>7 min</span></div>
+          <h3>5 Cloud Migration Mistakes That Cost Enterprises Millions</h3>
+          <p>Migrating to the cloud is essential for scale, but avoiding these common pitfalls is critical.</p>
+          <span class="blog-read">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
         </div>
       </div>
-      <div class="blog-card glass-card reveal stagger-1">
-        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));"><span class="blog-thumb-icon">⚡</span></div><span class="blog-category">DevOps</span></div>
+      <div class="blog-card reveal stagger-3">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg" style="background:linear-gradient(135deg, #2a1215 0%, #5c1d24 50%, #2a1215 100%);">
+            <span class="blog-thumb-icon">⚡</span>
+          </div>
+          <span class="blog-category">DevOps</span>
+        </div>
         <div class="blog-body">
-          <div class="blog-meta">DevOps · 10 min</div>
-          <h3>DevOps in the Cloud: Best Practices for 2025</h3>
-          <p>As cloud computing continues to evolve, DevOps practices have become more integral than ever for agile, efficient software development.</p>
-          <span class="blog-read">Read More →</span>
+          <div class="blog-meta"><span>DevOps &amp; CI/CD</span><span class="dot"></span><span>10 min</span></div>
+          <h3>DevOps in the Cloud: Best Practices for 2026</h3>
+          <p>How CI/CD pipelines, GitOps, and platform engineering are transforming delivery speed.</p>
+          <span class="blog-read">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
         </div>
       </div>
-      <div class="blog-card glass-card reveal stagger-2">
-        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));"><span class="blog-thumb-icon">🔧</span></div><span class="blog-category">Managed Cloud</span></div>
+      <div class="blog-card reveal stagger-1">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg" style="background:linear-gradient(135deg, #1c1917 0%, #44403c 50%, #1c1917 100%);">
+            <span class="blog-thumb-icon">🛡️</span>
+          </div>
+          <span class="blog-category">Security</span>
+        </div>
         <div class="blog-body">
-          <div class="blog-meta">Managed Services · 6 min</div>
+          <div class="blog-meta"><span>Cloud Security</span><span class="dot"></span><span>9 min</span></div>
+          <h3>Zero Trust Architecture: Securing Your Cloud Estate in 2026</h3>
+          <p>Why identity-first security and micro-segmentation are the new standard for cloud-native organisations.</p>
+          <span class="blog-read">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+        </div>
+      </div>
+      <div class="blog-card reveal stagger-2">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg" style="background:linear-gradient(135deg, #172032 0%, #1e3a5f 50%, #172032 100%);">
+            <span class="blog-thumb-icon">🔧</span>
+          </div>
+          <span class="blog-category">Managed Cloud</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Managed Services</span><span class="dot"></span><span>6 min</span></div>
           <h3>Why SMBs Are Moving to Managed Cloud Services</h3>
-          <p>Small and mid-sized businesses are increasingly turning to managed cloud services to drive efficiency, scalability, and competitiveness.</p>
-          <span class="blog-read">Read More →</span>
+          <p>How managed services drive efficiency, reduce costs, and free teams to focus on innovation.</p>
+          <span class="blog-read">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+        </div>
+      </div>
+      <div class="blog-card reveal stagger-3">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg" style="background:linear-gradient(135deg, #1a0f2e 0%, #3b1d8e 50%, #1a0f2e 100%);">
+            <span class="blog-thumb-icon">🤖</span>
+          </div>
+          <span class="blog-category">AI & ML</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>AI &amp; Machine Learning</span><span class="dot"></span><span>8 min</span></div>
+          <h3>Building Production-Ready AI Pipelines on Azure, AWS &amp; GCP</h3>
+          <p>From model training to inference at scale — how to architect AI workloads across major cloud providers.</p>
+          <span class="blog-read">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
         </div>
       </div>
     </div>
