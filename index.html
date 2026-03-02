@@ -764,6 +764,156 @@ ul { list-style: none; }
 }
 
 /* ============================================
+   SERVICE DETAIL MODAL
+   ============================================ */
+.service-card { cursor: pointer; }
+.service-detail-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
+  animation: otpFadeIn 0.3s ease;
+  padding: 20px;
+  overflow-y: auto;
+}
+.service-detail-modal {
+  max-width: 860px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
+  padding: 48px 44px;
+  position: relative;
+  animation: otpSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  scrollbar-width: thin;
+}
+.service-detail-modal::-webkit-scrollbar { width: 4px; }
+.service-detail-modal::-webkit-scrollbar-thumb { background: var(--accent-1); border-radius: 4px; }
+.sdm-close {
+  position: absolute; top: 16px; right: 16px;
+  background: none; border: none;
+  color: var(--text-secondary); font-size: 24px;
+  cursor: pointer; transition: color 0.3s;
+  width: 40px; height: 40px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+}
+.sdm-close:hover { color: var(--text-primary); background: var(--bg-card-hover); }
+.sdm-header {
+  display: flex; align-items: center; gap: 20px;
+  margin-bottom: 32px; padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.sdm-icon {
+  width: 72px; height: 72px; border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; flex-shrink: 0;
+}
+.sdm-header h2 {
+  font-family: var(--font-display); font-size: 1.75rem; font-weight: 700;
+  letter-spacing: -0.02em; margin: 0;
+}
+.sdm-header p {
+  color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;
+  margin: 8px 0 0 0;
+}
+.sdm-section {
+  margin-bottom: 32px;
+}
+.sdm-section-title {
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 600;
+  margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+  color: var(--text-primary);
+}
+.sdm-section-title .sdm-title-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 16px; background: rgba(59,130,246,0.12);
+}
+.sdm-steps {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+.sdm-step {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 20px 18px;
+  position: relative; transition: all var(--transition);
+}
+.sdm-step:hover {
+  border-color: var(--accent-1);
+  box-shadow: 0 0 0 3px var(--glow-1);
+}
+.sdm-step-num {
+  width: 28px; height: 28px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: #fff; font-family: var(--mono); font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.sdm-step h4 {
+  font-size: 0.9rem; font-weight: 600; margin-bottom: 6px;
+}
+.sdm-step p {
+  font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; margin: 0;
+}
+.sdm-arch {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 28px;
+  font-family: var(--mono); font-size: 13px; line-height: 2;
+  color: var(--text-secondary); overflow-x: auto;
+  white-space: pre; position: relative;
+}
+.sdm-arch-label {
+  position: absolute; top: 10px; right: 14px;
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  color: var(--accent-2); text-transform: uppercase; letter-spacing: 1px;
+}
+.sdm-tech-grid {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.sdm-tech {
+  padding: 8px 18px; border-radius: 100px;
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--accent-1); background: rgba(59,130,246,0.08);
+  border: 1px solid rgba(59,130,246,0.15);
+  transition: all var(--transition);
+}
+.sdm-tech:hover { background: rgba(59,130,246,0.15); }
+.sdm-deploy-cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.sdm-deploy-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 22px 20px;
+  transition: all var(--transition);
+}
+.sdm-deploy-card:hover {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(168,85,247,0.08);
+}
+.sdm-deploy-card h4 {
+  font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+.sdm-deploy-card p {
+  font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; margin: 0;
+}
+.sdm-cta {
+  margin-top: 32px; padding-top: 24px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .service-detail-modal { padding: 36px 24px; }
+  .sdm-header { flex-direction: column; text-align: center; }
+  .sdm-header h2 { font-size: 1.4rem; }
+  .sdm-steps { grid-template-columns: 1fr 1fr; }
+  .sdm-deploy-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .service-detail-modal { padding: 28px 18px; }
+  .sdm-steps { grid-template-columns: 1fr; }
+}
+
+/* ============================================
    PLATFORMS - Hexagonal Layout
    ============================================ */
 .platforms-flex {
@@ -1454,7 +1604,7 @@ ul { list-style: none; }
       <p class="section-subtitle">From infrastructure to automation, explore how our cloud services can help you innovate faster, reduce costs, and stay ahead of the competition.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card glass-card reveal stagger-1">
+      <div class="service-card glass-card reveal stagger-1" data-service="cloud-infra">
         <div class="service-card-inner">
           <div class="service-icon-wrap c1">☁️</div>
           <h3>Cloud Infrastructure (IaaS)</h3>
@@ -1462,7 +1612,7 @@ ul { list-style: none; }
           <div class="service-tags"><span class="service-tag">Azure</span><span class="service-tag">AWS</span><span class="service-tag">GCP</span><span class="service-tag">Multi-Cloud</span></div>
         </div>
       </div>
-      <div class="service-card glass-card reveal stagger-2">
+      <div class="service-card glass-card reveal stagger-2" data-service="managed-cloud">
         <div class="service-card-inner">
           <div class="service-icon-wrap c2">🔧</div>
           <h3>Managed Cloud Services</h3>
@@ -1470,7 +1620,7 @@ ul { list-style: none; }
           <div class="service-tags"><span class="service-tag">Monitoring</span><span class="service-tag">IaC</span><span class="service-tag">Cost Optimisation</span><span class="service-tag">24/7</span></div>
         </div>
       </div>
-      <div class="service-card glass-card reveal stagger-3">
+      <div class="service-card glass-card reveal stagger-3" data-service="cloud-migration">
         <div class="service-card-inner">
           <div class="service-icon-wrap c3">🚀</div>
           <h3>Cloud Migration Services</h3>
@@ -1478,7 +1628,7 @@ ul { list-style: none; }
           <div class="service-tags"><span class="service-tag">Assessment</span><span class="service-tag">Migration</span><span class="service-tag">Modernisation</span><span class="service-tag">Hybrid</span></div>
         </div>
       </div>
-      <div class="service-card glass-card reveal stagger-4">
+      <div class="service-card glass-card reveal stagger-4" data-service="devops">
         <div class="service-card-inner">
           <div class="service-icon-wrap c4">⚡</div>
           <h3>DevOps & Automation</h3>
@@ -1486,7 +1636,7 @@ ul { list-style: none; }
           <div class="service-tags"><span class="service-tag">Terraform</span><span class="service-tag">K8s</span><span class="service-tag">CI/CD</span><span class="service-tag">GitOps</span></div>
         </div>
       </div>
-      <div class="service-card glass-card reveal stagger-5">
+      <div class="service-card glass-card reveal stagger-5" data-service="security">
         <div class="service-card-inner">
           <div class="service-icon-wrap c5">🔒</div>
           <h3>Security & Compliance</h3>
@@ -1494,7 +1644,7 @@ ul { list-style: none; }
           <div class="service-tags"><span class="service-tag">Zero Trust</span><span class="service-tag">IAM</span><span class="service-tag">GDPR</span><span class="service-tag">HIPAA</span></div>
         </div>
       </div>
-      <div class="service-card glass-card reveal stagger-6">
+      <div class="service-card glass-card reveal stagger-6" data-service="backup-dr">
         <div class="service-card-inner">
           <div class="service-icon-wrap c6">🛡️</div>
           <h3>Backup, Disaster Recovery & Business Continuity</h3>
@@ -1502,7 +1652,7 @@ ul { list-style: none; }
           <div class="service-tags"><span class="service-tag">Backup</span><span class="service-tag">DR</span><span class="service-tag">Geo-Redundant</span><span class="service-tag">BCP</span></div>
         </div>
       </div>
-      <div class="service-card glass-card reveal stagger-1">
+      <div class="service-card glass-card reveal stagger-1" data-service="ai-ml">
         <div class="service-card-inner">
           <div class="service-icon-wrap c2">🤖</div>
           <h3>AI & Machine Learning</h3>
@@ -1510,12 +1660,20 @@ ul { list-style: none; }
           <div class="service-tags"><span class="service-tag">Chatbots</span><span class="service-tag">Predictive Analytics</span><span class="service-tag">Custom ML</span><span class="service-tag">NLP</span></div>
         </div>
       </div>
-      <div class="service-card glass-card reveal stagger-2">
+      <div class="service-card glass-card reveal stagger-2" data-service="cloud-strategy">
         <div class="service-card-inner">
           <div class="service-icon-wrap c1">📋</div>
           <h3>Cloud Strategy & Advisory</h3>
           <p>Develop a comprehensive plan for adopting, implementing, and optimising cloud technologies with the right cloud model, services, and cost efficiencies.</p>
           <div class="service-tags"><span class="service-tag">Strategy</span><span class="service-tag">Advisory</span><span class="service-tag">Roadmap</span><span class="service-tag">Assessment</span></div>
+        </div>
+      </div>
+      <div class="service-card glass-card reveal stagger-3" data-service="web-dev">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c3">🌐</div>
+          <h3>Web Development & Cloud Hosting</h3>
+          <p>End-to-end website and web application development — from responsive frontends and robust APIs to cloud-native hosting with auto-scaling, CDN, SSL, and CI/CD pipelines for zero-downtime deployments.</p>
+          <div class="service-tags"><span class="service-tag">React</span><span class="service-tag">Next.js</span><span class="service-tag">Node.js</span><span class="service-tag">Cloud Hosting</span></div>
         </div>
       </div>
     </div>
@@ -1713,7 +1871,7 @@ ul { list-style: none; }
       </div>
       <div class="testimonial-card glass-card reveal stagger-3">
         <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-        <p class="testimonial-text">"The multi-cloud strategy gave us incredible resilience. We haven't experienced a single minute of unplanned downtime since working with them."</p>
+        <p class="testimonial-text">"TotalCloudAI built our AI-powered music generation platform from the ground up — from model training pipelines to a scalable cloud backend. Their expertise in AI and cloud architecture turned our vision into a production-ready product that creators love."</p>
         <div class="testimonial-author">
           <div class="testimonial-avatar" style="background:linear-gradient(135deg,#818CF8,#3B82F6);">IA</div>
           <div><div class="testimonial-name">Irem Antsibor</div><div class="testimonial-role">CEO, Soundport AI</div></div>
@@ -1736,7 +1894,7 @@ ul { list-style: none; }
     <div class="pricing-grid">
       <div class="pricing-card glass-card reveal stagger-1">
         <div class="pricing-label">Starter</div>
-        <div class="pricing-amount">£999<span>/mo</span></div>
+        <div class="pricing-amount">£3,999<span>/mo</span></div>
         <div class="pricing-desc">Perfect for startups beginning their cloud journey.</div>
         <div class="pricing-features">
           <div class="pricing-feature"><span class="pricing-check">✓</span>Cloud Assessment & Strategy</div>
@@ -1750,7 +1908,7 @@ ul { list-style: none; }
       <div class="pricing-card glass-card featured reveal stagger-2">
         <div class="pricing-badge">Most Popular</div>
         <div class="pricing-label">Professional</div>
-        <div class="pricing-amount">£4,999<span>/mo</span></div>
+        <div class="pricing-amount">£9,999<span>/mo</span></div>
         <div class="pricing-desc">For growing businesses needing robust cloud and AI.</div>
         <div class="pricing-features">
           <div class="pricing-feature"><span class="pricing-check">✓</span>Full Architecture Design</div>
@@ -1878,7 +2036,7 @@ ul { list-style: none; }
               <option>Cloud Infrastructure (IaaS)</option><option>Managed Cloud Services</option>
               <option>Cloud Migration Services</option><option>DevOps & Automation</option>
               <option>Security & Compliance</option><option>Backup & Disaster Recovery</option>
-              <option>AI & Machine Learning</option><option>Cloud Strategy & Advisory</option>
+              <option>AI & Machine Learning</option><option>Cloud Strategy & Advisory</option><option>Web Development & Cloud Hosting</option>
             </select>
           </div>
         </div>
@@ -1903,6 +2061,16 @@ ul { list-style: none; }
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE DETAIL MODAL
+     ═══════════════════════════════════════ -->
+<div id="serviceDetailOverlay" class="service-detail-overlay" style="display:none;">
+  <div class="service-detail-modal glass-card" id="serviceDetailModal">
+    <button class="sdm-close" onclick="closeServiceModal()" aria-label="Close">&times;</button>
+    <div id="serviceDetailContent"></div>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════
      OTP VERIFICATION MODAL
@@ -1985,6 +2153,432 @@ ul { list-style: none; }
      JAVASCRIPT
      ═══════════════════════════════════════ -->
 <script>
+// ── Service Detail Modal Data ──
+const serviceDetails = {
+  'cloud-infra': {
+    icon: '☁️', iconBg: 'rgba(59,130,246,0.15)', title: 'Cloud Infrastructure (IaaS)',
+    desc: 'We design, deploy, and manage enterprise-grade cloud infrastructure across Azure, AWS, and GCP. Our team architects highly available, fault-tolerant environments with auto-scaling compute, managed databases, load balancers, and virtual networking — all optimised for performance and cost.',
+    workflow: [
+      { title: 'Discovery & Audit', desc: 'Assess existing infrastructure, workloads, and performance bottlenecks to build a baseline.' },
+      { title: 'Architecture Design', desc: 'Design multi-region, highly available cloud architecture with redundancy and failover strategies.' },
+      { title: 'Provisioning & IaC', desc: 'Deploy infrastructure using Terraform, ARM templates, or CloudFormation for repeatable builds.' },
+      { title: 'Network & Security', desc: 'Configure VNets, subnets, NSGs, firewalls, and private endpoints for secure communication.' },
+      { title: 'Monitoring Setup', desc: 'Implement Azure Monitor, CloudWatch, or Stackdriver with custom alerts and dashboards.' },
+      { title: 'Handover & Support', desc: 'Documentation, knowledge transfer, and ongoing managed support with SLA guarantees.' }
+    ],
+    arch: `┌─────────────────────────────────────────────────┐
+│                 LOAD BALANCER (L7)               │
+│            Azure Front Door / AWS ALB            │
+└──────────┬────────────────┬──────────────────────┘
+           │                │
+    ┌──────▼──────┐  ┌──────▼──────┐
+    │  Region A   │  │  Region B   │
+    │  App GW +   │  │  App GW +   │
+    │  VM Scale   │  │  VM Scale   │
+    │  Set / AKS  │  │  Set / AKS  │
+    └──────┬──────┘  └──────┬──────┘
+           │                │
+    ┌──────▼────────────────▼──────┐
+    │     Managed DB (Geo-Replicated)   │
+    │   Azure SQL / RDS / Cloud SQL     │
+    └──────────────┬───────────────┘
+                   │
+    ┌──────────────▼───────────────┐
+    │    Blob / S3 / GCS Storage    │
+    │      CDN + Static Assets      │
+    └──────────────────────────────┘`,
+    tech: ['Azure VMs', 'AWS EC2', 'GCP Compute', 'Terraform', 'ARM Templates', 'CloudFormation', 'Azure Monitor', 'CloudWatch', 'VNet Peering', 'Auto-Scaling'],
+    deploy: [
+      { icon: '🔄', title: 'Blue-Green Deployment', desc: 'Run two identical production environments and switch traffic seamlessly for zero-downtime releases.' },
+      { icon: '🌍', title: 'Multi-Region Active-Active', desc: 'Distribute workloads across regions with geo-load balancing for resilience and low latency.' },
+      { icon: '📦', title: 'Infrastructure as Code', desc: 'Version-controlled Terraform modules ensure every environment is reproducible and auditable.' }
+    ]
+  },
+  'managed-cloud': {
+    icon: '🔧', iconBg: 'rgba(168,85,247,0.15)', title: 'Managed Cloud Services',
+    desc: 'We take full ownership of your cloud operations — from 24/7 monitoring and incident response to cost optimisation and capacity planning. Our managed services ensure your environments are always secure, performant, and cost-efficient so you can focus on building your product.',
+    workflow: [
+      { title: 'Environment Onboarding', desc: 'Inventory all cloud resources, tag them, and set up centralised management with governance policies.' },
+      { title: 'Monitoring & Alerting', desc: 'Deploy comprehensive observability with metrics, logs, traces, and intelligent alerting rules.' },
+      { title: 'Cost Analysis', desc: 'Identify idle resources, rightsize instances, and implement reserved capacity and savings plans.' },
+      { title: 'Patch & Update Cycles', desc: 'Scheduled maintenance windows for OS patches, runtime updates, and security fixes.' },
+      { title: 'Incident Management', desc: '24/7 on-call rotation with defined SLAs, escalation paths, and post-incident reviews.' },
+      { title: 'Monthly Reporting', desc: 'Detailed reports on uptime, cost trends, security posture, and optimisation recommendations.' }
+    ],
+    arch: `┌──────────────────────────────────────────┐
+│          CENTRALISED MANAGEMENT          │
+│    Azure Lighthouse / AWS Organisations  │
+└────────┬──────────────┬──────────────────┘
+         │              │
+  ┌──────▼──────┐ ┌────▼────────┐
+  │ Monitoring  │ │   Cost      │
+  │ Grafana +   │ │ Management  │
+  │ Prometheus  │ │ FinOps Hub  │
+  └──────┬──────┘ └────┬────────┘
+         │              │
+  ┌──────▼──────────────▼──────┐
+  │     AUTOMATION ENGINE       │
+  │  Runbooks / Lambda / Azure  │
+  │  Functions for auto-remediation │
+  └──────────────┬─────────────┘
+                 │
+  ┌──────────────▼─────────────┐
+  │   YOUR CLOUD ENVIRONMENTS   │
+  │  Dev │ Staging │ Production │
+  └────────────────────────────┘`,
+    tech: ['Azure Monitor', 'Grafana', 'Prometheus', 'Datadog', 'PagerDuty', 'Terraform', 'Ansible', 'Azure Advisor', 'AWS Trusted Advisor', 'FinOps'],
+    deploy: [
+      { icon: '🤖', title: 'Auto-Remediation', desc: 'Automated runbooks detect and fix common issues like disk full, high CPU, or expired certificates without human intervention.' },
+      { icon: '💰', title: 'FinOps Governance', desc: 'Real-time budget alerts, resource tagging enforcement, and automated shutdown of non-production resources after hours.' },
+      { icon: '📊', title: 'SLA-Backed Support', desc: '99.9% uptime SLA with defined response times — 15min critical, 1hr high, 4hr medium priority.' }
+    ]
+  },
+  'cloud-migration': {
+    icon: '🚀', iconBg: 'rgba(129,140,248,0.15)', title: 'Cloud Migration Services',
+    desc: 'We plan and execute seamless migrations from on-premises or between cloud providers. Using proven methodologies — Rehost, Refactor, Rearchitect, or Rebuild — we ensure zero data loss, minimal downtime, and a clear rollback strategy for every workload we move.',
+    workflow: [
+      { title: 'Assessment & Discovery', desc: 'Map all applications, dependencies, data volumes, and network topology using automated discovery tools.' },
+      { title: 'Migration Strategy', desc: 'Define the right approach for each workload — lift-and-shift, re-platform, or cloud-native rebuild.' },
+      { title: 'Proof of Concept', desc: 'Migrate a pilot workload to validate the strategy, measure performance, and refine the runbook.' },
+      { title: 'Data Migration', desc: 'Use Azure Migrate, AWS DMS, or custom ETL pipelines for secure, validated data transfer with checksums.' },
+      { title: 'Cutover & Validation', desc: 'Coordinated switchover with DNS changes, smoke testing, and real-time monitoring during the transition window.' },
+      { title: 'Optimisation', desc: 'Post-migration rightsizing, cost analysis, and performance tuning to maximise cloud-native benefits.' }
+    ],
+    arch: `┌────────────────────┐      ┌────────────────────┐
+│   SOURCE (On-Prem  │      │   TARGET (Cloud)    │
+│   or Other Cloud)  │      │   Azure / AWS / GCP │
+│                    │      │                     │
+│  ┌──────────────┐  │ ───▶ │  ┌───────────────┐  │
+│  │ App Servers  │  │      │  │ App Service /  │  │
+│  └──────────────┘  │      │  │ ECS / GKE      │  │
+│  ┌──────────────┐  │ ───▶ │  └───────────────┘  │
+│  │ Databases    │  │      │  ┌───────────────┐  │
+│  └──────────────┘  │      │  │ Managed DB     │  │
+│  ┌──────────────┐  │ ───▶ │  └───────────────┘  │
+│  │ File Storage │  │      │  ┌───────────────┐  │
+│  └──────────────┘  │      │  │ Blob / S3      │  │
+└────────────────────┘      │  └───────────────┘  │
+        ▲                   └────────────────────┘
+        │ VPN / ExpressRoute / Direct Connect
+        └────────────────────────────────────┘`,
+    tech: ['Azure Migrate', 'AWS DMS', 'GCP Transfer', 'Azure Site Recovery', 'CloudEndure', 'VPN Gateway', 'ExpressRoute', 'Data Box', 'Terraform', 'Ansible'],
+    deploy: [
+      { icon: '🔀', title: 'Phased Migration', desc: 'Migrate workloads in planned waves — starting with low-risk systems and progressively moving business-critical applications.' },
+      { icon: '⏪', title: 'Rollback Strategy', desc: 'Every migration includes a documented rollback plan with DNS failover and data sync to revert within minutes if needed.' },
+      { icon: '🔗', title: 'Hybrid Coexistence', desc: 'Run hybrid during transition with site-to-site VPN or ExpressRoute ensuring seamless connectivity between on-prem and cloud.' }
+    ]
+  },
+  'devops': {
+    icon: '⚡', iconBg: 'rgba(192,132,252,0.15)', title: 'DevOps & Automation',
+    desc: 'We build end-to-end DevOps pipelines that automate everything from code commit to production deployment. Our approach combines CI/CD, Infrastructure as Code, container orchestration, and GitOps to deliver software faster, more reliably, and with full auditability.',
+    workflow: [
+      { title: 'Code & Branch Strategy', desc: 'Establish Git workflows (trunk-based or GitFlow), branch protection rules, and code review processes.' },
+      { title: 'CI Pipeline', desc: 'Automated build, lint, unit tests, security scanning (SAST/DAST), and artefact publishing on every commit.' },
+      { title: 'CD Pipeline', desc: 'Progressive deployment to dev → staging → production with automated approval gates and smoke tests.' },
+      { title: 'Infrastructure as Code', desc: 'Terraform modules for all environments — version-controlled, peer-reviewed, and auto-applied via pipeline.' },
+      { title: 'Container Orchestration', desc: 'Dockerise applications and deploy to Kubernetes (AKS/EKS/GKE) with Helm charts and auto-scaling.' },
+      { title: 'Observability', desc: 'Unified logging, distributed tracing, and metrics with Grafana dashboards and PagerDuty alerts.' }
+    ],
+    arch: `┌──────────┐   ┌───────────┐   ┌───────────┐
+│ Developer│──▶│  GitHub /  │──▶│  CI Build  │
+│  Commit  │   │  GitLab    │   │  & Test    │
+└──────────┘   └───────────┘   └─────┬─────┘
+                                      │
+                               ┌──────▼──────┐
+                               │  Artefact    │
+                               │  Registry    │
+                               │  (ACR/ECR)   │
+                               └──────┬──────┘
+                                      │
+               ┌──────────────────────▼───────┐
+               │        CD PIPELINE            │
+               │  Dev ──▶ Staging ──▶ Prod     │
+               │  (auto)   (auto)   (approval) │
+               └──────────────┬───────────────┘
+                              │
+               ┌──────────────▼───────────────┐
+               │     KUBERNETES CLUSTER        │
+               │  Pods │ Services │ Ingress    │
+               │  HPA  │ Secrets  │ ConfigMaps │
+               └──────────────────────────────┘`,
+    tech: ['GitHub Actions', 'Azure DevOps', 'GitLab CI', 'Terraform', 'Docker', 'Kubernetes', 'Helm', 'ArgoCD', 'SonarQube', 'Trivy'],
+    deploy: [
+      { icon: '🔵', title: 'Blue-Green via K8s', desc: 'Deploy new version alongside old, validate with health checks, then switch service routing instantly.' },
+      { icon: '🐤', title: 'Canary Releases', desc: 'Route 5% of traffic to new version, monitor error rates and latency, then gradually increase to 100%.' },
+      { icon: '🏷️', title: 'GitOps with ArgoCD', desc: 'Declare desired state in Git — ArgoCD continuously reconciles the cluster to match, with full audit trail.' }
+    ]
+  },
+  'security': {
+    icon: '🔒', iconBg: 'rgba(37,99,235,0.15)', title: 'Security & Compliance',
+    desc: 'We implement defence-in-depth security across your cloud estate — from identity and access management to network segmentation, encryption, and continuous compliance monitoring. Our team ensures your infrastructure meets GDPR, HIPAA, PCI-DSS, and ISO 27001 standards.',
+    workflow: [
+      { title: 'Security Assessment', desc: 'Comprehensive audit of IAM policies, network rules, encryption, logging, and vulnerability exposure.' },
+      { title: 'Zero Trust Design', desc: 'Implement identity-based access with conditional policies, MFA, and just-in-time privilege escalation.' },
+      { title: 'Network Hardening', desc: 'Private endpoints, WAF, DDoS protection, NSGs, and micro-segmentation to minimise attack surface.' },
+      { title: 'Data Protection', desc: 'Encryption at rest and in transit, key vault management, and data classification policies.' },
+      { title: 'Threat Detection', desc: 'Deploy Microsoft Sentinel, GuardDuty, or Security Command Centre for real-time threat intelligence.' },
+      { title: 'Compliance Automation', desc: 'Continuous compliance checks with Azure Policy, AWS Config, and automated remediation workflows.' }
+    ],
+    arch: `┌─────────────────────────────────────────┐
+│            IDENTITY LAYER               │
+│  Azure AD / AWS IAM / GCP IAM           │
+│  MFA + Conditional Access + RBAC        │
+└────────────────┬────────────────────────┘
+                 │
+┌────────────────▼────────────────────────┐
+│            NETWORK LAYER                │
+│  WAF ─ DDoS Protection ─ Private Links  │
+│  NSGs ─ Firewalls ─ Micro-Segmentation  │
+└────────────────┬────────────────────────┘
+                 │
+┌────────────────▼────────────────────────┐
+│          APPLICATION LAYER              │
+│  SAST/DAST ─ Container Scanning         │
+│  API Gateway ─ Rate Limiting            │
+└────────────────┬────────────────────────┘
+                 │
+┌────────────────▼────────────────────────┐
+│            DATA LAYER                   │
+│  Encryption (AES-256) ─ Key Vault       │
+│  Backup Encryption ─ DLP Policies       │
+└─────────────────────────────────────────┘`,
+    tech: ['Azure AD', 'AWS IAM', 'Microsoft Sentinel', 'GuardDuty', 'WAF', 'Key Vault', 'Azure Policy', 'Defender for Cloud', 'SonarQube', 'Trivy'],
+    deploy: [
+      { icon: '🛡️', title: 'Shift-Left Security', desc: 'Security scanning in CI/CD — SAST, DAST, dependency checks, and container image scanning before any deployment.' },
+      { icon: '🔍', title: 'Continuous Compliance', desc: 'Automated policy enforcement with real-time drift detection and auto-remediation for non-compliant resources.' },
+      { icon: '🚨', title: 'Incident Response', desc: 'Predefined playbooks with automated containment, forensic data collection, and stakeholder notification workflows.' }
+    ]
+  },
+  'backup-dr': {
+    icon: '🛡️', iconBg: 'rgba(124,58,237,0.15)', title: 'Backup, Disaster Recovery & Business Continuity',
+    desc: 'We design and implement comprehensive backup and disaster recovery solutions that guarantee your business can recover from any disruption. From automated daily backups with geo-redundant storage to full DR failover with defined RPO/RTO targets, we protect what matters most.',
+    workflow: [
+      { title: 'Business Impact Analysis', desc: 'Identify critical systems, define RPO/RTO targets, and map dependencies for recovery prioritisation.' },
+      { title: 'Backup Strategy', desc: 'Configure automated backups — daily incrementals, weekly fulls — with geo-redundant storage and retention policies.' },
+      { title: 'DR Architecture', desc: 'Design active-passive or active-active DR with Azure Site Recovery, AWS Backup, or cross-region replication.' },
+      { title: 'Runbook Creation', desc: 'Document step-by-step recovery procedures for every critical system with assigned owners and timelines.' },
+      { title: 'DR Testing', desc: 'Quarterly failover drills to validate recovery procedures, measure actual RTO, and identify gaps.' },
+      { title: 'Continuous Improvement', desc: 'Post-test reviews, runbook updates, and architecture refinements based on drill results and new threats.' }
+    ],
+    arch: `┌──────────────────────────────────────────┐
+│          PRIMARY REGION (Active)         │
+│  App Services ─ Databases ─ Storage      │
+│              │                           │
+│     Automated Backups (Daily)            │
+│              │                           │
+└──────────────┼───────────────────────────┘
+               │  Continuous Replication
+┌──────────────▼───────────────────────────┐
+│          DR REGION (Standby)             │
+│  Replicated VMs ─ DB Geo-Replica         │
+│  Storage GRS ─ Pre-configured Networking │
+│              │                           │
+│     Auto-Failover (< 15 min RTO)         │
+└──────────────────────────────────────────┘
+               │
+┌──────────────▼───────────────────────────┐
+│       BACKUP VAULT (Immutable)           │
+│  30-day retention ─ Point-in-time        │
+│  Geo-redundant ─ Encrypted at rest       │
+└──────────────────────────────────────────┘`,
+    tech: ['Azure Site Recovery', 'AWS Backup', 'GRS Storage', 'Azure Backup Vault', 'Veeam', 'Zerto', 'Traffic Manager', 'Route 53', 'Terraform', 'Runbooks'],
+    deploy: [
+      { icon: '⚡', title: 'Instant Failover', desc: 'Automated DNS failover to DR region with health probes — production restored in under 15 minutes RPO.' },
+      { icon: '🔒', title: 'Immutable Backups', desc: 'Write-once, read-many backup vaults prevent ransomware from encrypting or deleting your recovery points.' },
+      { icon: '📋', title: 'Quarterly DR Drills', desc: 'Scheduled failover tests with documented results, gap analysis, and continuous improvement tracking.' }
+    ]
+  },
+  'ai-ml': {
+    icon: '🤖', iconBg: 'rgba(168,85,247,0.15)', title: 'AI & Machine Learning',
+    desc: 'We build production-ready AI and machine learning solutions — from intelligent chatbots and document processing to predictive analytics and custom ML models. Our team handles the full lifecycle: data engineering, model training, deployment, and continuous monitoring.',
+    workflow: [
+      { title: 'Use Case Discovery', desc: 'Identify high-impact AI opportunities aligned with business goals — automation, prediction, or personalisation.' },
+      { title: 'Data Engineering', desc: 'Build data pipelines to collect, clean, transform, and store training data in cloud data lakes.' },
+      { title: 'Model Development', desc: 'Train and evaluate models using Azure ML, SageMaker, or custom frameworks with experiment tracking.' },
+      { title: 'Testing & Validation', desc: 'Rigorous A/B testing, bias detection, and performance benchmarking against business KPIs.' },
+      { title: 'Production Deployment', desc: 'Deploy models as REST APIs, batch inference, or edge deployments with auto-scaling and versioning.' },
+      { title: 'Monitoring & Retraining', desc: 'Track model drift, accuracy degradation, and trigger automated retraining pipelines when thresholds are breached.' }
+    ],
+    arch: `┌──────────────────────────────────────────┐
+│           DATA INGESTION                 │
+│  APIs ─ Databases ─ IoT ─ Documents      │
+└────────────────┬─────────────────────────┘
+                 │
+┌────────────────▼─────────────────────────┐
+│          DATA LAKE / WAREHOUSE           │
+│  Azure Data Lake ─ S3 ─ BigQuery         │
+│  ETL Pipelines ─ Data Quality Checks     │
+└────────────────┬─────────────────────────┘
+                 │
+┌────────────────▼─────────────────────────┐
+│        ML TRAINING PLATFORM              │
+│  Azure ML ─ SageMaker ─ Vertex AI        │
+│  Experiment Tracking ─ Hyperparameter    │
+│  Tuning ─ Model Registry                 │
+└────────────────┬─────────────────────────┘
+                 │
+┌────────────────▼─────────────────────────┐
+│       MODEL SERVING & INFERENCE          │
+│  REST API ─ Batch ─ Real-time Stream     │
+│  Auto-scaling ─ A/B Testing ─ Canary     │
+└──────────────────────────────────────────┘`,
+    tech: ['Azure ML', 'AWS SageMaker', 'OpenAI', 'LangChain', 'TensorFlow', 'PyTorch', 'Hugging Face', 'Azure Cognitive Services', 'Vector DBs', 'MLflow'],
+    deploy: [
+      { icon: '🔬', title: 'Model Versioning', desc: 'Every model version is tracked in a registry with lineage, metrics, and rollback capability for production safety.' },
+      { icon: '📈', title: 'A/B Model Testing', desc: 'Route traffic between model versions to compare accuracy and business impact before full rollout.' },
+      { icon: '🔄', title: 'Auto-Retraining', desc: 'Scheduled or drift-triggered retraining pipelines that automatically validate and promote improved models.' }
+    ]
+  },
+  'cloud-strategy': {
+    icon: '📋', iconBg: 'rgba(59,130,246,0.15)', title: 'Cloud Strategy & Advisory',
+    desc: 'We help organisations develop a clear, actionable cloud strategy — from initial assessment and cloud readiness evaluation to vendor selection, cost modelling, and a phased adoption roadmap. Our advisory ensures every decision is backed by data, aligned with business goals, and optimised for long-term value.',
+    workflow: [
+      { title: 'Current State Assessment', desc: 'Evaluate existing IT landscape, applications, infrastructure maturity, and team capabilities.' },
+      { title: 'Cloud Readiness Score', desc: 'Score each workload on cloud suitability considering complexity, compliance, and business criticality.' },
+      { title: 'Vendor & Model Selection', desc: 'Compare Azure, AWS, GCP based on your requirements — recommend single, multi, or hybrid cloud strategy.' },
+      { title: 'Cost Modelling', desc: 'Build detailed TCO analysis comparing on-prem vs cloud with 3-year projections and savings estimates.' },
+      { title: 'Roadmap & Governance', desc: 'Create phased adoption roadmap with milestones, team training plans, and cloud governance framework.' },
+      { title: 'Executive Presentation', desc: 'Deliver board-ready business case with ROI projections, risk analysis, and recommended investment timeline.' }
+    ],
+    arch: `┌──────────────────────────────────────────┐
+│       CLOUD ADOPTION FRAMEWORK           │
+├──────────────────────────────────────────┤
+│                                          │
+│   Strategy ──▶ Plan ──▶ Ready            │
+│       │                    │             │
+│       ▼                    ▼             │
+│   Govern  ◀──  Manage  ◀── Adopt         │
+│                                          │
+├──────────────────────────────────────────┤
+│   GOVERNANCE PILLARS                     │
+│   Cost ─ Security ─ Identity ─ Resource  │
+│   Management ─ Compliance ─ Operations   │
+├──────────────────────────────────────────┤
+│   LANDING ZONE                           │
+│   Subscriptions ─ Resource Groups        │
+│   Policies ─ RBAC ─ Networking ─ Logging │
+└──────────────────────────────────────────┘`,
+    tech: ['Azure CAF', 'AWS Well-Architected', 'GCP Framework', 'FinOps', 'TOGAF', 'TCO Calculator', 'Azure Advisor', 'Landing Zones', 'Governance', 'ITSM'],
+    deploy: [
+      { icon: '🗺️', title: 'Phased Roadmap', desc: 'Structured adoption plan with quick wins in months 1-3, core migration in 3-9, and optimisation in 9-12.' },
+      { icon: '📊', title: 'Executive Dashboards', desc: 'Real-time visibility into cloud spend, migration progress, and ROI metrics for leadership reporting.' },
+      { icon: '🎓', title: 'Team Enablement', desc: 'Tailored training programmes and certification paths to upskill your team on cloud-native practices.' }
+    ]
+  },
+  'web-dev': {
+    icon: '🌐', iconBg: 'rgba(129,140,248,0.15)', title: 'Web Development & Cloud Hosting',
+    desc: 'We design and build modern, high-performance websites and web applications — from stunning marketing sites and e-commerce platforms to complex SaaS dashboards and progressive web apps. Every project is deployed on cloud-native infrastructure with auto-scaling, global CDN, SSL certificates, and automated CI/CD pipelines for zero-downtime deployments.',
+    workflow: [
+      { title: 'Requirements & UX Design', desc: 'Deep-dive into your brand, audience, and goals. We create wireframes, user flows, and interactive prototypes in Figma before writing a single line of code.' },
+      { title: 'Frontend Development', desc: 'Build responsive, accessible interfaces using React, Next.js, or Vue.js with server-side rendering, lazy loading, and optimised Core Web Vitals for top SEO performance.' },
+      { title: 'Backend & API Development', desc: 'Architect RESTful or GraphQL APIs with Node.js, Python, or .NET — including authentication, rate limiting, caching, and database design with PostgreSQL, MongoDB, or MySQL.' },
+      { title: 'Cloud Infrastructure Setup', desc: 'Provision production-grade hosting on Azure App Service, AWS Amplify, or Vercel — with custom domains, SSL certificates, environment variables, and managed databases.' },
+      { title: 'CI/CD & Automated Testing', desc: 'Configure GitHub Actions or Azure DevOps pipelines for automated builds, linting, unit tests, and deployment to staging then production on every merge to main.' },
+      { title: 'Launch, Monitor & Iterate', desc: 'Go live with DNS cutover, uptime monitoring, error tracking (Sentry), analytics (GA4), and performance dashboards. We provide post-launch support and feature iterations.' }
+    ],
+    arch: `┌─────────────────────────────────────────────────┐
+│                   USERS / BROWSERS               │
+└──────────────────────┬──────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────┐
+│              GLOBAL CDN (Cloudflare/AFD)         │
+│         SSL Termination ─ DDoS Protection        │
+│         Edge Caching ─ Geo-Routing               │
+└──────────────────────┬──────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────┐
+│           WEB APPLICATION LAYER                  │
+│   ┌─────────────┐    ┌──────────────────┐        │
+│   │  Static Site │    │  SSR / App       │        │
+│   │  (CDN Edge)  │    │  Service / ECS   │        │
+│   │  Next.js /   │    │  Auto-Scaling    │        │
+│   │  React SPA   │    │  Load Balanced   │        │
+│   └─────────────┘    └────────┬─────────┘        │
+└───────────────────────────────┼──────────────────┘
+                                │
+┌───────────────────────────────▼──────────────────┐
+│              API / BACKEND LAYER                  │
+│   Express / FastAPI / .NET ─ Auth ─ Rate Limiting │
+│   Serverless Functions ─ Queue Workers            │
+└───────────────────────────────┬──────────────────┘
+                                │
+┌───────────────────────────────▼──────────────────┐
+│                DATA LAYER                         │
+│   PostgreSQL / MySQL ─ Redis Cache                │
+│   Blob Storage ─ Search Index (Elastic)           │
+└──────────────────────────────────────────────────┘`,
+    tech: ['React', 'Next.js', 'Vue.js', 'Node.js', 'Express', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'MongoDB', 'Redis', 'Azure App Service', 'Vercel', 'GitHub Actions', 'Docker', 'Cloudflare CDN', 'Sentry'],
+    deploy: [
+      { icon: '🚀', title: 'Zero-Downtime Deployments', desc: 'Deployment slots (Azure) or atomic deployments (Vercel) ensure the old version serves traffic until the new build is fully ready — users never see a broken page.' },
+      { icon: '🌍', title: 'Global Edge Delivery', desc: 'Static assets cached at 300+ CDN edge locations worldwide. Dynamic content served from the nearest region. Result: sub-100ms load times globally.' },
+      { icon: '🔄', title: 'Preview Environments', desc: 'Every pull request gets its own live preview URL for stakeholder review before merging — eliminating surprises in production.' },
+      { icon: '📊', title: 'Performance Monitoring', desc: 'Real-time Core Web Vitals tracking, uptime monitoring with instant alerts, and error tracking with Sentry for proactive issue resolution.' }
+    ]
+  }
+};
+
+function openServiceModal(serviceKey) {
+  const data = serviceDetails[serviceKey];
+  if (!data) return;
+  let html = `
+    <div class="sdm-header">
+      <div class="sdm-icon" style="background:${data.iconBg}">${data.icon}</div>
+      <div>
+        <h2>${data.title}</h2>
+        <p>${data.desc}</p>
+      </div>
+    </div>
+    <div class="sdm-section">
+      <div class="sdm-section-title"><span class="sdm-title-icon">📋</span> Our Workflow</div>
+      <div class="sdm-steps">
+        ${data.workflow.map((s,i) => `<div class="sdm-step"><div class="sdm-step-num">${i+1}</div><h4>${s.title}</h4><p>${s.desc}</p></div>`).join('')}
+      </div>
+    </div>
+    <div class="sdm-section">
+      <div class="sdm-section-title"><span class="sdm-title-icon">🏗️</span> Architecture</div>
+      <div class="sdm-arch"><span class="sdm-arch-label">Architecture</span>${data.arch}</div>
+    </div>
+    <div class="sdm-section">
+      <div class="sdm-section-title"><span class="sdm-title-icon">🔧</span> Technologies We Use</div>
+      <div class="sdm-tech-grid">
+        ${data.tech.map(t => `<span class="sdm-tech">${t}</span>`).join('')}
+      </div>
+    </div>
+    <div class="sdm-section">
+      <div class="sdm-section-title"><span class="sdm-title-icon">🚀</span> Deployment Strategies</div>
+      <div class="sdm-deploy-cards">
+        ${data.deploy.map(d => `<div class="sdm-deploy-card"><h4>${d.icon} ${d.title}</h4><p>${d.desc}</p></div>`).join('')}
+      </div>
+    </div>
+    <div class="sdm-cta">
+      <a href="#contact" class="btn btn-glow" style="justify-content:center;padding:14px 40px;" onclick="closeServiceModal()">
+        Discuss Your Project →
+      </a>
+    </div>`;
+  document.getElementById('serviceDetailContent').innerHTML = html;
+  document.getElementById('serviceDetailOverlay').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceModal() {
+  document.getElementById('serviceDetailOverlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.service-card[data-service]').forEach(card => {
+    card.addEventListener('click', () => openServiceModal(card.dataset.service));
+  });
+  document.getElementById('serviceDetailOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeServiceModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('serviceDetailOverlay').style.display !== 'none') {
+      closeServiceModal();
+    }
+  });
+});
+
 // ── Theme Toggle ──
 function toggleTheme() {
   const html = document.documentElement;
