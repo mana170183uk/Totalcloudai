@@ -2534,28 +2534,8 @@ const serviceDetails = {
       { title: 'Container Orchestration', desc: 'Dockerise applications and deploy to Kubernetes (AKS/EKS/GKE) with Helm charts and auto-scaling.' },
       { title: 'Observability', desc: 'Unified logging, distributed tracing, and metrics with Grafana dashboards and PagerDuty alerts.' }
     ],
-    arch: `┌──────────┐   ┌───────────┐   ┌───────────┐
-│ Developer│──▶│  GitHub /  │──▶│  CI Build  │
-│  Commit  │   │  GitLab    │   │  & Test    │
-└──────────┘   └───────────┘   └─────┬─────┘
-                                      │
-                               ┌──────▼──────┐
-                               │  Artefact    │
-                               │  Registry    │
-                               │  (ACR/ECR)   │
-                               └──────┬──────┘
-                                      │
-               ┌──────────────────────▼───────┐
-               │        CD PIPELINE            │
-               │  Dev ──▶ Staging ──▶ Prod     │
-               │  (auto)   (auto)   (approval) │
-               └──────────────┬───────────────┘
-                              │
-               ┌──────────────▼───────────────┐
-               │     KUBERNETES CLUSTER        │
-               │  Pods │ Services │ Ingress    │
-               │  HPA  │ Secrets  │ ConfigMaps │
-               └──────────────────────────────┘`,
+    arch: '',
+    archHtml: true,
     tech: ['GitHub Actions', 'Azure DevOps', 'GitLab CI', 'Terraform', 'Docker', 'Kubernetes', 'Helm', 'ArgoCD', 'SonarQube', 'Trivy'],
     deploy: [
       { icon: '🔵', title: 'Blue-Green via K8s', desc: 'Deploy new version alongside old, validate with health checks, then switch service routing instantly.' },
@@ -2792,6 +2772,88 @@ function getVisualArch(key) {
             <img src="${si}/elasticsearch/005571" alt="Elastic" style="width:40px;height:40px;">
             <div class="arch-data-label">Search Index (Elastic)</div>
           </div>
+        </div>
+      </div>
+    </div>`;
+  if (key === 'devops') return `
+    <div class="arch-visual">
+      <!-- Developers / Commit -->
+      <div class="arch-people">👨‍💻👩‍💻👨‍💻</div>
+      <div class="arch-box" style="border-radius:20px;">
+        <div class="arch-box-title">COMMIT</div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- GitHub / GitLab -->
+      <div class="arch-box">
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/github/ffffff" alt="GitHub" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">GitHub</div>
+          </div>
+          <div class="arch-logo-item" style="font-size:20px;color:rgba(148,163,184,0.6);align-self:center;">&#x2192;</div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/gitlab/FC6D26" alt="GitLab" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">GitLab</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- Artefact Registry -->
+      <div class="arch-box" style="border-style:dashed;">
+        <div class="arch-box-title">ARTEFACT REGISTRY</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/docker/2496ED" alt="ACR" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">ACR / ECR</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- CD Pipeline -->
+      <div class="arch-box">
+        <div class="arch-box-title">CD PIPELINE</div>
+        <div class="arch-box-logos" style="margin-top:12px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon" style="background:rgba(34,197,94,0.15);border-color:rgba(34,197,94,0.4);">Dev</div>
+            <div class="arch-logo-label">(auto)</div>
+          </div>
+          <div class="arch-logo-item" style="font-size:20px;color:rgba(148,163,184,0.6);align-self:center;">&#x2192;</div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon" style="background:rgba(234,179,8,0.15);border-color:rgba(234,179,8,0.4);">Stg</div>
+            <div class="arch-logo-label">(auto)</div>
+          </div>
+          <div class="arch-logo-item" style="font-size:20px;color:rgba(148,163,184,0.6);align-self:center;">&#x2192;</div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon" style="background:rgba(239,68,68,0.15);border-color:rgba(239,68,68,0.4);">Prod</div>
+            <div class="arch-logo-label">(approval)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- Kubernetes Cluster -->
+      <div class="arch-box data-layer">
+        <div class="arch-box-title">KUBERNETES CLUSTER</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/kubernetes/326CE5" alt="K8s" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">K8s</div>
+          </div>
+        </div>
+        <div class="caf-checklist" style="margin-top:14px;">
+          <span class="caf-check">Pods</span>
+          <span class="caf-check">Services</span>
+          <span class="caf-check">Ingress</span>
+          <span class="caf-check">HPA</span>
+          <span class="caf-check">Secrets</span>
+          <span class="caf-check">ConfigMaps</span>
         </div>
       </div>
     </div>`;
