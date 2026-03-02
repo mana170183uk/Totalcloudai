@@ -237,7 +237,8 @@ ul { list-style: none; }
 /* ============================================
    LAYOUT
    ============================================ */
-.container { max-width: 1320px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+.container { max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 64px); position: relative; z-index: 2; }
+.container-wide { max-width: 1600px; }
 .section { padding: 140px 0; position: relative; }
 .section-header { margin-bottom: 72px; }
 .section-label {
@@ -386,9 +387,9 @@ ul { list-style: none; }
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1320px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 clamp(20px, 4vw, 64px);
 }
 
 /* Logo — CSS Text Wordmark */
@@ -439,9 +440,9 @@ ul { list-style: none; }
 }
 
 /* Nav Links */
-.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-link {
-  padding: 8px 16px; border-radius: 10px;
+  padding: 8px 18px; border-radius: 10px;
   font-size: 14px; font-weight: 500;
   color: var(--text-secondary);
   transition: all var(--transition);
@@ -523,8 +524,8 @@ ul { list-style: none; }
   padding: 120px 0 80px; position: relative; overflow: hidden;
 }
 .hero-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: center;
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px; align-items: center;
 }
 .hero-content { position: relative; z-index: 2; }
 
@@ -604,7 +605,7 @@ ul { list-style: none; }
 /* Hero Visual — 3D Orb */
 .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
 .orb-container {
-  width: 480px; height: 480px; position: relative;
+  width: min(480px, 38vw); height: min(480px, 38vw); position: relative;
   animation: orbFloat 8s ease-in-out infinite;
 }
 @keyframes orbFloat {
@@ -1248,10 +1249,11 @@ ul { list-style: none; }
    ============================================ */
 .about-grid {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; align-items: center;
+  gap: 60px; align-items: start;
 }
 .about-metrics {
   display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  position: sticky; top: 120px;
 }
 .metric-card {
   padding: 32px; text-align: center;
@@ -1403,37 +1405,43 @@ ul { list-style: none; }
 }
 .blog-card {
   border-radius: var(--radius-lg); overflow: hidden; cursor: none;
+  display: flex; flex-direction: column;
 }
-.blog-card:hover { transform: translateY(-12px); }
+.blog-card:hover { transform: translateY(-8px); }
 .blog-thumb {
-  height: 220px; position: relative; overflow: hidden;
+  height: 200px; position: relative; overflow: hidden;
 }
 .blog-thumb-bg {
   width: 100%; height: 100%;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex; align-items: center; justify-content: center;
 }
-.blog-card:hover .blog-thumb-bg { transform: scale(1.08); }
+.blog-card:hover .blog-thumb-bg { transform: scale(1.05); }
+.blog-thumb-icon {
+  font-size: 48px; opacity: 0.4;
+}
 .blog-category {
   position: absolute; bottom: 16px; left: 16px;
   padding: 6px 16px; border-radius: 100px;
   font-family: var(--mono); font-size: 11px; font-weight: 500;
-  color: #fff; backdrop-filter: blur(8px);
+  color: var(--text-primary); background: var(--bg-card);
+  backdrop-filter: blur(12px); border: 1px solid var(--border);
 }
-.blog-body { padding: 32px; }
+.blog-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
 .blog-meta {
   font-family: var(--mono); font-size: 12px;
   color: var(--text-muted); margin-bottom: 14px;
 }
 .blog-card h3 {
   font-family: var(--font-display);
-  font-size: 1.2rem; font-weight: 600;
+  font-size: 1.15rem; font-weight: 600;
   line-height: 1.4; margin-bottom: 12px;
 }
-.blog-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+.blog-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; flex: 1; }
 .blog-read {
   display: inline-flex; align-items: center; gap: 8px;
   margin-top: 20px; font-size: 14px; font-weight: 600;
-  color: var(--accent-1);
+  color: var(--accent-1); transition: gap 0.3s ease;
 }
 .blog-card:hover .blog-read { gap: 14px; }
 
@@ -1626,7 +1634,11 @@ ul { list-style: none; }
    RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-content { display: flex; flex-direction: column; align-items: center; }
+  .hero-desc { max-width: 640px; }
+  .hero-actions { justify-content: center; }
+  .hero-stats { justify-content: center; }
   .hero-visual { display: none; }
   .services-grid, .testimonials-grid, .blog-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
@@ -1725,6 +1737,265 @@ ul { list-style: none; }
   .otp-inputs { gap: 6px; }
 }
 
+/* ============================================
+   WOW FACTOR ENHANCEMENTS
+   ============================================ */
+
+/* Animated grid background for hero */
+.hero-grid-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 75%);
+}
+[data-theme="light"] .hero-grid-bg {
+  background-image:
+    linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px);
+}
+
+/* Floating particle canvas */
+#particleCanvas {
+  position: fixed; inset: 0; z-index: 1;
+  pointer-events: none;
+}
+
+/* Glowing accent line under nav */
+.navbar::after {
+  content: ''; position: absolute; bottom: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-1), var(--accent-2), var(--accent-3), transparent);
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.navbar.scrolled::after { opacity: 0.5; }
+
+/* Animated border on service cards - enhanced glow */
+.service-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(59,130,246,0.15), 0 0 40px rgba(168,85,247,0.08);
+}
+
+/* Glass card shimmer effect */
+.glass-card::before {
+  content: ''; position: absolute; inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 55%, transparent 60%);
+  background-size: 250% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+  pointer-events: none; z-index: 0;
+}
+[data-theme="light"] .glass-card::before {
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.2) 45%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.2) 55%, transparent 60%);
+  background-size: 250% 100%;
+}
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* Scroll progress indicator */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: var(--gradient-hero); background-size: 300% auto;
+  animation: gradientFlow 6s ease infinite;
+  z-index: 10001; width: 0;
+  transition: width 0.1s linear;
+}
+
+/* Magnetic hover on buttons */
+.btn-glow {
+  position: relative; overflow: hidden;
+}
+.btn-glow::after {
+  content: ''; position: absolute;
+  width: 200%; height: 200%;
+  top: -50%; left: -200%;
+  background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.15) 50%, transparent 80%);
+  transition: left 0.6s ease;
+}
+.btn-glow:hover::after {
+  left: 100%;
+}
+
+/* Floating badges animation for stats */
+.hero-stat {
+  position: relative;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.hero-stat:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+
+/* Section divider glow lines */
+.glow-divider {
+  width: 100%; height: 1px; margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--accent-1), var(--accent-2), transparent);
+  opacity: 0.3;
+}
+
+/* Animated background for CTA */
+.cta-box { position: relative; overflow: hidden; }
+.cta-box::before {
+  content: ''; position: absolute; inset: -2px;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4), var(--accent-1));
+  background-size: 400% 400%;
+  animation: borderRotate 6s linear infinite;
+  border-radius: inherit; z-index: -1;
+}
+
+/* ============================================
+   CHATBOT WIDGET
+   ============================================ */
+.chat-fab {
+  position: fixed; bottom: 28px; right: 28px; z-index: 9998;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--gradient-hero); background-size: 200% auto;
+  animation: gradientFlow 6s ease infinite;
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 32px rgba(59,130,246,0.3), 0 0 60px rgba(168,85,247,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.chat-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 40px rgba(59,130,246,0.4), 0 0 80px rgba(168,85,247,0.2);
+}
+.chat-fab svg { width: 28px; height: 28px; fill: #fff; }
+.chat-fab .chat-fab-close { display: none; font-size: 28px; color: #fff; line-height: 1; }
+.chat-fab.open svg { display: none; }
+.chat-fab.open .chat-fab-close { display: block; }
+.chat-fab-pulse {
+  position: absolute; inset: -4px; border-radius: 50%;
+  border: 2px solid var(--accent-1);
+  animation: chatPulse 2s ease-in-out infinite;
+}
+@keyframes chatPulse {
+  0%,100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 0; }
+}
+
+.chat-window {
+  position: fixed; bottom: 100px; right: 28px; z-index: 9997;
+  width: 380px; max-height: 520px;
+  border-radius: var(--radius); overflow: hidden;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  display: none; flex-direction: column;
+  animation: chatSlideUp 0.3s ease;
+}
+.chat-window.open { display: flex; }
+@keyframes chatSlideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.chat-header {
+  padding: 18px 20px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 12px;
+}
+.chat-header-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #34D399;
+  box-shadow: 0 0 8px rgba(52,211,153,0.5);
+}
+.chat-header-text h4 {
+  font-family: var(--font-display); font-size: 14px; font-weight: 600; margin: 0;
+}
+.chat-header-text span {
+  font-size: 11px; color: var(--text-muted);
+}
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 20px;
+  display: flex; flex-direction: column; gap: 12px;
+  max-height: 340px; min-height: 200px;
+}
+.chat-msg {
+  max-width: 85%; padding: 12px 16px;
+  border-radius: 16px; font-size: 13px; line-height: 1.6;
+  animation: chatMsgIn 0.3s ease;
+}
+@keyframes chatMsgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.chat-msg.bot {
+  align-self: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-bottom-left-radius: 4px;
+}
+.chat-msg.user {
+  align-self: flex-end;
+  background: var(--accent-1);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.chat-quick-btns {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;
+}
+.chat-quick-btn {
+  padding: 6px 14px; border-radius: 100px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--accent-1); font-size: 12px; font-weight: 500;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.chat-quick-btn:hover {
+  background: rgba(59,130,246,0.1); border-color: var(--accent-1);
+}
+.chat-input-area {
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+  display: flex; gap: 10px;
+}
+.chat-input {
+  flex: 1; padding: 10px 16px;
+  border-radius: 100px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text-primary); font-size: 13px;
+  outline: none; transition: border-color 0.3s;
+}
+.chat-input:focus { border-color: var(--accent-1); }
+.chat-input::placeholder { color: var(--text-muted); }
+.chat-send {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--accent-1); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.3s;
+}
+.chat-send:hover { background: var(--accent-2); }
+.chat-send svg { width: 18px; height: 18px; fill: #fff; }
+.chat-typing { display: flex; gap: 4px; padding: 8px 0; }
+.chat-typing span {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--text-muted);
+  animation: typingBounce 1.4s infinite;
+}
+.chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typingBounce {
+  0%,60%,100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
+@media (max-width: 480px) {
+  .chat-window { right: 12px; left: 12px; width: auto; bottom: 90px; }
+  .chat-fab { bottom: 20px; right: 20px; width: 52px; height: 52px; }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
@@ -1747,6 +2018,8 @@ ul { list-style: none; }
   <div class="aurora-blob"></div>
 </div>
 <div class="noise-overlay"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+<canvas id="particleCanvas"></canvas>
 
 <!-- Mobile Nav -->
 <div class="mobile-nav" id="mobileNav">
@@ -1795,6 +2068,7 @@ ul { list-style: none; }
      HERO
      ═══════════════════════════════════════ -->
 <section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
@@ -1857,27 +2131,27 @@ ul { list-style: none; }
      ═══════════════════════════════════════ -->
 <div class="marquee-section">
   <div class="marquee-track">
-    <span class="marquee-item"><span class="marquee-dot"></span>Microsoft Azure</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Amazon AWS</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Google Cloud</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Alibaba Cloud</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Terraform</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Kubernetes</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Docker</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>OpenAI</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>LangChain</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>PyTorch</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" style="width:24px;height:24px;">Microsoft Azure</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" style="width:24px;height:24px;">Amazon AWS</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP" style="width:24px;height:24px;">Google Cloud</span>
+    <span class="marquee-item"><img src="https://cdn.simpleicons.org/alibabacloud/FF6A00" alt="Alibaba" style="width:24px;height:24px;">Alibaba Cloud</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform" style="width:24px;height:24px;">Terraform</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="K8s" style="width:24px;height:24px;">Kubernetes</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" style="width:24px;height:24px;">Docker</span>
+    <span class="marquee-item"><img src="https://cdn.simpleicons.org/openai/412991" alt="OpenAI" style="width:24px;height:24px;">OpenAI</span>
+    <span class="marquee-item"><img src="https://cdn.simpleicons.org/langchain/1C3C3C" alt="LangChain" style="width:24px;height:24px;">LangChain</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" style="width:24px;height:24px;">PyTorch</span>
     <!-- Duplicate -->
-    <span class="marquee-item"><span class="marquee-dot"></span>Microsoft Azure</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Amazon AWS</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Google Cloud</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Alibaba Cloud</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Terraform</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Kubernetes</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Docker</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>OpenAI</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>LangChain</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>PyTorch</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" style="width:24px;height:24px;">Microsoft Azure</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" style="width:24px;height:24px;">Amazon AWS</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP" style="width:24px;height:24px;">Google Cloud</span>
+    <span class="marquee-item"><img src="https://cdn.simpleicons.org/alibabacloud/FF6A00" alt="Alibaba" style="width:24px;height:24px;">Alibaba Cloud</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform" style="width:24px;height:24px;">Terraform</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="K8s" style="width:24px;height:24px;">Kubernetes</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" style="width:24px;height:24px;">Docker</span>
+    <span class="marquee-item"><img src="https://cdn.simpleicons.org/openai/412991" alt="OpenAI" style="width:24px;height:24px;">OpenAI</span>
+    <span class="marquee-item"><img src="https://cdn.simpleicons.org/langchain/1C3C3C" alt="LangChain" style="width:24px;height:24px;">LangChain</span>
+    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" style="width:24px;height:24px;">PyTorch</span>
   </div>
 </div>
 
@@ -2237,7 +2511,7 @@ ul { list-style: none; }
     </div>
     <div class="blog-grid">
       <div class="blog-card glass-card reveal stagger-1">
-        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg,#3B82F6,#2563EB);"></div><span class="blog-category" style="background:rgba(59,130,246,0.8);">Cloud</span></div>
+        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));"><span class="blog-thumb-icon">☁️</span></div><span class="blog-category">Cloud</span></div>
         <div class="blog-body">
           <div class="blog-meta">Cloud Transformation · 8 min</div>
           <h3>The Future of Cloud Transformation: How Total Cloud AI is Redefining Business Innovation</h3>
@@ -2246,7 +2520,7 @@ ul { list-style: none; }
         </div>
       </div>
       <div class="blog-card glass-card reveal stagger-2">
-        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg,#A855F7,#7C3AED);"></div><span class="blog-category" style="background:rgba(168,85,247,0.8);">Cloud Models</span></div>
+        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));"><span class="blog-thumb-icon">🔀</span></div><span class="blog-category">Cloud Models</span></div>
         <div class="blog-body">
           <div class="blog-meta">Cloud Strategy · 6 min</div>
           <h3>How to Choose the Right Cloud Model: Public, Private, or Hybrid?</h3>
@@ -2255,7 +2529,7 @@ ul { list-style: none; }
         </div>
       </div>
       <div class="blog-card glass-card reveal stagger-3">
-        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg,#818CF8,#6366F1);"></div><span class="blog-category" style="background:rgba(129,140,248,0.8);">Migration</span></div>
+        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));"><span class="blog-thumb-icon">🚀</span></div><span class="blog-category">Migration</span></div>
         <div class="blog-body">
           <div class="blog-meta">Cloud Migration · 7 min</div>
           <h3>5 Cloud Migration Mistakes to Avoid</h3>
@@ -2264,7 +2538,7 @@ ul { list-style: none; }
         </div>
       </div>
       <div class="blog-card glass-card reveal stagger-1">
-        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg,#10B981,#059669);"></div><span class="blog-category" style="background:rgba(16,185,129,0.8);">DevOps</span></div>
+        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));"><span class="blog-thumb-icon">⚡</span></div><span class="blog-category">DevOps</span></div>
         <div class="blog-body">
           <div class="blog-meta">DevOps · 10 min</div>
           <h3>DevOps in the Cloud: Best Practices for 2025</h3>
@@ -2273,7 +2547,7 @@ ul { list-style: none; }
         </div>
       </div>
       <div class="blog-card glass-card reveal stagger-2">
-        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg,#F59E0B,#D97706);"></div><span class="blog-category" style="background:rgba(245,158,11,0.8);">Managed Cloud</span></div>
+        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));"><span class="blog-thumb-icon">🔧</span></div><span class="blog-category">Managed Cloud</span></div>
         <div class="blog-body">
           <div class="blog-meta">Managed Services · 6 min</div>
           <h3>Why SMBs Are Moving to Managed Cloud Services</h3>
@@ -2436,6 +2710,39 @@ ul { list-style: none; }
     </div>
   </div>
 </footer>
+
+<!-- AI Chatbot Widget -->
+<button class="chat-fab" id="chatFab" aria-label="Chat with us">
+  <div class="chat-fab-pulse"></div>
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+  <span class="chat-fab-close">✕</span>
+</button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-header-dot"></div>
+    <div class="chat-header-text">
+      <h4>TotalCloudAI Assistant</h4>
+      <span>Typically replies instantly</span>
+    </div>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg bot">
+      Hi! I'm the TotalCloudAI assistant. How can I help you today?
+      <div class="chat-quick-btns">
+        <button class="chat-quick-btn">Cloud Infrastructure</button>
+        <button class="chat-quick-btn">Cloud Migration</button>
+        <button class="chat-quick-btn">DevOps</button>
+        <button class="chat-quick-btn">Security</button>
+        <button class="chat-quick-btn">AI & ML</button>
+        <button class="chat-quick-btn">Pricing</button>
+      </div>
+    </div>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Type your question..." autocomplete="off">
+    <button class="chat-send" id="chatSend" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════
      JAVASCRIPT
@@ -2647,6 +2954,23 @@ const serviceDetails = {
 
 function getVisualArch(key) {
   const si = 'https://cdn.simpleicons.org';
+  const di = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons';
+  const ico = {
+    azure: di + '/azure/azure-original.svg',
+    aws: di + '/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+    gcp: di + '/googlecloud/googlecloud-original.svg',
+    docker: di + '/docker/docker-original.svg',
+    k8s: di + '/kubernetes/kubernetes-plain.svg',
+    terraform: di + '/terraform/terraform-original.svg',
+    postgresql: di + '/postgresql/postgresql-original.svg',
+    mysql: di + '/mysql/mysql-original.svg',
+    redis: di + '/redis/redis-original.svg',
+    react: di + '/react/react-original.svg',
+    nextjs: di + '/nextjs/nextjs-original.svg',
+    github: di + '/github/github-original.svg',
+    gitlab: di + '/gitlab/gitlab-original.svg',
+    grafana: di + '/grafana/grafana-original.svg',
+  };
   if (key === 'web-dev') return `
     <div class="arch-visual">
       <!-- Users / Browsers -->
@@ -2667,7 +2991,7 @@ function getVisualArch(key) {
             <img class="arch-logo" src="${si}/googleearth/4285F4" alt="Globe">
           </div>
           <div class="arch-logo-item">
-            <img class="arch-logo" src="${si}/microsoftazure/0078D4" alt="Azure Front Door">
+            <img class="arch-logo" src="${ico.azure}" alt="Azure Front Door">
           </div>
         </div>
         <div class="arch-box-title">GLOBAL CDN</div>
@@ -2689,11 +3013,11 @@ function getVisualArch(key) {
                 <div class="arch-logo-label">CDN Edge</div>
               </div>
               <div class="arch-logo-item">
-                <img class="arch-logo" src="${si}/nextdotjs/ffffff" alt="Next.js">
+                <img class="arch-logo" src="${ico.nextjs}" alt="Next.js">
                 <div class="arch-logo-label">Next.js</div>
               </div>
               <div class="arch-logo-item">
-                <img class="arch-logo" src="${si}/react/61DAFB" alt="React">
+                <img class="arch-logo" src="${ico.react}" alt="React">
                 <div class="arch-logo-label">React</div>
               </div>
             </div>
@@ -2702,15 +3026,15 @@ function getVisualArch(key) {
           <div class="arch-webapp-half">
             <div class="arch-box-logos">
               <div class="arch-logo-item">
-                <img class="arch-logo" src="${si}/docker/2496ED" alt="ECS">
+                <img class="arch-logo" src="${ico.docker}" alt="ECS">
                 <div class="arch-logo-label">ECS</div>
               </div>
               <div class="arch-logo-item">
-                <img class="arch-logo" src="${si}/kubernetes/326CE5" alt="K8s">
+                <img class="arch-logo" src="${ico.k8s}" alt="K8s">
                 <div class="arch-logo-label">Auto-Scale</div>
               </div>
               <div class="arch-logo-item">
-                <img class="arch-logo" src="${si}/react/61DAFB" alt="SSR">
+                <img class="arch-logo" src="${ico.react}" alt="SSR">
                 <div class="arch-logo-label">SSR</div>
               </div>
             </div>
@@ -2752,19 +3076,19 @@ function getVisualArch(key) {
         <div class="arch-box-title">DATA LAYER</div>
         <div class="arch-data-logos">
           <div class="arch-data-item">
-            <img src="${si}/postgresql/4169E1" alt="PostgreSQL" style="width:40px;height:40px;">
+            <img src="${ico.postgresql}" alt="PostgreSQL" style="width:40px;height:40px;">
             <div class="arch-data-label">PostgreSQL / MySQL</div>
           </div>
           <div class="arch-data-item">
-            <img src="${si}/mysql/4479A1" alt="MySQL" style="width:40px;height:40px;">
+            <img src="${ico.mysql}" alt="MySQL" style="width:40px;height:40px;">
             <div class="arch-data-label">MySQL</div>
           </div>
           <div class="arch-data-item">
-            <img src="${si}/redis/DC382D" alt="Redis" style="width:40px;height:40px;">
+            <img src="${ico.redis}" alt="Redis" style="width:40px;height:40px;">
             <div class="arch-data-label">Redis Cache</div>
           </div>
           <div class="arch-data-item">
-            <img src="${si}/microsoftazure/0078D4" alt="Blob" style="width:40px;height:40px;">
+            <img src="${ico.azure}" alt="Blob" style="width:40px;height:40px;">
             <div class="arch-data-label">Blob Storage</div>
           </div>
           <div class="arch-data-item">
@@ -2781,11 +3105,11 @@ function getVisualArch(key) {
         <div class="arch-box-title">CENTRALISED MANAGEMENT</div>
         <div class="arch-box-logos" style="margin-top:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="Azure Lighthouse" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.azure}" alt="Azure Lighthouse" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">Azure Lighthouse</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/amazonaws/FF9900" alt="AWS Orgs" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.aws}" alt="AWS Orgs" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">AWS Organisations</div>
           </div>
         </div>
@@ -2796,7 +3120,7 @@ function getVisualArch(key) {
               <div class="arch-logo-label">Monitoring</div>
             </div>
             <div class="arch-logo-item">
-              <div class="caf-flow-icon"><img src="${si}/grafana/F46800" alt="Grafana" style="width:28px;height:28px;"></div>
+              <div class="caf-flow-icon"><img src="${ico.grafana}" alt="Grafana" style="width:28px;height:28px;"></div>
               <div class="arch-logo-label">Grafana + Prometheus</div>
             </div>
             <div class="arch-logo-item">
@@ -2818,11 +3142,11 @@ function getVisualArch(key) {
         <div class="arch-box-title">AUTOMATION ENGINE</div>
         <div class="arch-box-logos" style="margin-top:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/awslambda/FF9900" alt="Lambda" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon">⚡</div>
             <div class="arch-logo-label">Lambda</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/azurefunctions/0062AD" alt="Azure Functions" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon">⚙️</div>
             <div class="arch-logo-label">Azure Functions</div>
           </div>
         </div>
@@ -2875,13 +3199,13 @@ function getVisualArch(key) {
           <div class="mig-half-title">TARGET CLOUD</div>
           <div class="arch-box-logos" style="margin:0 0 12px;justify-content:center;">
             <div class="arch-logo-item">
-              <img src="${si}/microsoftazure/0078D4" alt="Azure" style="width:24px;height:24px;">
+              <img src="${ico.azure}" alt="Azure" style="width:24px;height:24px;">
             </div>
             <div class="arch-logo-item">
-              <img src="${si}/amazonaws/FF9900" alt="AWS" style="width:24px;height:24px;">
+              <img src="${ico.aws}" alt="AWS" style="width:24px;height:24px;">
             </div>
             <div class="arch-logo-item">
-              <img src="${si}/googlecloud/4285F4" alt="GCP" style="width:24px;height:24px;">
+              <img src="${ico.gcp}" alt="GCP" style="width:24px;height:24px;">
             </div>
           </div>
           <div class="mig-row">
@@ -2909,7 +3233,7 @@ function getVisualArch(key) {
       <div class="arch-box data-layer">
         <div class="arch-box-logos" style="margin-bottom:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/kubernetes/326CE5" alt="K8s" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.k8s}" alt="K8s" style="width:28px;height:28px;"></div>
           </div>
         </div>
         <div class="caf-checklist">
@@ -2934,12 +3258,12 @@ function getVisualArch(key) {
       <div class="arch-box">
         <div class="arch-box-logos" style="margin-top:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/github/ffffff" alt="GitHub" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.github}" alt="GitHub" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">GitHub</div>
           </div>
           <div class="arch-logo-item" style="font-size:20px;color:rgba(148,163,184,0.6);align-self:center;">&#x2192;</div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/gitlab/FC6D26" alt="GitLab" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.gitlab}" alt="GitLab" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">GitLab</div>
           </div>
         </div>
@@ -2952,7 +3276,7 @@ function getVisualArch(key) {
         <div class="arch-box-title">ARTEFACT REGISTRY</div>
         <div class="arch-box-logos" style="margin-top:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/docker/2496ED" alt="ACR" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.docker}" alt="ACR" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">ACR / ECR</div>
           </div>
         </div>
@@ -2988,7 +3312,7 @@ function getVisualArch(key) {
         <div class="arch-box-title">KUBERNETES CLUSTER</div>
         <div class="arch-box-logos" style="margin-top:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/kubernetes/326CE5" alt="K8s" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.k8s}" alt="K8s" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">K8s</div>
           </div>
         </div>
@@ -3009,15 +3333,15 @@ function getVisualArch(key) {
         <div class="arch-box-title">CLOUD GOVERNANCE</div>
         <div class="arch-box-logos" style="margin-top:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="Azure AD" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.azure}" alt="Azure AD" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">Azure AD</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/amazonaws/232F3E" alt="AWS IAM" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.aws}" alt="AWS IAM" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">AWS IAM</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/googlecloud/4285F4" alt="GCP IAM" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.gcp}" alt="GCP IAM" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">GCP IAM</div>
           </div>
         </div>
@@ -3033,15 +3357,15 @@ function getVisualArch(key) {
         <div class="arch-box-title">NETWORK LAYER</div>
         <div class="arch-box-logos" style="margin-top:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/sonarqube/4E9BCD" alt="SAST" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon">🛡️</div>
             <div class="arch-logo-label">SAST/DAST</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/postgresql/4169E1" alt="DB Geo-Replica" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.postgresql}" alt="DB Geo-Replica" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">DB Geo-Replica</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/wireguard/88171A" alt="Private Links" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon">🔗</div>
             <div class="arch-logo-label">Private Links</div>
           </div>
         </div>
@@ -3058,15 +3382,15 @@ function getVisualArch(key) {
         <div class="arch-box-title">APPLICATION LAYER</div>
         <div class="arch-box-logos" style="margin-top:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/checkmarx/54B848" alt="SAST/DAST" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon">🛡️</div>
             <div class="arch-logo-label">SAST/DAST</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/docker/2496ED" alt="Container Scanning" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.docker}" alt="Container Scanning" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">Container Scanning</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/kong/003459" alt="API Gateway" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon">🌐</div>
             <div class="arch-logo-label">API Gateway</div>
           </div>
         </div>
@@ -3092,15 +3416,15 @@ function getVisualArch(key) {
         <div class="arch-box-title">PRIMARY REGION (Active)</div>
         <div class="arch-box-logos" style="margin-top:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="App Services" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.azure}" alt="App Services" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">App Services</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/postgresql/4169E1" alt="Databases" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.postgresql}" alt="Databases" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">Databases</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="Storage" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.azure}" alt="Storage" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">Storage</div>
           </div>
         </div>
@@ -3120,7 +3444,7 @@ function getVisualArch(key) {
             <div class="arch-logo-label">Replicated VMs</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/postgresql/4169E1" alt="DB Replica" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.postgresql}" alt="DB Replica" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">DB Geo-Replica</div>
           </div>
           <div class="arch-logo-item">
@@ -3145,11 +3469,11 @@ function getVisualArch(key) {
             <div class="arch-logo-label">Encrypted</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="Vault" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.azure}" alt="Vault" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">Azure Vault</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/amazonaws/232F3E" alt="AWS Backup" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.aws}" alt="AWS Backup" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">AWS Backup</div>
           </div>
         </div>
@@ -3172,7 +3496,7 @@ function getVisualArch(key) {
             <div class="arch-logo-label">APIs</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/postgresql/4169E1" alt="DB" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.postgresql}" alt="DB" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">Databases</div>
           </div>
           <div class="arch-logo-item">
@@ -3193,11 +3517,11 @@ function getVisualArch(key) {
         <div class="arch-box-title">DATA LAKE / WAREHOUSE</div>
         <div class="arch-box-logos" style="margin-top:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="Azure Data Lake" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.azure}" alt="Azure Data Lake" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">Azure Data Lake</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/amazons3/569A31" alt="S3" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.aws}" alt="S3" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">S3</div>
           </div>
           <div class="arch-logo-item">
@@ -3218,15 +3542,15 @@ function getVisualArch(key) {
         <div class="arch-box-title">ML TRAINING PLATFORM</div>
         <div class="arch-box-logos" style="margin-top:8px;">
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="Azure ML" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.azure}" alt="Azure ML" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">Azure ML</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/amazonaws/232F3E" alt="SageMaker" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.aws}" alt="SageMaker" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">SageMaker</div>
           </div>
           <div class="arch-logo-item">
-            <div class="caf-flow-icon"><img src="${si}/googlecloud/4285F4" alt="Vertex AI" style="width:28px;height:28px;"></div>
+            <div class="caf-flow-icon"><img src="${ico.gcp}" alt="Vertex AI" style="width:28px;height:28px;"></div>
             <div class="arch-logo-label">Vertex AI</div>
           </div>
         </div>
@@ -3347,15 +3671,15 @@ function getVisualArch(key) {
         <div class="arch-box-title">LANDING ZONE</div>
         <div class="caf-landing-items">
           <div class="caf-landing-item">
-            <div class="caf-landing-icon"><img src="${si}/microsoftazure/0078D4" alt="Subscriptions" style="width:28px;height:28px;"></div>
+            <div class="caf-landing-icon"><img src="${ico.azure}" alt="Subscriptions" style="width:28px;height:28px;"></div>
             <div class="caf-landing-label">Subscriptions</div>
           </div>
           <div class="caf-landing-item">
-            <div class="caf-landing-icon"><img src="${si}/azureresourcemanager/0078D4" alt="Resource Groups" style="width:28px;height:28px;"></div>
+            <div class="caf-landing-icon">📦</div>
             <div class="caf-landing-label">Resource Groups</div>
           </div>
           <div class="caf-landing-item">
-            <div class="caf-landing-icon"><img src="${si}/azurepolicies/0078D4" alt="Policies" style="width:28px;height:28px;"></div>
+            <div class="caf-landing-icon">📋</div>
             <div class="caf-landing-label">Policies</div>
           </div>
           <div class="caf-landing-item">
@@ -3759,6 +4083,213 @@ async function resendOtp(e) {
   }
   setTimeout(function() { link.style.pointerEvents = ''; link.textContent = "Didn't receive the code? Resend"; }, 5000);
 }
+
+// ── Scroll Progress Bar ──
+window.addEventListener('scroll', function() {
+  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var progress = (scrollTop / scrollHeight) * 100;
+  var bar = document.getElementById('scrollProgress');
+  if (bar) bar.style.width = progress + '%';
+});
+
+// ── Particle Canvas ──
+(function() {
+  var canvas = document.getElementById('particleCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var particleCount = 40;
+  var mouse = { x: -1000, y: -1000 };
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  document.addEventListener('mousemove', function(e) {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  function Particle() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.size = Math.random() * 2 + 0.5;
+    this.alpha = Math.random() * 0.3 + 0.1;
+  }
+
+  for (var i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var theme = document.documentElement.getAttribute('data-theme');
+    var baseColor = theme === 'light' ? '37, 99, 235' : '59, 130, 246';
+
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+
+      // Mouse interaction — subtle push
+      var dx = p.x - mouse.x;
+      var dy = p.y - mouse.y;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 120) {
+        p.x += dx * 0.01;
+        p.y += dy * 0.01;
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + baseColor + ',' + p.alpha + ')';
+      ctx.fill();
+
+      // Connect nearby particles
+      for (var j = i + 1; j < particles.length; j++) {
+        var p2 = particles[j];
+        var dx2 = p.x - p2.x;
+        var dy2 = p.y - p2.y;
+        var dist2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+        if (dist2 < 150) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = 'rgba(' + baseColor + ',' + (0.05 * (1 - dist2 / 150)) + ')';
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// ── AI Chatbot ──
+(function() {
+  var fab = document.getElementById('chatFab');
+  var win = document.getElementById('chatWindow');
+  var input = document.getElementById('chatInput');
+  var msgs = document.getElementById('chatMessages');
+  if (!fab || !win) return;
+
+  var serviceInfo = {
+    'cloud infrastructure': 'We design multi-region, highly available cloud infrastructure across Azure, AWS, and GCP with auto-scaling, managed databases, and virtual networking — all optimised for performance and cost.',
+    'managed cloud': 'We provide 24/7 monitoring, incident response, cost optimisation, and capacity planning. Our managed services ensure your environments are always secure, performant, and cost-efficient.',
+    'cloud migration': 'We plan and execute seamless migrations using Rehost, Refactor, Rearchitect, or Rebuild methodologies — ensuring zero data loss and minimal downtime.',
+    'devops': 'We build end-to-end CI/CD pipelines with Infrastructure as Code, container orchestration, and GitOps to deliver software faster and more reliably.',
+    'security': 'We implement defence-in-depth security — IAM, network segmentation, encryption, and continuous compliance monitoring for GDPR, HIPAA, PCI-DSS, and ISO 27001.',
+    'backup': 'We design comprehensive backup and DR solutions with automated daily backups, geo-redundant storage, and full failover with defined RPO/RTO targets.',
+    'ai': 'We build production-ready AI/ML solutions — from chatbots and document processing to predictive analytics and custom ML models across Azure ML, SageMaker, and Vertex AI.',
+    'web development': 'We build full-stack web applications and deploy them on cloud infrastructure with CDN, SSL, auto-scaling, and CI/CD pipelines.',
+    'cloud strategy': 'We provide Cloud Adoption Framework assessments, landing zone design, governance policies, and cost optimisation strategies.',
+    'pricing': 'Our Starter plan is £3,999/mo and Professional is £9,999/mo. We also offer custom Enterprise pricing. Visit our Pricing section or contact us for a tailored quote.',
+    'contact': 'You can reach us via our Contact form on this page, or email hello@totalcloudai.com. We typically respond within 24 hours.'
+  };
+
+  fab.addEventListener('click', function() {
+    var isOpen = win.classList.contains('open');
+    win.classList.toggle('open');
+    fab.classList.toggle('open');
+    if (!isOpen && msgs.children.length <= 1) {
+      // Show initial quick action buttons
+    }
+  });
+
+  function addMsg(text, type) {
+    var div = document.createElement('div');
+    div.className = 'chat-msg ' + type;
+    div.innerHTML = text;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function showTyping() {
+    var div = document.createElement('div');
+    div.className = 'chat-msg bot';
+    div.id = 'chatTyping';
+    div.innerHTML = '<div class="chat-typing"><span></span><span></span><span></span></div>';
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function removeTyping() {
+    var el = document.getElementById('chatTyping');
+    if (el) el.remove();
+  }
+
+  function respond(userText) {
+    var lower = userText.toLowerCase();
+    var response = "I'd be happy to help! Could you tell me more about what you're looking for? You can ask about any of our services — Cloud Infrastructure, Migration, DevOps, Security, AI/ML, Web Development, Pricing, or how to Contact us.";
+
+    for (var key in serviceInfo) {
+      if (lower.indexOf(key) !== -1) {
+        response = serviceInfo[key];
+        break;
+      }
+    }
+
+    if (lower.indexOf('hello') !== -1 || lower.indexOf('hi') !== -1 || lower.indexOf('hey') !== -1) {
+      response = "Hello! Welcome to TotalCloudAI. I'm here to help you learn about our cloud services. What would you like to know about?";
+    }
+    if (lower.indexOf('thank') !== -1) {
+      response = "You're welcome! If you have any more questions, feel free to ask. You can also reach our team directly via the Contact form below.";
+    }
+
+    showTyping();
+    setTimeout(function() {
+      removeTyping();
+      addMsg(response, 'bot');
+    }, 800 + Math.random() * 600);
+  }
+
+  // Quick button handler
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('chat-quick-btn')) {
+      var q = e.target.textContent;
+      addMsg(q, 'user');
+      e.target.parentElement.remove();
+      respond(q);
+    }
+  });
+
+  // Send message
+  function sendMsg() {
+    var val = input.value.trim();
+    if (!val) return;
+    addMsg(val, 'user');
+    input.value = '';
+    respond(val);
+  }
+
+  document.getElementById('chatSend').addEventListener('click', sendMsg);
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') sendMsg();
+  });
+})();
+
+// ── Tilt effect on hero stat cards ──
+document.querySelectorAll('.hero-stat').forEach(function(card) {
+  card.addEventListener('mousemove', function(e) {
+    var rect = card.getBoundingClientRect();
+    var x = (e.clientX - rect.left) / rect.width - 0.5;
+    var y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = 'translateY(-4px) rotateX(' + (-y * 8) + 'deg) rotateY(' + (x * 8) + 'deg)';
+  });
+  card.addEventListener('mouseleave', function() {
+    card.style.transform = '';
+  });
+});
 </script>
 </body>
 </html>
