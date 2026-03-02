@@ -1109,6 +1109,38 @@ ul { list-style: none; }
   font-family: var(--mono); font-size: 10px; font-weight: 500;
   color: rgba(148,163,184,0.8); text-align: center; max-width: 80px;
 }
+/* Migration side-by-side layout */
+.mig-split {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; width: 100%; max-width: 580px;
+}
+.mig-half {
+  border: 1.5px solid rgba(96,165,250,0.25); border-radius: 10px;
+  padding: 16px; background: rgba(15,23,42,0.3);
+}
+[data-theme="light"] .mig-half { background: rgba(241,245,249,0.5); border-color: rgba(59,130,246,0.15); }
+.mig-half-title {
+  font-family: var(--mono); font-size: 13px; font-weight: 700;
+  color: #93C5FD; text-transform: uppercase;
+  letter-spacing: 1.5px; text-align: center; margin-bottom: 4px;
+}
+[data-theme="light"] .mig-half-title { color: #2563EB; }
+.mig-half-subtitle {
+  font-size: 11px; color: rgba(148,163,184,0.7);
+  text-align: center; margin-bottom: 12px;
+}
+.mig-row {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 10px;
+}
+.mig-row:last-child { margin-bottom: 0; }
+.mig-arrow-col {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 24px;
+}
+.mig-arrow-right {
+  font-size: 20px; color: rgba(96,165,250,0.5);
+}
 @media (max-width: 480px) {
   .arch-visual { padding: 24px 16px; }
   .arch-box { padding: 16px; }
@@ -1121,6 +1153,7 @@ ul { list-style: none; }
   .caf-pillars { gap: 10px; }
   .caf-checklist { grid-template-columns: 1fr; }
   .caf-landing-items { gap: 12px; }
+  .mig-split { grid-template-columns: 1fr; }
 }
 
 .sdm-tech-grid {
@@ -2499,23 +2532,8 @@ const serviceDetails = {
       { title: 'Cutover & Validation', desc: 'Coordinated switchover with DNS changes, smoke testing, and real-time monitoring during the transition window.' },
       { title: 'Optimisation', desc: 'Post-migration rightsizing, cost analysis, and performance tuning to maximise cloud-native benefits.' }
     ],
-    arch: `┌────────────────────┐      ┌────────────────────┐
-│   SOURCE (On-Prem  │      │   TARGET (Cloud)    │
-│   or Other Cloud)  │      │   Azure / AWS / GCP │
-│                    │      │                     │
-│  ┌──────────────┐  │ ───▶ │  ┌───────────────┐  │
-│  │ App Servers  │  │      │  │ App Service /  │  │
-│  └──────────────┘  │      │  │ ECS / GKE      │  │
-│  ┌──────────────┐  │ ───▶ │  └───────────────┘  │
-│  │ Databases    │  │      │  ┌───────────────┐  │
-│  └──────────────┘  │      │  │ Managed DB     │  │
-│  ┌──────────────┐  │ ───▶ │  └───────────────┘  │
-│  │ File Storage │  │      │  ┌───────────────┐  │
-│  └──────────────┘  │      │  │ Blob / S3      │  │
-└────────────────────┘      │  └───────────────┘  │
-        ▲                   └────────────────────┘
-        │ VPN / ExpressRoute / Direct Connect
-        └────────────────────────────────────┘`,
+    arch: '',
+    archHtml: true,
     tech: ['Azure Migrate', 'AWS DMS', 'GCP Transfer', 'Azure Site Recovery', 'CloudEndure', 'VPN Gateway', 'ExpressRoute', 'Data Box', 'Terraform', 'Ansible'],
     deploy: [
       { icon: '🔀', title: 'Phased Migration', desc: 'Migrate workloads in planned waves — starting with low-risk systems and progressively moving business-critical applications.' },
@@ -2772,6 +2790,74 @@ function getVisualArch(key) {
             <img src="${si}/elasticsearch/005571" alt="Elastic" style="width:40px;height:40px;">
             <div class="arch-data-label">Search Index (Elastic)</div>
           </div>
+        </div>
+      </div>
+    </div>`;
+  if (key === 'cloud-migration') return `
+    <div class="arch-visual">
+      <!-- Source → Target side-by-side -->
+      <div class="mig-split">
+        <!-- Source -->
+        <div class="mig-half">
+          <div class="mig-half-title">SOURCE</div>
+          <div class="mig-half-subtitle">(On-Prem or Other Cloud)</div>
+          <div class="mig-row">
+            <span class="caf-check">App Servers</span>
+          </div>
+          <div class="mig-row">
+            <span class="caf-check">Databases</span>
+          </div>
+          <div class="mig-row">
+            <span class="caf-check">File Storage</span>
+          </div>
+        </div>
+        <!-- Target -->
+        <div class="mig-half">
+          <div class="mig-half-title">TARGET CLOUD</div>
+          <div class="arch-box-logos" style="margin:0 0 12px;justify-content:center;">
+            <div class="arch-logo-item">
+              <img src="${si}/microsoftazure/0078D4" alt="Azure" style="width:24px;height:24px;">
+            </div>
+            <div class="arch-logo-item">
+              <img src="${si}/amazonaws/FF9900" alt="AWS" style="width:24px;height:24px;">
+            </div>
+            <div class="arch-logo-item">
+              <img src="${si}/googlecloud/4285F4" alt="GCP" style="width:24px;height:24px;">
+            </div>
+          </div>
+          <div class="mig-row">
+            <span class="caf-check">App Service / ECS / GKE</span>
+          </div>
+          <div class="mig-row">
+            <span class="caf-check">Managed DB</span>
+          </div>
+          <div class="mig-row">
+            <span class="caf-check">Blob / S3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- VPN / ExpressRoute -->
+      <div class="arch-box" style="border-style:dashed;">
+        <div class="arch-box-title">VPN / ExpressRoute / Direct Connect</div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- Kubernetes / Orchestration -->
+      <div class="arch-box data-layer">
+        <div class="arch-box-logos" style="margin-bottom:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/kubernetes/326CE5" alt="K8s" style="width:28px;height:28px;"></div>
+          </div>
+        </div>
+        <div class="caf-checklist">
+          <span class="caf-check">Auto-scaling</span>
+          <span class="caf-check">Load Balancing</span>
+          <span class="caf-check">Service Mesh</span>
+          <span class="caf-check">Monitoring</span>
         </div>
       </div>
     </div>`;
