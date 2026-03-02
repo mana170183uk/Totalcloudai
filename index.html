@@ -865,6 +865,86 @@ ul { list-style: none; }
   font-family: var(--mono); font-size: 10px; font-weight: 600;
   color: var(--accent-2); text-transform: uppercase; letter-spacing: 1px;
 }
+/* Visual Architecture Diagram */
+.arch-visual {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 36px 28px;
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+}
+.arch-arrow {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 8px 0;
+}
+.arch-arrow-line {
+  width: 2px; height: 24px;
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
+}
+.arch-arrow-head {
+  width: 0; height: 0;
+  border-left: 7px solid transparent; border-right: 7px solid transparent;
+  border-top: 8px solid var(--accent-2);
+}
+.arch-box {
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px 24px; width: 100%; max-width: 600px;
+  text-align: center; position: relative;
+  background: rgba(59,130,246,0.03);
+  transition: all var(--transition);
+}
+.arch-box:hover {
+  border-color: var(--accent-1);
+  box-shadow: 0 0 20px var(--glow-1);
+}
+.arch-box-title {
+  font-family: var(--mono); font-size: 13px; font-weight: 700;
+  color: var(--accent-1); text-transform: uppercase;
+  letter-spacing: 1.5px; margin-bottom: 12px;
+}
+.arch-box-icons {
+  display: flex; justify-content: center; gap: 16px;
+  margin-bottom: 10px; flex-wrap: wrap;
+}
+.arch-icon-item {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.arch-icon-circle {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.15);
+  transition: all var(--transition);
+}
+.arch-icon-circle:hover {
+  background: rgba(59,130,246,0.2);
+  transform: translateY(-2px);
+}
+.arch-icon-circle.purple { background: rgba(168,85,247,0.1); border-color: rgba(168,85,247,0.15); }
+.arch-icon-circle.purple:hover { background: rgba(168,85,247,0.2); }
+.arch-icon-circle.green { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.15); }
+.arch-icon-circle.green:hover { background: rgba(16,185,129,0.2); }
+.arch-icon-circle.amber { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.15); }
+.arch-icon-circle.amber:hover { background: rgba(245,158,11,0.2); }
+.arch-icon-label {
+  font-family: var(--mono); font-size: 10px; font-weight: 500;
+  color: var(--text-muted); text-align: center; max-width: 70px;
+}
+.arch-box-desc {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text-muted); line-height: 1.7;
+}
+.arch-box-split {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; width: 100%; max-width: 600px;
+}
+.arch-box-split .arch-box {
+  border-style: dashed;
+}
+@media (max-width: 480px) {
+  .arch-box-split { grid-template-columns: 1fr; }
+  .arch-box { padding: 16px; }
+  .arch-icon-circle { width: 44px; height: 44px; font-size: 20px; }
+}
+
 .sdm-tech-grid {
   display: flex; flex-wrap: wrap; gap: 10px;
 }
@@ -2473,37 +2553,8 @@ const serviceDetails = {
       { title: 'CI/CD & Automated Testing', desc: 'Configure GitHub Actions or Azure DevOps pipelines for automated builds, linting, unit tests, and deployment to staging then production on every merge to main.' },
       { title: 'Launch, Monitor & Iterate', desc: 'Go live with DNS cutover, uptime monitoring, error tracking (Sentry), analytics (GA4), and performance dashboards. We provide post-launch support and feature iterations.' }
     ],
-    arch: `┌─────────────────────────────────────────────────┐
-│                   USERS / BROWSERS               │
-└──────────────────────┬──────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────┐
-│              GLOBAL CDN (Cloudflare/AFD)         │
-│         SSL Termination ─ DDoS Protection        │
-│         Edge Caching ─ Geo-Routing               │
-└──────────────────────┬──────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────┐
-│           WEB APPLICATION LAYER                  │
-│   ┌─────────────┐    ┌──────────────────┐        │
-│   │  Static Site │    │  SSR / App       │        │
-│   │  (CDN Edge)  │    │  Service / ECS   │        │
-│   │  Next.js /   │    │  Auto-Scaling    │        │
-│   │  React SPA   │    │  Load Balanced   │        │
-│   └─────────────┘    └────────┬─────────┘        │
-└───────────────────────────────┼──────────────────┘
-                                │
-┌───────────────────────────────▼──────────────────┐
-│              API / BACKEND LAYER                  │
-│   Express / FastAPI / .NET ─ Auth ─ Rate Limiting │
-│   Serverless Functions ─ Queue Workers            │
-└───────────────────────────────┬──────────────────┘
-                                │
-┌───────────────────────────────▼──────────────────┐
-│                DATA LAYER                         │
-│   PostgreSQL / MySQL ─ Redis Cache                │
-│   Blob Storage ─ Search Index (Elastic)           │
-└──────────────────────────────────────────────────┘`,
+    archHtml: true,
+    arch: '',
     tech: ['React', 'Next.js', 'Vue.js', 'Node.js', 'Express', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'MongoDB', 'Redis', 'Azure App Service', 'Vercel', 'GitHub Actions', 'Docker', 'Cloudflare CDN', 'Sentry'],
     deploy: [
       { icon: '🚀', title: 'Zero-Downtime Deployments', desc: 'Deployment slots (Azure) or atomic deployments (Vercel) ensure the old version serves traffic until the new build is fully ready — users never see a broken page.' },
@@ -2513,6 +2564,77 @@ const serviceDetails = {
     ]
   }
 };
+
+function getVisualArch(key) {
+  if (key === 'web-dev') return `
+    <div class="arch-visual">
+      <div class="arch-box">
+        <div class="arch-box-title">Users / Browsers</div>
+        <div class="arch-box-icons">
+          <div class="arch-icon-item"><div class="arch-icon-circle">👤</div><div class="arch-icon-label">Desktop</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle">📱</div><div class="arch-icon-label">Mobile</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle">💻</div><div class="arch-icon-label">Tablet</div></div>
+        </div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="arch-box">
+        <div class="arch-box-title">Global CDN</div>
+        <div class="arch-box-icons">
+          <div class="arch-icon-item"><div class="arch-icon-circle purple">🌍</div><div class="arch-icon-label">Cloudflare</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle purple">🔒</div><div class="arch-icon-label">SSL / TLS</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle purple">🛡️</div><div class="arch-icon-label">DDoS Shield</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle purple">⚡</div><div class="arch-icon-label">Edge Cache</div></div>
+        </div>
+        <div class="arch-box-desc">300+ edge locations &middot; Geo-routing &middot; Brotli compression</div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="arch-box-split">
+        <div class="arch-box">
+          <div class="arch-box-title">Static Site</div>
+          <div class="arch-box-icons">
+            <div class="arch-icon-item"><div class="arch-icon-circle green">⚛️</div><div class="arch-icon-label">React</div></div>
+            <div class="arch-icon-item"><div class="arch-icon-circle green">▲</div><div class="arch-icon-label">Next.js</div></div>
+            <div class="arch-icon-item"><div class="arch-icon-circle green">🟢</div><div class="arch-icon-label">Vue.js</div></div>
+          </div>
+          <div class="arch-box-desc">CDN Edge &middot; SSG &middot; SPA</div>
+        </div>
+        <div class="arch-box">
+          <div class="arch-box-title">SSR / App</div>
+          <div class="arch-box-icons">
+            <div class="arch-icon-item"><div class="arch-icon-circle green">☁️</div><div class="arch-icon-label">App Service</div></div>
+            <div class="arch-icon-item"><div class="arch-icon-circle green">📦</div><div class="arch-icon-label">Container</div></div>
+            <div class="arch-icon-item"><div class="arch-icon-circle green">⚖️</div><div class="arch-icon-label">Auto-Scale</div></div>
+          </div>
+          <div class="arch-box-desc">Load Balanced &middot; Health Probes</div>
+        </div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="arch-box">
+        <div class="arch-box-title">API / Backend Layer</div>
+        <div class="arch-box-icons">
+          <div class="arch-icon-item"><div class="arch-icon-circle amber">🟩</div><div class="arch-icon-label">Node.js</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle amber">🐍</div><div class="arch-icon-label">Python</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle amber">🔐</div><div class="arch-icon-label">Auth</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle amber">🚦</div><div class="arch-icon-label">Rate Limit</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle amber">λ</div><div class="arch-icon-label">Serverless</div></div>
+        </div>
+        <div class="arch-box-desc">REST / GraphQL &middot; JWT Auth &middot; Queue Workers &middot; Webhooks</div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="arch-box">
+        <div class="arch-box-title">Data Layer</div>
+        <div class="arch-box-icons">
+          <div class="arch-icon-item"><div class="arch-icon-circle">🐘</div><div class="arch-icon-label">PostgreSQL</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle">🐬</div><div class="arch-icon-label">MySQL</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle" style="color:#DC382D;">◆</div><div class="arch-icon-label">Redis</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle">📁</div><div class="arch-icon-label">Blob Storage</div></div>
+          <div class="arch-icon-item"><div class="arch-icon-circle">🔍</div><div class="arch-icon-label">Elastic</div></div>
+        </div>
+        <div class="arch-box-desc">Managed DB &middot; Cache Layer &middot; Object Storage &middot; Full-text Search</div>
+      </div>
+    </div>`;
+  return '';
+}
 
 function openServiceModal(serviceKey) {
   const data = serviceDetails[serviceKey];
@@ -2533,7 +2655,7 @@ function openServiceModal(serviceKey) {
     </div>
     <div class="sdm-section">
       <div class="sdm-section-title"><span class="sdm-title-icon">🏗️</span> Architecture</div>
-      <div class="sdm-arch"><span class="sdm-arch-label">Architecture</span>${data.arch}</div>
+      ${data.archHtml ? getVisualArch(serviceKey) : `<div class="sdm-arch"><span class="sdm-arch-label">Architecture</span>${data.arch}</div>`}
     </div>
     <div class="sdm-section">
       <div class="sdm-section-title"><span class="sdm-title-icon">🔧</span> Technologies We Use</div>
