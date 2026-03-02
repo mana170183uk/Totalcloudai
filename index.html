@@ -1039,11 +1039,9 @@ ul { list-style: none; }
    ============================================ */
 .testimonials-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 28px; align-items: stretch;
 }
-.testimonial-card { padding: 40px; display: flex; flex-direction: column; }
-.testimonial-card:nth-child(2) { transform: translateY(24px); }
-.testimonial-card:hover:nth-child(2) { transform: translateY(16px); }
+.testimonial-card { padding: 40px; display: flex; flex-direction: column; height: 100%; }
 .testimonial-stars {
   display: flex; gap: 4px; margin-bottom: 20px;
 }
@@ -1347,8 +1345,6 @@ ul { list-style: none; }
   .process-steps { grid-template-columns: repeat(3, 1fr); gap: 0; }
   .process-steps::before { }
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .testimonial-card:nth-child(2) { transform: none; }
-  .testimonial-card:hover:nth-child(2) { transform: translateY(-8px); }
 }
 @media (max-width: 768px) {
   .navbar { min-height: 64px; }
