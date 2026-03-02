@@ -2654,29 +2654,8 @@ const serviceDetails = {
       { title: 'Production Deployment', desc: 'Deploy models as REST APIs, batch inference, or edge deployments with auto-scaling and versioning.' },
       { title: 'Monitoring & Retraining', desc: 'Track model drift, accuracy degradation, and trigger automated retraining pipelines when thresholds are breached.' }
     ],
-    arch: `┌──────────────────────────────────────────┐
-│           DATA INGESTION                 │
-│  APIs ─ Databases ─ IoT ─ Documents      │
-└────────────────┬─────────────────────────┘
-                 │
-┌────────────────▼─────────────────────────┐
-│          DATA LAKE / WAREHOUSE           │
-│  Azure Data Lake ─ S3 ─ BigQuery         │
-│  ETL Pipelines ─ Data Quality Checks     │
-└────────────────┬─────────────────────────┘
-                 │
-┌────────────────▼─────────────────────────┐
-│        ML TRAINING PLATFORM              │
-│  Azure ML ─ SageMaker ─ Vertex AI        │
-│  Experiment Tracking ─ Hyperparameter    │
-│  Tuning ─ Model Registry                 │
-└────────────────┬─────────────────────────┘
-                 │
-┌────────────────▼─────────────────────────┐
-│       MODEL SERVING & INFERENCE          │
-│  REST API ─ Batch ─ Real-time Stream     │
-│  Auto-scaling ─ A/B Testing ─ Canary     │
-└──────────────────────────────────────────┘`,
+    archHtml: true,
+    arch: '',
     tech: ['Azure ML', 'AWS SageMaker', 'OpenAI', 'LangChain', 'TensorFlow', 'PyTorch', 'Hugging Face', 'Azure Cognitive Services', 'Vector DBs', 'MLflow'],
     deploy: [
       { icon: '🔬', title: 'Model Versioning', desc: 'Every model version is tracked in a registry with lineage, metrics, and rollback capability for production safety.' },
@@ -2853,6 +2832,101 @@ function getVisualArch(key) {
             <img src="${si}/elasticsearch/005571" alt="Elastic" style="width:40px;height:40px;">
             <div class="arch-data-label">Search Index (Elastic)</div>
           </div>
+        </div>
+      </div>
+    </div>`;
+  if (key === 'ai-ml') return `
+    <div class="arch-visual">
+      <!-- Data Ingestion -->
+      <div class="arch-box">
+        <div class="arch-box-title">DATA INGESTION</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon">🔌</div>
+            <div class="arch-logo-label">APIs</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/postgresql/4169E1" alt="DB" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Databases</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon">📡</div>
+            <div class="arch-logo-label">IoT</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon">📄</div>
+            <div class="arch-logo-label">Documents</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- Data Lake / Warehouse -->
+      <div class="arch-box">
+        <div class="arch-box-title">DATA LAKE / WAREHOUSE</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="Azure Data Lake" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Azure Data Lake</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/amazons3/569A31" alt="S3" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">S3</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/googlebigquery/669DF6" alt="BigQuery" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">BigQuery</div>
+          </div>
+        </div>
+        <div class="arch-features" style="margin-top:14px;">
+          <span class="arch-feature">ETL Pipelines</span>
+          <span class="arch-feature">Data Quality Checks</span>
+        </div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- ML Training Platform -->
+      <div class="arch-box">
+        <div class="arch-box-title">ML TRAINING PLATFORM</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="Azure ML" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Azure ML</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/amazonaws/232F3E" alt="SageMaker" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">SageMaker</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/googlecloud/4285F4" alt="Vertex AI" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Vertex AI</div>
+          </div>
+        </div>
+        <div class="caf-checklist" style="margin-top:14px;">
+          <span class="caf-check">Experiment Tracking</span>
+          <span class="caf-check">Hyperparameter Tuning</span>
+          <span class="caf-check">Data Quality Checks</span>
+          <span class="caf-check">Model Registry</span>
+        </div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- Model Serving & Inference -->
+      <div class="arch-box data-layer">
+        <div class="arch-box-title">MODEL SERVING & INFERENCE</div>
+        <div class="arch-features" style="margin-top:8px;">
+          <span class="arch-feature">REST API</span>
+          <span class="arch-feature">Batch</span>
+          <span class="arch-feature">Real-time Stream</span>
+        </div>
+        <div class="caf-checklist" style="margin-top:14px;">
+          <span class="caf-check">Auto-scaling</span>
+          <span class="caf-check">A/B Testing</span>
+          <span class="caf-check">A/B Testing</span>
+          <span class="caf-check">Canary</span>
         </div>
       </div>
     </div>`;
