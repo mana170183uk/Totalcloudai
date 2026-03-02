@@ -1143,6 +1143,113 @@ ul { list-style: none; }
 .mig-arrow-right {
   font-size: 20px; color: rgba(96,165,250,0.5);
 }
+/* Cloud Infra - Region Split */
+.infra-regions {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; width: 100%; max-width: 580px;
+}
+.infra-region {
+  border: 1.5px solid rgba(96,165,250,0.3); border-radius: 10px;
+  padding: 20px 16px; text-align: center;
+  background: rgba(30,58,138,0.08);
+}
+[data-theme="light"] .infra-region {
+  background: rgba(59,130,246,0.04); border-color: rgba(59,130,246,0.2);
+}
+.infra-region-title {
+  font-family: var(--mono); font-size: 13px; font-weight: 700;
+  color: #93C5FD; text-transform: uppercase; letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+[data-theme="light"] .infra-region-title { color: #2563EB; }
+.infra-region-desc {
+  font-size: 12px; color: rgba(148,163,184,0.8); line-height: 1.5;
+}
+/* Cloud Infra - Bottom 4-grid */
+.infra-bottom-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 12px; width: 100%; max-width: 580px;
+}
+.infra-bottom-item {
+  border: 1.5px dashed rgba(96,165,250,0.3); border-radius: 10px;
+  padding: 16px 8px; text-align: center;
+  background: rgba(30,58,138,0.05);
+}
+[data-theme="light"] .infra-bottom-item {
+  background: rgba(59,130,246,0.03); border-color: rgba(59,130,246,0.2);
+}
+.infra-bottom-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 8px; font-size: 22px;
+  background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.2);
+}
+.infra-bottom-title {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  color: #93C5FD; margin-bottom: 4px;
+}
+[data-theme="light"] .infra-bottom-title { color: #2563EB; }
+.infra-bottom-desc {
+  font-size: 10px; color: rgba(148,163,184,0.7); line-height: 1.4;
+}
+/* Arrow that splits into two */
+.arch-arrow-split {
+  display: flex; justify-content: center; gap: 0; padding: 6px 0;
+  width: 100%; max-width: 580px; position: relative;
+}
+.arch-arrow-split::before {
+  content: ''; position: absolute; top: 0;
+  left: 50%; width: 2px; height: 14px;
+  background: linear-gradient(180deg, #3B82F6, #60A5FA);
+  transform: translateX(-50%);
+}
+.arch-arrow-split::after {
+  content: ''; position: absolute; top: 14px;
+  left: 25%; right: 25%; height: 2px;
+  background: #60A5FA;
+}
+.arch-arrow-split-left, .arch-arrow-split-right {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+}
+.arch-arrow-split-left::after, .arch-arrow-split-right::after {
+  content: ''; width: 2px; height: 14px; background: #60A5FA;
+}
+.arch-arrow-split-head {
+  width: 0; height: 0;
+  border-left: 6px solid transparent; border-right: 6px solid transparent;
+  border-top: 8px solid #60A5FA;
+}
+/* Arrow that merges from two */
+.arch-arrow-merge {
+  display: flex; justify-content: center; gap: 0; padding: 6px 0;
+  width: 100%; max-width: 580px; position: relative;
+}
+.arch-arrow-merge-left, .arch-arrow-merge-right {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+}
+.arch-arrow-merge-left::before, .arch-arrow-merge-right::before {
+  content: ''; width: 2px; height: 14px; background: #60A5FA;
+}
+.arch-arrow-merge::before {
+  content: ''; position: absolute; top: 20px;
+  left: 25%; right: 25%; height: 2px;
+  background: #60A5FA;
+}
+.arch-arrow-merge::after {
+  content: ''; position: absolute; bottom: 0;
+  left: 50%; width: 2px; height: 14px;
+  background: #60A5FA; transform: translateX(-50%);
+}
+.arch-arrow-merge-head {
+  width: 0; height: 0; position: absolute; bottom: -2px; left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent; border-right: 6px solid transparent;
+  border-top: 8px solid #60A5FA;
+}
+@media (max-width: 580px) {
+  .infra-bottom-grid { grid-template-columns: repeat(2, 1fr); }
+  .infra-regions { grid-template-columns: 1fr; }
+}
 @media (max-width: 480px) {
   .arch-visual { padding: 24px 16px; }
   .arch-box { padding: 16px; }
@@ -2762,27 +2869,7 @@ const serviceDetails = {
       { title: 'Monitoring Setup', desc: 'Implement Azure Monitor, CloudWatch, or Stackdriver with custom alerts and dashboards.' },
       { title: 'Handover & Support', desc: 'Documentation, knowledge transfer, and ongoing managed support with SLA guarantees.' }
     ],
-    arch: `┌─────────────────────────────────────────────────┐
-│                 LOAD BALANCER (L7)               │
-│            Azure Front Door / AWS ALB            │
-└──────────┬────────────────┬──────────────────────┘
-           │                │
-    ┌──────▼──────┐  ┌──────▼──────┐
-    │  Region A   │  │  Region B   │
-    │  App GW +   │  │  App GW +   │
-    │  VM Scale   │  │  VM Scale   │
-    │  Set / AKS  │  │  Set / AKS  │
-    └──────┬──────┘  └──────┬──────┘
-           │                │
-    ┌──────▼────────────────▼──────┐
-    │     Managed DB (Geo-Replicated)   │
-    │   Azure SQL / RDS / Cloud SQL     │
-    └──────────────┬───────────────┘
-                   │
-    ┌──────────────▼───────────────┐
-    │    Blob / S3 / GCS Storage    │
-    │      CDN + Static Assets      │
-    └──────────────────────────────┘`,
+    archHtml: true,
     tech: ['Azure VMs', 'AWS EC2', 'GCP Compute', 'Terraform', 'ARM Templates', 'CloudFormation', 'Azure Monitor', 'CloudWatch', 'VNet Peering', 'Auto-Scaling'],
     deploy: [
       { icon: '🔄', title: 'Blue-Green Deployment', desc: 'Run two identical production environments and switch traffic seamlessly for zero-downtime releases.' },
@@ -3704,6 +3791,124 @@ function getVisualArch(key) {
             <div class="caf-landing-icon">📝</div>
             <div class="caf-landing-label">Logging</div>
           </div>
+        </div>
+      </div>
+    </div>`;
+  if (key === 'cloud-infra') return `
+    <div class="arch-visual">
+      <!-- Cloud Icon -->
+      <div style="font-size:56px;line-height:1;margin-bottom:12px;">☁️</div>
+
+      <!-- Load Balancer (L7) -->
+      <div class="arch-box">
+        <div class="arch-box-title">LOAD BALANCER (L7)</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${ico.azure}" alt="Azure Front Door" style="width:28px;height:28px;"></div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${ico.aws}" alt="AWS ALB" style="width:28px;height:28px;"></div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:rgba(148,163,184,0.8);margin-top:8px;">Azure Front Door / AWS ALB</div>
+      </div>
+
+      <!-- Split arrow to two regions -->
+      <div class="arch-arrow-split">
+        <div class="arch-arrow-split-left">
+          <div class="arch-arrow-split-head"></div>
+        </div>
+        <div class="arch-arrow-split-right">
+          <div class="arch-arrow-split-head"></div>
+        </div>
+      </div>
+
+      <!-- Region A & B side by side -->
+      <div class="infra-regions">
+        <div class="infra-region">
+          <div class="infra-region-title">Region A</div>
+          <div class="arch-box-logos" style="margin-bottom:10px;">
+            <div class="arch-logo-item">
+              <div class="caf-flow-icon"><img src="${ico.azure}" alt="Azure" style="width:28px;height:28px;"></div>
+            </div>
+            <div class="arch-logo-item">
+              <div class="caf-flow-icon"><img src="${ico.k8s}" alt="AKS" style="width:28px;height:28px;"></div>
+            </div>
+          </div>
+          <div class="infra-region-desc">App GW +<br>VM Scale Set / AKS</div>
+        </div>
+        <div class="infra-region">
+          <div class="infra-region-title">Region B</div>
+          <div class="arch-box-logos" style="margin-bottom:10px;">
+            <div class="arch-logo-item">
+              <div class="caf-flow-icon"><img src="${ico.aws}" alt="AWS" style="width:28px;height:28px;"></div>
+            </div>
+            <div class="arch-logo-item">
+              <div class="caf-flow-icon"><img src="${ico.k8s}" alt="AKS" style="width:28px;height:28px;"></div>
+            </div>
+          </div>
+          <div class="infra-region-desc">App GW +<br>VM Scale Set / AKS</div>
+        </div>
+      </div>
+
+      <!-- Merge arrow from two regions -->
+      <div class="arch-arrow-merge">
+        <div class="arch-arrow-merge-left"></div>
+        <div class="arch-arrow-merge-right"></div>
+        <div class="arch-arrow-merge-head"></div>
+      </div>
+
+      <!-- Managed DB -->
+      <div class="arch-box">
+        <div class="arch-box-title">MANAGED DB (GEO-REPLICATED)</div>
+        <div style="font-size:12px;color:rgba(148,163,184,0.8);margin:6px 0 10px;">Azure SQL / RDS / Cloud SQL</div>
+        <div class="arch-box-logos">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${ico.postgresql}" alt="SQL" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">SQL</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${ico.mysql}" alt="MySQL" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">MySQL</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${ico.redis}" alt="Redis" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Redis</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- Blob / S3 / GCS Storage -->
+      <div class="arch-box">
+        <div class="arch-box-title">BLOB / S3 / GCS STORAGE</div>
+        <div style="font-size:12px;color:rgba(148,163,184,0.8);margin-top:6px;">CDN + Static Assets</div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- Bottom 4-grid: CDN, Static Assets, Backups, Monitoring -->
+      <div class="infra-bottom-grid">
+        <div class="infra-bottom-item">
+          <div class="infra-bottom-icon">🌐</div>
+          <div class="infra-bottom-title">CDN</div>
+          <div class="infra-bottom-desc">Edge + Caching</div>
+        </div>
+        <div class="infra-bottom-item">
+          <div class="infra-bottom-icon">📄</div>
+          <div class="infra-bottom-title">Static Assets</div>
+          <div class="infra-bottom-desc">Web / Media</div>
+        </div>
+        <div class="infra-bottom-item">
+          <div class="infra-bottom-icon">💾</div>
+          <div class="infra-bottom-title">Backups</div>
+          <div class="infra-bottom-desc">Automated Snapshots</div>
+        </div>
+        <div class="infra-bottom-item">
+          <div class="infra-bottom-icon"><img src="${ico.grafana}" alt="Monitoring" style="width:22px;height:22px;"></div>
+          <div class="infra-bottom-title">Monitoring</div>
+          <div class="infra-bottom-desc">Logs + Metrics</div>
         </div>
       </div>
     </div>`;
