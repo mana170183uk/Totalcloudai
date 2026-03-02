@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TotalCloudAI — Next-Gen Cloud & AI Solutions | UK Cloud Consultancy</title>
+<meta name="description" content="TotalCloudAI — End-to-end cloud architecture, AI/ML solutions, and digital transformation across Azure, AWS, GCP & Alibaba Cloud. UK-based cloud consultancy.">
+<meta name="keywords" content="cloud architecture, AI solutions, Azure, AWS, GCP, DevOps, UK cloud consultancy, digital transformation">
+<meta name="author" content="TotalCloudAI Limited">
+<link rel="canonical" href="https://totalcloudai.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://totalcloudai.com/">
+<meta property="og:title" content="TotalCloudAI — Transforming Future with CloudAI">
+<meta property="og:description" content="End-to-end cloud architecture, AI/ML solutions, and digital transformation across Azure, AWS, GCP & Alibaba Cloud.">
+<meta property="og:image" content="https://totalcloudai.com/assets/favicon-source.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TotalCloudAI — Transforming Future with CloudAI">
+<meta name="twitter:description" content="End-to-end cloud architecture, AI/ML solutions, and digital transformation.">
+<meta name="twitter:image" content="https://totalcloudai.com/assets/favicon-source.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#050A18">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"TotalCloudAI Limited","url":"https://totalcloudai.com","logo":"https://totalcloudai.com/assets/favicon-source.png","description":"End-to-end cloud architecture, AI/ML solutions, and digital transformation across Azure, AWS, GCP & Alibaba Cloud.","address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"contactPoint":{"@type":"ContactPoint","email":"hello@totalcloudai.com","contactType":"sales"},"sameAs":[]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js?render=6LdXnXwsAAAAABSQ8AwQUPGtiKYZGXmNBX4XWdxJ"></script>
+<style>
+/* ============================================
+   THEME SYSTEM - TWO COMPLETELY UNIQUE THEMES
+   ============================================ */
+:root {
+  --radius: 20px;
+  --radius-sm: 12px;
+  --radius-lg: 28px;
+  --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --font: 'Inter', -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+/* ═══════════════════════════════════════════
+   DARK THEME: "VIVID DEPTHS"
+   Deep ocean with vivid blue, purple & indigo aurora effects
+   ═══════════════════════════════════════════ */
+[data-theme="dark"] {
+  --bg-primary: #050A18;
+  --bg-secondary: #0A1228;
+  --bg-tertiary: #101C3A;
+  --bg-card: rgba(10, 18, 40, 0.55);
+  --bg-card-hover: rgba(16, 28, 58, 0.75);
+  --bg-glass: rgba(5, 10, 24, 0.45);
+  --text-primary: #EEF2FF;
+  --text-secondary: #7090E0;
+  --text-muted: #4868B0;
+  --border: rgba(59, 130, 246, 0.1);
+  --border-hover: rgba(59, 130, 246, 0.3);
+  --shadow: 0 8px 40px rgba(0,0,0,0.4);
+  --shadow-lg: 0 24px 80px rgba(0,0,0,0.5);
+  --nav-bg: rgba(5, 10, 24, 0.7);
+  --accent-1: #3B82F6;
+  --accent-2: #A855F7;
+  --accent-3: #818CF8;
+  --accent-4: #C084FC;
+  --gradient-hero: linear-gradient(135deg, #3B82F6 0%, #A855F7 40%, #818CF8 70%, #C084FC 100%);
+  --gradient-card: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(168,85,247,0.06));
+  --glow-1: rgba(59, 130, 246, 0.35);
+  --glow-2: rgba(168, 85, 247, 0.3);
+  --noise-opacity: 0.03;
+  --aurora-opacity: 1;
+  --card-blur: 16px;
+  --divider-fill: #050A18;
+}
+
+/* ═══════════════════════════════════════════
+   LIGHT THEME: "PRISM VIVID"
+   Frosted glass with vivid blue & purple prism refractions
+   ═══════════════════════════════════════════ */
+[data-theme="light"] {
+  --bg-primary: #EEF0FA;
+  --bg-secondary: #F5F6FC;
+  --bg-tertiary: #DCE0F4;
+  --bg-card: rgba(245, 246, 252, 0.7);
+  --bg-card-hover: rgba(220, 224, 244, 0.6);
+  --bg-glass: rgba(238, 240, 250, 0.6);
+  --text-primary: #0A0E30;
+  --text-secondary: #2A3470;
+  --text-muted: #4A50A0;
+  --border: rgba(59, 130, 246, 0.1);
+  --border-hover: rgba(59, 130, 246, 0.25);
+  --shadow: 0 8px 40px rgba(59, 130, 246, 0.1);
+  --shadow-lg: 0 24px 80px rgba(59, 130, 246, 0.14);
+  --nav-bg: rgba(238, 240, 250, 0.75);
+  --accent-1: #2563EB;
+  --accent-2: #7C3AED;
+  --accent-3: #6366F1;
+  --accent-4: #9333EA;
+  --gradient-hero: linear-gradient(135deg, #2563EB 0%, #7C3AED 40%, #6366F1 70%, #9333EA 100%);
+  --gradient-card: linear-gradient(135deg, rgba(37,99,235,0.04), rgba(124,58,237,0.03));
+  --glow-1: rgba(37, 99, 235, 0.15);
+  --glow-2: rgba(124, 58, 237, 0.12);
+  --noise-opacity: 0.015;
+  --aurora-opacity: 0.5;
+  --card-blur: 20px;
+  --divider-fill: #EEF0FA;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: var(--font);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background 0.6s ease, color 0.4s ease;
+  cursor: none;
+}
+@media (max-width: 768px) { body { cursor: auto; } }
+a { text-decoration: none; color: inherit; cursor: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ============================================
+   CUSTOM CURSOR
+   ============================================ */
+.cursor {
+  width: 20px; height: 20px;
+  border: 2px solid var(--accent-1);
+  border-radius: 50%; position: fixed;
+  pointer-events: none; z-index: 9999;
+  transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.1s;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+.cursor.hover {
+  width: 50px; height: 50px;
+  border-color: var(--accent-2);
+  background: rgba(59,130,246,0.1);
+}
+.cursor-dot {
+  width: 6px; height: 6px;
+  background: var(--accent-1);
+  border-radius: 50%; position: fixed;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+@media (max-width: 768px) { .cursor, .cursor-dot { display: none; } }
+
+/* ============================================
+   NOISE OVERLAY
+   ============================================ */
+.noise-overlay {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none;
+  opacity: var(--noise-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ============================================
+   AURORA BACKGROUND (DARK) / PRISM (LIGHT)
+   ============================================ */
+.aurora-container {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; overflow: hidden;
+  opacity: var(--aurora-opacity);
+  transition: opacity 0.6s ease;
+}
+.aurora-blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.aurora-blob:nth-child(1) {
+  width: 600px; height: 400px; top: -10%; left: -5%;
+  background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(168,85,247,0.2));
+  animation: auroraMove1 18s infinite;
+}
+.aurora-blob:nth-child(2) {
+  width: 500px; height: 500px; top: 30%; right: -10%;
+  background: linear-gradient(135deg, rgba(168,85,247,0.2), rgba(129,140,248,0.15));
+  animation: auroraMove2 22s infinite;
+}
+.aurora-blob:nth-child(3) {
+  width: 700px; height: 350px; bottom: -5%; left: 20%;
+  background: linear-gradient(135deg, rgba(129,140,248,0.2), rgba(192,132,252,0.12));
+  animation: auroraMove3 25s infinite;
+}
+.aurora-blob:nth-child(4) {
+  width: 400px; height: 400px; top: 50%; left: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%);
+  animation: auroraMove4 20s infinite;
+}
+@keyframes auroraMove1 {
+  0%,100% { transform: translate(0,0) rotate(0deg) scale(1); }
+  25% { transform: translate(80px,40px) rotate(10deg) scale(1.1); }
+  50% { transform: translate(40px,80px) rotate(-5deg) scale(0.9); }
+  75% { transform: translate(-40px,20px) rotate(5deg) scale(1.05); }
+}
+@keyframes auroraMove2 {
+  0%,100% { transform: translate(0,0) rotate(0deg) scale(1); }
+  33% { transform: translate(-60px,50px) rotate(-8deg) scale(1.15); }
+  66% { transform: translate(40px,-30px) rotate(12deg) scale(0.85); }
+}
+@keyframes auroraMove3 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(60px,-40px) scale(1.2); }
+}
+@keyframes auroraMove4 {
+  0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 0.5; }
+  50% { transform: translate(-50%,-50%) scale(1.5); opacity: 0.2; }
+}
+
+/* Light theme prism effect */
+[data-theme="light"] .aurora-blob:nth-child(1) {
+  background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(124,58,237,0.08));
+}
+[data-theme="light"] .aurora-blob:nth-child(2) {
+  background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(99,102,241,0.06));
+}
+[data-theme="light"] .aurora-blob:nth-child(3) {
+  background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(147,51,234,0.05));
+}
+[data-theme="light"] .aurora-blob:nth-child(4) {
+  background: radial-gradient(circle, rgba(37,99,235,0.06), transparent 70%);
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.container { max-width: 1320px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+.section { padding: 140px 0; position: relative; }
+.section-header { margin-bottom: 72px; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 3px;
+  color: var(--accent-2); margin-bottom: 20px;
+  padding: 6px 16px; border-radius: 100px;
+  background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.15);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700; line-height: 1.1;
+  letter-spacing: -0.03em; margin-bottom: 20px;
+}
+.section-subtitle {
+  font-size: 1.15rem; color: var(--text-secondary);
+  max-width: 560px; line-height: 1.8;
+}
+.gradient-text {
+  background: var(--gradient-hero);
+  background-size: 300% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientFlow 6s ease infinite;
+}
+@keyframes gradientFlow {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* Wave Section Divider */
+.wave-divider {
+  position: absolute; bottom: -2px; left: 0; width: 100%;
+  line-height: 0; z-index: 3;
+}
+.wave-divider svg { width: 100%; height: auto; }
+.wave-divider-top { top: -2px; bottom: auto; transform: rotate(180deg); }
+
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+.reveal {
+  opacity: 0; transform: translateY(50px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { transform: translateX(-60px); }
+.reveal-left.visible { transform: translateX(0); }
+.reveal-right { transform: translateX(60px); }
+.reveal-right.visible { transform: translateX(0); }
+.reveal-scale { transform: scale(0.9); }
+.reveal-scale.visible { transform: scale(1); }
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.1s; }
+.stagger-3 { transition-delay: 0.15s; }
+.stagger-4 { transition-delay: 0.2s; }
+.stagger-5 { transition-delay: 0.25s; }
+.stagger-6 { transition-delay: 0.3s; }
+
+/* ============================================
+   GLASS CARD BASE
+   ============================================ */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--card-blur));
+  -webkit-backdrop-filter: blur(var(--card-blur));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative; overflow: hidden;
+}
+.glass-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--gradient-card); opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.glass-card:hover::before { opacity: 1; }
+.glass-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg), 0 0 40px var(--glow-1);
+  transform: translateY(-8px);
+}
+
+/* 3D Tilt Container */
+.tilt-card { transform-style: preserve-3d; perspective: 1000px; }
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; border-radius: 14px;
+  font-family: var(--font); font-weight: 600; font-size: 15px;
+  border: none; cursor: none; transition: all var(--transition);
+  position: relative; overflow: hidden;
+}
+.btn-glow {
+  background: var(--gradient-hero); background-size: 200% auto;
+  color: #fff; animation: gradientFlow 4s ease infinite;
+}
+.btn-glow::before {
+  content: ''; position: absolute; inset: -2px;
+  background: var(--gradient-hero); background-size: 200% auto;
+  border-radius: 16px; z-index: -1; filter: blur(12px); opacity: 0.5;
+  animation: gradientFlow 4s ease infinite;
+  transition: opacity 0.3s;
+}
+.btn-glow:hover::before { opacity: 0.8; }
+.btn-glow:hover { transform: translateY(-3px) scale(1.02); }
+
+.btn-glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+.btn-glass:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: all 0.4s ease;
+}
+.navbar.scrolled {
+  min-height: 72px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Logo — CSS Text Wordmark */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  gap: 6px;
+  transition: opacity 0.3s ease;
+}
+.nav-logo:hover { opacity: 0.85; }
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.navbar.scrolled .logo-icon { width: 30px; height: 30px; border-radius: 7px; }
+.footer-about .logo-icon { width: 32px; height: 32px; border-radius: 8px; }
+.logo-total {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.logo-cloud {
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.logo-ai {
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.navbar.scrolled .nav-logo { font-size: 1.45rem; }
+.footer-about .nav-logo {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+/* Nav Links */
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-link {
+  padding: 8px 16px; border-radius: 10px;
+  font-size: 14px; font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+  position: relative;
+}
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-card);
+}
+.nav-link.active {
+  color: var(--accent-1);
+  background: rgba(123,97,255,0.08);
+}
+
+/* Nav Actions */
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+
+/* Theme Toggle — Morphing Sun/Moon */
+.theme-toggle {
+  width: 48px; height: 48px; border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  cursor: none; display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition); position: relative; overflow: hidden;
+}
+.theme-toggle:hover {
+  border-color: var(--border-hover);
+  transform: rotate(30deg) scale(1.05);
+  box-shadow: 0 0 20px var(--glow-1);
+}
+.toggle-icon {
+  font-size: 20px; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+[data-theme="dark"] .toggle-icon { transform: rotate(0deg); }
+[data-theme="light"] .toggle-icon { transform: rotate(360deg); }
+
+/* Mobile */
+.menu-toggle {
+  display: none; width: 48px; height: 48px; border-radius: 14px;
+  border: 1px solid var(--border); background: var(--bg-card);
+  cursor: pointer; flex-direction: column; align-items: center;
+  justify-content: center; gap: 5px;
+}
+.menu-toggle span {
+  width: 22px; height: 2px; background: var(--text-primary);
+  border-radius: 2px; transition: all var(--transition);
+}
+
+/* Mobile Nav */
+.mobile-nav {
+  position: fixed; inset: 0; z-index: 999;
+  background: var(--bg-primary);
+  backdrop-filter: blur(24px);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 20px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.mobile-nav.active { opacity: 1; pointer-events: all; }
+.mobile-nav a {
+  font-family: var(--font-display); font-size: 2rem; font-weight: 600;
+  color: var(--text-primary); transition: color var(--transition);
+}
+.mobile-nav a:hover { color: var(--accent-1); }
+.mobile-close {
+  position: absolute; top: 24px; right: 24px;
+  width: 48px; height: 48px; border-radius: 14px;
+  border: 1px solid var(--border); background: var(--bg-card);
+  cursor: pointer; font-size: 20px; color: var(--text-primary);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 120px 0 80px; position: relative; overflow: hidden;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center;
+}
+.hero-content { position: relative; z-index: 2; }
+
+/* Hero Badge */
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 20px 8px 12px; border-radius: 100px;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  font-size: 13px; font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  animation: fadeInDown 0.8s ease;
+}
+.status-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #3B82F6;
+  box-shadow: 0 0 12px #3B82F6;
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(59,130,246,0); }
+}
+
+/* Hero Title */
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
+  font-weight: 700; line-height: 1.02;
+  letter-spacing: -0.04em;
+  margin-bottom: 28px;
+}
+.hero h1 .line { display: block; overflow: hidden; }
+.hero h1 .line span {
+  display: inline-block;
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero h1 .line:nth-child(2) span { animation-delay: 0.1s; }
+.hero h1 .line:nth-child(3) span { animation-delay: 0.2s; }
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-desc {
+  font-size: 1.15rem; color: var(--text-secondary);
+  max-width: 520px; margin-bottom: 40px; line-height: 1.8;
+  animation: fadeInDown 0.8s ease 0.3s both;
+}
+.hero-actions {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  animation: fadeInDown 0.8s ease 0.4s both;
+}
+
+/* Hero Stats */
+.hero-stats {
+  display: flex; gap: 40px; margin-top: 64px;
+  animation: fadeInDown 0.8s ease 0.5s both;
+}
+.hero-stat { text-align: center; }
+.hero-stat-value {
+  font-family: var(--font-display); font-size: 2.8rem; font-weight: 700;
+  line-height: 1;
+}
+.hero-stat-value .counter { display: inline; }
+.hero-stat-label {
+  font-size: 13px; color: var(--text-muted);
+  margin-top: 6px; font-weight: 500;
+}
+
+/* Hero Visual — 3D Orb */
+.hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
+.orb-container {
+  width: 480px; height: 480px; position: relative;
+  animation: orbFloat 8s ease-in-out infinite;
+}
+@keyframes orbFloat {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-15px) rotate(2deg); }
+  75% { transform: translateY(10px) rotate(-1deg); }
+}
+.orb-core {
+  position: absolute; top: 50%; left: 50%;
+  width: 200px; height: 200px; border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--gradient-hero); background-size: 300% auto;
+  animation: gradientFlow 6s ease infinite;
+  box-shadow: 0 0 80px var(--glow-1), 0 0 160px var(--glow-2), inset 0 0 40px rgba(255,255,255,0.1);
+}
+.orb-ring {
+  position: absolute; top: 50%; left: 50%;
+  border-radius: 50%;
+  border: 1px solid;
+  transform: translate(-50%, -50%);
+}
+.orb-ring:nth-child(2) {
+  width: 280px; height: 280px;
+  border-color: rgba(59,130,246,0.15);
+  animation: ringRotate 20s linear infinite;
+}
+.orb-ring:nth-child(3) {
+  width: 360px; height: 360px;
+  border-color: rgba(168,85,247,0.12);
+  animation: ringRotate 30s linear infinite reverse;
+}
+.orb-ring:nth-child(4) {
+  width: 440px; height: 440px;
+  border-color: rgba(129,140,248,0.08);
+  animation: ringRotate 40s linear infinite;
+}
+@keyframes ringRotate { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+/* Orbiting planets */
+.orbit-planet {
+  position: absolute; border-radius: 50%;
+  box-shadow: 0 0 20px currentColor;
+}
+.planet-azure {
+  width: 18px; height: 18px; background: #0078D4; color: rgba(0,120,212,0.5);
+  top: -9px; left: 50%;
+}
+.planet-aws {
+  width: 16px; height: 16px; background: #FF9900; color: rgba(255,153,0,0.5);
+  top: 50%; right: -8px;
+}
+.planet-gcp {
+  width: 14px; height: 14px; background: #34A853; color: rgba(52,168,83,0.5);
+  bottom: -7px; left: 50%;
+}
+.planet-alibaba {
+  width: 12px; height: 12px; background: #FF6A00; color: rgba(255,106,0,0.5);
+  top: 50%; left: -6px;
+}
+
+/* ============================================
+   MARQUEE / TRUSTED
+   ============================================ */
+.marquee-section {
+  padding: 48px 0; position: relative; z-index: 2;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex; gap: 64px; width: max-content;
+  animation: marquee 25s linear infinite;
+}
+.marquee-item {
+  font-family: var(--font-display); font-size: 1.1rem;
+  font-weight: 600; color: var(--text-muted);
+  white-space: nowrap; opacity: 0.5;
+  transition: opacity var(--transition);
+  display: flex; align-items: center; gap: 12px;
+}
+.marquee-item:hover { opacity: 1; }
+.marquee-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent-1); opacity: 0.5;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================
+   SERVICES
+   ============================================ */
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.service-card {
+  padding: 44px 36px; border-radius: var(--radius-lg);
+  position: relative; overflow: hidden;
+}
+/* Animated border gradient */
+.service-card::after {
+  content: ''; position: absolute; top: -1px; left: -1px;
+  right: -1px; bottom: -1px;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-1));
+  background-size: 300% 300%;
+  border-radius: inherit; z-index: -1;
+  opacity: 0; transition: opacity 0.5s ease;
+  animation: borderRotate 4s linear infinite;
+}
+.service-card:hover::after { opacity: 1; }
+@keyframes borderRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.service-card-inner {
+  position: relative; z-index: 1;
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--card-blur));
+  border-radius: calc(var(--radius-lg) - 1px);
+  margin: -43px -35px; padding: 44px 36px;
+}
+.service-card:hover .service-card-inner {
+  background: var(--bg-card-hover);
+}
+
+.service-icon-wrap {
+  width: 64px; height: 64px; border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; margin-bottom: 28px;
+  position: relative;
+}
+.service-icon-wrap.c1 { background: rgba(59,130,246,0.15); }
+.service-icon-wrap.c2 { background: rgba(168,85,247,0.15); }
+.service-icon-wrap.c3 { background: rgba(129,140,248,0.15); }
+.service-icon-wrap.c4 { background: rgba(192,132,252,0.15); }
+.service-icon-wrap.c5 { background: rgba(37,99,235,0.15); }
+.service-icon-wrap.c6 { background: rgba(124,58,237,0.15); }
+
+.service-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem; font-weight: 600;
+  margin-bottom: 14px; letter-spacing: -0.01em;
+}
+.service-card p {
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75;
+  margin-bottom: 20px;
+}
+.service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.service-tag {
+  padding: 4px 14px; border-radius: 100px;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--accent-2);
+  background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.12);
+}
+
+/* ============================================
+   PLATFORMS - Hexagonal Layout
+   ============================================ */
+.platforms-flex {
+  display: flex; gap: 28px; justify-content: center;
+  flex-wrap: wrap;
+}
+.platform-hex {
+  width: 260px; padding: 48px 32px; text-align: center;
+  border-radius: var(--radius-lg);
+  position: relative;
+}
+.platform-hex .platform-logo {
+  width: 80px; height: 80px; margin: 0 auto 24px;
+  border-radius: 24px; display: flex;
+  align-items: center; justify-content: center;
+  font-size: 28px; font-weight: 800; color: #fff;
+  position: relative;
+}
+.platform-hex .platform-logo::after {
+  content: ''; position: absolute; inset: -4px;
+  border-radius: 28px; opacity: 0.3;
+  transition: opacity 0.4s, transform 0.4s;
+}
+.platform-hex:hover .platform-logo::after {
+  opacity: 0.5; transform: scale(1.15);
+}
+.p-azure .platform-logo { background: linear-gradient(135deg, #0078D4, #00BCF2); }
+.p-azure .platform-logo::after { background: linear-gradient(135deg, #0078D4, #00BCF2); filter: blur(12px); }
+.p-aws .platform-logo { background: linear-gradient(135deg, #FF9900, #FFB84D); }
+.p-aws .platform-logo::after { background: linear-gradient(135deg, #FF9900, #FFB84D); filter: blur(12px); }
+.p-gcp .platform-logo { background: linear-gradient(135deg, #4285F4, #34A853); }
+.p-gcp .platform-logo::after { background: linear-gradient(135deg, #4285F4, #34A853); filter: blur(12px); }
+.p-alibaba .platform-logo { background: linear-gradient(135deg, #FF6A00, #FFB800); }
+.p-alibaba .platform-logo::after { background: linear-gradient(135deg, #FF6A00, #FFB800); filter: blur(12px); }
+
+.platform-hex h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
+.platform-hex p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* ============================================
+   ABOUT — Split Layout
+   ============================================ */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.about-metrics {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.metric-card {
+  padding: 32px; text-align: center;
+}
+.metric-value {
+  font-family: var(--font-display);
+  font-size: 2.5rem; font-weight: 700;
+  margin-bottom: 6px;
+}
+.metric-value.g1 { color: #3B82F6; }
+.metric-value.g2 { color: #A855F7; }
+.metric-value.g3 { color: #818CF8; }
+.metric-value.g4 { color: #C084FC; }
+.metric-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+
+.about-features { display: flex; flex-direction: column; gap: 24px; }
+.about-feature {
+  display: flex; gap: 20px; padding: 24px;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(var(--card-blur));
+  transition: all var(--transition);
+}
+.about-feature:hover {
+  border-color: var(--border-hover);
+  transform: translateX(8px);
+  box-shadow: var(--shadow);
+}
+.about-feature-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--gradient-hero); background-size: 200% auto;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+  animation: gradientFlow 6s ease infinite;
+}
+.about-feature h4 { font-family: var(--font-display); font-weight: 600; margin-bottom: 6px; }
+.about-feature p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+/* ============================================
+   PROCESS — Connected Steps
+   ============================================ */
+.process-steps {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0; position: relative;
+  max-width: 960px; margin: 0 auto;
+}
+.process-steps::before {
+  content: ''; position: absolute; top: 52px;
+  left: calc(16.67% + 26px); right: calc(16.67% + 26px);
+  height: 2px;
+  background: linear-gradient(90deg, #3B82F6, #A855F7, #818CF8);
+  opacity: 0.3;
+}
+.process-step { text-align: center; padding: 0 20px; position: relative; }
+.step-number {
+  width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 28px;
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+  background: var(--bg-card); border: 2px solid var(--border);
+  backdrop-filter: blur(12px); z-index: 2; position: relative;
+  transition: all var(--transition);
+}
+.process-step:hover .step-number {
+  background: var(--gradient-hero); background-size: 200% auto;
+  color: #fff; border-color: transparent;
+  box-shadow: 0 0 30px var(--glow-1);
+  transform: scale(1.15);
+}
+.process-step h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
+.process-step p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+
+/* ============================================
+   TESTIMONIALS — Staggered Cards
+   ============================================ */
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.testimonial-card { padding: 40px; }
+.testimonial-card:nth-child(2) { transform: translateY(24px); }
+.testimonial-card:hover:nth-child(2) { transform: translateY(16px); }
+.testimonial-stars {
+  display: flex; gap: 4px; margin-bottom: 20px;
+}
+.star { color: #FBBF24; font-size: 16px; }
+.testimonial-text {
+  font-size: 1rem; color: var(--text-secondary);
+  line-height: 1.85; margin-bottom: 28px;
+  font-style: italic; position: relative;
+  padding-left: 20px; border-left: 2px solid var(--accent-1);
+}
+.testimonial-author { display: flex; align-items: center; gap: 14px; }
+.testimonial-avatar {
+  width: 48px; height: 48px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 16px; color: #fff;
+}
+.testimonial-name { font-weight: 600; font-size: 0.95rem; }
+.testimonial-role { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+
+/* ============================================
+   PRICING — Featured Glow
+   ============================================ */
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px; align-items: start;
+}
+.pricing-card { padding: 44px 36px; }
+.pricing-card.featured {
+  border-color: var(--accent-1);
+  box-shadow: 0 0 60px var(--glow-1);
+  transform: scale(1.03);
+  z-index: 2;
+}
+.pricing-card.featured:hover { transform: scale(1.05) translateY(-8px); }
+.pricing-badge {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  padding: 6px 20px; border-radius: 100px;
+  background: var(--gradient-hero); background-size: 200% auto;
+  color: #fff; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.5px; animation: gradientFlow 4s ease infinite;
+}
+.pricing-label {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--accent-2); margin-bottom: 12px;
+}
+.pricing-amount {
+  font-family: var(--font-display);
+  font-size: 3.2rem; font-weight: 700;
+  letter-spacing: -0.03em; margin-bottom: 8px;
+}
+.pricing-amount span { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
+.pricing-desc { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 32px; line-height: 1.7; }
+.pricing-features { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+.pricing-feature {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.9rem; color: var(--text-secondary);
+}
+.pricing-check { color: var(--accent-2); font-weight: 700; font-size: 16px; }
+
+/* ============================================
+   BLOG — Overlapping Cards
+   ============================================ */
+.blog-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.blog-card {
+  border-radius: var(--radius-lg); overflow: hidden; cursor: none;
+}
+.blog-card:hover { transform: translateY(-12px); }
+.blog-thumb {
+  height: 220px; position: relative; overflow: hidden;
+}
+.blog-thumb-bg {
+  width: 100%; height: 100%;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.blog-card:hover .blog-thumb-bg { transform: scale(1.08); }
+.blog-category {
+  position: absolute; bottom: 16px; left: 16px;
+  padding: 6px 16px; border-radius: 100px;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: #fff; backdrop-filter: blur(8px);
+}
+.blog-body { padding: 32px; }
+.blog-meta {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--text-muted); margin-bottom: 14px;
+}
+.blog-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem; font-weight: 600;
+  line-height: 1.4; margin-bottom: 12px;
+}
+.blog-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+.blog-read {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 20px; font-size: 14px; font-weight: 600;
+  color: var(--accent-1);
+}
+.blog-card:hover .blog-read { gap: 14px; }
+
+/* ============================================
+   CTA — Gradient Box
+   ============================================ */
+.cta-box {
+  padding: 100px 60px; border-radius: var(--radius-lg);
+  background: var(--gradient-hero); background-size: 300% auto;
+  animation: gradientFlow 8s ease infinite;
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-box::before {
+  content: ''; position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='1' fill='%23ffffff' fill-opacity='0.08'/%3E%3C/svg%3E");
+}
+.cta-box h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700; color: #fff;
+  margin-bottom: 20px; position: relative;
+}
+.cta-box p {
+  font-size: 1.1rem; color: rgba(255,255,255,0.8);
+  max-width: 550px; margin: 0 auto 40px; position: relative;
+}
+.cta-buttons { display: flex; gap: 16px; justify-content: center; position: relative; }
+.btn-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 36px; border-radius: 14px;
+  background: #fff; color: var(--accent-1);
+  font-weight: 700; font-size: 15px;
+  border: none; cursor: none; transition: all var(--transition);
+}
+.btn-white:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 36px; border-radius: 14px;
+  background: transparent; color: #fff;
+  font-weight: 600; font-size: 15px;
+  border: 2px solid rgba(255,255,255,0.25); cursor: none;
+  transition: all var(--transition);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
+
+/* ============================================
+   CONTACT
+   ============================================ */
+.contact-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+}
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group label {
+  display: block; font-family: var(--mono);
+  font-size: 11px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--text-muted); margin-bottom: 10px;
+}
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%; padding: 16px 20px; border-radius: 14px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  color: var(--text-primary); font-family: var(--font); font-size: 15px;
+  transition: all var(--transition); outline: none;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  border-color: var(--accent-1);
+  box-shadow: 0 0 0 4px var(--glow-1);
+}
+.form-group textarea { min-height: 140px; resize: vertical; }
+.form-group select { cursor: pointer; }
+.form-group option { background: var(--bg-secondary); }
+
+.contact-info { display: flex; flex-direction: column; gap: 20px; }
+.contact-card {
+  display: flex; gap: 16px; padding: 24px;
+  border-radius: var(--radius);
+  background: var(--bg-card); border: 1px solid var(--border);
+  backdrop-filter: blur(var(--card-blur));
+  transition: all var(--transition);
+}
+.contact-card:hover { border-color: var(--border-hover); transform: translateX(6px); }
+.contact-card-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--gradient-hero); background-size: 200% auto;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+  animation: gradientFlow 6s ease infinite;
+}
+.contact-card h4 { font-family: var(--font-display); font-weight: 600; margin-bottom: 4px; }
+.contact-card p { font-size: 0.9rem; color: var(--text-secondary); }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  padding: 80px 0 40px;
+  border-top: 1px solid var(--border);
+  position: relative; z-index: 2;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 60px;
+}
+.footer-about p { font-size: 0.9rem; color: var(--text-secondary); margin-top: 16px; line-height: 1.8; }
+.footer-social { display: flex; gap: 10px; margin-top: 20px; }
+.footer-social a {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary); font-size: 14px; font-weight: 600;
+  transition: all var(--transition);
+}
+.footer-social a:hover {
+  background: var(--gradient-hero); color: #fff;
+  border-color: transparent; transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--glow-1);
+}
+.footer-col h4 {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--text-muted); margin-bottom: 20px;
+}
+.footer-col a {
+  display: block; font-size: 14px; color: var(--text-secondary);
+  padding: 6px 0; transition: all var(--transition);
+}
+.footer-col a:hover { color: var(--accent-1); transform: translateX(4px); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 32px; border-top: 1px solid var(--border);
+  font-size: 13px; color: var(--text-muted);
+}
+
+/* ============================================
+   TEAM
+   ============================================ */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+.team-card {
+  text-align: center;
+  padding: 32px 20px 28px;
+  border-radius: var(--radius);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+.team-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 18px;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--accent-1);
+  box-shadow: 0 0 20px var(--glow-1);
+}
+.team-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.team-card .team-role {
+  font-size: 0.82rem;
+  color: var(--accent-1);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.team-card .team-bio {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .services-grid, .testimonials-grid, .blog-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+  .platforms-flex { gap: 20px; }
+  .platform-hex { width: calc(50% - 10px); }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .process-steps { grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .process-steps::before { }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .testimonial-card:nth-child(2) { transform: none; }
+  .testimonial-card:hover:nth-child(2) { transform: translateY(-8px); }
+}
+@media (max-width: 768px) {
+  .navbar { min-height: 64px; }
+  .navbar.scrolled { min-height: 60px; }
+  .nav-logo { font-size: 1.35rem; }
+  .navbar.scrolled .nav-logo { font-size: 1.25rem; }
+  .footer-about .nav-logo { font-size: 1.25rem; }
+  .nav-links { display: none; }
+  .menu-toggle { display: flex; }
+  .services-grid, .testimonials-grid, .blog-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .platforms-flex { flex-direction: column; align-items: center; }
+  .platform-hex { width: 100%; max-width: 320px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+  .hero-stat { flex: 0 0 calc(50% - 12px); }
+  .section { padding: 100px 0; }
+  .cta-box { padding: 60px 24px; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .process-steps { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .pricing-card.featured { transform: none; }
+  .pricing-card.featured:hover { transform: translateY(-8px); }
+}
+
+/* ============================================
+   OTP VERIFICATION MODAL
+   ============================================ */
+.otp-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  animation: otpFadeIn 0.3s ease;
+  padding: 20px;
+}
+.otp-modal {
+  max-width: 440px; width: 100%;
+  padding: 48px 40px;
+  text-align: center;
+  position: relative;
+  animation: otpSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.otp-close {
+  position: absolute; top: 16px; right: 16px;
+  background: none; border: none;
+  color: var(--text-secondary); font-size: 24px;
+  cursor: pointer; transition: color 0.3s;
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.otp-close:hover { color: var(--text-primary); background: var(--bg-card-hover); }
+.otp-icon { font-size: 48px; margin-bottom: 16px; }
+.otp-inputs {
+  display: flex; gap: 10px; justify-content: center; margin-top: 8px;
+}
+.otp-digit {
+  width: 52px; height: 60px; text-align: center;
+  font-family: var(--mono); font-size: 24px; font-weight: 600;
+  background: var(--bg-card); border: 2px solid var(--border);
+  border-radius: 14px; color: var(--text-primary);
+  outline: none; transition: all var(--transition);
+}
+.otp-digit:focus {
+  border-color: var(--accent-1);
+  box-shadow: 0 0 0 4px var(--glow-1);
+}
+.otp-digit.filled { border-color: var(--accent-2); }
+.otp-digit.error { border-color: #f87171; box-shadow: 0 0 0 4px rgba(248,113,113,0.15); }
+.otp-digit.success { border-color: #34d399; box-shadow: 0 0 0 4px rgba(52,211,153,0.15); }
+@keyframes otpFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes otpSlideUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes otpShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+.otp-inputs.shake { animation: otpShake 0.4s ease; }
+@media (max-width: 480px) {
+  .otp-modal { padding: 36px 24px; }
+  .otp-digit { width: 44px; height: 52px; font-size: 20px; }
+  .otp-inputs { gap: 6px; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#3B82F6, #A855F7);
+  border-radius: 3px;
+}
+</style>
+</head>
+<body>
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Aurora / Prism Background -->
+<div class="aurora-container">
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+</div>
+<div class="noise-overlay"></div>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobile()">✕</button>
+  <a href="#home" onclick="closeMobile()">Home</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#platforms" onclick="closeMobile()">Platforms</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#team" onclick="closeMobile()">Team</a>
+  <a href="#pricing" onclick="closeMobile()">Pricing</a>
+  <a href="#blog" onclick="closeMobile()">Blog</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo" aria-label="TotalCloudAI Home">
+      <img src="assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#platforms" class="nav-link">Platforms</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#team" class="nav-link">Team</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#blog" class="nav-link">Blog</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="toggle-icon" id="toggleIcon">☀️</span>
+      </button>
+      <a href="#contact" class="btn btn-glow" style="padding:10px 24px;font-size:13px;">Get Started →</a>
+      <button class="menu-toggle" onclick="openMobile()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="status-dot"></span>
+          10+ Years Experience — UK Cloud Consultancy
+        </div>
+        <h1>
+          <span class="line"><span>Expert Cloud Solutions</span></span>
+          <span class="line"><span class="gradient-text">for Seamless</span></span>
+          <span class="line"><span class="gradient-text">Transformation.</span></span>
+        </h1>
+        <p class="hero-desc">
+          Comprehensive cloud services offering infrastructure, automation, migration, security, compliance, and data protection for businesses across Azure, AWS, GCP & Alibaba Cloud.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-glow">Start Your Journey →</a>
+          <a href="#services" class="btn btn-glass">Explore Services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value gradient-text"><span class="counter" data-target="10">0</span>+</div>
+            <div class="hero-stat-label">Years Experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value gradient-text"><span class="counter" data-target="99">0</span>%</div>
+            <div class="hero-stat-label">Uptime Guaranteed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value gradient-text"><span class="counter" data-target="4">0</span></div>
+            <div class="hero-stat-label">Cloud Platforms</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value gradient-text">24/7</div>
+            <div class="hero-stat-label">Cloud Support</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="orb-container">
+          <div class="orb-core"></div>
+          <div class="orb-ring" style="width:280px;height:280px;">
+            <div class="orbit-planet planet-azure"></div>
+          </div>
+          <div class="orb-ring" style="width:360px;height:360px;">
+            <div class="orbit-planet planet-aws"></div>
+          </div>
+          <div class="orb-ring" style="width:440px;height:440px;">
+            <div class="orbit-planet planet-gcp"></div>
+            <div class="orbit-planet planet-alibaba"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MARQUEE
+     ═══════════════════════════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>Microsoft Azure</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Amazon AWS</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Google Cloud</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Alibaba Cloud</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Terraform</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Kubernetes</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Docker</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>OpenAI</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>LangChain</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>PyTorch</span>
+    <!-- Duplicate -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Microsoft Azure</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Amazon AWS</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Google Cloud</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Alibaba Cloud</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Terraform</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Kubernetes</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Docker</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>OpenAI</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>LangChain</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>PyTorch</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SERVICES
+     ═══════════════════════════════════════ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">// Services</span>
+      <h2 class="section-title">Discover the Full Range of<br><span class="gradient-text">Cloud Solutions We Offer</span></h2>
+      <p class="section-subtitle">From infrastructure to automation, explore how our cloud services can help you innovate faster, reduce costs, and stay ahead of the competition.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card glass-card reveal stagger-1">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c1">☁️</div>
+          <h3>Cloud Infrastructure (IaaS)</h3>
+          <p>Scalable, secure, and cost-efficient cloud infrastructure with seamless migration, high availability, disaster recovery, and developer-friendly tools for optimal performance.</p>
+          <div class="service-tags"><span class="service-tag">Azure</span><span class="service-tag">AWS</span><span class="service-tag">GCP</span><span class="service-tag">Multi-Cloud</span></div>
+        </div>
+      </div>
+      <div class="service-card glass-card reveal stagger-2">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c2">🔧</div>
+          <h3>Managed Cloud Services</h3>
+          <p>Efficiently manage and optimise your cloud environments with tailored strategy for migration, performance optimisation, security management, and cost control.</p>
+          <div class="service-tags"><span class="service-tag">Monitoring</span><span class="service-tag">IaC</span><span class="service-tag">Cost Optimisation</span><span class="service-tag">24/7</span></div>
+        </div>
+      </div>
+      <div class="service-card glass-card reveal stagger-3">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c3">🚀</div>
+          <h3>Cloud Migration Services</h3>
+          <p>Seamless cloud transitions with zero disruption. We move your workloads, applications, data, and infrastructure to the cloud smoothly and securely.</p>
+          <div class="service-tags"><span class="service-tag">Assessment</span><span class="service-tag">Migration</span><span class="service-tag">Modernisation</span><span class="service-tag">Hybrid</span></div>
+        </div>
+      </div>
+      <div class="service-card glass-card reveal stagger-4">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c4">⚡</div>
+          <h3>DevOps & Automation</h3>
+          <p>Streamline cloud operations with automated workflows, CI/CD pipelines, container orchestration, GitOps, and Infrastructure as Code to accelerate delivery.</p>
+          <div class="service-tags"><span class="service-tag">Terraform</span><span class="service-tag">K8s</span><span class="service-tag">CI/CD</span><span class="service-tag">GitOps</span></div>
+        </div>
+      </div>
+      <div class="service-card glass-card reveal stagger-5">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c5">🔒</div>
+          <h3>Security & Compliance</h3>
+          <p>Protect your business data with cloud security assessments, identity management, encryption, and ensure compliance with HIPAA, GDPR, and PCI-DSS standards.</p>
+          <div class="service-tags"><span class="service-tag">Zero Trust</span><span class="service-tag">IAM</span><span class="service-tag">GDPR</span><span class="service-tag">HIPAA</span></div>
+        </div>
+      </div>
+      <div class="service-card glass-card reveal stagger-6">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c6">🛡️</div>
+          <h3>Backup, Disaster Recovery & Business Continuity</h3>
+          <p>Protect your data with automated backups, geo-redundant storage, fast recovery, and tailored disaster recovery planning ensuring minimal downtime.</p>
+          <div class="service-tags"><span class="service-tag">Backup</span><span class="service-tag">DR</span><span class="service-tag">Geo-Redundant</span><span class="service-tag">BCP</span></div>
+        </div>
+      </div>
+      <div class="service-card glass-card reveal stagger-1">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c2">🤖</div>
+          <h3>AI & Machine Learning</h3>
+          <p>Leverage AI and machine learning to optimise decision-making, enhance customer experience, and increase operational efficiency with end-to-end solutions.</p>
+          <div class="service-tags"><span class="service-tag">Chatbots</span><span class="service-tag">Predictive Analytics</span><span class="service-tag">Custom ML</span><span class="service-tag">NLP</span></div>
+        </div>
+      </div>
+      <div class="service-card glass-card reveal stagger-2">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c1">📋</div>
+          <h3>Cloud Strategy & Advisory</h3>
+          <p>Develop a comprehensive plan for adopting, implementing, and optimising cloud technologies with the right cloud model, services, and cost efficiencies.</p>
+          <div class="service-tags"><span class="service-tag">Strategy</span><span class="service-tag">Advisory</span><span class="service-tag">Roadmap</span><span class="service-tag">Assessment</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PLATFORMS
+     ═══════════════════════════════════════ -->
+<section class="section" id="platforms" style="padding-top:80px;">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Platforms</span>
+      <h2 class="section-title">Every Cloud. <span class="gradient-text">One Partner.</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Certified experts across all major cloud platforms.</p>
+    </div>
+    <div class="platforms-flex">
+      <div class="platform-hex glass-card p-azure reveal stagger-1">
+        <div class="platform-logo">Az</div>
+        <h3>Microsoft Azure</h3>
+        <p>App Services, AKS, Cosmos DB, Azure AI, Virtual Networks, Key Vault</p>
+      </div>
+      <div class="platform-hex glass-card p-aws reveal stagger-2">
+        <div class="platform-logo">⬡</div>
+        <h3>Amazon AWS</h3>
+        <p>EC2, Lambda, S3, SageMaker, EKS, RDS, CloudFormation</p>
+      </div>
+      <div class="platform-hex glass-card p-gcp reveal stagger-3">
+        <div class="platform-logo">G</div>
+        <h3>Google Cloud</h3>
+        <p>GKE, BigQuery, Cloud Run, Vertex AI, Cloud Functions, Pub/Sub</p>
+      </div>
+      <div class="platform-hex glass-card p-alibaba reveal stagger-4">
+        <div class="platform-logo">阿</div>
+        <h3>Alibaba Cloud</h3>
+        <p>ECS, MaxCompute, PAI, Container Service, Function Compute</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ABOUT
+     ═══════════════════════════════════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-header reveal">
+          <span class="section-label">// Who We Are</span>
+          <h2 class="section-title">Cloud Solutions for Cost,<br><span class="gradient-text">Agility & Innovation</span></h2>
+          <p class="section-subtitle">TotalCloudAI is a cloud-first company built by seasoned IT professionals, cloud architects, and DevOps experts. With years of experience and a customer-centric mindset, we help businesses reduce infrastructure costs, increase agility, and boost innovation.</p>
+        </div>
+        <div class="about-features">
+          <div class="about-feature reveal stagger-1">
+            <div class="about-feature-icon">☁️</div>
+            <div><h4>Scalable Cloud Infrastructure</h4><p>End-to-end cloud management with scalable, secure, and high-performance infrastructure.</p></div>
+          </div>
+          <div class="about-feature reveal stagger-2">
+            <div class="about-feature-icon">⚡</div>
+            <div><h4>DevOps & Automation</h4><p>Streamlined workflows, CI/CD pipelines, and Infrastructure as Code for faster delivery.</p></div>
+          </div>
+          <div class="about-feature reveal stagger-3">
+            <div class="about-feature-icon">🔒</div>
+            <div><h4>Data Security & Compliance</h4><p>Robust security frameworks ensuring compliance with HIPAA, GDPR, and PCI-DSS.</p></div>
+          </div>
+          <div class="about-feature reveal stagger-4">
+            <div class="about-feature-icon">🛡️</div>
+            <div><h4>Backup & Disaster Recovery</h4><p>Automated backups, geo-redundant storage, and tailored DR planning for business continuity.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-metrics reveal">
+        <div class="metric-card glass-card">
+          <div class="metric-value g1">99.99%</div>
+          <div class="metric-label">Uptime SLA</div>
+        </div>
+        <div class="metric-card glass-card">
+          <div class="metric-value g2">95%</div>
+          <div class="metric-label">Cloud Management</div>
+        </div>
+        <div class="metric-card glass-card">
+          <div class="metric-value g3">80%</div>
+          <div class="metric-label">Cloud Security</div>
+        </div>
+        <div class="metric-card glass-card">
+          <div class="metric-value g4">90%</div>
+          <div class="metric-label">Cloud Solutions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TEAM
+     ═══════════════════════════════════════ -->
+<section class="section" id="team">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Our Team</span>
+      <h2 class="section-title">Meet Our Team of <span class="gradient-text">Experts</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">We help businesses achieve strategic cloud transformation, minimising end-to-end cloud risks and maximising business value.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card glass-card reveal stagger-1">
+        <img src="assets/team-sanghamitra.png" alt="Sanghamitra Sethi, PhD" class="team-avatar">
+        <h3>Sanghamitra Sethi, PhD</h3>
+        <div class="team-role">Founder & Director</div>
+        <p class="team-bio">Over 10 years of experience in material science research and advanced materials characterisation. Brings academic rigour and strategic vision to TotalCloudAI.</p>
+      </div>
+      <div class="team-card glass-card reveal stagger-2">
+        <img src="assets/team-managobinda.png" alt="Managobinda Sethi" class="team-avatar">
+        <h3>Managobinda Sethi</h3>
+        <div class="team-role">Cloud & AI Strategy Advisor</div>
+        <p class="team-bio">Nearly two decades of global experience in cloud transformation, infrastructure design, DevOps, and enterprise security across Azure, GCP, and AWS.</p>
+      </div>
+      <div class="team-card glass-card reveal stagger-3">
+        <img src="assets/team-nirrlipta.png" alt="Nirrlipta Padhee" class="team-avatar">
+        <h3>Nirrlipta Padhee</h3>
+        <div class="team-role">Head of Marketing & Communications</div>
+        <p class="team-bio">Over a decade of experience in B2B strategy, demand generation, event planning, and digital marketing. Leads brand building and outreach.</p>
+      </div>
+      <div class="team-card glass-card reveal stagger-4">
+        <img src="assets/team-lohit.png" alt="Lohit Kumar Das" class="team-avatar">
+        <h3>Lohit Kumar Das</h3>
+        <div class="team-role">Technology Advisor</div>
+        <p class="team-bio">Over 15 years of expertise in AI, robotics, blockchain, and commercial strategy. Focuses on building intelligent, secure systems with emerging technologies.</p>
+      </div>
+      <div class="team-card glass-card reveal stagger-5">
+        <img src="assets/team-balaram.png" alt="Balaram Dash" class="team-avatar">
+        <h3>Balaram Dash</h3>
+        <div class="team-role">Finance & Compliance Advisor</div>
+        <p class="team-bio">Over three decades of experience across financial planning, insurance, compliance, and technology. Specialises in retirement planning and investment strategy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PROCESS
+     ═══════════════════════════════════════ -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Process</span>
+      <h2 class="section-title">Cloud Solutions in <span class="gradient-text">Three Simple Steps</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Our solution delivery framework ensures a systematic approach that delivers results, every time.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal stagger-1">
+        <div class="step-number">01</div>
+        <h3>Consultation</h3>
+        <p>Understand your business needs, analyse existing IT infrastructure, identify gaps, and customise the right cloud solution.</p>
+      </div>
+      <div class="process-step reveal stagger-2">
+        <div class="step-number">02</div>
+        <h3>Migration</h3>
+        <p>Seamlessly migrate your data and systems to the cloud environment ensuring minimal downtime and enhanced performance.</p>
+      </div>
+      <div class="process-step reveal stagger-3">
+        <div class="step-number">03</div>
+        <h3>Optimisation</h3>
+        <p>Monitor, manage, and optimise your cloud environment for optimal performance, security, and cost efficiency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIALS
+     ═══════════════════════════════════════ -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Testimonials</span>
+      <h2 class="section-title">Trusted by <span class="gradient-text">Industry Leaders</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card glass-card reveal stagger-1">
+        <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testimonial-text">"TotalCloudAI transformed our entire infrastructure. Migration to Azure was seamless, and we saw a 45% reduction in cloud costs within the first quarter."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#3B82F6,#A855F7);">JR</div>
+          <div><div class="testimonial-name">James Richardson</div><div class="testimonial-role">CTO, FinTech Innovations</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card glass-card reveal stagger-2">
+        <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testimonial-text">"Their AI/ML expertise helped us build a predictive analytics platform that increased our revenue forecast accuracy by 30%. Truly exceptional."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#A855F7,#818CF8);">SP</div>
+          <div><div class="testimonial-name">Sarah Patel</div><div class="testimonial-role">VP of Data, RetailMax</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card glass-card reveal stagger-3">
+        <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testimonial-text">"The multi-cloud strategy gave us incredible resilience. We haven't experienced a single minute of unplanned downtime since working with them."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#818CF8,#3B82F6);">MK</div>
+          <div><div class="testimonial-name">Michael Kim</div><div class="testimonial-role">CEO, HealthBridge Systems</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PRICING
+     ═══════════════════════════════════════ -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Pricing</span>
+      <h2 class="section-title">Flexible Plans for <span class="gradient-text">Every Scale</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Choose the engagement model that works best for your business.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card glass-card reveal stagger-1">
+        <div class="pricing-label">Starter</div>
+        <div class="pricing-amount">£999<span>/mo</span></div>
+        <div class="pricing-desc">Perfect for startups beginning their cloud journey.</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Cloud Assessment & Strategy</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Single Cloud Platform</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Basic Monitoring</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>8/5 Email Support</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Monthly Review</div>
+        </div>
+        <a href="#contact" class="btn btn-glass" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="pricing-card glass-card featured reveal stagger-2">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-label">Professional</div>
+        <div class="pricing-amount">£4,999<span>/mo</span></div>
+        <div class="pricing-desc">For growing businesses needing robust cloud and AI.</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Full Architecture Design</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Multi-Cloud Support</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>AI/ML Integration</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>CI/CD Pipeline Setup</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>24/7 Priority Support</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Weekly Reports</div>
+        </div>
+        <a href="#contact" class="btn btn-glow" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="pricing-card glass-card reveal stagger-3">
+        <div class="pricing-label">Enterprise</div>
+        <div class="pricing-amount">Custom</div>
+        <div class="pricing-desc">Full-scale cloud and AI transformation.</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Everything in Professional</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Dedicated Cloud Architect</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Custom AI Models</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Compliance & Governance</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>On-Site Consulting</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>SLA 99.99% Uptime</div>
+        </div>
+        <a href="#contact" class="btn btn-glass" style="width:100%;justify-content:center;">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     BLOG
+     ═══════════════════════════════════════ -->
+<section class="section" id="blog">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Insights</span>
+      <h2 class="section-title">Latest from <span class="gradient-text">Our Blog</span></h2>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card glass-card reveal stagger-1">
+        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg,#3B82F6,#2563EB);"></div><span class="blog-category" style="background:rgba(59,130,246,0.8);">Cloud</span></div>
+        <div class="blog-body">
+          <div class="blog-meta">Cloud Transformation · 8 min</div>
+          <h3>The Future of Cloud Transformation: How Total Cloud AI is Redefining Business Innovation</h3>
+          <p>In today's fast-paced digital landscape, businesses must stay ahead by leveraging the power of cloud computing.</p>
+          <span class="blog-read">Read More →</span>
+        </div>
+      </div>
+      <div class="blog-card glass-card reveal stagger-2">
+        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg,#A855F7,#7C3AED);"></div><span class="blog-category" style="background:rgba(168,85,247,0.8);">Cloud Models</span></div>
+        <div class="blog-body">
+          <div class="blog-meta">Cloud Strategy · 6 min</div>
+          <h3>How to Choose the Right Cloud Model: Public, Private, or Hybrid?</h3>
+          <p>Choosing the right cloud model is a crucial decision that impacts your business's scalability, security, cost, and flexibility.</p>
+          <span class="blog-read">Read More →</span>
+        </div>
+      </div>
+      <div class="blog-card glass-card reveal stagger-3">
+        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg,#818CF8,#6366F1);"></div><span class="blog-category" style="background:rgba(129,140,248,0.8);">Migration</span></div>
+        <div class="blog-body">
+          <div class="blog-meta">Cloud Migration · 7 min</div>
+          <h3>5 Cloud Migration Mistakes to Avoid</h3>
+          <p>Migrating to the cloud is essential for businesses looking to scale, but it's crucial to avoid common pitfalls.</p>
+          <span class="blog-read">Read More →</span>
+        </div>
+      </div>
+      <div class="blog-card glass-card reveal stagger-1">
+        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg,#10B981,#059669);"></div><span class="blog-category" style="background:rgba(16,185,129,0.8);">DevOps</span></div>
+        <div class="blog-body">
+          <div class="blog-meta">DevOps · 10 min</div>
+          <h3>DevOps in the Cloud: Best Practices for 2025</h3>
+          <p>As cloud computing continues to evolve, DevOps practices have become more integral than ever for agile, efficient software development.</p>
+          <span class="blog-read">Read More →</span>
+        </div>
+      </div>
+      <div class="blog-card glass-card reveal stagger-2">
+        <div class="blog-thumb"><div class="blog-thumb-bg" style="background:linear-gradient(135deg,#F59E0B,#D97706);"></div><span class="blog-category" style="background:rgba(245,158,11,0.8);">Managed Cloud</span></div>
+        <div class="blog-body">
+          <div class="blog-meta">Managed Services · 6 min</div>
+          <h3>Why SMBs Are Moving to Managed Cloud Services</h3>
+          <p>Small and mid-sized businesses are increasingly turning to managed cloud services to drive efficiency, scalability, and competitiveness.</p>
+          <span class="blog-read">Read More →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CTA
+     ═══════════════════════════════════════ -->
+<section class="section" style="padding:80px 0 120px;">
+  <div class="container">
+    <div class="cta-box reveal-scale reveal">
+      <h2>Ready to Gain a Competitive Edge with<br>Expert Cloud Solutions?</h2>
+      <p>Get in touch for expert, secure, scalable, and cost-efficient cloud solutions tailored to your business.</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn-white">Book Free Consultation →</a>
+        <a href="#services" class="btn-ghost">View Our Work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CONTACT
+     ═══════════════════════════════════════ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Contact</span>
+      <h2 class="section-title">Let's Start <span class="gradient-text">Building Together</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Tell us about your project and we'll get back within 24 hours.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label for="fullName">Full Name</label><input type="text" id="fullName" name="fullName" placeholder="John Doe" required></div>
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="john@company.com" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" placeholder="Your Company"></div>
+          <div class="form-group"><label for="service">Service</label>
+            <select id="service" name="service">
+              <option>Cloud Infrastructure (IaaS)</option><option>Managed Cloud Services</option>
+              <option>Cloud Migration Services</option><option>DevOps & Automation</option>
+              <option>Security & Compliance</option><option>Backup & Disaster Recovery</option>
+              <option>AI & Machine Learning</option><option>Cloud Strategy & Advisory</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label for="projectDetails">Project Details</label><textarea id="projectDetails" name="projectDetails" placeholder="Tell us about your project, goals, and timeline..."></textarea></div>
+        <button type="submit" id="submitBtn" class="btn btn-glow" style="width:100%;justify-content:center;padding:16px;">Send Message →</button>
+        <p id="formError" style="display:none;color:#f87171;font-size:13px;text-align:center;margin-top:8px;"></p>
+      </form>
+      <div class="contact-info reveal stagger-2">
+        <div class="contact-card"><div class="contact-card-icon">📧</div><div><h4>Email Us</h4><p>Info@totalcloudai.com</p></div></div>
+        <div class="contact-card"><div class="contact-card-icon">📞</div><div><h4>Call Us</h4><p>+44-(0)7818827144</p></div></div>
+        <div class="contact-card"><div class="contact-card-icon">📍</div><div><h4>Visit Us</h4><p>Maxi House, Halesfield 20, Telford TF7 4QU, UK</p></div></div>
+        <div class="contact-card"><div class="contact-card-icon">💬</div><div><h4>Live Chat</h4><p>Available 24/7</p></div></div>
+        <div class="glass-card" style="padding:28px;">
+          <h4 style="font-family:var(--font-display);margin-bottom:14px;">Office Hours</h4>
+          <p style="font-size:0.9rem;color:var(--text-secondary);line-height:2;">
+            Mon - Fri: 9:00 AM - 6:00 PM GMT<br>
+            Saturday: 10:00 AM - 2:00 PM GMT<br>
+            Sunday: Emergency Support Only
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     OTP VERIFICATION MODAL
+     ═══════════════════════════════════════ -->
+<div id="otpOverlay" class="otp-overlay" style="display:none;">
+  <div class="otp-modal glass-card">
+    <button class="otp-close" onclick="closeOtpModal()" aria-label="Close">&times;</button>
+    <div class="otp-icon">🔐</div>
+    <h3 style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:8px;">
+      Verify Your <span class="gradient-text">Email</span>
+    </h3>
+    <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:24px;">
+      We've sent a 6-digit code to <strong id="otpEmailDisplay"></strong>.<br>
+      Please enter it below. Code expires in 5 minutes.
+    </p>
+    <div class="otp-inputs" id="otpInputs">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit" autocomplete="one-time-code">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit">
+    </div>
+    <p id="otpError" style="display:none;color:#f87171;font-size:13px;text-align:center;margin-top:12px;"></p>
+    <p id="otpTimer" style="color:var(--text-muted);font-size:12px;margin-top:12px;text-align:center;"></p>
+    <button class="btn btn-glow" id="otpVerifyBtn" onclick="verifyOtp()" style="width:100%;justify-content:center;padding:14px;margin-top:16px;">
+      Verify &amp; Send Message
+    </button>
+    <p style="text-align:center;margin-top:16px;">
+      <a href="#" id="resendOtpLink" onclick="resendOtp(event)" style="color:var(--accent-1);font-size:13px;">
+        Didn't receive the code? Resend
+      </a>
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="#home" class="nav-logo" aria-label="TotalCloudAI Home">
+          <img src="assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+        </a>
+        <p>Total Cloud AI guides businesses through cloud transformation with expert consultancy and innovative solutions. We specialise in strategy, architecture, migration, and optimisation.</p>
+        <div class="footer-social">
+          <a href="#">in</a><a href="#">𝕏</a><a href="#">⌥</a><a href="#">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Cloud Infrastructure (IaaS)</a><a href="#services">Managed Cloud Services</a>
+        <a href="#services">Cloud Migration Services</a><a href="#services">DevOps & Automation</a>
+        <a href="#services">Security & Compliance</a><a href="#services">Backup & Disaster Recovery</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#home">Home</a><a href="#about">About Us</a>
+        <a href="#team">Our Team</a><a href="#services">Services</a>
+        <a href="#blog">Blog & News</a><a href="#contact">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Info@totalcloudai.com">Info@totalcloudai.com</a>
+        <a href="tel:+4407818827144">+44-(0)7818827144</a>
+        <a href="#contact">Maxi House, Halesfield 20</a>
+        <a href="#contact">Telford TF7 4QU, UK</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TotalCloudAI Limited. All rights reserved.</span>
+      <span>Registered in England & Wales</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════ -->
+<script>
+// ── Theme Toggle ──
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  document.getElementById('toggleIcon').textContent = next === 'dark' ? '☀️' : '🌙';
+  // Smooth body transition
+  document.body.style.transition = 'background 0.6s ease, color 0.4s ease';
+}
+
+// ── Custom Cursor ──
+const cursor = document.getElementById('cursor');
+const cursorDot = document.getElementById('cursorDot');
+let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top = mouseY + 'px';
+});
+
+function animateCursor() {
+  cursorX += (mouseX - cursorX) * 0.15;
+  cursorY += (mouseY - cursorY) * 0.15;
+  cursor.style.left = cursorX + 'px';
+  cursor.style.top = cursorY + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Hover effect on interactive elements
+document.querySelectorAll('a, button, .glass-card, .nav-link, .service-card, input, textarea, select').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+
+// ── Navbar Scroll ──
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── Mobile Nav ──
+function openMobile() { document.getElementById('mobileNav').classList.add('active'); }
+function closeMobile() { document.getElementById('mobileNav').classList.remove('active'); }
+
+// ── Scroll Reveal ──
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ── Counter Animation ──
+function animateCounters() {
+  document.querySelectorAll('.counter').forEach(c => {
+    const target = +c.dataset.target;
+    const start = performance.now();
+    const duration = 2500;
+    (function update(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 4);
+      c.textContent = Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(update);
+    })(start);
+  });
+}
+const heroObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { animateCounters(); heroObs.disconnect(); } });
+}, { threshold: 0.3 });
+heroObs.observe(document.querySelector('.hero'));
+
+// ── 3D Tilt on Service Cards ──
+document.querySelectorAll('.service-card, .platform-hex, .metric-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-8px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// ── Active nav link ──
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  const sy = window.scrollY + 120;
+  sections.forEach(sec => {
+    const top = sec.offsetTop, h = sec.offsetHeight, id = sec.id;
+    const link = document.querySelector(`.nav-link[href="#${id}"]`);
+    if (link) link.classList.toggle('active', sy >= top && sy < top + h);
+  });
+});
+
+// ── Smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// ── OTP Verification Contact Form ──
+const RECAPTCHA_SITE_KEY = '6LdXnXwsAAAAABSQ8AwQUPGtiKYZGXmNBX4XWdxJ';
+const API_BASE = '';
+let currentEmail = '';
+let otpTimerInterval = null;
+let otpExpiresAt = null;
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const errorEl = document.getElementById('formError');
+  errorEl.style.display = 'none';
+
+  const fullName = document.getElementById('fullName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const company = document.getElementById('company').value.trim();
+  const service = document.getElementById('service').value;
+  const projectDetails = document.getElementById('projectDetails').value.trim();
+
+  if (!fullName || !email) {
+    showFormError('Please fill in all required fields.');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showFormError('Please enter a valid email address.');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Verifying...';
+
+  try {
+    let recaptchaToken = '';
+    if (typeof grecaptcha !== 'undefined' && RECAPTCHA_SITE_KEY !== '6LdXnXwsAAAAABSQ8AwQUPGtiKYZGXmNBX4XWdxJ') {
+      recaptchaToken = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit_contact' });
+    }
+
+    const response = await fetch(API_BASE + '/api/send-otp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ recaptchaToken, fullName, email, company, service, projectDetails })
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'Something went wrong.');
+
+    currentEmail = email;
+    openOtpModal(email);
+  } catch (err) {
+    showFormError(err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send Message →';
+  }
+}
+
+function showFormError(msg) {
+  const el = document.getElementById('formError');
+  el.textContent = msg;
+  el.style.display = 'block';
+  setTimeout(() => { el.style.display = 'none'; }, 6000);
+}
+
+function maskEmail(email) {
+  const [user, domain] = email.split('@');
+  const masked = user.length > 2 ? user[0] + '*'.repeat(Math.min(user.length - 2, 5)) + user.slice(-1) : user[0] + '*';
+  return masked + '@' + domain;
+}
+
+function openOtpModal(email) {
+  document.getElementById('otpEmailDisplay').textContent = maskEmail(email);
+  document.getElementById('otpOverlay').style.display = 'flex';
+  document.getElementById('otpError').style.display = 'none';
+  document.body.style.overflow = 'hidden';
+  const inputs = document.querySelectorAll('.otp-digit');
+  inputs.forEach(i => { i.value = ''; i.classList.remove('error', 'success', 'filled'); });
+  inputs[0].focus();
+  startOtpTimer(5 * 60);
+}
+
+function closeOtpModal() {
+  document.getElementById('otpOverlay').style.display = 'none';
+  document.body.style.overflow = '';
+  clearInterval(otpTimerInterval);
+}
+
+function startOtpTimer(seconds) {
+  clearInterval(otpTimerInterval);
+  otpExpiresAt = Date.now() + seconds * 1000;
+  const timerEl = document.getElementById('otpTimer');
+  function update() {
+    const rem = Math.max(0, Math.ceil((otpExpiresAt - Date.now()) / 1000));
+    const m = Math.floor(rem / 60), s = rem % 60;
+    timerEl.textContent = rem > 0 ? 'Code expires in ' + m + ':' + s.toString().padStart(2, '0') : 'Code expired. Please request a new one.';
+    if (rem <= 0) clearInterval(otpTimerInterval);
+  }
+  update();
+  otpTimerInterval = setInterval(update, 1000);
+}
+
+// OTP digit input behavior
+document.addEventListener('DOMContentLoaded', function() {
+  var inputs = document.querySelectorAll('.otp-digit');
+  inputs.forEach(function(input, idx) {
+    input.addEventListener('input', function(e) {
+      var val = e.target.value.replace(/[^0-9]/g, '');
+      e.target.value = val;
+      if (val) {
+        e.target.classList.add('filled');
+        if (idx < inputs.length - 1) inputs[idx + 1].focus();
+        if (idx === inputs.length - 1 && getAllDigits().length === 6) verifyOtp();
+      } else {
+        e.target.classList.remove('filled');
+      }
+    });
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Backspace' && !e.target.value && idx > 0) {
+        inputs[idx - 1].focus();
+        inputs[idx - 1].value = '';
+        inputs[idx - 1].classList.remove('filled');
+      }
+    });
+    input.addEventListener('paste', function(e) {
+      e.preventDefault();
+      var pasted = (e.clipboardData.getData('text') || '').replace(/[^0-9]/g, '').slice(0, 6);
+      if (pasted.length === 6) {
+        inputs.forEach(function(inp, i) { inp.value = pasted[i]; inp.classList.add('filled'); });
+        inputs[5].focus();
+        verifyOtp();
+      }
+    });
+  });
+});
+
+function getAllDigits() {
+  return Array.from(document.querySelectorAll('.otp-digit')).map(function(i) { return i.value; }).join('');
+}
+
+async function verifyOtp() {
+  var otp = getAllDigits();
+  if (otp.length !== 6) return;
+
+  var btn = document.getElementById('otpVerifyBtn');
+  var errorEl = document.getElementById('otpError');
+  errorEl.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Verifying...';
+
+  try {
+    var response = await fetch(API_BASE + '/api/verify-otp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: currentEmail, otp: otp })
+    });
+    var data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'Verification failed.');
+
+    document.querySelectorAll('.otp-digit').forEach(function(i) { i.classList.add('success'); });
+    btn.textContent = 'Message Sent! ✓';
+
+    setTimeout(function() {
+      closeOtpModal();
+      document.getElementById('contactForm').reset();
+      var mainBtn = document.getElementById('submitBtn');
+      mainBtn.textContent = 'Message Sent! ✓';
+      mainBtn.style.background = 'linear-gradient(135deg, #34d399, #10b981)';
+      setTimeout(function() { mainBtn.textContent = 'Send Message →'; mainBtn.style.background = ''; }, 4000);
+    }, 1500);
+  } catch (err) {
+    var container = document.getElementById('otpInputs');
+    container.classList.add('shake');
+    setTimeout(function() { container.classList.remove('shake'); }, 400);
+    document.querySelectorAll('.otp-digit').forEach(function(i) { i.classList.add('error'); });
+    setTimeout(function() { document.querySelectorAll('.otp-digit').forEach(function(i) { i.classList.remove('error'); }); }, 1500);
+    errorEl.textContent = err.message;
+    errorEl.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Verify & Send Message';
+  }
+}
+
+async function resendOtp(e) {
+  e.preventDefault();
+  var link = document.getElementById('resendOtpLink');
+  link.style.pointerEvents = 'none';
+  link.textContent = 'Sending...';
+
+  try {
+    var recaptchaToken = '';
+    if (typeof grecaptcha !== 'undefined' && RECAPTCHA_SITE_KEY !== '6LdXnXwsAAAAABSQ8AwQUPGtiKYZGXmNBX4XWdxJ') {
+      recaptchaToken = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit_contact' });
+    }
+    var response = await fetch(API_BASE + '/api/send-otp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        recaptchaToken: recaptchaToken,
+        fullName: document.getElementById('fullName').value.trim(),
+        email: currentEmail,
+        company: document.getElementById('company').value.trim(),
+        service: document.getElementById('service').value,
+        projectDetails: document.getElementById('projectDetails').value.trim()
+      })
+    });
+    var data = await response.json();
+    if (!response.ok) throw new Error(data.message);
+
+    document.querySelectorAll('.otp-digit').forEach(function(i) { i.value = ''; i.classList.remove('error', 'success', 'filled'); });
+    document.querySelectorAll('.otp-digit')[0].focus();
+    startOtpTimer(5 * 60);
+    link.textContent = 'Code resent!';
+  } catch (err) {
+    link.textContent = err.message;
+  }
+  setTimeout(function() { link.style.pointerEvents = ''; link.textContent = "Didn't receive the code? Resend"; }, 5000);
+}
+</script>
+</body>
+</html>

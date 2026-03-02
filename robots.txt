@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://totalcloudai.com/sitemap.xml

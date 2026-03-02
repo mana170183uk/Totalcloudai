@@ -1,0 +1,19 @@
+{
+  "name": "totalcloudai-website",
+  "version": "1.0.0",
+  "description": "TotalCloudAI - Next-Gen Cloud & AI Solutions",
+  "scripts": {
+    "start": "npx serve -s . -l 8080",
+    "dev": "node -r dotenv/config server.js"
+  },
+  "dependencies": {
+    "resend": "^4.0.0"
+  },
+  "devDependencies": {
+    "express": "^4.21.0",
+    "dotenv": "^16.4.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
