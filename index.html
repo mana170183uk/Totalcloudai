@@ -1041,7 +1041,7 @@ ul { list-style: none; }
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
-.testimonial-card { padding: 40px; }
+.testimonial-card { padding: 40px; display: flex; flex-direction: column; }
 .testimonial-card:nth-child(2) { transform: translateY(24px); }
 .testimonial-card:hover:nth-child(2) { transform: translateY(16px); }
 .testimonial-stars {
@@ -1053,8 +1053,9 @@ ul { list-style: none; }
   line-height: 1.85; margin-bottom: 28px;
   font-style: italic; position: relative;
   padding-left: 20px; border-left: 2px solid var(--accent-1);
+  flex: 1;
 }
-.testimonial-author { display: flex; align-items: center; gap: 14px; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; margin-top: auto; }
 .testimonial-avatar {
   width: 48px; height: 48px; border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
