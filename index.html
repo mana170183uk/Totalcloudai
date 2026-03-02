@@ -2615,27 +2615,8 @@ const serviceDetails = {
       { title: 'DR Testing', desc: 'Quarterly failover drills to validate recovery procedures, measure actual RTO, and identify gaps.' },
       { title: 'Continuous Improvement', desc: 'Post-test reviews, runbook updates, and architecture refinements based on drill results and new threats.' }
     ],
-    arch: `┌──────────────────────────────────────────┐
-│          PRIMARY REGION (Active)         │
-│  App Services ─ Databases ─ Storage      │
-│              │                           │
-│     Automated Backups (Daily)            │
-│              │                           │
-└──────────────┼───────────────────────────┘
-               │  Continuous Replication
-┌──────────────▼───────────────────────────┐
-│          DR REGION (Standby)             │
-│  Replicated VMs ─ DB Geo-Replica         │
-│  Storage GRS ─ Pre-configured Networking │
-│              │                           │
-│     Auto-Failover (< 15 min RTO)         │
-└──────────────────────────────────────────┘
-               │
-┌──────────────▼───────────────────────────┐
-│       BACKUP VAULT (Immutable)           │
-│  30-day retention ─ Point-in-time        │
-│  Geo-redundant ─ Encrypted at rest       │
-└──────────────────────────────────────────┘`,
+    arch: '',
+    archHtml: true,
     tech: ['Azure Site Recovery', 'AWS Backup', 'GRS Storage', 'Azure Backup Vault', 'Veeam', 'Zerto', 'Traffic Manager', 'Route 53', 'Terraform', 'Runbooks'],
     deploy: [
       { icon: '⚡', title: 'Instant Failover', desc: 'Automated DNS failover to DR region with health probes — production restored in under 15 minutes RPO.' },
@@ -2832,6 +2813,82 @@ function getVisualArch(key) {
             <img src="${si}/elasticsearch/005571" alt="Elastic" style="width:40px;height:40px;">
             <div class="arch-data-label">Search Index (Elastic)</div>
           </div>
+        </div>
+      </div>
+    </div>`;
+  if (key === 'backup-dr') return `
+    <div class="arch-visual">
+      <!-- Primary Region (Active) -->
+      <div class="arch-box">
+        <div class="arch-box-title">PRIMARY REGION (Active)</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="App Services" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">App Services</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/postgresql/4169E1" alt="Databases" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Databases</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="Storage" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Storage</div>
+          </div>
+        </div>
+        <div class="caf-checklist" style="margin-top:14px;">
+          <span class="caf-check">Automated Backups (Daily)</span>
+        </div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- DR Region (Standby) -->
+      <div class="arch-box">
+        <div class="arch-box-title">DR REGION (Standby)</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/vmware/607078" alt="VMs" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Replicated VMs</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/postgresql/4169E1" alt="DB Replica" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">DB Geo-Replica</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/icloud/3693F3" alt="GRS" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Storage GRS</div>
+          </div>
+        </div>
+        <div class="caf-checklist" style="margin-top:14px;">
+          <span class="caf-check">Pre-configured Networking</span>
+          <span class="caf-check">Auto-Failover (&lt; 15 min RTO)</span>
+        </div>
+      </div>
+
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+
+      <!-- Backup Vault (Immutable) -->
+      <div class="arch-box data-layer">
+        <div class="arch-box-title">BACKUP VAULT (Immutable)</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon">🔒</div>
+            <div class="arch-logo-label">Encrypted</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/microsoftazure/0078D4" alt="Vault" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Azure Vault</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="${si}/amazonaws/232F3E" alt="AWS Backup" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">AWS Backup</div>
+          </div>
+        </div>
+        <div class="caf-checklist" style="margin-top:14px;">
+          <span class="caf-check">30-day retention</span>
+          <span class="caf-check">Point-in-time</span>
+          <span class="caf-check">Geo-redundant</span>
+          <span class="caf-check">Encrypted at rest</span>
         </div>
       </div>
     </div>`;
