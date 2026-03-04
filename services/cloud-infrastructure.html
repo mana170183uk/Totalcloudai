@@ -173,6 +173,81 @@
 </section>
 
 <!-- ════════════════════════════════════
+     ARCHITECTURE
+     ════════════════════════════════════ -->
+<section class="deliver-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">// Architecture</span>
+      <h2 class="section-title">Reference <span class="gradient-text">Architecture</span></h2>
+    </div>
+    <div class="arch-visual">
+      <div style="font-size:56px;line-height:1;margin-bottom:12px;">☁️</div>
+      <div class="arch-box">
+        <div class="arch-box-title">LOAD BALANCER (L7)</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/microsoft-azure.svg" alt="Azure Front Door" style="width:28px;height:28px;"></div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/aws.svg" alt="AWS ALB" style="width:28px;height:28px;"></div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:rgba(148,163,184,0.8);margin-top:8px;">Azure Front Door / AWS ALB</div>
+      </div>
+      <div class="arch-arrow-split">
+        <div class="arch-arrow-split-left"><div class="arch-arrow-split-head"></div></div>
+        <div class="arch-arrow-split-right"><div class="arch-arrow-split-head"></div></div>
+      </div>
+      <div class="infra-regions">
+        <div class="infra-region">
+          <div class="infra-region-title">Region A</div>
+          <div class="arch-box-logos" style="margin-bottom:10px;">
+            <div class="arch-logo-item"><div class="caf-flow-icon"><img src="https://api.iconify.design/logos/microsoft-azure.svg" alt="Azure" style="width:28px;height:28px;"></div></div>
+            <div class="arch-logo-item"><div class="caf-flow-icon"><img src="https://api.iconify.design/logos/kubernetes.svg" alt="AKS" style="width:28px;height:28px;"></div></div>
+          </div>
+          <div class="infra-region-desc">App GW +<br>VM Scale Set / AKS</div>
+        </div>
+        <div class="infra-region">
+          <div class="infra-region-title">Region B</div>
+          <div class="arch-box-logos" style="margin-bottom:10px;">
+            <div class="arch-logo-item"><div class="caf-flow-icon"><img src="https://api.iconify.design/logos/aws.svg" alt="AWS" style="width:28px;height:28px;"></div></div>
+            <div class="arch-logo-item"><div class="caf-flow-icon"><img src="https://api.iconify.design/logos/kubernetes.svg" alt="AKS" style="width:28px;height:28px;"></div></div>
+          </div>
+          <div class="infra-region-desc">App GW +<br>VM Scale Set / AKS</div>
+        </div>
+      </div>
+      <div class="arch-arrow-merge">
+        <div class="arch-arrow-merge-left"></div>
+        <div class="arch-arrow-merge-right"></div>
+        <div class="arch-arrow-merge-head"></div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-box-title">MANAGED DB (GEO-REPLICATED)</div>
+        <div style="font-size:12px;color:rgba(148,163,184,0.8);margin:6px 0 10px;">Azure SQL / RDS / Cloud SQL</div>
+        <div class="arch-box-logos">
+          <div class="arch-logo-item"><div class="caf-flow-icon"><img src="https://api.iconify.design/logos/postgresql.svg" alt="SQL" style="width:28px;height:28px;"></div><div class="arch-logo-label">SQL</div></div>
+          <div class="arch-logo-item"><div class="caf-flow-icon"><img src="https://api.iconify.design/logos/mysql.svg" alt="MySQL" style="width:28px;height:28px;"></div><div class="arch-logo-label">MySQL</div></div>
+          <div class="arch-logo-item"><div class="caf-flow-icon"><img src="https://api.iconify.design/logos/redis.svg" alt="Redis" style="width:28px;height:28px;"></div><div class="arch-logo-label">Redis</div></div>
+        </div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="arch-box">
+        <div class="arch-box-title">BLOB / S3 / GCS STORAGE</div>
+        <div style="font-size:12px;color:rgba(148,163,184,0.8);margin-top:6px;">CDN + Static Assets</div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="infra-bottom-grid">
+        <div class="infra-bottom-item"><div class="infra-bottom-icon">🌐</div><div class="infra-bottom-title">CDN</div><div class="infra-bottom-desc">Edge + Caching</div></div>
+        <div class="infra-bottom-item"><div class="infra-bottom-icon">📄</div><div class="infra-bottom-title">Static Assets</div><div class="infra-bottom-desc">Web / Media</div></div>
+        <div class="infra-bottom-item"><div class="infra-bottom-icon">💾</div><div class="infra-bottom-title">Backups</div><div class="infra-bottom-desc">Automated Snapshots</div></div>
+        <div class="infra-bottom-item"><div class="infra-bottom-icon"><img src="https://api.iconify.design/logos/grafana.svg" alt="Monitoring" style="width:22px;height:22px;"></div><div class="infra-bottom-title">Monitoring</div><div class="infra-bottom-desc">Logs + Metrics</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
      OUR PROCESS
      ════════════════════════════════════ -->
 <section class="process-section" id="process">

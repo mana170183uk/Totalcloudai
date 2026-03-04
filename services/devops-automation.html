@@ -153,6 +153,75 @@
   </div>
 </section>
 
+<!-- ARCHITECTURE -->
+<section class="deliver-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">// Architecture</span>
+      <h2 class="section-title">CI/CD Pipeline <span class="gradient-text">Architecture</span></h2>
+    </div>
+    <div class="arch-visual">
+      <div class="arch-people">👨‍💻👩‍💻👨‍💻</div>
+      <div class="arch-box" style="border-radius:20px;">
+        <div class="arch-box-title">COMMIT</div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="arch-box">
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/github-icon.svg" alt="GitHub" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">GitHub</div>
+          </div>
+          <div class="arch-logo-item" style="font-size:20px;color:rgba(148,163,184,0.6);align-self:center;">&#x2192;</div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/gitlab.svg" alt="GitLab" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">GitLab</div>
+          </div>
+        </div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="arch-box" style="border-style:dashed;">
+        <div class="arch-box-title">ARTEFACT REGISTRY</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/docker-icon.svg" alt="ACR" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">ACR / ECR</div>
+          </div>
+        </div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="arch-box">
+        <div class="arch-box-title">CD PIPELINE</div>
+        <div class="arch-box-logos" style="margin-top:12px;">
+          <div class="arch-logo-item"><div class="caf-flow-icon" style="background:rgba(34,197,94,0.15);border-color:rgba(34,197,94,0.4);">Dev</div><div class="arch-logo-label">(auto)</div></div>
+          <div class="arch-logo-item" style="font-size:20px;color:rgba(148,163,184,0.6);align-self:center;">&#x2192;</div>
+          <div class="arch-logo-item"><div class="caf-flow-icon" style="background:rgba(234,179,8,0.15);border-color:rgba(234,179,8,0.4);">Stg</div><div class="arch-logo-label">(auto)</div></div>
+          <div class="arch-logo-item" style="font-size:20px;color:rgba(148,163,184,0.6);align-self:center;">&#x2192;</div>
+          <div class="arch-logo-item"><div class="caf-flow-icon" style="background:rgba(239,68,68,0.15);border-color:rgba(239,68,68,0.4);">Prod</div><div class="arch-logo-label">(approval)</div></div>
+        </div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="arch-box data-layer">
+        <div class="arch-box-title">KUBERNETES CLUSTER</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/kubernetes.svg" alt="K8s" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">K8s</div>
+          </div>
+        </div>
+        <div class="caf-checklist" style="margin-top:14px;">
+          <span class="caf-check">Pods</span>
+          <span class="caf-check">Services</span>
+          <span class="caf-check">Ingress</span>
+          <span class="caf-check">HPA</span>
+          <span class="caf-check">Secrets</span>
+          <span class="caf-check">ConfigMaps</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROCESS -->
 <section class="process-section" id="process">
   <div class="container">

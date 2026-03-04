@@ -153,6 +153,81 @@
   </div>
 </section>
 
+<!-- ARCHITECTURE -->
+<section class="deliver-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">// Architecture</span>
+      <h2 class="section-title">DR <span class="gradient-text">Architecture</span></h2>
+    </div>
+    <div class="arch-visual">
+      <div class="arch-box">
+        <div class="arch-box-title">PRIMARY REGION (Active)</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/microsoft-azure.svg" alt="App Services" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">App Services</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/postgresql.svg" alt="Databases" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Databases</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/microsoft-azure.svg" alt="Storage" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Storage</div>
+          </div>
+        </div>
+        <div class="caf-checklist" style="margin-top:14px;">
+          <span class="caf-check">Automated Backups (Daily)</span>
+        </div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="arch-box">
+        <div class="arch-box-title">DR REGION (Standby)</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/vmware.svg" alt="VMs" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Replicated VMs</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/postgresql.svg" alt="DB Replica" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">DB Geo-Replica</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/simple-icons/icloud.svg" alt="GRS" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Storage GRS</div>
+          </div>
+        </div>
+        <div class="caf-checklist" style="margin-top:14px;">
+          <span class="caf-check">Pre-configured Networking</span>
+          <span class="caf-check">Auto-Failover (&lt; 15 min RTO)</span>
+        </div>
+      </div>
+      <div class="arch-arrow"><div class="arch-arrow-line"></div><div class="arch-arrow-head"></div></div>
+      <div class="arch-box data-layer">
+        <div class="arch-box-title">BACKUP VAULT (Immutable)</div>
+        <div class="arch-box-logos" style="margin-top:8px;">
+          <div class="arch-logo-item"><div class="caf-flow-icon">🔒</div><div class="arch-logo-label">Encrypted</div></div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/microsoft-azure.svg" alt="Vault" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">Azure Vault</div>
+          </div>
+          <div class="arch-logo-item">
+            <div class="caf-flow-icon"><img src="https://api.iconify.design/logos/aws.svg" alt="AWS Backup" style="width:28px;height:28px;"></div>
+            <div class="arch-logo-label">AWS Backup</div>
+          </div>
+        </div>
+        <div class="caf-checklist" style="margin-top:14px;">
+          <span class="caf-check">30-day retention</span>
+          <span class="caf-check">Point-in-time</span>
+          <span class="caf-check">Geo-redundant</span>
+          <span class="caf-check">Encrypted at rest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROCESS -->
 <section class="process-section" id="process">
   <div class="container">
