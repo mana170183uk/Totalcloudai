@@ -31,6 +31,8 @@
 </script>
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
 <div class="noise-overlay"></div>
 <div class="aurora-container"><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div></div>
 
@@ -455,5 +457,6 @@ function toggleTheme(){const h=document.documentElement;const t=h.getAttribute('
 (function(){const s=localStorage.getItem('theme');if(s){document.documentElement.setAttribute('data-theme',s);document.getElementById('toggleIcon').innerHTML=s==='dark'?'\u263E':'\u2600\uFE0F';}})();
 function toggleFaq(btn){const item=btn.parentElement;item.classList.toggle('active');}
 </script>
+<script src="../js/main.js"></script>
 </body>
 </html>

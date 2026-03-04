@@ -16,6 +16,8 @@
 <link rel="stylesheet" href="../../css/blog-article.css">
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
 <div class="aurora-container"><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div></div>
 <div class="noise-overlay"></div>
 <nav class="navbar" id="navbar"><div class="nav-inner"><a href="/" class="nav-logo" aria-label="TotalCloudAI Home"><img src="../../assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span></a><div class="nav-links"><a href="/" class="nav-link">Home</a><a href="/#services" class="nav-link">Services</a><a href="/#platforms" class="nav-link">Platforms</a><a href="/about/" class="nav-link">About</a><a href="/#team" class="nav-link">Team</a><a href="/pricing/" class="nav-link">Pricing</a><a href="/blog/" class="nav-link active">Blog</a><a href="/#contact" class="nav-link">Contact</a></div><div class="nav-actions"><button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme"><span class="toggle-icon" id="toggleIcon">&#9728;&#65039;</span></button><a href="/#contact" class="btn btn-glow" style="padding:10px 24px;font-size:13px;">Get Started &rarr;</a></div></div></nav>
@@ -108,5 +110,6 @@ function toggleTheme(){const h=document.documentElement,c=h.getAttribute('data-t
 (function(){const s=localStorage.getItem('theme');if(s){document.documentElement.setAttribute('data-theme',s);document.getElementById('toggleIcon').textContent=s==='dark'?'\u2600\uFE0F':'\uD83C\uDF19'}})();
 window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)});
 </script>
+<script src="../../js/main.js"></script>
 </body>
 </html>

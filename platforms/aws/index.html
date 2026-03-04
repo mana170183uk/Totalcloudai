@@ -25,6 +25,8 @@
 </style>
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
 <div class="aurora-container"><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div></div>
 <div class="noise-overlay"></div>
 
@@ -288,5 +290,6 @@ function toggleFaq(el){el.parentElement.classList.toggle('active')}
 const revealEls=document.querySelectorAll('.reveal');const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1});revealEls.forEach(el=>observer.observe(el));
 window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)});
 </script>
+<script src="../../js/main.js"></script>
 </body>
 </html>
