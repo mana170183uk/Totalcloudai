@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — TotalCloudAI | UK Cloud Consultancy & Digital Transformation</title>
+<meta name="description" content="Learn about TotalCloudAI — a UK-based cloud consultancy delivering enterprise-grade cloud, AI, and security solutions. Certified architects, DevOps engineers, and AI specialists.">
+<meta name="keywords" content="about TotalCloudAI, UK cloud consultancy, cloud architects, DevOps engineers, AI specialists, digital transformation, cloud migration">
+<meta name="author" content="TotalCloudAI Limited">
+<link rel="canonical" href="https://totalcloudai.com/about">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://totalcloudai.com/about">
+<meta property="og:title" content="About Us — TotalCloudAI | UK Cloud Consultancy">
+<meta property="og:description" content="UK-based cloud consultancy delivering enterprise-grade cloud, AI, and security solutions that drive growth and accelerate innovation.">
+<meta property="og:image" content="https://totalcloudai.com/assets/favicon-source.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#050A18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Page-specific hero */
+.page-hero {
+  padding: 160px 0 80px; text-align: center; position: relative; z-index: 2;
+}
+.page-hero h1 {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px;
+}
+.page-hero p {
+  font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto;
+  line-height: 1.7;
+}
+.breadcrumb {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--accent-1); }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* Our Story */
+.story-section {
+  padding: 40px 0 80px; position: relative; z-index: 2;
+}
+.story-content {
+  max-width: 800px; margin: 0 auto; padding: 0 24px;
+}
+.story-content p {
+  font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8;
+  margin-bottom: 20px;
+}
+.story-content p:last-child { margin-bottom: 0; }
+.story-highlight {
+  font-size: 1.1rem; font-weight: 500; color: var(--text-primary);
+}
+
+/* Mission & Vision Cards */
+.mv-section {
+  padding: 80px 0; position: relative; z-index: 2;
+}
+.mv-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+  max-width: 900px; margin: 40px auto 0; padding: 0 24px;
+}
+.mv-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+  padding: 44px 36px; position: relative; overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1), border-color 0.5s ease;
+}
+.mv-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(59,130,246,0.12), 0 0 0 1px rgba(59,130,246,0.2);
+  border-color: rgba(59,130,246,0.3);
+}
+.mv-card .mv-icon {
+  font-size: 2rem; margin-bottom: 20px;
+  width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
+  border-radius: 16px; background: var(--gradient-card);
+}
+.mv-card h3 {
+  font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;
+  margin-bottom: 14px;
+}
+.mv-card p {
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;
+}
+
+/* Core Values */
+.values-section {
+  padding: 80px 0; position: relative; z-index: 2;
+}
+.values-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  max-width: 1100px; margin: 40px auto 0; padding: 0 24px;
+}
+.value-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+  padding: 36px 24px; text-align: center;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1), border-color 0.5s ease;
+}
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(59,130,246,0.12), 0 0 0 1px rgba(59,130,246,0.2);
+  border-color: rgba(59,130,246,0.3);
+}
+.value-card .value-icon {
+  font-size: 2rem; margin-bottom: 16px;
+  width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
+  border-radius: 16px; background: var(--gradient-card); margin-left: auto; margin-right: auto;
+}
+.value-card h4 {
+  font-family: var(--font-display); font-size: 1.05rem; font-weight: 700;
+  margin-bottom: 10px;
+}
+.value-card p {
+  font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;
+}
+
+/* By The Numbers */
+.numbers-section {
+  padding: 80px 0; position: relative; z-index: 2;
+}
+.numbers-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  max-width: 1100px; margin: 40px auto 0; padding: 0 24px;
+}
+.number-card {
+  text-align: center; padding: 32px 20px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+}
+.number-card .num-value {
+  font-family: var(--font-display); font-size: 2.4rem; font-weight: 800;
+  background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-size: 200% auto; margin-bottom: 8px;
+}
+.number-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+.number-card p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+/* What We Do */
+.wwd-section {
+  padding: 80px 0; position: relative; z-index: 2;
+}
+.wwd-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  max-width: 1100px; margin: 40px auto 0; padding: 0 24px;
+}
+.wwd-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 36px 28px; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1), border-color 0.5s ease;
+}
+.wwd-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(59,130,246,0.15), 0 0 0 1px rgba(59,130,246,0.2);
+  border-color: rgba(59,130,246,0.3);
+}
+.wwd-card .wwd-icon {
+  font-size: 2rem; margin-bottom: 18px;
+  width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;
+  border-radius: 16px; background: var(--gradient-card);
+}
+.wwd-card h3 {
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+  margin-bottom: 10px;
+}
+.wwd-card p {
+  font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;
+  margin-bottom: 18px; flex: 1;
+}
+.wwd-card .wwd-link {
+  font-size: 0.85rem; font-weight: 600; color: var(--accent-1);
+  transition: letter-spacing 0.3s ease;
+}
+.wwd-card:hover .wwd-link { letter-spacing: 0.5px; }
+
+/* Our Approach */
+.approach-section {
+  padding: 80px 0; position: relative; z-index: 2;
+}
+.approach-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  max-width: 1000px; margin: 40px auto 0; padding: 0 24px;
+}
+.approach-card {
+  text-align: center; padding: 40px 28px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1), border-color 0.5s ease;
+}
+.approach-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(59,130,246,0.12), 0 0 0 1px rgba(59,130,246,0.2);
+  border-color: rgba(59,130,246,0.3);
+}
+.approach-step {
+  font-family: var(--font-display); font-size: 3rem; font-weight: 800;
+  background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-size: 200% auto; margin-bottom: 16px; line-height: 1;
+}
+.approach-card h3 {
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+  margin-bottom: 12px;
+}
+.approach-card p {
+  font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;
+}
+
+/* Testimonials */
+.about-testimonials {
+  padding: 80px 0; position: relative; z-index: 2;
+}
+.about-testimonials-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  max-width: 1100px; margin: 40px auto 0; padding: 0 24px;
+}
+.about-testimonial-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+  padding: 36px 28px; display: flex; flex-direction: column;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.about-testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(59,130,246,0.1);
+}
+.about-testimonial-stars {
+  display: flex; gap: 2px; margin-bottom: 16px;
+}
+.about-testimonial-stars .star {
+  color: #F59E0B; font-size: 1rem;
+}
+.about-testimonial-card .quote-text {
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;
+  margin-bottom: 24px; flex: 1; font-style: italic;
+}
+.about-testimonial-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.about-testimonial-avatar {
+  width: 44px; height: 44px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-weight: 700;
+  font-size: 0.85rem; color: #fff; flex-shrink: 0;
+}
+.about-testimonial-name {
+  font-weight: 600; font-size: 0.9rem;
+}
+.about-testimonial-role {
+  font-size: 0.78rem; color: var(--text-muted);
+}
+
+/* CTA section */
+.page-cta {
+  text-align: center; padding: 80px 24px; position: relative; z-index: 2;
+}
+.page-cta h2 {
+  font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700; margin-bottom: 16px;
+}
+.page-cta p {
+  font-size: 1rem; color: var(--text-secondary); max-width: 500px; margin: 0 auto 28px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+  .wwd-grid { grid-template-columns: repeat(2, 1fr); }
+  .approach-grid { grid-template-columns: repeat(3, 1fr); }
+  .about-testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .mv-grid { grid-template-columns: 1fr; max-width: 480px; }
+  .values-grid { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; }
+  .numbers-grid { grid-template-columns: repeat(2, 1fr); max-width: 400px; margin-left: auto; margin-right: auto; }
+  .wwd-grid { grid-template-columns: 1fr; max-width: 400px; }
+  .approach-grid { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; }
+  .about-testimonials-grid { grid-template-columns: 1fr; max-width: 400px; }
+}
+</style>
+</head>
+<body>
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Aurora / Prism Background -->
+<div class="aurora-container">
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+</div>
+<div class="noise-overlay"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobile()">&#10005;</button>
+  <a href="/" onclick="closeMobile()">Home</a>
+  <a href="/services" onclick="closeMobile()">Services</a>
+  <a href="/platforms" onclick="closeMobile()">Platforms</a>
+  <a href="/about" onclick="closeMobile()">About</a>
+  <a href="/team" onclick="closeMobile()">Team</a>
+  <a href="/pricing" onclick="closeMobile()">Pricing</a>
+  <a href="/blog" onclick="closeMobile()">Blog</a>
+  <a href="/contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="TotalCloudAI Home">
+      <img src="assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/services" class="nav-link">Services</a>
+      <a href="/platforms" class="nav-link">Platforms</a>
+      <a href="/about" class="nav-link active">About</a>
+      <a href="/team" class="nav-link">Team</a>
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="/blog" class="nav-link">Blog</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="toggle-icon" id="toggleIcon">&#9728;&#65039;</span>
+      </button>
+      <a href="/contact" class="btn btn-glow" style="padding:10px 24px;font-size:13px;">Get Started &#8594;</a>
+      <button class="menu-toggle" onclick="openMobile()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>About</span>
+    </div>
+    <h1>Cloud Solutions for <span class="gradient-text">Cost, Agility & Innovation</span></h1>
+    <p>TotalCloudAI is a UK-based cloud-first company empowering businesses with enterprise-grade infrastructure, AI solutions, and digital transformation services.</p>
+  </div>
+</section>
+
+<!-- Our Story -->
+<section class="story-section">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">// Our Story</span>
+    <h2 class="section-title" style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;">How We <span class="gradient-text">Got Here</span></h2>
+  </div>
+  <div class="story-content reveal">
+    <p class="story-highlight">TotalCloudAI was founded with a singular mission: to democratise enterprise-grade cloud services and make them accessible to businesses of every size.</p>
+    <p>Based at Maxi House, Halesfield 20, Telford TF7 4QU, we are a UK-based cloud consultancy that bridges the gap between complex cloud technologies and real business outcomes. Our team of certified cloud architects, DevOps engineers, and AI specialists brings deep expertise across Azure, AWS, GCP, and Alibaba Cloud.</p>
+    <p>From cloud infrastructure design and migration to DevOps automation and AI-powered solutions, we partner with organisations to reduce costs, accelerate innovation, and build resilient digital foundations. Every engagement is tailored, every solution is built with security by design, and every result is measurable.</p>
+    <p>Registered in England & Wales as <strong>TotalCloudAI Limited</strong>, we are committed to transparent partnerships, honest advice, and delivering outcomes that matter.</p>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="mv-section">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">// Mission & Vision</span>
+    <h2 class="section-title" style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;">What <span class="gradient-text">Drives Us</span></h2>
+  </div>
+  <div class="mv-grid">
+    <div class="mv-card reveal stagger-1">
+      <div class="mv-icon">&#127919;</div>
+      <h3>Our Mission</h3>
+      <p>To empower businesses of all sizes with enterprise-grade cloud, AI, and security solutions that drive growth, reduce costs, and accelerate innovation.</p>
+    </div>
+    <div class="mv-card reveal stagger-2">
+      <div class="mv-icon">&#128302;</div>
+      <h3>Our Vision</h3>
+      <p>To be the UK's most trusted cloud transformation partner, enabling businesses to thrive in the digital-first economy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="values-section">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">// Core Values</span>
+    <h2 class="section-title" style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;">What We <span class="gradient-text">Stand For</span></h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-card reveal stagger-1">
+      <div class="value-icon">&#128161;</div>
+      <h4>Innovation First</h4>
+      <p>Continuously exploring emerging technologies and creative approaches to solve the toughest cloud challenges and deliver cutting-edge solutions.</p>
+    </div>
+    <div class="value-card reveal stagger-2">
+      <div class="value-icon">&#129309;</div>
+      <h4>Customer-Centric</h4>
+      <p>Every solution is tailored to our client's unique needs, goals, and constraints. Your success is our success, always.</p>
+    </div>
+    <div class="value-card reveal stagger-3">
+      <div class="value-icon">&#128737;</div>
+      <h4>Security by Design</h4>
+      <p>Zero-trust, compliance-first approach to every engagement. Security is never an afterthought — it is woven into everything we build.</p>
+    </div>
+    <div class="value-card reveal stagger-4">
+      <div class="value-icon">&#129293;</div>
+      <h4>Transparent Partnership</h4>
+      <p>Clear communication, no hidden costs, and real results. We build trust through honesty, accountability, and measurable outcomes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- By The Numbers -->
+<section class="numbers-section">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">// By The Numbers</span>
+    <h2 class="section-title" style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;">Our <span class="gradient-text">Impact</span></h2>
+  </div>
+  <div class="numbers-grid">
+    <div class="number-card reveal stagger-1">
+      <div class="num-value">99.99%</div>
+      <h4>Uptime SLA</h4>
+      <p>Enterprise-grade reliability with proactive monitoring and rapid incident response.</p>
+    </div>
+    <div class="number-card reveal stagger-2">
+      <div class="num-value">40%</div>
+      <h4>Average Cost Savings</h4>
+      <p>Optimised cloud spend through right-sizing, reserved instances, and FinOps practices.</p>
+    </div>
+    <div class="number-card reveal stagger-3">
+      <div class="num-value">50+</div>
+      <h4>Enterprise Projects</h4>
+      <p>Successfully delivered cloud transformations across healthcare, fintech, e-commerce, and more.</p>
+    </div>
+    <div class="number-card reveal stagger-4">
+      <div class="num-value">24/7</div>
+      <h4>Expert Support</h4>
+      <p>Round-the-clock support from certified cloud architects and engineers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- What We Do -->
+<section class="wwd-section">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">// What We Do</span>
+    <h2 class="section-title" style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;">Our <span class="gradient-text">Capability Areas</span></h2>
+  </div>
+  <div class="wwd-grid">
+    <a href="/services/cloud-infrastructure" class="wwd-card reveal stagger-1">
+      <div class="wwd-icon">&#9729;&#65039;</div>
+      <h3>Cloud Infrastructure & Migration</h3>
+      <p>Design, deploy, and migrate enterprise workloads across Azure, AWS, and GCP with high availability, auto-scaling, and minimal downtime.</p>
+      <span class="wwd-link">Learn More &#8594;</span>
+    </a>
+    <a href="/services/devops-automation" class="wwd-card reveal stagger-2">
+      <div class="wwd-icon">&#9889;</div>
+      <h3>DevOps & Automation</h3>
+      <p>Accelerate software delivery with CI/CD pipelines, Infrastructure as Code, GitOps workflows, and container orchestration at scale.</p>
+      <span class="wwd-link">Learn More &#8594;</span>
+    </a>
+    <a href="/services/security-compliance" class="wwd-card reveal stagger-3">
+      <div class="wwd-icon">&#128274;</div>
+      <h3>Security & Compliance</h3>
+      <p>Protect your cloud estate with Zero Trust architecture, identity management, and compliance frameworks for GDPR, HIPAA, and SOC 2.</p>
+      <span class="wwd-link">Learn More &#8594;</span>
+    </a>
+    <a href="/services/ai-machine-learning" class="wwd-card reveal stagger-1">
+      <div class="wwd-icon">&#129302;</div>
+      <h3>AI & Machine Learning</h3>
+      <p>Build intelligent applications with custom ML models, NLP, predictive analytics, and AI-powered chatbots deployed on scalable cloud infrastructure.</p>
+      <span class="wwd-link">Learn More &#8594;</span>
+    </a>
+    <a href="/services/managed-cloud" class="wwd-card reveal stagger-2">
+      <div class="wwd-icon">&#128295;</div>
+      <h3>Managed Cloud Services</h3>
+      <p>24/7 cloud monitoring, cost optimisation, proactive management, and Infrastructure as Code so you can focus on your core business.</p>
+      <span class="wwd-link">Learn More &#8594;</span>
+    </a>
+    <a href="/services/web-development" class="wwd-card reveal stagger-3">
+      <div class="wwd-icon">&#127760;</div>
+      <h3>Web Development & Cloud Hosting</h3>
+      <p>Modern web applications built with Next.js, React, and WordPress, deployed on scalable cloud infrastructure with global CDN and SSL.</p>
+      <span class="wwd-link">Learn More &#8594;</span>
+    </a>
+  </div>
+</section>
+
+<!-- Our Approach -->
+<section class="approach-section">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">// Our Approach</span>
+    <h2 class="section-title" style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;">How We <span class="gradient-text">Work With You</span></h2>
+  </div>
+  <div class="approach-grid">
+    <div class="approach-card reveal stagger-1">
+      <div class="approach-step">01</div>
+      <h3>Consultation</h3>
+      <p>We start by understanding your business goals, current infrastructure, and challenges through in-depth technical discovery sessions and cloud readiness assessments.</p>
+    </div>
+    <div class="approach-card reveal stagger-2">
+      <div class="approach-step">02</div>
+      <h3>Migration</h3>
+      <p>Our certified architects design and execute seamless cloud transitions with zero disruption, using proven migration frameworks and automated tooling.</p>
+    </div>
+    <div class="approach-card reveal stagger-3">
+      <div class="approach-step">03</div>
+      <h3>Optimisation</h3>
+      <p>We continuously monitor, refine, and improve your cloud environment for performance, cost efficiency, and security through ongoing managed services.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="about-testimonials">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">// Testimonials</span>
+    <h2 class="section-title" style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;">Trusted by <span class="gradient-text">Industry Leaders</span></h2>
+  </div>
+  <div class="about-testimonials-grid">
+    <div class="about-testimonial-card reveal stagger-1">
+      <div class="about-testimonial-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+      <p class="quote-text">"TotalCloudAI transformed our entire infrastructure. Migration to Azure was seamless, and we saw a 45% reduction in cloud costs within the first quarter."</p>
+      <div class="about-testimonial-author">
+        <div class="about-testimonial-avatar" style="background:linear-gradient(135deg,#3B82F6,#A855F7);">DS</div>
+        <div>
+          <div class="about-testimonial-name">Dr Sahdev Swain</div>
+          <div class="about-testimonial-role">Chairperson, SJSUK</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-testimonial-card reveal stagger-2">
+      <div class="about-testimonial-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+      <p class="quote-text">"Their AI/ML expertise helped us build a predictive analytics platform that increased our revenue forecast accuracy by 30%. Truly exceptional."</p>
+      <div class="about-testimonial-author">
+        <div class="about-testimonial-avatar" style="background:linear-gradient(135deg,#A855F7,#818CF8);">RC</div>
+        <div>
+          <div class="about-testimonial-name">Dr Reza Chowdhury</div>
+          <div class="about-testimonial-role">CEO, Medflow Dynamics</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-testimonial-card reveal stagger-3">
+      <div class="about-testimonial-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+      <p class="quote-text">"TotalCloudAI built our AI-powered music generation platform from the ground up — from model training pipelines to a scalable cloud backend. Their expertise in AI and cloud architecture turned our vision into a production-ready product that creators love."</p>
+      <div class="about-testimonial-author">
+        <div class="about-testimonial-avatar" style="background:linear-gradient(135deg,#818CF8,#3B82F6);">IA</div>
+        <div>
+          <div class="about-testimonial-name">Irem Antsibor</div>
+          <div class="about-testimonial-role">CEO, Soundport AI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="page-cta">
+  <h2>Ready to Transform Your <span class="gradient-text">Cloud Infrastructure</span>?</h2>
+  <p>Book a free cloud assessment with our certified architects and discover how we can accelerate your business.</p>
+  <a href="/contact" class="btn btn-glow">Book Free Assessment &#8594;</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="/" class="nav-logo" aria-label="TotalCloudAI Home">
+          <img src="assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+        </a>
+        <p>Total Cloud AI guides businesses through cloud transformation with expert consultancy and innovative solutions. We specialise in strategy, architecture, migration, and optimisation.</p>
+        <div class="footer-social">
+          <a href="#">in</a><a href="#">&#120143;</a><a href="#">&#8997;</a><a href="#">&#9654;</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="/services/cloud-infrastructure">Cloud Infrastructure (IaaS)</a>
+        <a href="/services/managed-cloud">Managed Cloud Services</a>
+        <a href="/services/cloud-migration">Cloud Migration Services</a>
+        <a href="/services/devops-automation">DevOps & Automation</a>
+        <a href="/services/security-compliance">Security & Compliance</a>
+        <a href="/services/backup-disaster-recovery">Backup & Disaster Recovery</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/">Home</a><a href="/about">About Us</a>
+        <a href="/team">Our Team</a><a href="/services">Services</a>
+        <a href="/blog">Blog & News</a><a href="/contact">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Info@totalcloudai.com">Info@totalcloudai.com</a>
+        <a href="tel:+447487681898">+44-(0)7487681898</a>
+        <a href="https://wa.me/447487681898" target="_blank" rel="noopener">WhatsApp Us</a>
+        <a href="/contact">Maxi House, Halesfield 20</a>
+        <a href="/contact">Telford TF7 4QU, UK</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 TotalCloudAI Limited. All rights reserved.</span>
+      <span>Registered in England & Wales</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

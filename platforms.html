@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud Platforms — TotalCloudAI | Azure, AWS, GCP & Alibaba Cloud Experts</title>
+<meta name="description" content="TotalCloudAI is a certified multi-cloud partner across Microsoft Azure, Amazon AWS, Google Cloud Platform, and Alibaba Cloud. Expert architecture, migration, and management on every major cloud.">
+<meta name="keywords" content="Microsoft Azure, AWS, Google Cloud, Alibaba Cloud, multi-cloud, cloud platforms, cloud partner, cloud experts, UK cloud consultancy">
+<meta name="author" content="TotalCloudAI Limited">
+<link rel="canonical" href="https://totalcloudai.com/platforms">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://totalcloudai.com/platforms">
+<meta property="og:title" content="Cloud Platforms — TotalCloudAI">
+<meta property="og:description" content="Certified multi-cloud expertise across Azure, AWS, GCP & Alibaba Cloud.">
+<meta property="og:image" content="https://totalcloudai.com/assets/favicon-source.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#050A18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Page-specific hero */
+.page-hero {
+  padding: 160px 0 80px; text-align: center; position: relative; z-index: 2;
+}
+.page-hero h1 {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px;
+}
+.page-hero p {
+  font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto;
+  line-height: 1.7;
+}
+.breadcrumb {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--accent-1); }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* Platforms grid (reuses services-overview-grid pattern) */
+.platforms-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+  max-width: 1100px; margin: 0 auto 80px; padding: 0 24px;
+}
+.platform-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 44px 36px; text-align: center;
+  text-decoration: none; color: inherit; position: relative; overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1), border-color 0.5s ease;
+  display: flex; flex-direction: column; align-items: center;
+}
+.platform-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(59,130,246,0.15), 0 0 0 1px rgba(59,130,246,0.2);
+  border-color: rgba(59,130,246,0.3);
+}
+.platform-card .platform-logo {
+  width: 64px; height: 64px; margin-bottom: 24px;
+  object-fit: contain;
+}
+.platform-card h3 {
+  font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;
+  margin-bottom: 12px;
+}
+.platform-card p {
+  font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;
+  margin-bottom: 20px; flex: 1;
+}
+.platform-card .soc-tags {
+  display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 20px;
+}
+.platform-card .soc-tags span {
+  font-size: 0.7rem; padding: 3px 10px; border-radius: 20px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text-muted);
+}
+.platform-card .soc-link {
+  font-size: 0.85rem; font-weight: 600; color: var(--accent-1);
+  transition: letter-spacing 0.3s ease;
+}
+.platform-card:hover .soc-link { letter-spacing: 0.5px; }
+
+/* Multi-Cloud Advantage section */
+.multicloud-section { padding: 80px 0; position: relative; z-index: 2; }
+.multicloud-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  max-width: 1100px; margin: 40px auto 0; padding: 0 24px;
+}
+.multicloud-card {
+  text-align: center; padding: 36px 24px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.multicloud-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(59,130,246,0.1);
+}
+.multicloud-card .mc-icon {
+  font-size: 2rem; margin-bottom: 16px;
+}
+.multicloud-card h4 {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 10px;
+}
+.multicloud-card p {
+  font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;
+}
+
+/* Certifications section */
+.certifications-section { padding: 80px 0; position: relative; z-index: 2; }
+.certifications-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  max-width: 1100px; margin: 40px auto 0; padding: 0 24px;
+}
+.cert-card {
+  text-align: center; padding: 36px 24px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.cert-card:hover { transform: translateY(-4px); }
+.cert-card .cert-badge {
+  font-size: 2.4rem; margin-bottom: 14px;
+}
+.cert-card h4 {
+  font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; margin-bottom: 6px;
+}
+.cert-card p {
+  font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5;
+}
+.cert-card .cert-status {
+  display: inline-block; margin-top: 12px; font-size: 0.7rem; font-weight: 600;
+  padding: 4px 14px; border-radius: 20px;
+  background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25);
+  color: #10B981; letter-spacing: 0.5px; text-transform: uppercase;
+}
+
+/* CTA section */
+.page-cta {
+  text-align: center; padding: 80px 24px; position: relative; z-index: 2;
+}
+.page-cta h2 {
+  font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700; margin-bottom: 16px;
+}
+.page-cta p {
+  font-size: 1rem; color: var(--text-secondary); max-width: 500px; margin: 0 auto 28px;
+}
+
+@media (max-width: 1024px) {
+  .platforms-grid { grid-template-columns: repeat(2, 1fr); }
+  .multicloud-grid { grid-template-columns: repeat(2, 1fr); }
+  .certifications-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .platforms-grid { grid-template-columns: 1fr; max-width: 440px; }
+  .multicloud-grid { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; }
+  .certifications-grid { grid-template-columns: 1fr; max-width: 360px; margin-left: auto; margin-right: auto; }
+}
+</style>
+</head>
+<body>
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Aurora / Prism Background -->
+<div class="aurora-container">
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+</div>
+<div class="noise-overlay"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobile()">&#10005;</button>
+  <a href="/" onclick="closeMobile()">Home</a>
+  <a href="/services" onclick="closeMobile()">Services</a>
+  <a href="/platforms" onclick="closeMobile()">Platforms</a>
+  <a href="/about" onclick="closeMobile()">About</a>
+  <a href="/team" onclick="closeMobile()">Team</a>
+  <a href="/pricing" onclick="closeMobile()">Pricing</a>
+  <a href="/blog" onclick="closeMobile()">Blog</a>
+  <a href="/contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="TotalCloudAI Home">
+      <img src="assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/services" class="nav-link">Services</a>
+      <a href="/platforms" class="nav-link active">Platforms</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/team" class="nav-link">Team</a>
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="/blog" class="nav-link">Blog</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="toggle-icon" id="toggleIcon">&#9728;&#65039;</span>
+      </button>
+      <a href="/contact" class="btn btn-glow" style="padding:10px 24px;font-size:13px;">Get Started &rarr;</a>
+      <button class="menu-toggle" onclick="openMobile()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Platforms</span>
+    </div>
+    <h1>Every Cloud. <span class="gradient-text">One Partner.</span></h1>
+    <p>Certified multi-cloud expertise across all major platforms. We architect, migrate, and manage workloads on Azure, AWS, GCP, and Alibaba Cloud so you get the best of every ecosystem.</p>
+  </div>
+</section>
+
+<!-- Platforms Grid -->
+<div class="container">
+  <div class="platforms-grid">
+
+    <a href="/platforms/azure" class="platform-card reveal stagger-1">
+      <img src="https://api.iconify.design/logos/microsoft-azure.svg" alt="Microsoft Azure" class="platform-logo">
+      <h3>Microsoft Azure</h3>
+      <p>Enterprise-grade cloud computing with deep integration into the Microsoft ecosystem. From App Services to Azure AI, we deliver scalable, secure solutions on Microsoft's global platform.</p>
+      <div class="soc-tags">
+        <span>App Services</span><span>AKS</span><span>Cosmos DB</span><span>Azure AI</span><span>Virtual Networks</span>
+      </div>
+      <span class="soc-link">Explore Azure &rarr;</span>
+    </a>
+
+    <a href="/platforms/aws" class="platform-card reveal stagger-2">
+      <img src="https://api.iconify.design/logos/aws.svg" alt="Amazon AWS" class="platform-logo">
+      <h3>Amazon AWS</h3>
+      <p>The world's most comprehensive cloud platform. We leverage AWS's 200+ services to build highly available, cost-efficient architectures for startups and enterprises alike.</p>
+      <div class="soc-tags">
+        <span>EC2</span><span>Lambda</span><span>S3</span><span>SageMaker</span><span>EKS</span><span>RDS</span>
+      </div>
+      <span class="soc-link">Explore AWS &rarr;</span>
+    </a>
+
+    <a href="/platforms/gcp" class="platform-card reveal stagger-3">
+      <img src="https://api.iconify.design/logos/google-cloud.svg" alt="Google Cloud" class="platform-logo">
+      <h3>Google Cloud</h3>
+      <p>Built on the same infrastructure that powers Google Search and YouTube. Ideal for data analytics, machine learning, and containerised workloads at planet scale.</p>
+      <div class="soc-tags">
+        <span>GKE</span><span>BigQuery</span><span>Cloud Run</span><span>Vertex AI</span>
+      </div>
+      <span class="soc-link">Explore GCP &rarr;</span>
+    </a>
+
+    <a href="/platforms/alibaba-cloud" class="platform-card reveal stagger-4">
+      <img src="https://api.iconify.design/simple-icons/alibabacloud.svg?color=%23FF6A00" alt="Alibaba Cloud" class="platform-logo">
+      <h3>Alibaba Cloud</h3>
+      <p>Asia's largest cloud provider with a growing global presence. The ideal platform for businesses expanding into APAC markets with robust compute, AI, and big data services.</p>
+      <div class="soc-tags">
+        <span>ECS</span><span>MaxCompute</span><span>PAI</span><span>Container Service</span>
+      </div>
+      <span class="soc-link">Explore Alibaba Cloud &rarr;</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- Multi-Cloud Advantage -->
+<section class="multicloud-section">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">// The Multi-Cloud Advantage</span>
+    <h2 class="section-title" style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;">Why Go <span class="gradient-text">Multi-Cloud</span>?</h2>
+  </div>
+  <div class="multicloud-grid">
+    <div class="multicloud-card reveal stagger-1">
+      <div class="mc-icon">&#128275;</div>
+      <h4>Avoid Vendor Lock-In</h4>
+      <p>Stay flexible and negotiate from a position of strength. A multi-cloud strategy prevents dependency on a single provider and ensures portability.</p>
+    </div>
+    <div class="multicloud-card reveal stagger-2">
+      <div class="mc-icon">&#9889;</div>
+      <h4>Best-of-Breed Services</h4>
+      <p>Pick the strongest capabilities from each platform. Use AWS Lambda for serverless, Azure for enterprise identity, and GCP for data analytics.</p>
+    </div>
+    <div class="multicloud-card reveal stagger-3">
+      <div class="mc-icon">&#127760;</div>
+      <h4>Geographic Redundancy</h4>
+      <p>Distribute workloads across multiple providers and regions for maximum resilience, lower latency, and compliance with local data residency laws.</p>
+    </div>
+    <div class="multicloud-card reveal stagger-4">
+      <div class="mc-icon">&#128200;</div>
+      <h4>Cost Optimisation</h4>
+      <p>Compare pricing across providers in real time. Shift workloads to the most cost-effective platform and leverage spot instances, savings plans, and reserved capacity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section class="certifications-section">
+  <div class="container" style="text-align:center;">
+    <span class="section-label">// Our Credentials</span>
+    <h2 class="section-title" style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;">Certified Cloud <span class="gradient-text">Partnerships</span></h2>
+  </div>
+  <div class="certifications-grid">
+    <div class="cert-card reveal stagger-1">
+      <div class="cert-badge">&#9878;&#65039;</div>
+      <h4>Microsoft Gold Partner</h4>
+      <p>Recognised for advanced competency in Azure cloud solutions, modern workplace, and application development.</p>
+      <span class="cert-status">&#10003; Verified</span>
+    </div>
+    <div class="cert-card reveal stagger-2">
+      <div class="cert-badge">&#9878;&#65039;</div>
+      <h4>AWS Advanced Partner</h4>
+      <p>Demonstrated technical proficiency and proven customer success delivering solutions on Amazon Web Services.</p>
+      <span class="cert-status">&#10003; Verified</span>
+    </div>
+    <div class="cert-card reveal stagger-3">
+      <div class="cert-badge">&#9878;&#65039;</div>
+      <h4>Google Cloud Partner</h4>
+      <p>Certified expertise in Google Cloud infrastructure, data analytics, and machine learning services.</p>
+      <span class="cert-status">&#10003; Verified</span>
+    </div>
+    <div class="cert-card reveal stagger-4">
+      <div class="cert-badge">&#9878;&#65039;</div>
+      <h4>Alibaba Cloud Partner</h4>
+      <p>Qualified partner for Alibaba Cloud deployments, specialising in APAC market expansion and hybrid cloud.</p>
+      <span class="cert-status">&#10003; Verified</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="page-cta">
+  <h2>Discuss Your <span class="gradient-text">Cloud Strategy</span></h2>
+  <p>Let our certified architects help you choose the right platforms, design a resilient multi-cloud architecture, and accelerate your transformation.</p>
+  <a href="/contact" class="btn btn-glow">Discuss Your Cloud Strategy &rarr;</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="/" class="nav-logo" aria-label="TotalCloudAI Home">
+          <img src="assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+        </a>
+        <p>Total Cloud AI guides businesses through cloud transformation with expert consultancy and innovative solutions. We specialise in strategy, architecture, migration, and optimisation.</p>
+        <div class="footer-social">
+          <a href="#">in</a><a href="#">&#120143;</a><a href="#">&#8997;</a><a href="#">&#9654;</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="/services/cloud-infrastructure">Cloud Infrastructure (IaaS)</a>
+        <a href="/services/managed-cloud">Managed Cloud Services</a>
+        <a href="/services/cloud-migration">Cloud Migration Services</a>
+        <a href="/services/devops-automation">DevOps & Automation</a>
+        <a href="/services/security-compliance">Security & Compliance</a>
+        <a href="/services/backup-disaster-recovery">Backup & Disaster Recovery</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/">Home</a><a href="/about">About Us</a>
+        <a href="/team">Our Team</a><a href="/services">Services</a>
+        <a href="/blog">Blog & News</a><a href="/contact">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Info@totalcloudai.com">Info@totalcloudai.com</a>
+        <a href="tel:+447487681898">+44-(0)7487681898</a>
+        <a href="https://wa.me/447487681898" target="_blank" rel="noopener">WhatsApp Us</a>
+        <a href="/contact">Maxi House, Halesfield 20</a>
+        <a href="/contact">Telford TF7 4QU, UK</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 TotalCloudAI Limited. All rights reserved.</span>
+      <span>Registered in England & Wales</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
