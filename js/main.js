@@ -1874,9 +1874,54 @@ window.addEventListener('scroll', function() {
   // ── Unmatched counter for human fallback ──
   var unmatchedCount = 0;
 
+  // ── Session persistence (chat survives page navigation) ──
+  function saveChat() {
+    try {
+      var chatData = { open: win.classList.contains('open'), html: msgs.innerHTML };
+      sessionStorage.setItem('tcai_chat', JSON.stringify(chatData));
+    } catch(e) {}
+  }
+
+  function restoreChat() {
+    try {
+      var saved = sessionStorage.getItem('tcai_chat');
+      if (!saved) return false;
+      var data = JSON.parse(saved);
+      if (data.html) msgs.innerHTML = data.html;
+      if (data.open) {
+        win.classList.add('open');
+        fab.classList.add('open');
+      }
+      return data.open;
+    } catch(e) { return false; }
+  }
+
+  // Restore previous chat session on page load
+  var wasRestored = restoreChat();
+
+  // ── Auto-popup on homepage (first visit only, after 3s) ──
+  if (!wasRestored) {
+    var isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+    var hasSeenPopup = sessionStorage.getItem('tcai_popup_shown');
+    if (isHomepage && !hasSeenPopup) {
+      setTimeout(function() {
+        if (!win.classList.contains('open')) {
+          win.classList.add('open');
+          fab.classList.add('open');
+          sessionStorage.setItem('tcai_popup_shown', '1');
+          saveChat();
+        }
+      }, 3000);
+    }
+  }
+
+  // Save chat state before leaving the page
+  window.addEventListener('beforeunload', saveChat);
+
   fab.addEventListener('click', function() {
     win.classList.toggle('open');
     fab.classList.toggle('open');
+    saveChat();
   });
 
   function addMsg(text, type) {
@@ -1885,6 +1930,7 @@ window.addEventListener('scroll', function() {
     div.innerHTML = text;
     msgs.appendChild(div);
     msgs.scrollTop = msgs.scrollHeight;
+    saveChat();
   }
 
   function showTyping() {
@@ -1917,7 +1963,7 @@ window.addEventListener('scroll', function() {
         + '</div>';
       unmatchedCount = 0;
       showTyping();
-      setTimeout(function() { removeTyping(); addMsg(response, 'bot'); }, 600);
+      setTimeout(function() { removeTyping(); addMsg(response, 'bot'); saveChat(); }, 600);
       return;
     }
 
@@ -1926,7 +1972,7 @@ window.addEventListener('scroll', function() {
       response = 'You\'re welcome! Happy to help. If you need anything else, just ask. You can also reach our team directly:<br>' + CONTACT_BLOCK;
       unmatchedCount = 0;
       showTyping();
-      setTimeout(function() { removeTyping(); addMsg(response, 'bot'); }, 600);
+      setTimeout(function() { removeTyping(); addMsg(response, 'bot'); saveChat(); }, 600);
       return;
     }
 
@@ -1977,6 +2023,7 @@ window.addEventListener('scroll', function() {
     setTimeout(function() {
       removeTyping();
       addMsg(response, 'bot');
+      saveChat();
     }, 800 + Math.random() * 600);
   }
 
@@ -2004,6 +2051,14 @@ window.addEventListener('scroll', function() {
   document.getElementById('chatSend').addEventListener('click', sendMsg);
   input.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') sendMsg();
+  });
+
+  // Save chat before navigating via links inside chat
+  msgs.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+    if (link && link.href && !link.getAttribute('target')) {
+      saveChat();
+    }
   });
 })();
 
