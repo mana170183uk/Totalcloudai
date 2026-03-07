@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TotalCloudAI — Cloud Architecture & Solutions</title>
+<meta name="description" content="Reference architectures for Azure, AWS, GCP & Alibaba Cloud — enterprise solutions by TotalCloudAI.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+
+  @media print {
+    .no-print { display: none !important; }
+    body { font-size: 11pt; }
+    .page-break { page-break-before: always; }
+    .arch-section { break-inside: avoid; }
+    a { color: #1a1a2e; text-decoration: none; }
+  }
+
+  .brochure-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+    color: #fff; padding: 48px 40px; text-align: center;
+  }
+  .brochure-header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
+  .brochure-header p { font-size: 1.1rem; opacity: 0.85; max-width: 700px; margin: 0 auto; }
+  .brochure-header .logo { font-size: 1.4rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+  .brochure-header .logo span { color: #60a5fa; }
+
+  .toolbar {
+    position: sticky; top: 0; z-index: 10; background: #f8fafc; border-bottom: 1px solid #e2e8f0;
+    padding: 12px 40px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .toolbar a { color: #3b82f6; text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+  .btn-download {
+    background: #3b82f6; color: #fff; border: none; padding: 10px 24px; border-radius: 8px;
+    font-weight: 600; font-size: 0.9rem; cursor: pointer;
+  }
+  .btn-download:hover { background: #2563eb; }
+
+  .content { max-width: 960px; margin: 0 auto; padding: 40px; }
+
+  .arch-section {
+    margin-bottom: 48px; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden;
+  }
+  .arch-header {
+    padding: 24px 28px; color: #fff;
+  }
+  .arch-header.azure { background: linear-gradient(135deg, #0078d4, #005a9e); }
+  .arch-header.aws { background: linear-gradient(135deg, #ff9900, #cc7a00); }
+  .arch-header.gcp { background: linear-gradient(135deg, #4285f4, #2d5fb4); }
+  .arch-header.alibaba { background: linear-gradient(135deg, #ff6a00, #cc5500); }
+  .arch-header h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+  .arch-header .subtitle { opacity: 0.9; font-size: 0.95rem; }
+
+  .arch-body { padding: 28px; background: #f8fafc; }
+  .arch-body h3 { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 16px; }
+  .arch-body p { margin-bottom: 20px; color: #475569; font-size: 0.92rem; }
+
+  .layer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
+  @media (max-width: 700px) { .layer-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .layer-grid { grid-template-columns: 1fr; } }
+
+  .layer {
+    padding: 18px; border-radius: 10px; background: #fff; border: 1px solid #e2e8f0; text-align: center;
+  }
+  .layer h4 { font-size: 0.9rem; font-weight: 700; color: #1e3a5f; margin-bottom: 6px; }
+  .layer p { font-size: 0.82rem; color: #64748b; margin: 0; line-height: 1.5; }
+
+  .case-study {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; margin-top: 16px;
+  }
+  .case-study h4 { font-size: 0.95rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+  .case-study .results { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+  .case-study .result-tag {
+    background: #e0f2fe; color: #0369a1; padding: 5px 12px; border-radius: 16px;
+    font-size: 0.8rem; font-weight: 600;
+  }
+
+  .cert-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .cert {
+    background: #f1f5f9; border: 1px solid #e2e8f0; padding: 4px 12px; border-radius: 16px;
+    font-size: 0.78rem; font-weight: 500; color: #334155;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, #0f172a, #1e3a5f); color: #fff;
+    padding: 40px; border-radius: 12px; text-align: center; margin-top: 40px;
+  }
+  .cta-section h2 { color: #fff; margin-bottom: 12px; font-size: 1.4rem; }
+  .cta-section p { opacity: 0.85; margin-bottom: 8px; }
+  .cta-section a { color: #93c5fd; font-weight: 600; }
+
+  .footer-bar { text-align: center; padding: 24px; color: #94a3b8; font-size: 0.85rem; border-top: 1px solid #e2e8f0; margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div class="brochure-header">
+  <div class="logo">Total<span>Cloud</span>AI</div>
+  <h1>Cloud Architecture & Solutions</h1>
+  <p>Reference architectures across Azure, AWS, GCP & Alibaba Cloud — proven patterns for enterprise workloads.</p>
+</div>
+
+<div class="toolbar no-print">
+  <a href="/">← Back to TotalCloudAI</a>
+  <button class="btn-download" onclick="window.print()">Save as PDF</button>
+</div>
+
+<div class="content">
+
+  <!-- ═══ AZURE ═══ -->
+  <div class="arch-section">
+    <div class="arch-header azure">
+      <h2>Microsoft Azure</h2>
+      <div class="subtitle">Multi-Region E-Commerce Platform</div>
+    </div>
+    <div class="arch-body">
+      <p>A geo-distributed e-commerce platform on Azure with multi-region failover, real-time inventory, and PCI-DSS compliance. Designed for high availability and sub-second response times.</p>
+      <div class="layer-grid">
+        <div class="layer"><h4>Edge & CDN</h4><p>Azure Front Door, Azure CDN, WAF, DDoS Protection</p></div>
+        <div class="layer"><h4>Compute</h4><p>AKS multi-node pools, Azure Functions, Container Instances</p></div>
+        <div class="layer"><h4>Data & Storage</h4><p>Cosmos DB, Azure SQL, Blob Storage, Redis Cache</p></div>
+        <div class="layer"><h4>Analytics & AI</h4><p>Azure Synapse, Event Hubs, Azure ML, Power BI</p></div>
+        <div class="layer"><h4>Security</h4><p>Entra ID, Key Vault, Private Link, Defender for Cloud</p></div>
+        <div class="layer"><h4>DevOps</h4><p>Azure DevOps, Terraform, Helm, Monitor, App Insights</p></div>
+      </div>
+      <div class="case-study">
+        <h4>Case Study: UK Fintech Lending Platform</h4>
+        <div class="results">
+          <span class="result-tag">99.99% uptime</span>
+          <span class="result-tag">62% cost reduction</span>
+          <span class="result-tag">15x faster deployments</span>
+          <span class="result-tag">PCI-DSS in 90 days</span>
+        </div>
+      </div>
+      <div class="cert-list">
+        <span class="cert">AZ-305</span><span class="cert">AZ-400</span><span class="cert">AZ-500</span>
+        <span class="cert">AZ-104</span><span class="cert">AZ-204</span><span class="cert">AI-102</span>
+        <span class="cert">DP-203</span><span class="cert">DP-600</span><span class="cert">SC-200</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ AWS ═══ -->
+  <div class="arch-section page-break">
+    <div class="arch-header aws">
+      <h2>Amazon Web Services (AWS)</h2>
+      <div class="subtitle">Global SaaS Platform</div>
+    </div>
+    <div class="arch-body">
+      <p>A serverless-first global SaaS platform on AWS with event-driven microservices, real-time analytics, and multi-tenant security. Built for massive scale and cost efficiency.</p>
+      <div class="layer-grid">
+        <div class="layer"><h4>Edge & CDN</h4><p>CloudFront, Route 53, AWS Shield, WAF</p></div>
+        <div class="layer"><h4>Compute</h4><p>Lambda, Fargate, EKS, API Gateway, Step Functions</p></div>
+        <div class="layer"><h4>Data & Storage</h4><p>DynamoDB, Aurora, S3, ElastiCache, OpenSearch</p></div>
+        <div class="layer"><h4>Analytics & AI</h4><p>Kinesis, Glue, Athena, SageMaker, QuickSight</p></div>
+        <div class="layer"><h4>Security</h4><p>Cognito, IAM, GuardDuty, Security Hub, KMS</p></div>
+        <div class="layer"><h4>DevOps</h4><p>CodePipeline, CDK, Terraform, CloudWatch, X-Ray</p></div>
+      </div>
+      <div class="case-study">
+        <h4>Case Study: UK Digital Health Platform</h4>
+        <div class="results">
+          <span class="result-tag">100x patient capacity</span>
+          <span class="result-tag">47% cost reduction</span>
+          <span class="result-tag">&lt;50ms latency</span>
+          <span class="result-tag">NHS DSPT compliant</span>
+        </div>
+      </div>
+      <div class="cert-list">
+        <span class="cert">Solutions Architect Pro</span><span class="cert">DevOps Engineer Pro</span>
+        <span class="cert">Security Specialty</span><span class="cert">ML Specialty</span>
+        <span class="cert">Data Analytics</span><span class="cert">Database Specialty</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ GCP ═══ -->
+  <div class="arch-section">
+    <div class="arch-header gcp">
+      <h2>Google Cloud Platform (GCP)</h2>
+      <div class="subtitle">Real-Time Analytics Platform for Retail</div>
+    </div>
+    <div class="arch-body">
+      <p>A real-time retail analytics platform on GCP processing 5PB+ monthly data with sub-second query performance, ML-driven recommendations, and fully automated data pipelines.</p>
+      <div class="layer-grid">
+        <div class="layer"><h4>Ingestion</h4><p>Pub/Sub, Dataflow, Cloud IoT, Transfer Service</p></div>
+        <div class="layer"><h4>Compute</h4><p>Cloud Run, GKE Autopilot, Cloud Functions</p></div>
+        <div class="layer"><h4>Data & Storage</h4><p>BigQuery, Cloud Spanner, Cloud Storage, Firestore</p></div>
+        <div class="layer"><h4>AI & Analytics</h4><p>Vertex AI, BigQuery ML, Looker, Dataproc</p></div>
+        <div class="layer"><h4>Security</h4><p>IAM, VPC SC, Cloud Armor, Chronicle, KMS</p></div>
+        <div class="layer"><h4>DevOps</h4><p>Cloud Build, Terraform, Cloud Deploy, Monitoring</p></div>
+      </div>
+      <div class="case-study">
+        <h4>Case Study: UK Streaming Platform</h4>
+        <div class="results">
+          <span class="result-tag">98% less buffering</span>
+          <span class="result-tag">34% more watch time</span>
+          <span class="result-tag">2.4s avg recommendation</span>
+          <span class="result-tag">5PB+ monthly data</span>
+        </div>
+      </div>
+      <div class="cert-list">
+        <span class="cert">Cloud Architect</span><span class="cert">DevOps Engineer</span>
+        <span class="cert">Security Engineer</span><span class="cert">Data Engineer</span>
+        <span class="cert">ML Engineer</span><span class="cert">Cloud Developer</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ ALIBABA ═══ -->
+  <div class="arch-section page-break">
+    <div class="arch-header alibaba">
+      <h2>Alibaba Cloud</h2>
+      <div class="subtitle">Cross-Border E-Commerce Platform for UK-China Trade</div>
+    </div>
+    <div class="arch-body">
+      <p>A cross-border e-commerce platform connecting UK brands with Chinese consumers, featuring multi-currency payments, China-optimised CDN, and full ICP/CSL compliance.</p>
+      <div class="layer-grid">
+        <div class="layer"><h4>Edge & CDN</h4><p>Alibaba CDN, DCDN, WAF, Anti-DDoS Pro</p></div>
+        <div class="layer"><h4>Compute</h4><p>ACK, ECS, Function Compute, SAE</p></div>
+        <div class="layer"><h4>Data & Storage</h4><p>PolarDB, MaxCompute, OSS, Tair/Redis</p></div>
+        <div class="layer"><h4>AI & Analytics</h4><p>PAI, Quick BI, DataWorks, Hologres</p></div>
+        <div class="layer"><h4>Connectivity</h4><p>CEN, Express Connect, DTS, VPN Gateway</p></div>
+        <div class="layer"><h4>Security</h4><p>RAM, Security Centre, Cloud Firewall, KMS</p></div>
+      </div>
+      <div class="case-study">
+        <h4>Case Study: UK Luxury Brand Expanding to China</h4>
+        <div class="results">
+          <span class="result-tag">97% faster loads in China</span>
+          <span class="result-tag">340% revenue growth</span>
+          <span class="result-tag">28% higher AOV</span>
+          <span class="result-tag">ICP+CSL compliant</span>
+        </div>
+      </div>
+      <div class="cert-list">
+        <span class="cert">Cloud Computing Pro</span><span class="cert">Big Data Pro</span>
+        <span class="cert">Cloud Security Pro</span><span class="cert">Networking Pro</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Need a Custom Architecture for Your Project?</h2>
+    <p>Our certified architects will design a solution tailored to your requirements.</p>
+    <p>Phone: <a href="tel:+447487681898">+44-(0)7487681898</a> | WhatsApp: <a href="https://wa.me/447487681898" target="_blank">Chat now</a></p>
+    <p>Email: <a href="mailto:Info@totalcloudai.com">Info@totalcloudai.com</a></p>
+    <p style="margin-top:12px"><a href="/contact">Book a free architecture review →</a></p>
+  </div>
+
+</div>
+
+<div class="footer-bar">
+  TotalCloudAI Limited — Registered in England & Wales<br>
+  Maxi House, Halesfield 20, Telford TF7 4QU, UK<br>
+  <a href="https://totalcloudai.com" style="color:#3b82f6">totalcloudai.com</a>
+</div>
+
+</body>
+</html>

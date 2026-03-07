@@ -1698,18 +1698,16 @@ window.addEventListener('scroll', function() {
       +     '<div class="chat-msg bot">'
       +       'Hi! I\'m the TotalCloudAI assistant. How can I help you today?'
       +       '<div class="chat-quick-btns">'
-      +         '<button class="chat-quick-btn">Cloud Infrastructure</button>'
-      +         '<button class="chat-quick-btn">Cloud Migration</button>'
-      +         '<button class="chat-quick-btn">DevOps</button>'
-      +         '<button class="chat-quick-btn">Security</button>'
-      +         '<button class="chat-quick-btn">AI &amp; ML</button>'
+      +         '<button class="chat-quick-btn">Our Services</button>'
+      +         '<button class="chat-quick-btn">Platforms</button>'
       +         '<button class="chat-quick-btn">Pricing</button>'
       +         '<button class="chat-quick-btn">Contact Us</button>'
+      +         '<button class="chat-quick-btn">Download Brochure</button>'
       +       '</div>'
       +     '</div>'
       +   '</div>'
       +   '<div class="chat-input-area">'
-      +     '<input type="text" class="chat-input" id="chatInput" placeholder="Type your question..." autocomplete="off">'
+      +     '<input type="text" class="chat-input" id="chatInput" placeholder="Ask about services, pricing, architecture..." autocomplete="off">'
       +     '<button class="chat-send" id="chatSend" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>'
       +   '</div>'
       + '</div>';
@@ -1722,42 +1720,163 @@ window.addEventListener('scroll', function() {
   var msgs = document.getElementById('chatMessages');
   if (!fab || !win) return;
 
-  var serviceInfo = {
-    'cloud infrastructure': 'We design multi-region, highly available cloud infrastructure across Azure, AWS, and GCP with auto-scaling, managed databases, and virtual networking — all optimised for performance and cost.',
-    'managed cloud': 'We provide 24/7 monitoring, incident response, cost optimisation, and capacity planning. Our managed services ensure your environments are always secure, performant, and cost-efficient.',
-    'cloud migration': 'We plan and execute seamless migrations using Rehost, Refactor, Rearchitect, or Rebuild methodologies — ensuring zero data loss and minimal downtime.',
-    'devops': 'We build end-to-end CI/CD pipelines with Infrastructure as Code, container orchestration, and GitOps to deliver software faster and more reliably.',
-    'security': 'We implement defence-in-depth security — IAM, network segmentation, encryption, and continuous compliance monitoring for GDPR, HIPAA, PCI-DSS, and ISO 27001.',
-    'backup': 'We design comprehensive backup and DR solutions with automated daily backups, geo-redundant storage, and full failover with defined RPO/RTO targets.',
-    'ai': 'We build production-ready AI/ML solutions — from chatbots and document processing to predictive analytics and custom ML models across Azure ML, SageMaker, and Vertex AI.',
-    'web development': 'We build full-stack web applications and deploy them on cloud infrastructure with CDN, SSL, auto-scaling, and CI/CD pipelines.',
-    'cloud strategy': 'We provide Cloud Adoption Framework assessments, landing zone design, governance policies, and cost optimisation strategies.',
-    'pricing': 'Our Starter plan is £3,999/mo and Professional is £9,999/mo. We also offer custom Enterprise pricing. Visit our Pricing section or contact us for a tailored quote.',
-    'contact': 'You can reach us via our <a href="/contact">Contact page</a>, or email <a href="mailto:hello@totalcloudai.com">hello@totalcloudai.com</a>. We typically respond within 24 hours.',
-    'azure': 'We\'re a Microsoft Azure partner with deep expertise across Azure VMs, AKS, Azure DevOps, Functions, and more. <a href="/platforms/azure">Learn more about our Azure expertise →</a>',
-    'aws': 'We deliver enterprise-grade solutions on AWS — EC2, EKS, Lambda, S3, RDS, and beyond. <a href="/platforms/aws">Explore our AWS services →</a>',
-    'gcp': 'We build on Google Cloud Platform with GKE, Cloud Run, BigQuery, and Vertex AI. <a href="/platforms/gcp">See our GCP capabilities →</a>',
-    'google cloud': 'We build on Google Cloud Platform with GKE, Cloud Run, BigQuery, and Vertex AI. <a href="/platforms/gcp">See our GCP capabilities →</a>',
-    'alibaba': 'We specialise in cross-border UK-China solutions on Alibaba Cloud — ECS, ApsaraDB, CDN, and Anti-DDoS. <a href="/platforms/alibaba-cloud">Discover our Alibaba Cloud services →</a>',
-    'about': 'TotalCloudAI is a UK-based cloud consultancy helping businesses modernise with multi-cloud, DevOps, security, and AI solutions. <a href="/about">Read our full story →</a>',
-    'team': 'Our team of certified cloud architects and engineers brings deep expertise across Azure, AWS, and GCP. <a href="/team">Meet the team →</a>',
-    'blog': 'We publish in-depth articles on cloud transformation, DevOps, security, and AI. <a href="/blog">Read our latest insights →</a>',
-    'services': 'We offer 9 core services: Cloud Infrastructure, Managed Cloud, Migration, DevOps, Security, Backup & DR, AI/ML, Web Development, and Cloud Strategy. <a href="/services">Explore all services →</a>',
-    'disaster recovery': 'We design comprehensive backup and DR solutions with automated daily backups, geo-redundant storage, and full failover with defined RPO/RTO targets. <a href="/services/backup-disaster-recovery">Learn more →</a>',
-    'compliance': 'We implement governance and compliance frameworks for GDPR, HIPAA, PCI-DSS, ISO 27001, and SOC 2 — with continuous monitoring and audit-ready documentation. <a href="/services/security-compliance">Learn more →</a>',
-    'kubernetes': 'We deploy and manage Kubernetes clusters on AKS, EKS, and GKE with GitOps, Helm charts, service meshes, and auto-scaling. <a href="/services/devops-automation">Learn more →</a>',
-    'terraform': 'We use Terraform, Bicep, CloudFormation, and Pulumi to manage infrastructure as code across all major cloud providers. <a href="/services/devops-automation">Learn more →</a>',
-    'cost': 'We help optimise cloud spend through right-sizing, reserved instances, spot/preemptible VMs, and automated cost governance policies.',
-    'support': 'We provide 24/7 managed support with guaranteed SLAs, proactive monitoring, and dedicated account management. <a href="/contact">Get in touch →</a>'
-  };
+  // ── Contact constants ──
+  var PHONE = '+44-(0)7487681898';
+  var PHONE_LINK = 'tel:+447487681898';
+  var WHATSAPP = 'https://wa.me/447487681898';
+  var EMAIL = 'Info@totalcloudai.com';
+  var ADDRESS = 'Maxi House, Halesfield 20, Telford TF7 4QU, UK';
+  var CONTACT_BLOCK = '<div style="margin-top:10px;padding:10px;border-radius:8px;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.2);font-size:0.88rem;line-height:1.6">'
+    + '<strong>Get in touch:</strong><br>'
+    + '📞 <a href="' + PHONE_LINK + '">' + PHONE + '</a><br>'
+    + '💬 <a href="' + WHATSAPP + '" target="_blank">WhatsApp Us</a><br>'
+    + '📧 <a href="mailto:' + EMAIL + '">' + EMAIL + '</a><br>'
+    + '📍 ' + ADDRESS
+    + '</div>';
+
+  // ── Weighted keyword Q&A database ──
+  var qaDatabase = [
+
+    // ═══ SERVICES ═══
+
+    // Cloud Infrastructure
+    { keywords: ['cloud infrastructure', 'iaas', 'infrastructure as a service'],
+      response: '<strong>Enterprise Cloud Infrastructure (IaaS)</strong><br><br>We design multi-region, highly available cloud infrastructure across Azure, AWS, GCP, and Alibaba Cloud.<br><br><strong>What\'s included:</strong><br>• Multi-cloud architecture design<br>• Compute & VM provisioning with rightsizing<br>• Enterprise networking (VPNs, ExpressRoute, load balancers)<br>• Storage & data management with encryption<br>• Monitoring & observability (Prometheus, Grafana, Datadog)<br>• Cost governance & FinOps strategies<br><br><strong>Results:</strong> 30-40% cost reduction | 99.99% uptime | 60% faster time to market<br><br><strong>Timeline:</strong> 2-12 weeks depending on complexity<br><br><a href="/services/cloud-infrastructure">Learn more →</a>' },
+
+    // Managed Cloud
+    { keywords: ['managed cloud', 'managed service', '24/7 monitoring', 'managed operations'],
+      response: '<strong>Managed Cloud Services (24/7 Operations)</strong><br><br>We take full operational ownership of your cloud environments with round-the-clock monitoring and support.<br><br><strong>What\'s included:</strong><br>• 24/7 proactive monitoring & alerting<br>• OS patching & zero-downtime maintenance<br>• Cost optimisation & FinOps<br>• Infrastructure as Code management<br>• Security posture management<br>• Dedicated account manager<br><br><strong>SLA:</strong> P1 incidents — 15 min acknowledgement, 1 hr resolution<br><strong>Results:</strong> 45% lower ops costs | 78% faster incident resolution | 32% cloud waste eliminated<br><br><strong>Timeline:</strong> 2-4 weeks onboarding<br><br><a href="/services/managed-cloud">Learn more →</a>' },
+
+    // Cloud Migration
+    { keywords: ['cloud migration', 'migrate', 'move to cloud', 'rehost', 'lift and shift', 'refactor', 'rearchitect'],
+      response: '<strong>Zero-Downtime Cloud Migration</strong><br><br>We plan and execute seamless migrations using the 6 Rs framework — Rehost, Refactor, Rearchitect, Rebuild, Replatform, and Retire.<br><br><strong>What\'s included:</strong><br>• Migration assessment & discovery<br>• Lift-and-shift & re-platform strategies<br>• Application modernisation<br>• Hybrid cloud architecture<br>• Database migration & modernisation<br>• Landing zone build-out<br><br><strong>Results:</strong> 20-30% TCO reduction | 94% improved security | Zero data loss guaranteed<br><br><strong>Timeline:</strong> 4-8 weeks (simple) to 3-6 months (complex)<br><br><a href="/services/cloud-migration">Learn more →</a>' },
+
+    // DevOps & Automation
+    { keywords: ['devops', 'ci/cd', 'cicd', 'pipeline', 'automation', 'gitops', 'continuous integration', 'continuous delivery', 'continuous deployment'],
+      response: '<strong>DevOps & CI/CD Transformation</strong><br><br>We build end-to-end CI/CD pipelines with Infrastructure as Code, container orchestration, and GitOps.<br><br><strong>What\'s included:</strong><br>• CI/CD pipeline design (GitHub Actions, Azure DevOps, GitLab CI)<br>• Infrastructure as Code (Terraform, Bicep, Pulumi)<br>• Kubernetes & container orchestration<br>• GitOps with ArgoCD & Helm<br>• Observability & SRE practices<br>• DevSecOps integration<br><br><strong>Results:</strong> 208x more frequent deployments | 106x faster lead time | 7x lower change failure rate<br><br><strong>Timeline:</strong> 6-10 weeks initial + 4-8 weeks enablement<br><br><a href="/services/devops-automation">Learn more →</a>' },
+
+    // Security & Compliance
+    { keywords: ['security', 'compliance', 'gdpr', 'iso 27001', 'soc 2', 'hipaa', 'pci-dss', 'pci dss', 'zero trust', 'iam', 'identity'],
+      response: '<strong>Cloud Security & Compliance</strong><br><br>We implement defence-in-depth security and help you achieve compliance certifications.<br><br><strong>What\'s included:</strong><br>• Zero Trust architecture design<br>• Identity & Access Management (IAM)<br>• Compliance frameworks: GDPR, SOC 2, ISO 27001, HIPAA, PCI-DSS<br>• Cloud Security Posture Management (CSPM)<br>• Data protection & encryption<br>• Security operations & incident response<br><br><strong>Tools:</strong> Microsoft Sentinel, Defender for Cloud, AWS GuardDuty, Security Hub, HashiCorp Vault, Snyk<br><br><strong>Results:</strong> 73% fewer security incidents | 80% faster compliance audits<br><br><strong>Timeline:</strong> SOC 2 Type I: 3-6 months | SOC 2 Type II: 9-12 months<br><br><a href="/services/security-compliance">Learn more →</a>' },
+
+    // Backup & DR
+    { keywords: ['backup', 'disaster recovery', 'business continuity', 'failover', 'rto', 'rpo', 'dr plan'],
+      response: '<strong>Enterprise Disaster Recovery & Business Continuity</strong><br><br>We design comprehensive DR solutions to keep your business running no matter what.<br><br><strong>What\'s included:</strong><br>• Automated cloud backup (daily/policy-driven)<br>• Geo-redundant storage & replication<br>• Automated failover orchestration<br>• Immutable & air-gapped backups (ransomware-resistant)<br>• Business continuity planning (BCP)<br>• Regular DR testing & validation<br><br><strong>Tools:</strong> Azure Site Recovery, AWS CloudEndure, GCP Backup & DR, Terraform<br><br><strong>Results:</strong> &lt;15 minute RTO | $5,600/min of downtime avoided | 100% audit readiness<br><br><a href="/services/backup-disaster-recovery">Learn more →</a>' },
+
+    // AI & Machine Learning
+    { keywords: ['ai', 'artificial intelligence', 'machine learning', 'ml', 'nlp', 'llm', 'openai', 'predictive', 'generative ai', 'rag', 'chatbot development'],
+      response: '<strong>Enterprise AI & Machine Learning Solutions</strong><br><br>We build production-ready AI solutions — from intelligent chatbots to predictive analytics and custom ML models.<br><br><strong>What\'s included:</strong><br>• Intelligent chatbots & virtual agents (LLM + RAG)<br>• Predictive analytics & forecasting<br>• Custom ML model development<br>• Natural Language Processing (NLP)<br>• MLOps & model lifecycle management<br>• Generative AI & LLM applications<br><br><strong>Tools:</strong> Azure OpenAI, AWS Bedrock, PyTorch, TensorFlow, LangChain, Vertex AI, SageMaker<br><br><strong>Results:</strong> 40-60% customer service cost reduction | 3-5x ROI in 18-24 months<br><br><strong>Timeline:</strong> 4-16 weeks depending on complexity<br><br><a href="/services/ai-machine-learning">Learn more →</a>' },
+
+    // Cloud Strategy
+    { keywords: ['cloud strategy', 'advisory', 'consulting', 'roadmap', 'cloud adoption', 'tco', 'total cost of ownership', 'cloud readiness'],
+      response: '<strong>Strategic Cloud Consulting & Advisory</strong><br><br>We help you build a clear, actionable cloud strategy aligned to your business goals.<br><br><strong>What\'s included:</strong><br>• Cloud readiness assessment<br>• 12-24 month technology roadmap<br>• Total cost of ownership (TCO) analysis<br>• Platform & vendor selection (vendor-neutral)<br>• Cloud operating model design<br>• Skills & organisation assessment<br><br><strong>Results:</strong> 2.5x higher cloud ROI | 40% reduced implementation risk | 30% lower long-term costs<br><br><strong>Timeline:</strong> 4-12 weeks<br><br><a href="/services/cloud-strategy">Learn more →</a>' },
+
+    // Web Development
+    { keywords: ['web development', 'website', 'wordpress', 'next.js', 'nextjs', 'react', 'web app', 'web application', 'hosting', 'full stack', 'full-stack'],
+      response: '<strong>Full-Stack Web Development & Cloud Hosting</strong><br><br>We build high-performance websites and web applications deployed on enterprise cloud infrastructure.<br><br><strong>What\'s included:</strong><br>• Custom website design & development<br>• WordPress development & cloud hosting<br>• Full-stack web applications (React, Next.js, Node.js)<br>• Cloud-native hosting with CDN & SSL<br>• CI/CD & DevOps for web<br>• Performance optimisation & SEO<br><br><strong>Tech:</strong> React, Next.js, Node.js, TypeScript, PostgreSQL, MongoDB, Tailwind CSS<br><br><strong>Results:</strong> 70% higher conversion rates | 99.9%+ uptime | 53% mobile traffic captured<br><br><strong>Timeline:</strong> 4-20 weeks<br><br><a href="/services/web-development">Learn more →</a>' },
+
+    // ═══ PLATFORMS ═══
+
+    // Azure
+    { keywords: ['azure', 'microsoft cloud', 'microsoft azure'],
+      response: '<strong>Microsoft Azure Expertise</strong><br><br>We\'re a Microsoft Azure partner with deep expertise across the Azure ecosystem.<br><br><strong>Key capabilities:</strong><br>• Azure Infrastructure & Networking (VMs, AKS, App Services)<br>• Azure AI & ML (Azure OpenAI, Cognitive Services)<br>• Azure DevOps & CI/CD Pipelines<br>• Azure Security (Entra ID, Defender, Sentinel)<br>• Azure Data & Analytics (Synapse, Cosmos DB, Power BI)<br>• Azure Migration & Hybrid Cloud (Arc, Stack HCI)<br><br><strong>Certifications:</strong> AZ-305, AZ-400, AZ-500, AZ-104, AZ-204, AI-102, DP-203, DP-600, SC-200<br><br><strong>Case Study:</strong> UK Fintech — 99.99% uptime, 62% cost reduction, PCI-DSS in 90 days<br><br><a href="/platforms/azure">Explore Azure services →</a>' },
+
+    // AWS
+    { keywords: ['aws', 'amazon web services', 'amazon cloud'],
+      response: '<strong>Amazon Web Services (AWS) Expertise</strong><br><br>We deliver enterprise-grade solutions on the world\'s most comprehensive cloud platform.<br><br><strong>Key capabilities:</strong><br>• AWS Compute & Networking (EC2, EKS, Lambda, Fargate)<br>• AWS AI & ML (SageMaker, Bedrock, Comprehend, Lex)<br>• AWS DevOps & CI/CD (CodePipeline, Terraform, GitHub Actions)<br>• AWS Security (Security Hub, GuardDuty, WAF, Shield)<br>• AWS Data & Analytics (S3, Redshift, Glue, Kinesis, QuickSight)<br>• AWS Migration (Migration Hub, DMS, CloudEndure)<br><br><strong>Certifications:</strong> Solutions Architect Pro, DevOps Engineer Pro, Security Specialty, ML Specialty<br><br><strong>Case Study:</strong> UK Healthcare — 100x patient scale, 47% cost reduction, NHS DSPT compliant<br><br><a href="/platforms/aws">Explore AWS services →</a>' },
+
+    // GCP
+    { keywords: ['gcp', 'google cloud', 'google cloud platform'],
+      response: '<strong>Google Cloud Platform (GCP) Expertise</strong><br><br>We build data-intensive and AI-first solutions on Google Cloud.<br><br><strong>Key capabilities:</strong><br>• GKE & Anthos (Kubernetes orchestration)<br>• BigQuery & Data Warehousing<br>• Vertex AI & Gemini (ML/AI)<br>• Cloud Run & Serverless<br>• Chronicle Security & Cloud Armor<br>• Dataflow & real-time data pipelines<br><br><strong>Certifications:</strong> Professional Cloud Architect, DevOps Engineer, Security Engineer, Data Engineer, ML Engineer<br><br><strong>Case Study:</strong> UK Streaming — 98% less buffering, 34% more watch time, 5PB+ monthly data<br><br><a href="/platforms/gcp">Explore GCP services →</a>' },
+
+    // Alibaba Cloud
+    { keywords: ['alibaba', 'alibaba cloud', 'china', 'cross-border', 'uk-china'],
+      response: '<strong>Alibaba Cloud — UK-China Solutions</strong><br><br>We specialise in cross-border e-commerce and UK-China digital operations on Alibaba Cloud.<br><br><strong>Key capabilities:</strong><br>• ECS Compute & Container Service (ACK)<br>• MaxCompute & DataWorks (big data)<br>• PAI Machine Learning Platform<br>• CDN & DCDN for China delivery<br>• ICP Filing & China Compliance<br>• Cloud Enterprise Network (cross-region)<br><br><strong>Certifications:</strong> Alibaba Cloud Certified Professional — Cloud Computing, Big Data, Security, Networking<br><br><strong>Case Study:</strong> UK Luxury Brand — 97% faster page loads in China, 340% revenue growth Year 1<br><br><a href="/platforms/alibaba-cloud">Explore Alibaba Cloud services →</a>' },
+
+    // ═══ PRICING ═══
+    { keywords: ['pricing', 'price', 'how much', 'cost', 'plan', 'starter', 'professional', 'enterprise', 'package', 'quote', 'budget'],
+      response: '<strong>Our Pricing Plans</strong><br><br><strong>Starter — £3,999/month</strong><br>• Single cloud platform, basic monitoring<br>• 8/5 email support, up to 10 managed resources<br>• Monthly reviews, 99.9% SLA<br><br><strong>Professional — £9,999/month</strong> (Most Popular)<br>• Multi-cloud support (2+ platforms)<br>• 24/7 priority support, AI/ML integration<br>• CI/CD pipelines, GDPR & SOC 2 compliance<br>• Up to 50 resources, dedicated account manager<br>• 99.95% SLA<br><br><strong>Enterprise — Custom Pricing</strong><br>• Dedicated cloud architect, custom AI/ML<br>• Full compliance (HIPAA, PCI-DSS, ISO 27001)<br>• 24/7 dedicated team, 99.99% SLA<br>• Unlimited resources, on-site consulting<br><br><strong>Add-ons:</strong> Security Audit £2,500 | Migration Assessment £1,500 | AI PoC £5,000<br><br>15% discount on annual billing. <a href="/pricing">See full pricing →</a>' },
+
+    // ═══ ABOUT / COMPANY ═══
+    { keywords: ['about', 'company', 'who are you', 'totalcloudai', 'what do you do'],
+      response: '<strong>About TotalCloudAI</strong><br><br>TotalCloudAI Limited is a UK-based cloud consultancy registered in England & Wales. We help businesses modernise with enterprise-grade cloud, AI, and security solutions.<br><br><strong>Mission:</strong> Empower businesses with cloud, AI, and security solutions that drive growth, reduce costs, and accelerate innovation.<br><br><strong>Key stats:</strong><br>• 99.99% Uptime SLA<br>• 40% Average Cost Savings<br>• 50+ Enterprise Projects delivered<br>• 24/7 Expert Support<br><br><strong>Core values:</strong> Innovation First | Customer-Centric | Security by Design | Transparent Partnership<br><br><a href="/about">Read our full story →</a>' },
+
+    // Team
+    { keywords: ['team', 'people', 'staff', 'who works', 'architect', 'engineer', 'founder', 'director'],
+      response: '<strong>Our Team</strong><br><br>• <strong>Sanghamitra Sethi, PhD</strong> — Founder & Director. 10+ years in materials science research, leads strategy & partnerships.<br>• <strong>Managobinda Sethi</strong> — Cloud & AI Strategy Advisor. ~20 years in cloud transformation. Azure Solutions Architect Expert, DevOps Engineer Expert, Security Engineer Associate.<br>• <strong>Nirrlipta Padhee</strong> — Head of Marketing. 10+ years in B2B strategy & demand generation.<br>• <strong>Lohit Kumar Das</strong> — Technology Advisor. 15+ years in AI, robotics & blockchain.<br>• <strong>Balaram Dash</strong> — Finance & Compliance Advisor. 30+ years in financial planning.<br><br><a href="/team">Meet the full team →</a>' },
+
+    // Careers
+    { keywords: ['career', 'job', 'hiring', 'work for you', 'vacancy', 'join', 'open position', 'recruitment'],
+      response: '<strong>Careers at TotalCloudAI</strong><br><br>We\'re always looking for talented cloud engineers, architects, and DevOps specialists to join our team.<br><br>Send your CV to <a href="mailto:careers@totalcloudai.com">careers@totalcloudai.com</a> or visit our <a href="/team">Team page</a> for more info.' },
+
+    // Blog
+    { keywords: ['blog', 'article', 'read', 'insight', 'resource'],
+      response: '<strong>Our Blog & Insights</strong><br><br>We publish in-depth articles on cloud transformation, DevOps, security, and AI:<br><br>• Cloud Transformation with AI<br>• Choosing Your Cloud Model: Public, Private, or Hybrid<br>• Top Cloud Migration Mistakes to Avoid<br>• DevOps & CI/CD Best Practices<br>• Zero Trust Architecture Guide<br>• Building AI Pipelines on Azure, AWS & GCP<br><br><a href="/blog">Read all articles →</a>' },
+
+    // Certifications
+    { keywords: ['certification', 'certified', 'qualification', 'accreditation', 'partner'],
+      response: '<strong>Our Certifications</strong><br><br><strong>Microsoft Azure:</strong> AZ-305, AZ-400, AZ-500, AZ-104, AZ-204, AZ-700, AI-102, DP-203, DP-600, SC-200<br><br><strong>AWS:</strong> Solutions Architect Pro, DevOps Engineer Pro, Security Specialty, ML Specialty, Data Analytics Specialty<br><br><strong>GCP:</strong> Professional Cloud Architect, DevOps Engineer, Security Engineer, Data Engineer, ML Engineer<br><br><strong>Alibaba:</strong> Cloud Computing, Big Data, Security, Networking<br><br><a href="/about">Learn more about our expertise →</a>' },
+
+    // Services overview
+    { keywords: ['services', 'what do you offer', 'our services', 'all services', 'service list'],
+      response: '<strong>Our 9 Core Services</strong><br><br>1. <a href="/services/cloud-infrastructure">Cloud Infrastructure (IaaS)</a><br>2. <a href="/services/managed-cloud">Managed Cloud Services (24/7)</a><br>3. <a href="/services/cloud-migration">Cloud Migration</a><br>4. <a href="/services/devops-automation">DevOps & CI/CD</a><br>5. <a href="/services/security-compliance">Security & Compliance</a><br>6. <a href="/services/backup-disaster-recovery">Backup & Disaster Recovery</a><br>7. <a href="/services/ai-machine-learning">AI & Machine Learning</a><br>8. <a href="/services/cloud-strategy">Cloud Strategy & Advisory</a><br>9. <a href="/services/web-development">Web Development & Hosting</a><br><br>We cover Azure, AWS, GCP & Alibaba Cloud. <a href="/services">Explore all →</a>' },
+
+    // Platforms overview
+    { keywords: ['platforms', 'cloud providers', 'which cloud', 'multi-cloud', 'multicloud'],
+      response: '<strong>Cloud Platforms We Work With</strong><br><br>• <a href="/platforms/azure">Microsoft Azure</a> — Our primary platform. Deep expertise in Azure infra, AI, DevOps & security.<br>• <a href="/platforms/aws">Amazon Web Services</a> — Enterprise solutions with EC2, EKS, Lambda, SageMaker & more.<br>• <a href="/platforms/gcp">Google Cloud Platform</a> — Data & AI-first with BigQuery, Vertex AI, GKE & Cloud Run.<br>• <a href="/platforms/alibaba-cloud">Alibaba Cloud</a> — UK-China cross-border solutions.<br><br>We\'re vendor-neutral and help you choose the right platform for your needs. <a href="/platforms">Compare platforms →</a>' },
+
+    // ═══ SPECIFIC TECHNOLOGIES ═══
+    { keywords: ['kubernetes', 'k8s', 'aks', 'eks', 'gke', 'container'],
+      response: '<strong>Kubernetes & Container Orchestration</strong><br><br>We deploy and manage production Kubernetes clusters across all major clouds:<br><br>• <strong>Azure AKS</strong> — multi-node pools, KEDA autoscaling, Azure CNI<br>• <strong>AWS EKS</strong> — Fargate integration, managed node groups<br>• <strong>GCP GKE</strong> — Autopilot, Anthos for hybrid/multi-cloud<br><br>We implement GitOps with ArgoCD, Helm charts, service meshes (Istio/Linkerd), and full observability.<br><br><a href="/services/devops-automation">Learn more →</a>' },
+
+    { keywords: ['terraform', 'infrastructure as code', 'iac', 'bicep', 'pulumi', 'cloudformation'],
+      response: '<strong>Infrastructure as Code (IaC)</strong><br><br>We manage all infrastructure through code for consistency, repeatability, and version control:<br><br>• <strong>Terraform</strong> — multi-cloud standard, modules, state management<br>• <strong>Bicep</strong> — Azure-native IaC<br>• <strong>Pulumi</strong> — TypeScript/Python-based IaC<br>• <strong>CloudFormation</strong> — AWS-native IaC<br><br>All deployments are version-controlled, peer-reviewed, and deployed via CI/CD pipelines.<br><br><a href="/services/devops-automation">Learn more →</a>' },
+
+    { keywords: ['serverless', 'lambda', 'functions', 'cloud functions', 'azure functions'],
+      response: '<strong>Serverless Architecture</strong><br><br>We build event-driven, pay-per-use serverless applications:<br><br>• <strong>AWS Lambda</strong> + API Gateway + Step Functions<br>• <strong>Azure Functions</strong> + Event Grid + Durable Functions<br>• <strong>GCP Cloud Functions</strong> + Cloud Run + Eventarc<br><br>Ideal for APIs, data processing, scheduled tasks, and event-driven workflows. Zero server management, auto-scaling, and pay only for what you use.<br><br><a href="/services/cloud-infrastructure">Learn more →</a>' },
+
+    { keywords: ['data', 'database', 'analytics', 'bigquery', 'synapse', 'redshift', 'data lake', 'data warehouse'],
+      response: '<strong>Data & Analytics Solutions</strong><br><br>We build modern data platforms for analytics, reporting, and AI:<br><br>• <strong>Azure:</strong> Synapse Analytics, Cosmos DB, Data Factory, Power BI<br>• <strong>AWS:</strong> Redshift, Glue, Athena, Kinesis, QuickSight<br>• <strong>GCP:</strong> BigQuery, Dataflow, Dataproc, Looker<br><br>From data lakes to real-time streaming pipelines and BI dashboards.<br><br><a href="/services/cloud-infrastructure">Learn more →</a>' },
+
+    // ═══ CASE STUDIES ═══
+    { keywords: ['case study', 'case studies', 'portfolio', 'client', 'project', 'example', 'success story', 'testimonial', 'reference'],
+      response: '<strong>Client Success Stories</strong><br><br>• <strong>UK Fintech (Azure):</strong> 99.99% uptime, 62% cost reduction, PCI-DSS in 90 days, 15x faster deployments<br>• <strong>UK Healthcare (AWS):</strong> 100x patient capacity, 47% cost reduction, &lt;50ms latency, NHS DSPT compliant<br>• <strong>UK Streaming (GCP):</strong> 98% less buffering, 34% more watch time, 5PB+ monthly data<br>• <strong>UK Luxury Brand (Alibaba):</strong> 97% faster page loads in China, 340% revenue growth<br><br><em>"TotalCloudAI reduced our cloud costs by 45% while improving reliability."</em> — Dr Sahdev Swain, SJSUK<br><br><a href="/about">Read more on our About page →</a>' },
+
+    // Free Assessment
+    { keywords: ['free', 'assessment', 'consultation', 'demo', 'discovery', 'trial'],
+      response: '<strong>Free Cloud Assessment</strong><br><br>We offer a complimentary cloud assessment to evaluate your current infrastructure, identify opportunities for improvement, and recommend next steps.<br><br><strong>What you get:</strong><br>• Infrastructure audit & cost analysis<br>• Security posture review<br>• Migration readiness assessment<br>• Personalised recommendations report<br><br>No obligation — just expert insight into your cloud potential.<br><br><a href="/contact">Book your free assessment →</a><br>' + CONTACT_BLOCK },
+
+    // ═══ BROCHURES / PDFs ═══
+    { keywords: ['pdf', 'brochure', 'download', 'document', 'share', 'send me', 'architecture doc', 'datasheet', 'whitepaper', 'proposal'],
+      response: '<strong>Downloadable Brochures</strong><br><br>Here are our brochures — you can save them as PDF:<br><br>• <a href="/brochures/services-overview" target="_blank"><strong>Services Overview</strong></a> — All 9 cloud services at a glance<br>• <a href="/brochures/cloud-architecture" target="_blank"><strong>Architecture & Solutions</strong></a> — Reference architectures for Azure, AWS, GCP & Alibaba<br>• <a href="/brochures/company-profile" target="_blank"><strong>Company Profile</strong></a> — About us, team & certifications<br><br>Need a custom proposal? Contact us:<br>' + CONTACT_BLOCK },
+
+    // ═══ CONTACT ═══
+    { keywords: ['contact', 'reach', 'speak', 'talk', 'get in touch', 'enquiry', 'inquiry'],
+      response: '<strong>Contact TotalCloudAI</strong><br><br>We\'d love to hear from you! Here\'s how to reach us:<br>' + CONTACT_BLOCK + '<br>We typically respond within 24 hours. For urgent matters, call or WhatsApp us directly.<br><br><a href="/contact">Visit our Contact page →</a>' },
+
+    { keywords: ['phone', 'call', 'call us', 'ring', 'telephone', 'number'],
+      response: 'You can call us at <strong><a href="' + PHONE_LINK + '">' + PHONE + '</a></strong>. We\'re available during UK business hours, or leave a voicemail and we\'ll get back to you within 24 hours.<br>' + CONTACT_BLOCK },
+
+    { keywords: ['whatsapp', 'wa', 'message us', 'text'],
+      response: 'Chat with us on WhatsApp! <strong><a href="' + WHATSAPP + '" target="_blank">Click here to WhatsApp us →</a></strong><br><br>Our WhatsApp number is ' + PHONE + '. We typically reply within a few hours.<br>' + CONTACT_BLOCK },
+
+    { keywords: ['email', 'mail', 'email address'],
+      response: 'Email us at <strong><a href="mailto:' + EMAIL + '">' + EMAIL + '</a></strong>. We respond to all enquiries within 24 hours.<br>' + CONTACT_BLOCK },
+
+    { keywords: ['address', 'location', 'office', 'where are you', 'based', 'headquarters', 'visit'],
+      response: '<strong>Our Office</strong><br><br>TotalCloudAI Limited<br>' + ADDRESS + '<br><br>Registered in England & Wales.<br>' + CONTACT_BLOCK },
+
+    // ═══ SUPPORT / SLA ═══
+    { keywords: ['support', 'help', 'sla', 'uptime', 'response time', 'incident'],
+      response: '<strong>Support & SLA</strong><br><br><strong>Starter:</strong> 8/5 email support, 99.9% SLA<br><strong>Professional:</strong> 24/7 priority support, 99.95% SLA, dedicated account manager<br><strong>Enterprise:</strong> 24/7 dedicated team, 99.99% SLA, on-site consulting<br><br><strong>Incident SLAs (Professional+):</strong><br>• P1 Critical: 15 min acknowledgement, 1 hr resolution<br>• P2 High: 30 min acknowledgement, 4 hr resolution<br>• P3 Medium: 2 hr acknowledgement, next business day<br><br><a href="/pricing">See full pricing & SLA details →</a>' }
+  ];
+
+  // ── Unmatched counter for human fallback ──
+  var unmatchedCount = 0;
 
   fab.addEventListener('click', function() {
-    var isOpen = win.classList.contains('open');
     win.classList.toggle('open');
     fab.classList.toggle('open');
-    if (!isOpen && msgs.children.length <= 1) {
-      // Show initial quick action buttons
-    }
   });
 
   function addMsg(text, type) {
@@ -1784,29 +1903,74 @@ window.addEventListener('scroll', function() {
 
   function respond(userText) {
     var lower = userText.toLowerCase();
-    var response = "I'd be happy to help! Could you tell me more about what you're looking for? You can ask about any of our services — Cloud Infrastructure, Migration, DevOps, Security, AI/ML, Web Development, Pricing, or how to Contact us.";
+    var response = '';
 
-    for (var key in serviceInfo) {
-      if (lower.indexOf(key) !== -1) {
-        response = serviceInfo[key];
-        break;
+    // ── Greeting check ──
+    if (/^(hi|hello|hey|good morning|good afternoon|good evening|howdy)\b/.test(lower)) {
+      response = 'Hello! Welcome to TotalCloudAI. I can help you with:<br><br>'
+        + '<div class="chat-quick-btns">'
+        + '<button class="chat-quick-btn">Our Services</button>'
+        + '<button class="chat-quick-btn">Platforms</button>'
+        + '<button class="chat-quick-btn">Pricing</button>'
+        + '<button class="chat-quick-btn">Contact Us</button>'
+        + '<button class="chat-quick-btn">Download Brochure</button>'
+        + '</div>';
+      unmatchedCount = 0;
+      showTyping();
+      setTimeout(function() { removeTyping(); addMsg(response, 'bot'); }, 600);
+      return;
+    }
+
+    // ── Thank you check ──
+    if (/thank|cheers|appreciate|great|awesome|perfect/.test(lower)) {
+      response = 'You\'re welcome! Happy to help. If you need anything else, just ask. You can also reach our team directly:<br>' + CONTACT_BLOCK;
+      unmatchedCount = 0;
+      showTyping();
+      setTimeout(function() { removeTyping(); addMsg(response, 'bot'); }, 600);
+      return;
+    }
+
+    // ── Weighted keyword matching ──
+    var bestScore = 0;
+    var bestResponse = '';
+
+    for (var i = 0; i < qaDatabase.length; i++) {
+      var entry = qaDatabase[i];
+      var score = 0;
+      for (var k = 0; k < entry.keywords.length; k++) {
+        if (lower.indexOf(entry.keywords[k]) !== -1) {
+          // Longer keyword = higher weight (more specific match)
+          score += entry.keywords[k].length;
+        }
+      }
+      if (score > bestScore) {
+        bestScore = score;
+        bestResponse = entry.response;
       }
     }
 
-    if (lower.indexOf('hello') !== -1 || lower.indexOf('hi') !== -1 || lower.indexOf('hey') !== -1) {
-      response = "Hello! Welcome to TotalCloudAI. I'm here to help you learn about our cloud services. What would you like to know about?";
-    }
-    if (lower.indexOf('thank') !== -1) {
-      response = "You're welcome! If you have any more questions, feel free to ask. You can also <a href='/contact'>contact our team directly</a>.";
-    }
-    if (lower.indexOf('phone') !== -1 || lower.indexOf('call') !== -1 || lower.indexOf('number') !== -1) {
-      response = "You can reach us at <strong>+44 (0) 20 3488 5734</strong> or email <a href='mailto:hello@totalcloudai.com'>hello@totalcloudai.com</a>. For a quick response, use our <a href='/contact'>contact form</a>.";
-    }
-    if (lower.indexOf('free') !== -1 && (lower.indexOf('consult') !== -1 || lower.indexOf('assess') !== -1)) {
-      response = "Yes! We offer a free cloud assessment to evaluate your infrastructure, identify opportunities, and recommend next steps. <a href='/contact'>Book your free assessment →</a>";
-    }
-    if (lower.indexOf('case stud') !== -1 || lower.indexOf('portfolio') !== -1 || lower.indexOf('client') !== -1) {
-      response = "We've helped businesses across industries transform with cloud solutions. Check our <a href='/about'>About page</a> for client stories, or <a href='/contact'>get in touch</a> to discuss your specific needs.";
+    if (bestScore > 0) {
+      response = bestResponse;
+      unmatchedCount = 0;
+    } else {
+      unmatchedCount++;
+      if (unmatchedCount >= 3) {
+        // After 3 unmatched messages, suggest human contact
+        response = 'I might not have the answer to that specific question. Let me connect you with our team for a personalised response:<br>' + CONTACT_BLOCK
+          + '<br>Or try asking about: <strong>Services</strong>, <strong>Pricing</strong>, <strong>Azure</strong>, <strong>AWS</strong>, <strong>GCP</strong>, <strong>Security</strong>, <strong>AI/ML</strong>, or <strong>DevOps</strong>.';
+        unmatchedCount = 0;
+      } else {
+        response = 'I\'d be happy to help! Try asking about:<br><br>'
+          + '<div class="chat-quick-btns">'
+          + '<button class="chat-quick-btn">Our Services</button>'
+          + '<button class="chat-quick-btn">Cloud Migration</button>'
+          + '<button class="chat-quick-btn">DevOps</button>'
+          + '<button class="chat-quick-btn">Security</button>'
+          + '<button class="chat-quick-btn">AI & ML</button>'
+          + '<button class="chat-quick-btn">Pricing</button>'
+          + '<button class="chat-quick-btn">Contact Us</button>'
+          + '</div>';
+      }
     }
 
     showTyping();
@@ -1821,7 +1985,9 @@ window.addEventListener('scroll', function() {
     if (e.target.classList.contains('chat-quick-btn')) {
       var q = e.target.textContent;
       addMsg(q, 'user');
-      e.target.parentElement.remove();
+      // Remove this set of quick buttons
+      var btnContainer = e.target.parentElement;
+      if (btnContainer) btnContainer.remove();
       respond(q);
     }
   });

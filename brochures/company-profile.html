@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TotalCloudAI — Company Profile</title>
+<meta name="description" content="TotalCloudAI Company Profile — UK cloud consultancy specialising in Azure, AWS, GCP, DevOps, Security & AI solutions.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+
+  @media print {
+    .no-print { display: none !important; }
+    body { font-size: 11pt; }
+    .page-break { page-break-before: always; }
+    a { color: #1a1a2e; text-decoration: none; }
+  }
+
+  .brochure-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+    color: #fff; padding: 48px 40px; text-align: center;
+  }
+  .brochure-header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
+  .brochure-header p { font-size: 1.1rem; opacity: 0.85; max-width: 600px; margin: 0 auto; }
+  .brochure-header .logo { font-size: 1.4rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+  .brochure-header .logo span { color: #60a5fa; }
+
+  .toolbar {
+    position: sticky; top: 0; z-index: 10; background: #f8fafc; border-bottom: 1px solid #e2e8f0;
+    padding: 12px 40px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .toolbar a { color: #3b82f6; text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+  .btn-download {
+    background: #3b82f6; color: #fff; border: none; padding: 10px 24px; border-radius: 8px;
+    font-weight: 600; font-size: 0.9rem; cursor: pointer;
+  }
+  .btn-download:hover { background: #2563eb; }
+
+  .content { max-width: 900px; margin: 0 auto; padding: 40px; }
+  .content h2 { font-size: 1.5rem; font-weight: 700; margin: 32px 0 16px; color: #0f172a; border-bottom: 2px solid #3b82f6; padding-bottom: 8px; }
+  .content h2:first-child { margin-top: 0; }
+
+  .intro { font-size: 1.05rem; color: #334155; margin-bottom: 24px; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
+  @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+  .stat-card {
+    text-align: center; padding: 20px; border-radius: 12px;
+    background: linear-gradient(135deg, #0f172a, #1e3a5f); color: #fff;
+  }
+  .stat-card .num { font-size: 1.6rem; font-weight: 800; color: #60a5fa; }
+  .stat-card .label { font-size: 0.82rem; opacity: 0.85; margin-top: 4px; }
+
+  .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 20px 0; }
+  @media (max-width: 600px) { .values-grid { grid-template-columns: 1fr; } }
+  .value-card {
+    padding: 20px; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0;
+  }
+  .value-card h4 { font-size: 1rem; font-weight: 700; color: #1e3a5f; margin-bottom: 6px; }
+  .value-card p { font-size: 0.9rem; color: #475569; }
+
+  .team-card {
+    padding: 20px; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0; margin-bottom: 16px;
+  }
+  .team-card h4 { font-size: 1rem; font-weight: 700; color: #1e3a5f; margin-bottom: 2px; }
+  .team-card .role { color: #3b82f6; font-size: 0.88rem; font-weight: 600; margin-bottom: 8px; }
+  .team-card p { font-size: 0.9rem; color: #475569; }
+  .team-card .skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .team-card .skill {
+    background: #e0f2fe; color: #0369a1; padding: 3px 10px; border-radius: 12px;
+    font-size: 0.78rem; font-weight: 500;
+  }
+
+  .cert-section { margin: 20px 0; }
+  .cert-group { margin-bottom: 16px; }
+  .cert-group h4 { font-size: 0.95rem; font-weight: 700; color: #1e3a5f; margin-bottom: 8px; }
+  .cert-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cert {
+    background: #f1f5f9; border: 1px solid #e2e8f0; padding: 4px 12px; border-radius: 16px;
+    font-size: 0.78rem; font-weight: 500; color: #334155;
+  }
+
+  .services-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+  @media (max-width: 600px) { .services-list { grid-template-columns: 1fr; } }
+  .service-item {
+    padding: 14px; border-radius: 10px; background: #f8fafc; border: 1px solid #e2e8f0;
+    font-size: 0.9rem; font-weight: 600; color: #1e3a5f; text-align: center;
+  }
+
+  .testimonial {
+    border-left: 4px solid #3b82f6; padding: 16px 20px; margin: 16px 0;
+    background: #f8fafc; border-radius: 0 10px 10px 0;
+  }
+  .testimonial p { font-style: italic; color: #334155; font-size: 0.95rem; }
+  .testimonial .author { font-style: normal; font-weight: 600; color: #1e3a5f; margin-top: 8px; font-size: 0.88rem; }
+
+  .cta-section {
+    background: linear-gradient(135deg, #0f172a, #1e3a5f); color: #fff;
+    padding: 40px; border-radius: 12px; text-align: center; margin-top: 40px;
+  }
+  .cta-section h2 { border: none; color: #fff; margin-bottom: 12px; }
+  .cta-section p { opacity: 0.85; margin-bottom: 8px; }
+  .cta-section a { color: #93c5fd; font-weight: 600; }
+
+  .footer-bar { text-align: center; padding: 24px; color: #94a3b8; font-size: 0.85rem; border-top: 1px solid #e2e8f0; margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div class="brochure-header">
+  <div class="logo">Total<span>Cloud</span>AI</div>
+  <h1>Company Profile</h1>
+  <p>UK-based cloud consultancy — empowering businesses with enterprise-grade cloud, AI & security solutions.</p>
+</div>
+
+<div class="toolbar no-print">
+  <a href="/">← Back to TotalCloudAI</a>
+  <button class="btn-download" onclick="window.print()">Save as PDF</button>
+</div>
+
+<div class="content">
+
+  <h2>About TotalCloudAI</h2>
+  <p class="intro">TotalCloudAI Limited is a UK-based cloud consultancy registered in England & Wales. We empower businesses of all sizes with enterprise-grade cloud, AI, and security solutions that drive growth, reduce costs, and accelerate innovation.</p>
+
+  <p><strong>Mission:</strong> Empower businesses with cloud, AI, and security solutions that drive growth, reduce costs, and accelerate innovation.</p>
+  <p><strong>Vision:</strong> Be the UK's most trusted cloud transformation partner — enabling businesses to thrive in the digital-first economy.</p>
+
+  <div class="stats-grid">
+    <div class="stat-card"><div class="num">99.99%</div><div class="label">Uptime SLA</div></div>
+    <div class="stat-card"><div class="num">40%</div><div class="label">Avg Cost Savings</div></div>
+    <div class="stat-card"><div class="num">50+</div><div class="label">Enterprise Projects</div></div>
+    <div class="stat-card"><div class="num">24/7</div><div class="label">Expert Support</div></div>
+  </div>
+
+  <h2>Our Values</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <h4>Innovation First</h4>
+      <p>Continuously exploring emerging technologies to deliver cutting-edge solutions that give our clients a competitive advantage.</p>
+    </div>
+    <div class="value-card">
+      <h4>Customer-Centric</h4>
+      <p>Every solution is tailored to client needs. We measure our success by your business outcomes, not billable hours.</p>
+    </div>
+    <div class="value-card">
+      <h4>Security by Design</h4>
+      <p>Zero-trust, compliance-first approach baked into every architecture from day one. Security is never an afterthought.</p>
+    </div>
+    <div class="value-card">
+      <h4>Transparent Partnership</h4>
+      <p>Clear communication, no hidden costs, measurable outcomes. We operate as an extension of your team.</p>
+    </div>
+  </div>
+
+  <h2>Our Services</h2>
+  <div class="services-list">
+    <div class="service-item">Cloud Infrastructure</div>
+    <div class="service-item">Managed Cloud (24/7)</div>
+    <div class="service-item">Cloud Migration</div>
+    <div class="service-item">DevOps & CI/CD</div>
+    <div class="service-item">Security & Compliance</div>
+    <div class="service-item">Backup & DR</div>
+    <div class="service-item">AI & Machine Learning</div>
+    <div class="service-item">Cloud Strategy</div>
+    <div class="service-item">Web Development</div>
+  </div>
+
+  <h2 class="page-break">Our Team</h2>
+
+  <div class="team-card">
+    <h4>Sanghamitra Sethi, PhD</h4>
+    <div class="role">Founder & Director</div>
+    <p>10+ years in material science research with peer-reviewed publications. Leads company strategy, partnerships, and business development.</p>
+    <div class="skills">
+      <span class="skill">Strategic Planning</span>
+      <span class="skill">Business Development</span>
+      <span class="skill">Research & Innovation</span>
+      <span class="skill">Partnerships</span>
+    </div>
+  </div>
+
+  <div class="team-card">
+    <h4>Managobinda Sethi</h4>
+    <div class="role">Cloud & AI Strategy Advisor</div>
+    <p>Nearly 2 decades in cloud transformation and infrastructure design. Led enterprise migrations across healthcare, fintech, and e-commerce.</p>
+    <div class="skills">
+      <span class="skill">AZ-305 Solutions Architect Expert</span>
+      <span class="skill">AZ-400 DevOps Engineer Expert</span>
+      <span class="skill">AZ-500 Security Engineer</span>
+      <span class="skill">Azure</span><span class="skill">AWS</span><span class="skill">GCP</span>
+      <span class="skill">Terraform</span><span class="skill">Kubernetes</span>
+      <span class="skill">AI/ML</span>
+    </div>
+  </div>
+
+  <div class="team-card">
+    <h4>Nirrlipta Padhee</h4>
+    <div class="role">Head of Marketing & Communications</div>
+    <p>10+ years in B2B strategy and demand generation. Drives brand building, outreach, and content marketing.</p>
+    <div class="skills">
+      <span class="skill">B2B Marketing</span><span class="skill">Demand Generation</span>
+      <span class="skill">Digital Marketing</span><span class="skill">SEO</span>
+    </div>
+  </div>
+
+  <div class="team-card">
+    <h4>Lohit Kumar Das</h4>
+    <div class="role">Technology Advisor</div>
+    <p>15+ years in AI, robotics, and blockchain. Advises on intelligent, secure systems with emerging technologies.</p>
+    <div class="skills">
+      <span class="skill">AI & Robotics</span><span class="skill">Blockchain</span>
+      <span class="skill">Commercial Strategy</span><span class="skill">Emerging Tech</span>
+    </div>
+  </div>
+
+  <div class="team-card">
+    <h4>Balaram Dash</h4>
+    <div class="role">Finance & Compliance Advisor</div>
+    <p>30+ years in financial planning and insurance. Ensures financial discipline and regulatory compliance.</p>
+    <div class="skills">
+      <span class="skill">Financial Planning</span><span class="skill">Compliance</span>
+      <span class="skill">Risk Management</span><span class="skill">Insurance</span>
+    </div>
+  </div>
+
+  <h2>Certifications</h2>
+  <div class="cert-section">
+    <div class="cert-group">
+      <h4>Microsoft Azure</h4>
+      <div class="cert-list">
+        <span class="cert">AZ-305 Solutions Architect Expert</span>
+        <span class="cert">AZ-400 DevOps Engineer Expert</span>
+        <span class="cert">AZ-500 Security Engineer</span>
+        <span class="cert">AZ-104 Administrator</span>
+        <span class="cert">AZ-204 Developer</span>
+        <span class="cert">AZ-700 Network Engineer</span>
+        <span class="cert">AI-102 AI Engineer</span>
+        <span class="cert">DP-203 Data Engineer</span>
+        <span class="cert">DP-600 Fabric Analytics</span>
+        <span class="cert">SC-200 Security Operations</span>
+      </div>
+    </div>
+    <div class="cert-group">
+      <h4>Amazon Web Services</h4>
+      <div class="cert-list">
+        <span class="cert">Solutions Architect Professional</span>
+        <span class="cert">DevOps Engineer Professional</span>
+        <span class="cert">Security Specialty</span>
+        <span class="cert">ML Specialty</span>
+        <span class="cert">Data Analytics Specialty</span>
+        <span class="cert">Database Specialty</span>
+        <span class="cert">Advanced Networking</span>
+      </div>
+    </div>
+    <div class="cert-group">
+      <h4>Google Cloud Platform</h4>
+      <div class="cert-list">
+        <span class="cert">Professional Cloud Architect</span>
+        <span class="cert">Professional DevOps Engineer</span>
+        <span class="cert">Professional Security Engineer</span>
+        <span class="cert">Professional Data Engineer</span>
+        <span class="cert">Professional ML Engineer</span>
+      </div>
+    </div>
+    <div class="cert-group">
+      <h4>Alibaba Cloud</h4>
+      <div class="cert-list">
+        <span class="cert">Cloud Computing Professional</span>
+        <span class="cert">Big Data Professional</span>
+        <span class="cert">Cloud Security Professional</span>
+        <span class="cert">Networking Professional</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Client Testimonials</h2>
+  <div class="testimonial">
+    <p>"TotalCloudAI reduced our cloud costs by 45% while dramatically improving our platform reliability and performance."</p>
+    <div class="author">— Dr Sahdev Swain, Chairperson, SJSUK</div>
+  </div>
+  <div class="testimonial">
+    <p>"Their AI solutions delivered a 30% improvement in our revenue forecast accuracy — transforming how we make business decisions."</p>
+    <div class="author">— Dr Reza Chowdhury, CEO, Medflow Dynamics</div>
+  </div>
+  <div class="testimonial">
+    <p>"TotalCloudAI took our AI-powered music generation platform from concept to production with remarkable speed and quality."</p>
+    <div class="author">— Irem Antsibor, CEO, Soundport AI</div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Let's Build Something Great Together</h2>
+    <p>Start with a free cloud assessment — no obligation, just expert insight.</p>
+    <p>Phone: <a href="tel:+447487681898">+44-(0)7487681898</a> | WhatsApp: <a href="https://wa.me/447487681898" target="_blank">Chat now</a></p>
+    <p>Email: <a href="mailto:Info@totalcloudai.com">Info@totalcloudai.com</a></p>
+    <p style="margin-top:4px">Maxi House, Halesfield 20, Telford TF7 4QU, UK</p>
+    <p style="margin-top:12px"><a href="/contact">Contact us →</a></p>
+  </div>
+
+</div>
+
+<div class="footer-bar">
+  TotalCloudAI Limited — Registered in England & Wales<br>
+  Maxi House, Halesfield 20, Telford TF7 4QU, UK<br>
+  <a href="https://totalcloudai.com" style="color:#3b82f6">totalcloudai.com</a>
+</div>
+
+</body>
+</html>
