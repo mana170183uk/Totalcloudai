@@ -1253,11 +1253,15 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.platform-hex[data-platform]').forEach(card => {
     card.addEventListener('click', () => openPlatformModal(card.dataset.platform));
   });
-  document.getElementById('serviceDetailOverlay').addEventListener('click', function(e) {
-    if (e.target === this) closeServiceModal();
-  });
+  var overlay = document.getElementById('serviceDetailOverlay');
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) closeServiceModal();
+    });
+  }
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && document.getElementById('serviceDetailOverlay').style.display !== 'none') {
+    var ov = document.getElementById('serviceDetailOverlay');
+    if (e.key === 'Escape' && ov && ov.style.display !== 'none') {
       closeServiceModal();
     }
   });
@@ -1278,31 +1282,35 @@ const cursor = document.getElementById('cursor');
 const cursorDot = document.getElementById('cursorDot');
 let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; mouseY = e.clientY;
-  cursorDot.style.left = mouseX + 'px';
-  cursorDot.style.top = mouseY + 'px';
-});
+if (cursor && cursorDot) {
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top = mouseY + 'px';
+  });
 
-function animateCursor() {
-  cursorX += (mouseX - cursorX) * 0.15;
-  cursorY += (mouseY - cursorY) * 0.15;
-  cursor.style.left = cursorX + 'px';
-  cursor.style.top = cursorY + 'px';
-  requestAnimationFrame(animateCursor);
+  function animateCursor() {
+    cursorX += (mouseX - cursorX) * 0.15;
+    cursorY += (mouseY - cursorY) * 0.15;
+    cursor.style.left = cursorX + 'px';
+    cursor.style.top = cursorY + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
 }
-animateCursor();
 
 // Hover effect on interactive elements
-document.querySelectorAll('a, button, .glass-card, .nav-link, .service-card, input, textarea, select').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-});
+if (cursor) {
+  document.querySelectorAll('a, button, .glass-card, .nav-link, .service-card, input, textarea, select').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+}
 
 // ── Navbar Scroll ──
 window.addEventListener('scroll', () => {
   const navbar = document.getElementById('navbar');
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
 // ── Mobile Nav ──
@@ -1332,7 +1340,8 @@ function animateCounters() {
 const heroObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { animateCounters(); heroObs.disconnect(); } });
 }, { threshold: 0.3 });
-heroObs.observe(document.querySelector('.hero'));
+var heroEl = document.querySelector('.hero') || document.querySelector('.page-hero');
+if (heroEl) heroObs.observe(heroEl);
 
 // ── 3D Tilt on Service Cards ──
 document.querySelectorAll('.service-card, .platform-hex, .metric-card').forEach(card => {
