@@ -1676,8 +1676,46 @@ window.addEventListener('scroll', function() {
   animate();
 })();
 
-// ── AI Chatbot ──
+// ── AI Chatbot (auto-injected on every page) ──
 (function() {
+  // Inject chatbot HTML if not already present
+  if (!document.getElementById('chatFab')) {
+    var chatHTML = ''
+      + '<button class="chat-fab" id="chatFab" aria-label="Chat with us">'
+      +   '<div class="chat-fab-pulse"></div>'
+      +   '<svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>'
+      +   '<span class="chat-fab-close">✕</span>'
+      + '</button>'
+      + '<div class="chat-window" id="chatWindow">'
+      +   '<div class="chat-header">'
+      +     '<div class="chat-header-dot"></div>'
+      +     '<div class="chat-header-text">'
+      +       '<h4>TotalCloudAI Assistant</h4>'
+      +       '<span>Online 24/7 — Typically replies instantly</span>'
+      +     '</div>'
+      +   '</div>'
+      +   '<div class="chat-messages" id="chatMessages">'
+      +     '<div class="chat-msg bot">'
+      +       'Hi! I\'m the TotalCloudAI assistant. How can I help you today?'
+      +       '<div class="chat-quick-btns">'
+      +         '<button class="chat-quick-btn">Cloud Infrastructure</button>'
+      +         '<button class="chat-quick-btn">Cloud Migration</button>'
+      +         '<button class="chat-quick-btn">DevOps</button>'
+      +         '<button class="chat-quick-btn">Security</button>'
+      +         '<button class="chat-quick-btn">AI &amp; ML</button>'
+      +         '<button class="chat-quick-btn">Pricing</button>'
+      +         '<button class="chat-quick-btn">Contact Us</button>'
+      +       '</div>'
+      +     '</div>'
+      +   '</div>'
+      +   '<div class="chat-input-area">'
+      +     '<input type="text" class="chat-input" id="chatInput" placeholder="Type your question..." autocomplete="off">'
+      +     '<button class="chat-send" id="chatSend" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>'
+      +   '</div>'
+      + '</div>';
+    document.body.insertAdjacentHTML('beforeend', chatHTML);
+  }
+
   var fab = document.getElementById('chatFab');
   var win = document.getElementById('chatWindow');
   var input = document.getElementById('chatInput');
@@ -1695,7 +1733,22 @@ window.addEventListener('scroll', function() {
     'web development': 'We build full-stack web applications and deploy them on cloud infrastructure with CDN, SSL, auto-scaling, and CI/CD pipelines.',
     'cloud strategy': 'We provide Cloud Adoption Framework assessments, landing zone design, governance policies, and cost optimisation strategies.',
     'pricing': 'Our Starter plan is £3,999/mo and Professional is £9,999/mo. We also offer custom Enterprise pricing. Visit our Pricing section or contact us for a tailored quote.',
-    'contact': 'You can reach us via our Contact form on this page, or email hello@totalcloudai.com. We typically respond within 24 hours.'
+    'contact': 'You can reach us via our <a href="/contact">Contact page</a>, or email <a href="mailto:hello@totalcloudai.com">hello@totalcloudai.com</a>. We typically respond within 24 hours.',
+    'azure': 'We\'re a Microsoft Azure partner with deep expertise across Azure VMs, AKS, Azure DevOps, Functions, and more. <a href="/platforms/azure">Learn more about our Azure expertise →</a>',
+    'aws': 'We deliver enterprise-grade solutions on AWS — EC2, EKS, Lambda, S3, RDS, and beyond. <a href="/platforms/aws">Explore our AWS services →</a>',
+    'gcp': 'We build on Google Cloud Platform with GKE, Cloud Run, BigQuery, and Vertex AI. <a href="/platforms/gcp">See our GCP capabilities →</a>',
+    'google cloud': 'We build on Google Cloud Platform with GKE, Cloud Run, BigQuery, and Vertex AI. <a href="/platforms/gcp">See our GCP capabilities →</a>',
+    'alibaba': 'We specialise in cross-border UK-China solutions on Alibaba Cloud — ECS, ApsaraDB, CDN, and Anti-DDoS. <a href="/platforms/alibaba-cloud">Discover our Alibaba Cloud services →</a>',
+    'about': 'TotalCloudAI is a UK-based cloud consultancy helping businesses modernise with multi-cloud, DevOps, security, and AI solutions. <a href="/about">Read our full story →</a>',
+    'team': 'Our team of certified cloud architects and engineers brings deep expertise across Azure, AWS, and GCP. <a href="/team">Meet the team →</a>',
+    'blog': 'We publish in-depth articles on cloud transformation, DevOps, security, and AI. <a href="/blog">Read our latest insights →</a>',
+    'services': 'We offer 9 core services: Cloud Infrastructure, Managed Cloud, Migration, DevOps, Security, Backup & DR, AI/ML, Web Development, and Cloud Strategy. <a href="/services">Explore all services →</a>',
+    'disaster recovery': 'We design comprehensive backup and DR solutions with automated daily backups, geo-redundant storage, and full failover with defined RPO/RTO targets. <a href="/services/backup-disaster-recovery">Learn more →</a>',
+    'compliance': 'We implement governance and compliance frameworks for GDPR, HIPAA, PCI-DSS, ISO 27001, and SOC 2 — with continuous monitoring and audit-ready documentation. <a href="/services/security-compliance">Learn more →</a>',
+    'kubernetes': 'We deploy and manage Kubernetes clusters on AKS, EKS, and GKE with GitOps, Helm charts, service meshes, and auto-scaling. <a href="/services/devops-automation">Learn more →</a>',
+    'terraform': 'We use Terraform, Bicep, CloudFormation, and Pulumi to manage infrastructure as code across all major cloud providers. <a href="/services/devops-automation">Learn more →</a>',
+    'cost': 'We help optimise cloud spend through right-sizing, reserved instances, spot/preemptible VMs, and automated cost governance policies.',
+    'support': 'We provide 24/7 managed support with guaranteed SLAs, proactive monitoring, and dedicated account management. <a href="/contact">Get in touch →</a>'
   };
 
   fab.addEventListener('click', function() {
@@ -1744,7 +1797,16 @@ window.addEventListener('scroll', function() {
       response = "Hello! Welcome to TotalCloudAI. I'm here to help you learn about our cloud services. What would you like to know about?";
     }
     if (lower.indexOf('thank') !== -1) {
-      response = "You're welcome! If you have any more questions, feel free to ask. You can also reach our team directly via the Contact form below.";
+      response = "You're welcome! If you have any more questions, feel free to ask. You can also <a href='/contact'>contact our team directly</a>.";
+    }
+    if (lower.indexOf('phone') !== -1 || lower.indexOf('call') !== -1 || lower.indexOf('number') !== -1) {
+      response = "You can reach us at <strong>+44 (0) 20 3488 5734</strong> or email <a href='mailto:hello@totalcloudai.com'>hello@totalcloudai.com</a>. For a quick response, use our <a href='/contact'>contact form</a>.";
+    }
+    if (lower.indexOf('free') !== -1 && (lower.indexOf('consult') !== -1 || lower.indexOf('assess') !== -1)) {
+      response = "Yes! We offer a free cloud assessment to evaluate your infrastructure, identify opportunities, and recommend next steps. <a href='/contact'>Book your free assessment →</a>";
+    }
+    if (lower.indexOf('case stud') !== -1 || lower.indexOf('portfolio') !== -1 || lower.indexOf('client') !== -1) {
+      response = "We've helped businesses across industries transform with cloud solutions. Check our <a href='/about'>About page</a> for client stories, or <a href='/contact'>get in touch</a> to discuss your specific needs.";
     }
 
     showTyping();
