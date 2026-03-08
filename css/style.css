@@ -2268,8 +2268,9 @@ a.service-card { display: block; text-decoration: none; color: inherit; }
   box-shadow: 0 12px 40px rgba(59,130,246,0.4), 0 0 80px rgba(168,85,247,0.2);
 }
 .chat-fab svg { width: 28px; height: 28px; fill: #fff; }
+.chat-fab .chat-fab-icon { display: flex; align-items: center; justify-content: center; }
 .chat-fab .chat-fab-close { display: none; font-size: 28px; color: #fff; line-height: 1; }
-.chat-fab.open svg { display: none; }
+.chat-fab.open svg, .chat-fab.open .chat-fab-icon { display: none; }
 .chat-fab.open .chat-fab-close { display: block; }
 .chat-fab-pulse {
   position: absolute; inset: -4px; border-radius: 50%;

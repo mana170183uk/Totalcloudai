@@ -1692,7 +1692,7 @@ window.addEventListener('scroll', function() {
     var chatHTML = ''
       + '<button class="chat-fab" id="chatFab" aria-label="Chat with us">'
       +   '<div class="chat-fab-pulse"></div>'
-      +   '<svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>'
+      +   '<span class="chat-fab-icon" style="font-size:30px;line-height:1">🤖</span>'
       +   '<span class="chat-fab-close">✕</span>'
       + '</button>'
       + '<div class="chat-window" id="chatWindow">'
@@ -1908,11 +1908,10 @@ window.addEventListener('scroll', function() {
   // Restore previous chat session on page load
   var wasRestored = restoreChat();
 
-  // ── Auto-popup on homepage (first visit only, after 3s) ──
+  // ── Auto-popup on first visit (any page, after 2s) ──
   if (!wasRestored) {
-    var isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html';
     var hasSeenPopup = sessionStorage.getItem('tcai_popup_shown');
-    if (isHomepage && !hasSeenPopup) {
+    if (!hasSeenPopup) {
       setTimeout(function() {
         if (!win.classList.contains('open')) {
           win.classList.add('open');
@@ -1920,7 +1919,7 @@ window.addEventListener('scroll', function() {
           sessionStorage.setItem('tcai_popup_shown', '1');
           saveChat();
         }
-      }, 3000);
+      }, 2000);
     }
   }
 
