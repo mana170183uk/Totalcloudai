@@ -2267,11 +2267,13 @@ a.service-card { display: block; text-decoration: none; color: inherit; }
   transform: scale(1.08);
   box-shadow: 0 12px 40px rgba(59,130,246,0.4), 0 0 80px rgba(168,85,247,0.2);
 }
-.chat-fab svg { width: 28px; height: 28px; fill: #fff; }
 .chat-fab .chat-fab-icon { display: flex; align-items: center; justify-content: center; }
+.chat-fab .chat-fab-icon .bot-avatar-svg { width: 40px; height: 40px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); }
 .chat-fab .chat-fab-close { display: none; font-size: 28px; color: #fff; line-height: 1; }
-.chat-fab.open svg, .chat-fab.open .chat-fab-icon { display: none; }
+.chat-fab.open .chat-fab-icon { display: none; }
 .chat-fab.open .chat-fab-close { display: block; }
+.chat-header-avatar { flex-shrink: 0; display: flex; align-items: center; }
+.chat-header-avatar .bot-avatar-svg { width: 36px; height: 36px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
 .chat-fab-pulse {
   position: absolute; inset: -4px; border-radius: 50%;
   border: 2px solid var(--accent-1);
