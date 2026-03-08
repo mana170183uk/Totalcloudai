@@ -1699,7 +1699,7 @@ window.addEventListener('scroll', function() {
       +   '<div class="chat-header">'
       +     '<div class="chat-header-dot"></div>'
       +     '<div class="chat-header-text">'
-      +       '<h4>TotalCloudAI Assistant</h4>'
+      +       '<h4>TotalCloudAI Assistant 🤖</h4>'
       +       '<span>Online 24/7 — Typically replies instantly</span>'
       +     '</div>'
       +   '</div>'
