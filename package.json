@@ -4,14 +4,25 @@
   "description": "TotalCloudAI - Next-Gen Cloud & AI Solutions",
   "scripts": {
     "start": "node server.js",
-    "dev": "node -r dotenv/config server.js"
+    "dev": "node -r dotenv/config server.js",
+    "build:css": "cleancss -o public/css/style.min.css public/css/style.css && cleancss -o public/css/blog-article.min.css public/css/blog-article.css && cleancss -o public/css/service-page.min.css public/css/service-page.css",
+    "build:js": "terser public/js/main.js -o public/js/main.min.js -c -m",
+    "build": "npm run build:css && npm run build:js",
+    "prestart": "npm run build"
   },
   "dependencies": {
+    "compression": "^1.8.1",
+    "cors": "^2.8.6",
     "dotenv": "^16.4.0",
     "express": "^4.21.0",
+    "helmet": "^8.1.0",
     "resend": "^4.0.0"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.46.1"
   }
 }

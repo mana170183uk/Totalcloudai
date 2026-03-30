@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud Consultancy UK | Azure, AWS & GCP Migration | TotalCloudAI</title>
+<meta name="description" content="Leading UK cloud consultancy specialising in Azure, AWS & GCP migration, DevOps automation, AI/ML solutions, and managed cloud services. 10+ years enterprise experience.">
+<meta name="keywords" content="cloud consultancy UK, Azure migration UK, AWS consultancy, GCP migration, DevOps consulting UK, AI solutions UK, managed cloud services, cloud security UK, digital transformation consultancy">
+<meta name="author" content="TotalCloudAI Limited">
+<link rel="canonical" href="https://totalcloudai.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://totalcloudai.com/">
+<meta property="og:title" content="Cloud Consultancy UK — Azure, AWS & GCP Experts | TotalCloudAI">
+<meta property="og:description" content="UK cloud consultancy specialising in cloud migration, DevOps, AI solutions, and managed services across Azure, AWS & GCP.">
+<meta property="og:image" content="https://totalcloudai.com/assets/favicon-source.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cloud Consultancy UK — Azure, AWS & GCP Experts | TotalCloudAI">
+<meta name="twitter:description" content="UK cloud consultancy specialising in cloud migration, DevOps, AI solutions, and managed services.">
+<meta name="twitter:image" content="https://totalcloudai.com/assets/favicon-source.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#050A18">
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://totalcloudai.com/#business","name":"TotalCloudAI Limited","url":"https://totalcloudai.com","logo":"https://totalcloudai.com/assets/favicon-source.png","image":"https://totalcloudai.com/assets/favicon-source.png","description":"Leading UK cloud consultancy specialising in Azure, AWS & GCP migration, DevOps automation, AI/ML solutions, and managed cloud services.","address":{"@type":"PostalAddress","streetAddress":"Maxi House, Halesfield 20","addressLocality":"Telford","postalCode":"TF7 4QU","addressRegion":"Shropshire","addressCountry":"GB"},"geo":{"@type":"GeoCoordinates","latitude":52.6369,"longitude":-2.4814},"telephone":"+44-7487681898","email":"Info@totalcloudai.com","priceRange":"££-£££","openingHours":"Mo-Fr 09:00-18:00","areaServed":{"@type":"Country","name":"United Kingdom"},"knowsAbout":["Cloud Migration","Azure","AWS","GCP","DevOps","AI/ML","Cloud Security","Kubernetes","Terraform"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Cloud & AI Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cloud Infrastructure Design","description":"Enterprise cloud architecture across Azure, AWS & GCP"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cloud Migration","description":"Seamless migration to cloud with zero downtime"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"DevOps & Automation","description":"CI/CD pipelines, Infrastructure as Code, automated workflows"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI & Machine Learning","description":"Custom AI solutions, ML pipelines, intelligent automation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cloud Security & Compliance","description":"Zero trust architecture, compliance frameworks, security audits"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Managed Cloud Services","description":"24/7 monitoring, management, and support"}}]},"sameAs":[]},{"@context":"https://schema.org","@type":"WebSite","name":"TotalCloudAI","url":"https://totalcloudai.com"}]
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<script src="https://www.google.com/recaptcha/api.js?render=6LdXnXwsAAAAABSQ8AwQUPGtiKYZGXmNBX4XWdxJ" defer></script>
+<link rel="stylesheet" href="css/style.min.css">
+<style>
+</style>
+</head>
+<body>
+<!-- Skip Navigation -->
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Aurora / Prism Background -->
+<div class="aurora-container" aria-hidden="true">
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+</div>
+<div class="noise-overlay" aria-hidden="true"></div>
+<div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Page scroll progress"></div>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <button class="mobile-close" onclick="closeMobile()" aria-label="Close navigation menu">✕</button>
+  <a href="/" onclick="closeMobile()">Home</a>
+  <a href="/services" onclick="closeMobile()">Services</a>
+  <a href="/platforms" onclick="closeMobile()">Platforms</a>
+  <a href="/about" onclick="closeMobile()">About</a>
+  <a href="/team" onclick="closeMobile()">Team</a>
+  <a href="/pricing" onclick="closeMobile()">Pricing</a>
+  <a href="/blog" onclick="closeMobile()">Blog</a>
+  <a href="/contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="TotalCloudAI Home">
+      <img src="assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link active">Home</a>
+      <a href="/services" class="nav-link">Services</a>
+      <a href="/platforms" class="nav-link">Platforms</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/team" class="nav-link">Team</a>
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="/blog" class="nav-link">Blog</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="toggle-icon" id="toggleIcon">☀️</span>
+      </button>
+      <a href="/contact" class="btn btn-glow" style="padding:10px 24px;font-size:13px;">Get Started →</a>
+      <button class="menu-toggle" onclick="openMobile()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="status-dot"></span>
+          10+ Years Experience — UK Cloud Consultancy
+        </div>
+        <div class="hero-tagline">Architect the Cloud. Accelerate with <span>AI</span>.</div>
+        <h1>
+          <span class="line"><span>Expert Cloud Solutions</span></span>
+          <span class="line"><span class="gradient-text">for Seamless</span></span>
+          <span class="line"><span class="gradient-text">Transformation.</span></span>
+        </h1>
+        <p class="hero-desc">
+          Comprehensive cloud services offering infrastructure, automation, migration, security, compliance, and data protection for businesses across Azure, AWS, GCP & Alibaba Cloud.
+        </p>
+        <div class="hero-actions">
+          <a href="/contact" class="btn btn-glow">Start Your Journey →</a>
+          <a href="/services" class="btn btn-glass">Explore Services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value gradient-text"><span class="counter" data-target="10">0</span>+</div>
+            <div class="hero-stat-label">Years Experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value gradient-text"><span class="counter" data-target="99">0</span>%</div>
+            <div class="hero-stat-label">Uptime Guaranteed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value gradient-text"><span class="counter" data-target="4">0</span></div>
+            <div class="hero-stat-label">Cloud Platforms</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value gradient-text">24/7</div>
+            <div class="hero-stat-label">Cloud Support</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="orb-container">
+          <div class="orb-core"></div>
+          <!-- Blinking stars (wrapped so nth-child on rings stays correct) -->
+          <div class="orb-stars">
+            <div class="orb-star" style="width:3px;height:3px;top:8%;left:18%;--blink-dur:2.4s;--blink-delay:0s;"></div>
+            <div class="orb-star" style="width:2px;height:2px;top:15%;right:12%;--blink-dur:3.2s;--blink-delay:0.8s;"></div>
+            <div class="orb-star" style="width:4px;height:4px;top:5%;left:55%;--blink-dur:2.8s;--blink-delay:1.5s;"></div>
+            <div class="orb-star" style="width:2px;height:2px;top:28%;left:6%;--blink-dur:3.6s;--blink-delay:0.3s;"></div>
+            <div class="orb-star" style="width:3px;height:3px;top:22%;right:5%;--blink-dur:2.1s;--blink-delay:2.0s;"></div>
+            <div class="orb-star" style="width:2px;height:2px;bottom:18%;left:8%;--blink-dur:3.4s;--blink-delay:1.2s;"></div>
+            <div class="orb-star" style="width:3px;height:3px;bottom:10%;right:15%;--blink-dur:2.6s;--blink-delay:0.5s;"></div>
+            <div class="orb-star" style="width:2px;height:2px;bottom:25%;right:4%;--blink-dur:4.0s;--blink-delay:1.8s;"></div>
+            <div class="orb-star" style="width:4px;height:4px;bottom:5%;left:40%;--blink-dur:2.2s;--blink-delay:2.5s;"></div>
+            <div class="orb-star" style="width:2px;height:2px;top:42%;left:2%;--blink-dur:3.0s;--blink-delay:0.7s;"></div>
+            <div class="orb-star" style="width:3px;height:3px;top:42%;right:2%;--blink-dur:3.8s;--blink-delay:1.0s;"></div>
+            <div class="orb-star" style="width:2px;height:2px;top:60%;left:5%;--blink-dur:2.5s;--blink-delay:2.2s;"></div>
+            <div class="orb-star" style="width:3px;height:3px;top:3%;left:35%;--blink-dur:3.3s;--blink-delay:0.4s;"></div>
+            <div class="orb-star" style="width:2px;height:2px;bottom:3%;right:35%;--blink-dur:2.9s;--blink-delay:1.6s;"></div>
+            <div class="orb-star" style="width:4px;height:4px;top:12%;left:80%;--blink-dur:2.7s;--blink-delay:0.9s;"></div>
+            <div class="orb-star" style="width:2px;height:2px;bottom:35%;left:3%;--blink-dur:3.5s;--blink-delay:2.8s;"></div>
+          </div>
+          <!-- Orbit rings -->
+          <div class="orb-ring" style="width:220px;height:220px;">
+            <div class="orbit-planet planet-azure"></div>
+          </div>
+          <div class="orb-ring" style="width:300px;height:300px;">
+            <div class="orbit-planet planet-aws"></div>
+            <div class="orbit-planet planet-docker"></div>
+          </div>
+          <div class="orb-ring" style="width:380px;height:380px;">
+            <div class="orbit-planet planet-gcp"></div>
+            <div class="orbit-planet planet-terraform"></div>
+          </div>
+          <div class="orb-ring" style="width:460px;height:460px;">
+            <div class="orbit-planet planet-k8s"></div>
+            <div class="orbit-planet planet-cloudflare"></div>
+            <div class="orbit-planet planet-alibaba"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MARQUEE
+     ═══════════════════════════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item"><img src="/assets/icons/logos/microsoft-azure.svg" alt="Azure" style="width:24px;height:24px;">Microsoft Azure</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/aws.svg" alt="AWS" style="width:24px;height:24px;">Amazon AWS</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/google-cloud.svg" alt="GCP" style="width:24px;height:24px;">Google Cloud</span>
+    <span class="marquee-item"><img src="/assets/icons/simple-icons/alibabacloud.svg" alt="Alibaba" style="width:24px;height:24px;">Alibaba Cloud</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/terraform-icon.svg" alt="Terraform" style="width:24px;height:24px;">Terraform</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/kubernetes.svg" alt="K8s" style="width:24px;height:24px;">Kubernetes</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/docker-icon.svg" alt="Docker" style="width:24px;height:24px;">Docker</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/openai-icon.svg" alt="OpenAI" style="width:24px;height:24px;">OpenAI</span>
+    <span class="marquee-item"><img src="/assets/icons/simple-icons/langchain.svg" alt="LangChain" style="width:24px;height:24px;">LangChain</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/pytorch-icon.svg" alt="PyTorch" style="width:24px;height:24px;">PyTorch</span>
+    <!-- Duplicate -->
+    <span class="marquee-item"><img src="/assets/icons/logos/microsoft-azure.svg" alt="Azure" style="width:24px;height:24px;">Microsoft Azure</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/aws.svg" alt="AWS" style="width:24px;height:24px;">Amazon AWS</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/google-cloud.svg" alt="GCP" style="width:24px;height:24px;">Google Cloud</span>
+    <span class="marquee-item"><img src="/assets/icons/simple-icons/alibabacloud.svg" alt="Alibaba" style="width:24px;height:24px;">Alibaba Cloud</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/terraform-icon.svg" alt="Terraform" style="width:24px;height:24px;">Terraform</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/kubernetes.svg" alt="K8s" style="width:24px;height:24px;">Kubernetes</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/docker-icon.svg" alt="Docker" style="width:24px;height:24px;">Docker</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/openai-icon.svg" alt="OpenAI" style="width:24px;height:24px;">OpenAI</span>
+    <span class="marquee-item"><img src="/assets/icons/simple-icons/langchain.svg" alt="LangChain" style="width:24px;height:24px;">LangChain</span>
+    <span class="marquee-item"><img src="/assets/icons/logos/pytorch-icon.svg" alt="PyTorch" style="width:24px;height:24px;">PyTorch</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SERVICES
+     ═══════════════════════════════════════ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">// Services</span>
+      <h2 class="section-title">Discover the Full Range of<br><span class="gradient-text">Cloud Solutions We Offer</span></h2>
+      <p class="section-subtitle">From infrastructure to automation, explore how our cloud services can help you innovate faster, reduce costs, and stay ahead of the competition.</p>
+    </div>
+    <div class="services-grid">
+      <a href="services/cloud-infrastructure.html" class="service-card glass-card reveal stagger-1" data-service="cloud-infra">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c1">☁️</div>
+          <h3>Cloud Infrastructure (IaaS)</h3>
+          <p>Scalable, secure, and cost-efficient cloud infrastructure with seamless migration, high availability, disaster recovery, and developer-friendly tools for optimal performance.</p>
+          <div class="service-tags"><span class="service-tag">Azure</span><span class="service-tag">AWS</span><span class="service-tag">GCP</span><span class="service-tag">Multi-Cloud</span></div>
+          <span class="service-link">Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="services/managed-cloud.html" class="service-card glass-card reveal stagger-2" data-service="managed-cloud">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c2">🔧</div>
+          <h3>Managed Cloud Services</h3>
+          <p>Efficiently manage and optimise your cloud environments with tailored strategy for migration, performance optimisation, security management, and cost control.</p>
+          <div class="service-tags"><span class="service-tag">Monitoring</span><span class="service-tag">IaC</span><span class="service-tag">Cost Optimisation</span><span class="service-tag">24/7</span></div>
+          <span class="service-link">Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="services/cloud-migration.html" class="service-card glass-card reveal stagger-3" data-service="cloud-migration">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c3">🚀</div>
+          <h3>Cloud Migration Services</h3>
+          <p>Seamless cloud transitions with zero disruption. We move your workloads, applications, data, and infrastructure to the cloud smoothly and securely.</p>
+          <div class="service-tags"><span class="service-tag">Assessment</span><span class="service-tag">Migration</span><span class="service-tag">Modernisation</span><span class="service-tag">Hybrid</span></div>
+          <span class="service-link">Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="services/devops-automation.html" class="service-card glass-card reveal stagger-4" data-service="devops">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c4">⚡</div>
+          <h3>DevOps & Automation</h3>
+          <p>Streamline cloud operations with automated workflows, CI/CD pipelines, container orchestration, GitOps, and Infrastructure as Code to accelerate delivery.</p>
+          <div class="service-tags"><span class="service-tag">Terraform</span><span class="service-tag">K8s</span><span class="service-tag">CI/CD</span><span class="service-tag">GitOps</span></div>
+          <span class="service-link">Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="services/security-compliance.html" class="service-card glass-card reveal stagger-5" data-service="security">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c5">🔒</div>
+          <h3>Security & Compliance</h3>
+          <p>Protect your business data with cloud security assessments, identity management, encryption, and ensure compliance with HIPAA, GDPR, and PCI-DSS standards.</p>
+          <div class="service-tags"><span class="service-tag">Zero Trust</span><span class="service-tag">IAM</span><span class="service-tag">GDPR</span><span class="service-tag">HIPAA</span></div>
+          <span class="service-link">Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="services/backup-disaster-recovery.html" class="service-card glass-card reveal stagger-6" data-service="backup-dr">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c6">🛡️</div>
+          <h3>Backup, Disaster Recovery & Business Continuity</h3>
+          <p>Protect your data with automated backups, geo-redundant storage, fast recovery, and tailored disaster recovery planning ensuring minimal downtime.</p>
+          <div class="service-tags"><span class="service-tag">Backup</span><span class="service-tag">DR</span><span class="service-tag">Geo-Redundant</span><span class="service-tag">BCP</span></div>
+          <span class="service-link">Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="services/ai-machine-learning.html" class="service-card glass-card reveal stagger-1" data-service="ai-ml">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c2">🤖</div>
+          <h3>AI & Machine Learning</h3>
+          <p>Leverage AI and machine learning to optimise decision-making, enhance customer experience, and increase operational efficiency with end-to-end solutions.</p>
+          <div class="service-tags"><span class="service-tag">Chatbots</span><span class="service-tag">Predictive Analytics</span><span class="service-tag">Custom ML</span><span class="service-tag">NLP</span></div>
+          <span class="service-link">Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="services/cloud-strategy.html" class="service-card glass-card reveal stagger-2" data-service="cloud-strategy">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c1">📋</div>
+          <h3>Cloud Strategy & Advisory</h3>
+          <p>Develop a comprehensive plan for adopting, implementing, and optimising cloud technologies with the right cloud model, services, and cost efficiencies.</p>
+          <div class="service-tags"><span class="service-tag">Strategy</span><span class="service-tag">Advisory</span><span class="service-tag">Roadmap</span><span class="service-tag">Assessment</span></div>
+          <span class="service-link">Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="services/web-development.html" class="service-card glass-card reveal stagger-3" data-service="web-dev">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap c3">🌐</div>
+          <h3>Web Development & Cloud Hosting</h3>
+          <p>End-to-end website and web application development — from responsive frontends and robust APIs to cloud-native hosting with auto-scaling, CDN, SSL, and CI/CD pipelines for zero-downtime deployments.</p>
+          <div class="service-tags"><span class="service-tag">React</span><span class="service-tag">Next.js</span><span class="service-tag">Node.js</span><span class="service-tag">Cloud Hosting</span></div>
+          <span class="service-link">Learn More &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PLATFORMS
+     ═══════════════════════════════════════ -->
+<section class="section" id="platforms" style="padding-top:80px;">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Platforms</span>
+      <h2 class="section-title">Every Cloud. <span class="gradient-text">One Partner.</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Certified experts across all major cloud platforms.</p>
+    </div>
+    <div class="platforms-flex">
+      <div class="platform-hex p-azure reveal stagger-1" data-platform="azure" role="button" tabindex="0">
+        <div class="platform-logo">
+          <img src="/assets/icons/logos/microsoft-azure.svg" alt="Microsoft Azure" width="64" height="64">
+        </div>
+        <h3>Microsoft Azure</h3>
+        <div class="platform-tags">
+          <span>App Services</span><span>AKS</span><span>Cosmos DB</span><span>Azure AI</span><span>Virtual Networks</span><span>Key Vault</span>
+        </div>
+        <span class="platform-explore">Explore &rarr;</span>
+      </div>
+      <div class="platform-hex p-aws reveal stagger-2" data-platform="aws" role="button" tabindex="0">
+        <div class="platform-logo">
+          <img src="/assets/icons/logos/aws.svg" alt="Amazon AWS" width="64" height="64">
+        </div>
+        <h3>Amazon AWS</h3>
+        <div class="platform-tags">
+          <span>EC2</span><span>Lambda</span><span>S3</span><span>SageMaker</span><span>EKS</span><span>RDS</span><span>CloudFormation</span>
+        </div>
+        <span class="platform-explore">Explore &rarr;</span>
+      </div>
+      <div class="platform-hex p-gcp reveal stagger-3" data-platform="gcp" role="button" tabindex="0">
+        <div class="platform-logo">
+          <img src="/assets/icons/logos/google-cloud.svg" alt="Google Cloud" width="64" height="64">
+        </div>
+        <h3>Google Cloud</h3>
+        <div class="platform-tags">
+          <span>GKE</span><span>BigQuery</span><span>Cloud Run</span><span>Vertex AI</span><span>Cloud Functions</span><span>Pub/Sub</span>
+        </div>
+        <span class="platform-explore">Explore &rarr;</span>
+      </div>
+      <div class="platform-hex p-alibaba reveal stagger-4" data-platform="alibaba" role="button" tabindex="0">
+        <div class="platform-logo">
+          <img src="/assets/icons/simple-icons/alibabacloud.svg?color=%23FF6A00" alt="Alibaba Cloud" width="64" height="64">
+        </div>
+        <h3>Alibaba Cloud</h3>
+        <div class="platform-tags">
+          <span>ECS</span><span>MaxCompute</span><span>PAI</span><span>Container Service</span><span>Function Compute</span>
+        </div>
+        <span class="platform-explore">Explore &rarr;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ABOUT
+     ═══════════════════════════════════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-header reveal">
+          <span class="section-label">// Who We Are</span>
+          <h2 class="section-title">Cloud Solutions for Cost,<br><span class="gradient-text">Agility & Innovation</span></h2>
+          <p class="section-subtitle">TotalCloudAI is a cloud-first company built by seasoned IT professionals, cloud architects, and DevOps experts. With years of experience and a customer-centric mindset, we help businesses reduce infrastructure costs, increase agility, and boost innovation.</p>
+        </div>
+        <div class="about-features">
+          <div class="about-feature reveal stagger-1">
+            <div class="about-feature-icon">☁️</div>
+            <div><h4>Scalable Cloud Infrastructure</h4><p>End-to-end cloud management with scalable, secure, and high-performance infrastructure.</p></div>
+          </div>
+          <div class="about-feature reveal stagger-2">
+            <div class="about-feature-icon">⚡</div>
+            <div><h4>DevOps & Automation</h4><p>Streamlined workflows, CI/CD pipelines, and Infrastructure as Code for faster delivery.</p></div>
+          </div>
+          <div class="about-feature reveal stagger-3">
+            <div class="about-feature-icon">🔒</div>
+            <div><h4>Data Security & Compliance</h4><p>Robust security frameworks ensuring compliance with HIPAA, GDPR, and PCI-DSS.</p></div>
+          </div>
+          <div class="about-feature reveal stagger-4">
+            <div class="about-feature-icon">🛡️</div>
+            <div><h4>Backup & Disaster Recovery</h4><p>Automated backups, geo-redundant storage, and tailored DR planning for business continuity.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-metrics reveal">
+        <div class="metric-card glass-card">
+          <div class="metric-value g1">99.99%</div>
+          <div class="metric-label">Uptime SLA</div>
+        </div>
+        <div class="metric-card glass-card">
+          <div class="metric-value g2">95%</div>
+          <div class="metric-label">Cloud Management</div>
+        </div>
+        <div class="metric-card glass-card">
+          <div class="metric-value g3">80%</div>
+          <div class="metric-label">Cloud Security</div>
+        </div>
+        <div class="metric-card glass-card">
+          <div class="metric-value g4">90%</div>
+          <div class="metric-label">Cloud Solutions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TEAM
+     ═══════════════════════════════════════ -->
+<section class="section" id="team">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Our Team</span>
+      <h2 class="section-title">Meet Our Team of <span class="gradient-text">Experts</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">We help businesses achieve strategic cloud transformation, minimising end-to-end cloud risks and maximising business value.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card glass-card reveal stagger-1">
+        <img src="assets/team-sanghamitra.png" alt="Sanghamitra Sethi, PhD" class="team-avatar">
+        <h3>Sanghamitra Sethi, PhD</h3>
+        <div class="team-role">Founder & Director</div>
+        <p class="team-bio">Over 10 years of experience in material science research and advanced materials characterisation. Brings academic rigour and strategic vision to TotalCloudAI.</p>
+      </div>
+      <div class="team-card glass-card reveal stagger-2">
+        <img src="assets/team-managobinda.png" alt="Managobinda Sethi" class="team-avatar">
+        <h3>Managobinda Sethi</h3>
+        <div class="team-role">Cloud & AI Strategy Advisor</div>
+        <p class="team-bio">Nearly two decades of global experience in cloud transformation, infrastructure design, DevOps, and enterprise security across Azure, GCP, and AWS.</p>
+      </div>
+      <div class="team-card glass-card reveal stagger-3">
+        <img src="assets/team-nirrlipta.png" alt="Nirrlipta Padhee" class="team-avatar">
+        <h3>Nirrlipta Padhee</h3>
+        <div class="team-role">Head of Marketing & Communications</div>
+        <p class="team-bio">Over a decade of experience in B2B strategy, demand generation, event planning, and digital marketing. Leads brand building and outreach.</p>
+      </div>
+      <div class="team-card glass-card reveal stagger-4">
+        <img src="assets/team-lohit.png" alt="Lohit Kumar Das" class="team-avatar">
+        <h3>Lohit Kumar Das</h3>
+        <div class="team-role">Technology Advisor</div>
+        <p class="team-bio">Over 15 years of expertise in AI, robotics, blockchain, and commercial strategy. Focuses on building intelligent, secure systems with emerging technologies.</p>
+      </div>
+      <div class="team-card glass-card reveal stagger-5">
+        <img src="assets/team-balaram.png" alt="Balaram Dash" class="team-avatar">
+        <h3>Balaram Dash</h3>
+        <div class="team-role">Finance & Compliance Advisor</div>
+        <p class="team-bio">Over three decades of experience across financial planning, insurance, compliance, and technology. Specialises in retirement planning and investment strategy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PROCESS
+     ═══════════════════════════════════════ -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Process</span>
+      <h2 class="section-title">Cloud Solutions in <span class="gradient-text">Three Simple Steps</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Our solution delivery framework ensures a systematic approach that delivers results, every time.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal stagger-1">
+        <div class="step-number">01</div>
+        <h3>Consultation</h3>
+        <p>Understand your business needs, analyse existing IT infrastructure, identify gaps, and customise the right cloud solution.</p>
+      </div>
+      <div class="process-step reveal stagger-2">
+        <div class="step-number">02</div>
+        <h3>Migration</h3>
+        <p>Seamlessly migrate your data and systems to the cloud environment ensuring minimal downtime and enhanced performance.</p>
+      </div>
+      <div class="process-step reveal stagger-3">
+        <div class="step-number">03</div>
+        <h3>Optimisation</h3>
+        <p>Monitor, manage, and optimise your cloud environment for optimal performance, security, and cost efficiency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIALS
+     ═══════════════════════════════════════ -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Testimonials</span>
+      <h2 class="section-title">Trusted by <span class="gradient-text">Industry Leaders</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card glass-card reveal stagger-1">
+        <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testimonial-text">"TotalCloudAI transformed our entire infrastructure. Migration to Azure was seamless, and we saw a 45% reduction in cloud costs within the first quarter."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#3B82F6,#A855F7);">DS</div>
+          <div><div class="testimonial-name">Dr Sahdev Swain</div><div class="testimonial-role">Chairperson, SJSUK</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card glass-card reveal stagger-2">
+        <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testimonial-text">"Their AI/ML expertise helped us build a predictive analytics platform that increased our revenue forecast accuracy by 30%. Truly exceptional."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#A855F7,#818CF8);">RC</div>
+          <div><div class="testimonial-name">Dr Reza Chowdhury</div><div class="testimonial-role">CEO, Medflow Dynamics</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card glass-card reveal stagger-3">
+        <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testimonial-text">"TotalCloudAI built our AI-powered music generation platform from the ground up — from model training pipelines to a scalable cloud backend. Their expertise in AI and cloud architecture turned our vision into a production-ready product that creators love."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#818CF8,#3B82F6);">IA</div>
+          <div><div class="testimonial-name">Irem Antsibor</div><div class="testimonial-role">CEO, Soundport AI</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PRICING
+     ═══════════════════════════════════════ -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Pricing</span>
+      <h2 class="section-title">Flexible Plans for <span class="gradient-text">Every Scale</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Choose the engagement model that works best for your business.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card glass-card reveal stagger-1">
+        <div class="pricing-label">Starter</div>
+        <div class="pricing-amount">£3,999<span>/mo</span></div>
+        <div class="pricing-desc">Perfect for startups beginning their cloud journey.</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Cloud Assessment & Strategy</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Single Cloud Platform</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Basic Monitoring</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>8/5 Email Support</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Monthly Review</div>
+        </div>
+        <a href="/contact" class="btn btn-glass" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="pricing-card glass-card featured reveal stagger-2">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-label">Professional</div>
+        <div class="pricing-amount">£9,999<span>/mo</span></div>
+        <div class="pricing-desc">For growing businesses needing robust cloud and AI.</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Full Architecture Design</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Multi-Cloud Support</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>AI/ML Integration</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>CI/CD Pipeline Setup</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>24/7 Priority Support</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Weekly Reports</div>
+        </div>
+        <a href="/contact" class="btn btn-glow" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="pricing-card glass-card reveal stagger-3">
+        <div class="pricing-label">Enterprise</div>
+        <div class="pricing-amount">Custom</div>
+        <div class="pricing-desc">Full-scale cloud and AI transformation.</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Everything in Professional</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Dedicated Cloud Architect</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Custom AI Models</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>Compliance & Governance</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>On-Site Consulting</div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span>SLA 99.99% Uptime</div>
+        </div>
+        <a href="/contact" class="btn btn-glass" style="width:100%;justify-content:center;">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     BLOG
+     ═══════════════════════════════════════ -->
+<section class="section" id="blog">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Insights</span>
+      <h2 class="section-title">Latest from <span class="gradient-text">Our Blog</span></h2>
+      <p class="section-subtitle" style="max-width:560px;margin:0 auto;">Expert perspectives on cloud architecture, DevOps, security, and digital transformation.</p>
+    </div>
+    <div class="blog-grid">
+
+      <a href="/blog/cloud-transformation-ai/" class="blog-card reveal stagger-1">
+        <div class="blog-thumb">
+          <img src="/assets/blog/cloud-transformation-ai.jpg" alt="Cloud Transformation" loading="lazy">
+          <span class="blog-category">Cloud</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Mar 2026</span><span class="dot"></span><span>8 min read</span></div>
+          <h3>The Future of Cloud Transformation: How AI is Redefining Business Innovation</h3>
+          <p>How multi-cloud strategies and intelligent automation are reshaping enterprise architecture and driving competitive advantage.</p>
+          <span class="blog-read">Read Article &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/blog/cloud-model-public-private-hybrid/" class="blog-card reveal stagger-2">
+        <div class="blog-thumb">
+          <img src="/assets/blog/cloud-models.jpg" alt="Cloud Models" loading="lazy">
+          <span class="blog-category">Strategy</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Feb 2026</span><span class="dot"></span><span>6 min read</span></div>
+          <h3>How to Choose the Right Cloud Model: Public, Private, or Hybrid?</h3>
+          <p>A crucial decision that impacts your business's scalability, security, cost, and flexibility.</p>
+          <span class="blog-read">Read Article &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/blog/cloud-migration-mistakes/" class="blog-card reveal stagger-3">
+        <div class="blog-thumb">
+          <img src="/assets/blog/cloud-migration.jpg" alt="Cloud Migration" loading="lazy">
+          <span class="blog-category">Migration</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Jan 2026</span><span class="dot"></span><span>7 min read</span></div>
+          <h3>5 Cloud Migration Mistakes That Cost Enterprises Millions</h3>
+          <p>Migrating to the cloud is essential for scale, but avoiding these common pitfalls is critical.</p>
+          <span class="blog-read">Read Article &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/blog/devops-cicd-best-practices-2026/" class="blog-card reveal stagger-1">
+        <div class="blog-thumb">
+          <img src="/assets/blog/devops-cicd.jpg" alt="DevOps" loading="lazy">
+          <span class="blog-category">DevOps</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Dec 2025</span><span class="dot"></span><span>10 min read</span></div>
+          <h3>DevOps in the Cloud: CI/CD Best Practices for 2026</h3>
+          <p>How CI/CD pipelines, GitOps, and platform engineering are transforming delivery speed.</p>
+          <span class="blog-read">Read Article &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/blog/zero-trust-architecture/" class="blog-card reveal stagger-2">
+        <div class="blog-thumb">
+          <img src="/assets/blog/zero-trust.jpg" alt="Security" loading="lazy">
+          <span class="blog-category">Security</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Nov 2025</span><span class="dot"></span><span>9 min read</span></div>
+          <h3>Zero Trust Architecture: Securing Your Cloud Estate</h3>
+          <p>Why identity-first security and micro-segmentation are the new standard for cloud-native organisations.</p>
+          <span class="blog-read">Read Article &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/blog/ai-pipelines-azure-aws-gcp/" class="blog-card reveal stagger-3">
+        <div class="blog-thumb">
+          <img src="/assets/blog/ai-pipelines.jpg" alt="AI ML" loading="lazy">
+          <span class="blog-category">AI &amp; ML</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>Oct 2025</span><span class="dot"></span><span>8 min read</span></div>
+          <h3>Building Production-Ready AI Pipelines on Azure, AWS &amp; GCP</h3>
+          <p>From model training to inference at scale — how to architect AI workloads across major cloud providers.</p>
+          <span class="blog-read">Read Article &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CTA
+     ═══════════════════════════════════════ -->
+<section class="section" style="padding:80px 0 120px;">
+  <div class="container">
+    <div class="cta-box reveal-scale reveal">
+      <h2>Ready to Gain a Competitive Edge with<br>Expert Cloud Solutions?</h2>
+      <p>Get in touch for expert, secure, scalable, and cost-efficient cloud solutions tailored to your business.</p>
+      <div class="cta-buttons">
+        <a href="/contact" class="btn-white">Book Free Consultation →</a>
+        <a href="/services" class="btn-ghost">View Our Work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CONTACT
+     ═══════════════════════════════════════ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="section-label">// Contact</span>
+      <h2 class="section-title">Let's Start <span class="gradient-text">Building Together</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Tell us about your project and we'll get back within 24 hours.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label for="fullName">Full Name</label><input type="text" id="fullName" name="fullName" placeholder="John Doe" required></div>
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="john@company.com" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" placeholder="Your Company"></div>
+          <div class="form-group"><label for="service">Service</label>
+            <select id="service" name="service">
+              <option>Cloud Infrastructure (IaaS)</option><option>Managed Cloud Services</option>
+              <option>Cloud Migration Services</option><option>DevOps & Automation</option>
+              <option>Security & Compliance</option><option>Backup & Disaster Recovery</option>
+              <option>AI & Machine Learning</option><option>Cloud Strategy & Advisory</option><option>Web Development & Cloud Hosting</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label for="projectDetails">Project Details</label><textarea id="projectDetails" name="projectDetails" placeholder="Tell us about your project, goals, and timeline..."></textarea></div>
+        <button type="submit" id="submitBtn" class="btn btn-glow" style="width:100%;justify-content:center;padding:16px;">Send Message →</button>
+        <p id="formError" style="display:none;color:#f87171;font-size:13px;text-align:center;margin-top:8px;"></p>
+      </form>
+      <div class="contact-info reveal stagger-2">
+        <div class="contact-card"><div class="contact-card-icon">📧</div><div><h4>Email Us</h4><p>Info@totalcloudai.com</p></div></div>
+        <div class="contact-card"><div class="contact-card-icon">📞</div><div><h4>Call Us</h4><p>+44-(0)7487681898</p></div></div>
+        <div class="contact-card"><a href="https://wa.me/447487681898" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;"><div class="contact-card-icon">💬</div><div><h4>WhatsApp</h4><p>+44-(0)7487681898</p></div></a></div>
+        <div class="contact-card"><div class="contact-card-icon">📍</div><div><h4>Visit Us</h4><p>Maxi House, Halesfield 20, Telford TF7 4QU, UK</p></div></div>
+        <div class="glass-card" style="padding:28px;">
+          <h4 style="font-family:var(--font-display);margin-bottom:14px;">Office Hours</h4>
+          <p style="font-size:0.9rem;color:var(--text-secondary);line-height:2;">
+            Mon - Fri: 9:00 AM - 6:00 PM GMT<br>
+            Saturday: 10:00 AM - 2:00 PM GMT<br>
+            Sunday: Emergency Support Only
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICE DETAIL MODAL
+     ═══════════════════════════════════════ -->
+<div id="serviceDetailOverlay" class="service-detail-overlay" style="display:none;">
+  <div class="service-detail-modal glass-card" id="serviceDetailModal">
+    <button class="sdm-close" onclick="closeServiceModal()" aria-label="Close">&times;</button>
+    <div id="serviceDetailContent"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     OTP VERIFICATION MODAL
+     ═══════════════════════════════════════ -->
+<div id="otpOverlay" class="otp-overlay" style="display:none;">
+  <div class="otp-modal glass-card">
+    <button class="otp-close" onclick="closeOtpModal()" aria-label="Close">&times;</button>
+    <div class="otp-icon">🔐</div>
+    <h3 style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:8px;">
+      Verify Your <span class="gradient-text">Email</span>
+    </h3>
+    <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:24px;">
+      We've sent a 6-digit code to <strong id="otpEmailDisplay"></strong>.<br>
+      Please enter it below. Code expires in 5 minutes.
+    </p>
+    <div class="otp-inputs" id="otpInputs">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit" autocomplete="one-time-code">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit">
+      <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="otp-digit">
+    </div>
+    <p id="otpError" style="display:none;color:#f87171;font-size:13px;text-align:center;margin-top:12px;"></p>
+    <p id="otpTimer" style="color:var(--text-muted);font-size:12px;margin-top:12px;text-align:center;"></p>
+    <button class="btn btn-glow" id="otpVerifyBtn" onclick="verifyOtp()" style="width:100%;justify-content:center;padding:14px;margin-top:16px;">
+      Verify &amp; Send Message
+    </button>
+    <p style="text-align:center;margin-top:16px;">
+      <a href="#" id="resendOtpLink" onclick="resendOtp(event)" style="color:var(--accent-1);font-size:13px;">
+        Didn't receive the code? Resend
+      </a>
+    </p>
+  </div>
+</div>
+
+</main>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="/" class="nav-logo" aria-label="TotalCloudAI Home">
+          <img src="assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+        </a>
+        <p>Total Cloud AI guides businesses through cloud transformation with expert consultancy and innovative solutions. We specialise in strategy, architecture, migration, and optimisation.</p>
+        <div class="footer-social">
+          <a href="#">in</a><a href="#">𝕏</a><a href="#">⌥</a><a href="#">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="/services/cloud-infrastructure">Cloud Infrastructure (IaaS)</a>
+        <a href="/services/managed-cloud">Managed Cloud Services</a>
+        <a href="/services/cloud-migration">Cloud Migration Services</a>
+        <a href="/services/devops-automation">DevOps & Automation</a>
+        <a href="/services/security-compliance">Security & Compliance</a>
+        <a href="/services/backup-disaster-recovery">Backup & Disaster Recovery</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/">Home</a><a href="/about">About Us</a>
+        <a href="/team">Our Team</a><a href="/services">Services</a>
+        <a href="/blog">Blog & News</a><a href="/contact">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Info@totalcloudai.com">Info@totalcloudai.com</a>
+        <a href="tel:+447487681898">+44-(0)7487681898</a>
+        <a href="https://wa.me/447487681898" target="_blank" rel="noopener">WhatsApp Us</a>
+        <a href="/contact">Maxi House, Halesfield 20</a>
+        <a href="/contact">Telford TF7 4QU, UK</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TotalCloudAI Limited. All rights reserved.</span>
+      <span>Registered in England & Wales</span><span><a href="/privacy" style="color:var(--text-muted);text-decoration:underline">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Chatbot widget is auto-injected by main.js on all pages -->
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════ -->
+<script src="js/main.min.js"></script>
+</body>
+</html>

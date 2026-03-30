@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — TotalCloudAI | Cloud, DevOps, AI & Security Insights</title>
+<meta name="description" content="Expert insights on cloud architecture, DevOps, security, AI/ML, and digital transformation from TotalCloudAI's certified cloud architects.">
+<meta name="keywords" content="cloud blog, DevOps insights, AI ML articles, cloud security, digital transformation, UK cloud consultancy">
+<meta name="author" content="TotalCloudAI Limited">
+<link rel="canonical" href="https://totalcloudai.com/blog">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://totalcloudai.com/blog">
+<meta property="og:title" content="Blog — TotalCloudAI | Cloud, DevOps, AI & Security Insights">
+<meta property="og:description" content="Expert perspectives on cloud architecture, DevOps, security, and digital transformation.">
+<meta property="og:image" content="https://totalcloudai.com/assets/favicon-source.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#050A18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.min.css">
+<style>
+/* Page-specific hero */
+.page-hero {
+  padding: 160px 0 80px; text-align: center; position: relative; z-index: 2;
+}
+.page-hero h1 {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px;
+}
+.page-hero p {
+  font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto;
+  line-height: 1.7;
+}
+.breadcrumb {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--accent-1); }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* Blog grid */
+.blog-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+  max-width: 1100px; margin: 0 auto 80px; padding: 0 24px;
+}
+
+/* Newsletter section */
+.newsletter-section {
+  text-align: center; padding: 60px 24px 80px; position: relative; z-index: 2;
+  max-width: 640px; margin: 0 auto;
+}
+.newsletter-section h2 {
+  font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700; margin-bottom: 12px;
+}
+.newsletter-section p {
+  font-size: 1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;
+}
+.newsletter-section .newsletter-note {
+  font-size: 0.85rem; color: var(--text-muted); margin-top: 0;
+}
+
+/* CTA section */
+.page-cta {
+  text-align: center; padding: 80px 24px; position: relative; z-index: 2;
+}
+.page-cta h2 {
+  font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700; margin-bottom: 16px;
+}
+.page-cta p {
+  font-size: 1rem; color: var(--text-secondary); max-width: 500px; margin: 0 auto 28px;
+}
+
+@media (max-width: 1024px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .blog-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+}
+</style>
+</head>
+<body>
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Aurora / Prism Background -->
+<div class="aurora-container">
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+</div>
+<div class="noise-overlay"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobile()">&#10005;</button>
+  <a href="/" onclick="closeMobile()">Home</a>
+  <a href="/services" onclick="closeMobile()">Services</a>
+  <a href="/platforms" onclick="closeMobile()">Platforms</a>
+  <a href="/about" onclick="closeMobile()">About</a>
+  <a href="/team" onclick="closeMobile()">Team</a>
+  <a href="/pricing" onclick="closeMobile()">Pricing</a>
+  <a href="/blog" onclick="closeMobile()">Blog</a>
+  <a href="/contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="TotalCloudAI Home">
+      <img src="../assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/services" class="nav-link">Services</a>
+      <a href="/platforms" class="nav-link">Platforms</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/team" class="nav-link">Team</a>
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="/blog" class="nav-link active">Blog</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="toggle-icon" id="toggleIcon">&#9728;&#65039;</span>
+      </button>
+      <a href="/contact" class="btn btn-glow" style="padding:10px 24px;font-size:13px;">Get Started &rarr;</a>
+      <button class="menu-toggle" onclick="openMobile()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Blog</span>
+    </div>
+    <h1>Latest from Our <span class="gradient-text">Blog</span></h1>
+    <p>Expert perspectives on cloud architecture, DevOps, security, and digital transformation.</p>
+  </div>
+</section>
+
+<!-- Blog Grid -->
+<div class="container">
+  <div class="blog-grid">
+
+    <a href="/blog/cloud-transformation-ai" class="blog-card reveal stagger-1">
+      <div class="blog-thumb">
+        <img src="/assets/blog/cloud-transformation-ai.jpg" alt="The Future of Cloud Transformation: How AI is Redefining Business Innovation" loading="lazy">
+        <span class="blog-category">Cloud</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta"><span>Mar 2026</span><span class="dot"></span><span>8 min read</span></div>
+        <h3>The Future of Cloud Transformation: How AI is Redefining Business Innovation</h3>
+        <p>How multi-cloud strategies and intelligent automation are reshaping enterprise architecture and driving competitive advantage in 2026.</p>
+        <span class="blog-read">Read Article &rarr;</span>
+      </div>
+    </a>
+
+    <a href="/blog/cloud-model-public-private-hybrid" class="blog-card reveal stagger-2">
+      <div class="blog-thumb">
+        <img src="/assets/blog/cloud-models.jpg" alt="How to Choose the Right Cloud Model: Public, Private, or Hybrid?" loading="lazy">
+        <span class="blog-category">Strategy</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta"><span>Feb 2026</span><span class="dot"></span><span>6 min read</span></div>
+        <h3>How to Choose the Right Cloud Model: Public, Private, or Hybrid?</h3>
+        <p>A crucial decision that impacts your business's scalability, security, cost, and flexibility for years to come.</p>
+        <span class="blog-read">Read Article &rarr;</span>
+      </div>
+    </a>
+
+    <a href="/blog/cloud-migration-mistakes" class="blog-card reveal stagger-3">
+      <div class="blog-thumb">
+        <img src="/assets/blog/cloud-migration.jpg" alt="5 Cloud Migration Mistakes That Cost Enterprises Millions" loading="lazy">
+        <span class="blog-category">Migration</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta"><span>Jan 2026</span><span class="dot"></span><span>7 min read</span></div>
+        <h3>5 Cloud Migration Mistakes That Cost Enterprises Millions</h3>
+        <p>Migrating to the cloud is essential for scale, but avoiding these common pitfalls is critical to long-term success.</p>
+        <span class="blog-read">Read Article &rarr;</span>
+      </div>
+    </a>
+
+    <a href="/blog/devops-cicd-best-practices-2026" class="blog-card reveal stagger-1">
+      <div class="blog-thumb">
+        <img src="/assets/blog/devops-cicd.jpg" alt="DevOps in the Cloud: CI/CD Best Practices for 2026" loading="lazy">
+        <span class="blog-category">DevOps</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta"><span>Dec 2025</span><span class="dot"></span><span>10 min read</span></div>
+        <h3>DevOps in the Cloud: CI/CD Best Practices for 2026</h3>
+        <p>How CI/CD pipelines, GitOps, and platform engineering are transforming delivery speed and reliability at scale.</p>
+        <span class="blog-read">Read Article &rarr;</span>
+      </div>
+    </a>
+
+    <a href="/blog/zero-trust-architecture" class="blog-card reveal stagger-2">
+      <div class="blog-thumb">
+        <img src="/assets/blog/zero-trust.jpg" alt="Zero Trust Architecture: Securing Your Cloud Estate" loading="lazy">
+        <span class="blog-category">Security</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta"><span>Nov 2025</span><span class="dot"></span><span>9 min read</span></div>
+        <h3>Zero Trust Architecture: Securing Your Cloud Estate</h3>
+        <p>Why identity-first security and micro-segmentation are the new standard for cloud-native organisations.</p>
+        <span class="blog-read">Read Article &rarr;</span>
+      </div>
+    </a>
+
+    <a href="/blog/ai-pipelines-azure-aws-gcp" class="blog-card reveal stagger-3">
+      <div class="blog-thumb">
+        <img src="/assets/blog/ai-pipelines.jpg" alt="Building Production-Ready AI Pipelines on Azure, AWS &amp; GCP" loading="lazy">
+        <span class="blog-category">AI &amp; ML</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta"><span>Oct 2025</span><span class="dot"></span><span>8 min read</span></div>
+        <h3>Building Production-Ready AI Pipelines on Azure, AWS &amp; GCP</h3>
+        <p>From model training to inference at scale -- how to architect AI workloads across major cloud providers.</p>
+        <span class="blog-read">Read Article &rarr;</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- Newsletter Signup Section -->
+<section class="newsletter-section">
+  <h2>Stay <span class="gradient-text">Updated</span></h2>
+  <p>We regularly publish expert insights on cloud architecture, DevOps best practices, security strategies, and AI innovation. Check back often for new articles from our certified cloud architects.</p>
+  <p class="newsletter-note">New articles published monthly -- bookmark this page so you never miss an update.</p>
+</section>
+
+<!-- CTA -->
+<section class="page-cta">
+  <h2>Have a Topic Suggestion? <span class="gradient-text">Contact Us</span></h2>
+  <p>We'd love to hear what cloud topics matter most to you. Reach out and let us know what you'd like us to cover next.</p>
+  <a href="/contact" class="btn btn-glow">Get in Touch &rarr;</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="/" class="nav-logo" aria-label="TotalCloudAI Home">
+          <img src="../assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+        </a>
+        <p>Total Cloud AI guides businesses through cloud transformation with expert consultancy and innovative solutions. We specialise in strategy, architecture, migration, and optimisation.</p>
+        <div class="footer-social">
+          <a href="#">in</a><a href="#">&#120143;</a><a href="#">&#8997;</a><a href="#">&#9654;</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="/services/cloud-infrastructure">Cloud Infrastructure (IaaS)</a>
+        <a href="/services/managed-cloud">Managed Cloud Services</a>
+        <a href="/services/cloud-migration">Cloud Migration Services</a>
+        <a href="/services/devops-automation">DevOps &amp; Automation</a>
+        <a href="/services/security-compliance">Security &amp; Compliance</a>
+        <a href="/services/backup-disaster-recovery">Backup &amp; Disaster Recovery</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/">Home</a><a href="/about">About Us</a>
+        <a href="/team">Our Team</a><a href="/services">Services</a>
+        <a href="/blog">Blog &amp; News</a><a href="/contact">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Info@totalcloudai.com">Info@totalcloudai.com</a>
+        <a href="tel:+447487681898">+44-(0)7487681898</a>
+        <a href="https://wa.me/447487681898" target="_blank" rel="noopener">WhatsApp Us</a>
+        <a href="/contact">Maxi House, Halesfield 20</a>
+        <a href="/contact">Telford TF7 4QU, UK</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 TotalCloudAI Limited. All rights reserved.</span>
+      <span>Registered in England &amp; Wales</span><span><a href="/privacy" style="color:var(--text-muted);text-decoration:underline">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.min.js"></script>
+</body>
+</html>

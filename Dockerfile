@@ -3,9 +3,14 @@ FROM node:20-alpine
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-RUN npm ci --production
+RUN npm ci
 
 COPY . .
+
+RUN npm run build
+
+# Remove devDependencies after build
+RUN npm prune --production
 
 ARG RECAPTCHA_SECRET_KEY
 ARG RESEND_API_KEY
