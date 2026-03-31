@@ -2453,7 +2453,7 @@ a:focus-visible, button:focus-visible {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 9999;
+  z-index: 10001;
   padding: 16px 24px;
   background: var(--bg-secondary);
   border-top: 1px solid var(--border);
@@ -2465,6 +2465,7 @@ a:focus-visible, button:focus-visible {
   flex-wrap: wrap;
   font-size: 14px;
   color: var(--text-secondary);
+  cursor: auto;
 }
 .cookie-banner.visible { display: flex; }
 .cookie-banner p { margin: 0; max-width: 600px; }
@@ -2477,8 +2478,9 @@ a:focus-visible, button:focus-visible {
   border: none;
   border-radius: var(--radius-sm);
   font-weight: 600;
-  cursor: pointer;
+  cursor: pointer !important;
   font-size: 13px;
+  pointer-events: auto;
 }
 .cookie-banner .cookie-reject {
   padding: 8px 20px;
@@ -2487,8 +2489,9 @@ a:focus-visible, button:focus-visible {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-weight: 500;
-  cursor: pointer;
+  cursor: pointer !important;
   font-size: 13px;
+  pointer-events: auto;
 }
 
 /* Scrollbar */
