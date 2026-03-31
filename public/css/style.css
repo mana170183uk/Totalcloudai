@@ -2456,8 +2456,8 @@ a:focus-visible, button:focus-visible {
   z-index: 10001;
   padding: 16px 24px;
   background: var(--bg-secondary);
+  background: rgba(12, 21, 48, 0.95);
   border-top: 1px solid var(--border);
-  backdrop-filter: blur(20px);
   display: none;
   align-items: center;
   justify-content: center;
@@ -2465,8 +2465,10 @@ a:focus-visible, button:focus-visible {
   flex-wrap: wrap;
   font-size: 14px;
   color: var(--text-secondary);
-  cursor: auto;
+  cursor: auto !important;
+  pointer-events: auto !important;
 }
+.cookie-banner * { cursor: auto !important; pointer-events: auto !important; }
 .cookie-banner.visible { display: flex; }
 .cookie-banner p { margin: 0; max-width: 600px; }
 .cookie-banner a { color: var(--accent-1); text-decoration: underline; }
