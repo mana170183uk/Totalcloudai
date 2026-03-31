@@ -2074,23 +2074,39 @@ document.querySelectorAll('.hero-stat').forEach(function(card) {
   if (localStorage.getItem('cookie-consent')) return;
   var banner = document.createElement('div');
   banner.className = 'cookie-banner visible';
-  banner.innerHTML = '<p>We use essential cookies and third-party services (Google reCAPTCHA, Google Fonts) to ensure our website works properly. <a href="/privacy">Learn more</a></p>' +
-    '<div class="cookie-actions">' +
-    '<button class="cookie-accept" onclick="acceptCookies()">Accept</button>' +
-    '<button class="cookie-reject" onclick="rejectCookies()">Reject Non-Essential</button>' +
-    '</div>';
+
+  var msg = document.createElement('p');
+  msg.innerHTML = 'We use essential cookies and third-party services (Google reCAPTCHA, Google Fonts) to ensure our website works properly. <a href="/privacy">Learn more</a>';
+
+  var actions = document.createElement('div');
+  actions.className = 'cookie-actions';
+
+  var acceptBtn = document.createElement('button');
+  acceptBtn.className = 'cookie-accept';
+  acceptBtn.textContent = 'Accept';
+  acceptBtn.type = 'button';
+  acceptBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    localStorage.setItem('cookie-consent', 'accepted');
+    banner.classList.remove('visible');
+  });
+
+  var rejectBtn = document.createElement('button');
+  rejectBtn.className = 'cookie-reject';
+  rejectBtn.textContent = 'Reject Non-Essential';
+  rejectBtn.type = 'button';
+  rejectBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    localStorage.setItem('cookie-consent', 'rejected');
+    banner.classList.remove('visible');
+  });
+
+  actions.appendChild(acceptBtn);
+  actions.appendChild(rejectBtn);
+  banner.appendChild(msg);
+  banner.appendChild(actions);
   document.body.appendChild(banner);
 })();
-function acceptCookies() {
-  localStorage.setItem('cookie-consent', 'accepted');
-  var b = document.querySelector('.cookie-banner');
-  if (b) b.classList.remove('visible');
-}
-function rejectCookies() {
-  localStorage.setItem('cookie-consent', 'rejected');
-  var b = document.querySelector('.cookie-banner');
-  if (b) b.classList.remove('visible');
-}
 
 // ── Google Tag Manager (inject via JS — replace GTM-XXXXXXX with your GTM ID) ──
 (function() {
