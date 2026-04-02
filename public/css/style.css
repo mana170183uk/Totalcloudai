@@ -2418,6 +2418,35 @@ a.service-card { display: block; text-decoration: none; color: inherit; }
 }
 
 /* ============================================
+   BACK BUTTON
+   ============================================ */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-glass);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.back-btn:hover {
+  color: var(--accent-1);
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+.back-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ============================================
    FOCUS VISIBLE (Accessibility)
    ============================================ */
 :focus-visible {

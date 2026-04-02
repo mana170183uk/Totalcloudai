@@ -1268,10 +1268,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ── Theme Toggle ──
+// Restore saved theme immediately (before DOMContentLoaded to prevent flash)
+(function() {
+  var saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    // Update icon once DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      var icon = document.getElementById('toggleIcon');
+      if (icon) icon.textContent = saved === 'dark' ? '☀️' : '🌙';
+    });
+  }
+})();
+
 function toggleTheme() {
   const html = document.documentElement;
   const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
   document.getElementById('toggleIcon').textContent = next === 'dark' ? '☀️' : '🌙';
   // Smooth body transition
   document.body.style.transition = 'background 0.6s ease, color 0.4s ease';
