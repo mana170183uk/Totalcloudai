@@ -1174,7 +1174,7 @@ const platformDetails = {
     services: ['GKE', 'BigQuery', 'Cloud Run', 'Vertex AI', 'Cloud Functions', 'Pub/Sub', 'Cloud SQL', 'Spanner', 'Dataflow', 'Cloud Armor', 'Anthos', 'Looker']
   },
   alibaba: {
-    logo: '/assets/icons/simple-icons/alibabacloud.svg?color=%23FF6A00',
+    logo: '/assets/icons/simple-icons/alibabacloud_FF6A00.svg',
     title: 'Alibaba Cloud',
     tagline: 'Asia-Pacific cloud expertise with Alibaba Cloud',
     accentColor: '#FF6A00',
