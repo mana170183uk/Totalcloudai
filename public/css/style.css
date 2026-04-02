@@ -2440,12 +2440,6 @@ a.service-card { display: block; text-decoration: none; color: inherit; }
   border-color: var(--border-hover);
   background: var(--bg-card-hover);
 }
-.back-btn svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-}
-
 /* ============================================
    FOCUS VISIBLE (Accessibility)
    ============================================ */
