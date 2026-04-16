@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agentic AI Readiness Checklist — TotalCloudAI</title>
+<meta name="description" content="A 10-point readiness checklist to assess your enterprise's preparedness for agentic AI adoption across Azure, AWS, and GCP.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #1a1a2e; line-height: 1.6; background: #fff; }
+
+  @media print {
+    .no-print { display: none !important; }
+    body { font-size: 10.5pt; }
+    .page-break { page-break-before: always; }
+    .section { break-inside: avoid; }
+    a { color: #1a1a2e; text-decoration: none; }
+  }
+
+  .brochure-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+    color: #fff; padding: 48px 40px; text-align: center;
+  }
+  .brochure-header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+  .brochure-header p { font-size: 1.05rem; opacity: 0.85; max-width: 700px; margin: 0 auto; }
+  .brochure-header .logo { font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+  .brochure-header .logo span { color: #60a5fa; }
+  .brochure-header .badge {
+    display: inline-block; background: rgba(96,165,250,0.15); color: #93c5fd;
+    padding: 4px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase; margin-top: 14px;
+  }
+
+  .toolbar {
+    position: sticky; top: 0; z-index: 10; background: #f8fafc; border-bottom: 1px solid #e2e8f0;
+    padding: 12px 40px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .toolbar a { color: #3b82f6; text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+  .btn-download {
+    background: #3b82f6; color: #fff; border: none; padding: 10px 24px; border-radius: 8px;
+    font-weight: 600; font-size: 0.9rem; cursor: pointer;
+  }
+  .btn-download:hover { background: #2563eb; }
+
+  .content { max-width: 900px; margin: 0 auto; padding: 40px; }
+
+  .intro { margin-bottom: 40px; }
+  .intro p { color: #475569; margin-bottom: 14px; font-size: 0.98rem; }
+
+  .section {
+    margin-bottom: 36px; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px 28px;
+    background: #fff;
+  }
+  .section h2 {
+    color: #0f172a; font-size: 1.2rem; font-weight: 700; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section .number {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff;
+    width: 32px; height: 32px; border-radius: 8px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+  }
+  .section p { color: #475569; font-size: 0.92rem; margin-bottom: 14px; }
+
+  .checklist { list-style: none; }
+  .checklist li {
+    display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f1f5f9;
+    align-items: flex-start;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist .check {
+    width: 22px; height: 22px; border: 2px solid #3b82f6; border-radius: 6px;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .checklist .text { font-size: 0.88rem; color: #334155; line-height: 1.6; }
+  .checklist .text strong { color: #0f172a; }
+
+  .scorecard {
+    background: linear-gradient(135deg, #f0f9ff, #eff6ff);
+    border: 2px solid #bfdbfe; border-radius: 12px; padding: 28px; margin: 32px 0;
+  }
+  .scorecard h3 { color: #1e3a8a; font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+  .scorecard table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .scorecard td { padding: 8px 0; }
+  .scorecard .score { font-weight: 700; color: #1e3a8a; width: 80px; }
+
+  .cta-section {
+    background: linear-gradient(135deg, #0f172a, #1e3a5f); color: #fff;
+    padding: 36px; border-radius: 12px; text-align: center; margin-top: 40px;
+  }
+  .cta-section h2 { color: #fff; margin-bottom: 10px; font-size: 1.3rem; }
+  .cta-section p { opacity: 0.85; margin-bottom: 14px; font-size: 0.92rem; }
+  .cta-section a { color: #93c5fd; font-weight: 600; text-decoration: underline; }
+
+  .footer-bar {
+    text-align: center; padding: 24px; color: #94a3b8; font-size: 0.82rem;
+    border-top: 1px solid #e2e8f0; margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+
+<div class="brochure-header">
+  <div class="logo">Total<span>Cloud</span>AI</div>
+  <h1>Agentic AI Readiness Checklist</h1>
+  <p>A 10-point self-assessment to gauge your enterprise's preparedness for autonomous AI agents across Azure, AWS, and GCP.</p>
+  <div class="badge">Lead Magnet &middot; 2026 Edition</div>
+</div>
+
+<div class="toolbar no-print">
+  <a href="/blog/agentic-ai-cloud-enterprise-2026/">&larr; Back to Article</a>
+  <button class="btn-download" onclick="window.print()">Save as PDF</button>
+</div>
+
+<div class="content">
+
+  <div class="intro">
+    <p>Agentic AI is the most significant architectural shift in cloud computing since containerisation. But adopting it successfully depends on foundational capabilities many organisations still lack: observability maturity, governance rigour, and clear decision-rights between humans and agents.</p>
+    <p>Use this checklist to identify the gaps you need to close <strong>before</strong> your first pilot -- and the compounding advantages you unlock as you progress through each maturity stage.</p>
+  </div>
+
+  <!-- 1 -->
+  <div class="section">
+    <h2><span class="number">01</span> Observability Foundation</h2>
+    <p>Agents reason over telemetry. Poor observability means blind agents.</p>
+    <ul class="checklist">
+      <li><div class="check"></div><div class="text"><strong>Unified metrics, logs, and traces</strong> across all production services (Datadog, Grafana, Azure Monitor, CloudWatch)</div></li>
+      <li><div class="check"></div><div class="text"><strong>Service-level objectives (SLOs)</strong> defined for every critical service</div></li>
+      <li><div class="check"></div><div class="text"><strong>Distributed tracing</strong> enabled end-to-end on all request paths</div></li>
+      <li><div class="check"></div><div class="text"><strong>Structured logging</strong> (JSON) with consistent correlation IDs</div></li>
+    </ul>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <h2><span class="number">02</span> Identity &amp; Access Management</h2>
+    <p>Agents act on resources. Every action must be attributable and bounded.</p>
+    <ul class="checklist">
+      <li><div class="check"></div><div class="text"><strong>Workload identity</strong> (Managed Identity, IAM Roles, Workload Identity Federation) replaces all hardcoded credentials</div></li>
+      <li><div class="check"></div><div class="text"><strong>Least-privilege policies</strong> enforced with no wildcard admin roles in production</div></li>
+      <li><div class="check"></div><div class="text"><strong>Just-in-time access</strong> for privileged operations (Azure PIM, AWS IAM Access Analyzer)</div></li>
+      <li><div class="check"></div><div class="text"><strong>Agent-specific service principals</strong> with scoped RBAC and time-bounded tokens</div></li>
+    </ul>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <h2><span class="number">03</span> Infrastructure as Code Maturity</h2>
+    <p>Agents deploy change. They need a reproducible, version-controlled substrate.</p>
+    <ul class="checklist">
+      <li><div class="check"></div><div class="text"><strong>100% of production infrastructure</strong> defined in Terraform, Bicep, Pulumi, or CloudFormation</div></li>
+      <li><div class="check"></div><div class="text"><strong>Pull-request based</strong> infrastructure changes with peer review</div></li>
+      <li><div class="check"></div><div class="text"><strong>Drift detection</strong> runs automatically and alerts on untracked changes</div></li>
+      <li><div class="check"></div><div class="text"><strong>Policy-as-code</strong> (OPA, Azure Policy, AWS Config) enforced in CI/CD</div></li>
+    </ul>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <h2><span class="number">04</span> Incident Response Discipline</h2>
+    <p>Autonomous remediation requires mature human processes to emulate.</p>
+    <ul class="checklist">
+      <li><div class="check"></div><div class="text"><strong>Runbooks documented</strong> for the top 20 most-common incident types</div></li>
+      <li><div class="check"></div><div class="text"><strong>Post-incident reviews</strong> performed for every production incident</div></li>
+      <li><div class="check"></div><div class="text"><strong>Mean time to detect (MTTD)</strong> under 5 minutes for P1/P2 incidents</div></li>
+      <li><div class="check"></div><div class="text"><strong>Mean time to resolve (MTTR)</strong> baselined by incident category</div></li>
+    </ul>
+  </div>
+
+  <!-- 5 -->
+  <div class="section">
+    <h2><span class="number">05</span> Data Governance</h2>
+    <p>Agents reason over data. Lineage, quality, and classification must be in place.</p>
+    <ul class="checklist">
+      <li><div class="check"></div><div class="text"><strong>Data classification</strong> (public, internal, confidential, restricted) applied to all datasets</div></li>
+      <li><div class="check"></div><div class="text"><strong>Data lineage</strong> tracked through your pipelines (Purview, Collibra, DataHub)</div></li>
+      <li><div class="check"></div><div class="text"><strong>PII detection and masking</strong> applied before data reaches AI systems</div></li>
+      <li><div class="check"></div><div class="text"><strong>Retention policies</strong> enforced automatically in all data stores</div></li>
+    </ul>
+  </div>
+
+  <!-- 6 -->
+  <div class="section">
+    <h2><span class="number">06</span> AI Governance Framework</h2>
+    <p>Agentic AI introduces new risk classes. Existing AI governance must evolve.</p>
+    <ul class="checklist">
+      <li><div class="check"></div><div class="text"><strong>Model inventory</strong> tracking all AI models in production with owners and purposes</div></li>
+      <li><div class="check"></div><div class="text"><strong>Prompt and response logging</strong> for every agent interaction with PII redaction</div></li>
+      <li><div class="check"></div><div class="text"><strong>Red-team testing</strong> of agent prompts and tools for prompt injection, data leakage</div></li>
+      <li><div class="check"></div><div class="text"><strong>EU AI Act classification</strong> completed for each agent use case</div></li>
+    </ul>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <h2><span class="number">07</span> FinOps Visibility</h2>
+    <p>Agents can run up bills fast. Cost observability must be real-time.</p>
+    <ul class="checklist">
+      <li><div class="check"></div><div class="text"><strong>Cost allocation tags</strong> applied to 95%+ of resources with enforcement policies</div></li>
+      <li><div class="check"></div><div class="text"><strong>Per-agent cost tracking</strong> (foundation model inference, tool calls, compute)</div></li>
+      <li><div class="check"></div><div class="text"><strong>Budget alerts</strong> with automated shutdown for non-production overspend</div></li>
+      <li><div class="check"></div><div class="text"><strong>Showback or chargeback</strong> to business units for agent usage</div></li>
+    </ul>
+  </div>
+
+  <!-- 8 -->
+  <div class="section">
+    <h2><span class="number">08</span> Change Management &amp; Guardrails</h2>
+    <p>Speed is the point of agents. Guardrails keep speed from becoming recklessness.</p>
+    <ul class="checklist">
+      <li><div class="check"></div><div class="text"><strong>Blast radius controls</strong> limiting what any single agent action can affect</div></li>
+      <li><div class="check"></div><div class="text"><strong>Human-in-the-loop</strong> checkpoints for production deployments, security policy changes</div></li>
+      <li><div class="check"></div><div class="text"><strong>Circuit breakers</strong> that halt agent activity on key metric deviation</div></li>
+      <li><div class="check"></div><div class="text"><strong>Rollback automation</strong> tested monthly for every agent-initiated change class</div></li>
+    </ul>
+  </div>
+
+  <!-- 9 -->
+  <div class="section">
+    <h2><span class="number">09</span> Team Capabilities</h2>
+    <p>Agentic AI reshapes job functions. Skills must be developed, not assumed.</p>
+    <ul class="checklist">
+      <li><div class="check"></div><div class="text"><strong>Platform engineering team</strong> staffed with senior cloud + AI engineers</div></li>
+      <li><div class="check"></div><div class="text"><strong>Prompt engineering competency</strong> formalised in at least one team</div></li>
+      <li><div class="check"></div><div class="text"><strong>AI safety and red-team training</strong> completed for engineering leads</div></li>
+      <li><div class="check"></div><div class="text"><strong>Cross-functional working group</strong> (engineering, security, legal, FinOps) in place</div></li>
+    </ul>
+  </div>
+
+  <!-- 10 -->
+  <div class="section">
+    <h2><span class="number">10</span> Use-Case Prioritisation</h2>
+    <p>Pilot selection defines success or failure.</p>
+    <ul class="checklist">
+      <li><div class="check"></div><div class="text"><strong>Candidate use cases</strong> scored on value, feasibility, blast radius, and reversibility</div></li>
+      <li><div class="check"></div><div class="text"><strong>First pilot</strong> chosen in a low-risk, high-visibility domain (FinOps recommendations, log summarisation)</div></li>
+      <li><div class="check"></div><div class="text"><strong>Success criteria</strong> defined before the pilot begins (measurable KPIs)</div></li>
+      <li><div class="check"></div><div class="text"><strong>Exit plan</strong> documented for what happens if the pilot underperforms</div></li>
+    </ul>
+  </div>
+
+  <!-- Scorecard -->
+  <div class="scorecard">
+    <h3>How to Score Your Organisation</h3>
+    <p style="font-size:0.9rem;color:#475569;margin-bottom:14px;">Count the checkboxes you can honestly tick (each item = 1 point, 40 max):</p>
+    <table>
+      <tr><td class="score">35-40</td><td><strong>Pioneer.</strong> Ready for production agents across multiple domains. Focus on orchestration.</td></tr>
+      <tr><td class="score">25-34</td><td><strong>Ready to pilot.</strong> Strong foundations. Choose one domain and ship a bounded pilot within 90 days.</td></tr>
+      <tr><td class="score">15-24</td><td><strong>Foundational gaps.</strong> Address observability, IAM, and IaC maturity before agents.</td></tr>
+      <tr><td class="score">Under 15</td><td><strong>Not yet ready.</strong> A modernisation roadmap must precede agent adoption.</td></tr>
+    </table>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Need Help Closing the Gaps?</h2>
+    <p>Our certified cloud architects run complimentary two-hour agentic AI readiness workshops with UK enterprises.</p>
+    <p>Book a consultation at <a href="https://totalcloudai.com/contact">totalcloudai.com/contact</a> or email <a href="mailto:info@totalcloudai.com">info@totalcloudai.com</a></p>
+  </div>
+
+</div>
+
+<div class="footer-bar">
+  &copy; 2026 TotalCloudAI Limited &middot; Registered in England &amp; Wales &middot; totalcloudai.com
+</div>
+
+</body>
+</html>

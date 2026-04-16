@@ -59,8 +59,21 @@
   font-size: 1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;
 }
 .newsletter-section .newsletter-note {
-  font-size: 0.85rem; color: var(--text-muted); margin-top: 0;
+  font-size: 0.85rem; color: var(--text-muted); margin-top: 12px;
 }
+.newsletter-form { max-width: 480px; margin: 0 auto; }
+.newsletter-input-wrap {
+  display: flex; gap: 10px; border-radius: 12px;
+  background: var(--bg-card); border: 1px solid var(--border); padding: 6px;
+}
+.newsletter-input-wrap input {
+  flex: 1; border: none; background: transparent; padding: 12px 16px;
+  font-size: 0.95rem; color: var(--text-primary); outline: none;
+  font-family: inherit;
+}
+.newsletter-input-wrap input::placeholder { color: var(--text-muted); }
+.newsletter-input-wrap .btn { white-space: nowrap; padding: 12px 24px; font-size: 0.85rem; }
+.newsletter-success { color: #22c55e; font-weight: 600; }
 
 /* CTA section */
 .page-cta {
@@ -250,8 +263,14 @@
 <!-- Newsletter Signup Section -->
 <section class="newsletter-section">
   <h2>Stay <span class="gradient-text">Updated</span></h2>
-  <p>We regularly publish expert insights on cloud architecture, DevOps best practices, security strategies, and AI innovation. Check back often for new articles from our certified cloud architects.</p>
-  <p class="newsletter-note">New articles published monthly -- bookmark this page so you never miss an update.</p>
+  <p>Get monthly insights on cloud architecture, DevOps, security, and AI innovation — straight from our certified cloud architects.</p>
+  <form id="newsletterForm" class="newsletter-form" onsubmit="return submitNewsletter(event)">
+    <div class="newsletter-input-wrap">
+      <input type="email" id="nlEmail" placeholder="you@company.com" required aria-label="Email address">
+      <button type="submit" class="btn btn-glow" id="nlBtn">Subscribe &rarr;</button>
+    </div>
+    <p class="newsletter-note" id="nlMsg">No spam, unsubscribe any time. We typically send 2-3 emails per month.</p>
+  </form>
 </section>
 
 <!-- CTA -->
@@ -305,6 +324,38 @@
   </div>
 </footer>
 
+<script>
+async function submitNewsletter(e) {
+  e.preventDefault();
+  var btn = document.getElementById('nlBtn');
+  var msg = document.getElementById('nlMsg');
+  var email = document.getElementById('nlEmail').value;
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  try {
+    var r = await fetch('/api/newsletter-signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    });
+    var d = await r.json();
+    if (r.ok) {
+      msg.textContent = d.message;
+      msg.className = 'newsletter-note newsletter-success';
+      document.getElementById('nlEmail').value = '';
+    } else {
+      msg.textContent = d.message || 'Something went wrong.';
+      msg.style.color = '#ef4444';
+    }
+  } catch (err) {
+    msg.textContent = 'Network error. Please try again.';
+    msg.style.color = '#ef4444';
+  }
+  btn.disabled = false;
+  btn.textContent = 'Subscribe \u2192';
+  return false;
+}
+</script>
 <script src="../js/main.min.js"></script>
 </body>
 </html>

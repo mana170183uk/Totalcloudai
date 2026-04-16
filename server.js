@@ -42,6 +42,8 @@ app.use(express.json());
 // API routes (before static so they take priority)
 app.post('/api/send-otp', require('./api/send-otp'));
 app.post('/api/verify-otp', require('./api/verify-otp'));
+app.post('/api/newsletter-signup', require('./api/newsletter-signup'));
+app.post('/api/lead-magnet', require('./api/lead-magnet'));
 
 // Clean URL routing — async fs for non-blocking I/O
 const publicDir = path.join(__dirname, 'public');
