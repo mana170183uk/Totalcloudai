@@ -83,10 +83,8 @@
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 .platform-card:hover { transform: translateY(-4px); border-color: var(--border-hover); }
-.platform-card .pc-logo { width: 48px; height: 48px; border-radius: 12px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 800; color: #fff; }
-.platform-card.azure .pc-logo { background: linear-gradient(135deg, #0078d4, #005a9e); }
-.platform-card.aws .pc-logo { background: linear-gradient(135deg, #ff9900, #cc7a00); }
-.platform-card.gcp .pc-logo { background: linear-gradient(135deg, #4285f4, #34a853); }
+.platform-card .pc-logo { width: 64px; height: 64px; border-radius: 14px; margin-bottom: 18px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid var(--border); padding: 10px; }
+.platform-card .pc-logo img { width: 100%; height: 100%; object-fit: contain; }
 .platform-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
 .platform-card .pc-service { font-size: 0.85rem; color: var(--accent-1); font-weight: 600; margin-bottom: 14px; }
 .platform-card .pc-strengths { list-style: none !important; padding: 0 !important; margin: 0 !important; }
@@ -259,7 +257,7 @@
     <figure class="diagram-wrap" aria-label="Agentic AI platform comparison across Azure, AWS, and GCP">
       <div class="platform-compare">
         <div class="platform-card azure">
-          <div class="pc-logo">Az</div>
+          <div class="pc-logo"><img src="/assets/icons/logos/microsoft-azure.svg" alt="Microsoft Azure" width="44" height="44"></div>
           <h4>Microsoft Azure</h4>
           <div class="pc-service">AI Agent Service + Copilot Studio</div>
           <ul class="pc-strengths">
@@ -270,7 +268,7 @@
           </ul>
         </div>
         <div class="platform-card aws">
-          <div class="pc-logo">AWS</div>
+          <div class="pc-logo"><img src="/assets/icons/logos/aws.svg" alt="Amazon Web Services" width="44" height="44"></div>
           <h4>Amazon Web Services</h4>
           <div class="pc-service">Bedrock Agents + Q Developer</div>
           <ul class="pc-strengths">
@@ -281,7 +279,7 @@
           </ul>
         </div>
         <div class="platform-card gcp">
-          <div class="pc-logo">GCP</div>
+          <div class="pc-logo"><img src="/assets/icons/logos/google-cloud.svg" alt="Google Cloud" width="44" height="44"></div>
           <h4>Google Cloud</h4>
           <div class="pc-service">Vertex AI Agents + Agentspace</div>
           <ul class="pc-strengths">
