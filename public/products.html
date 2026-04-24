@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Products — TotalCloudAI | Homeal, VedIQ & RestroVision</title>
+<meta name="description" content="Explore the innovative SaaS products built by TotalCloudAI Limited — Homeal (home-cooked food marketplace), VedIQ (AI-powered Vedic maths tutor), and RestroVision (AI restaurant OS). Cloud-native, AI-driven, built for impact.">
+<meta name="keywords" content="TotalCloudAI products, Homeal, VedIQ, RestroVision, home food delivery, Vedic maths AI, restaurant SaaS, UK SaaS, cloud-native products">
+<meta name="author" content="TotalCloudAI Limited">
+<link rel="canonical" href="https://totalcloudai.com/products">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://totalcloudai.com/products">
+<meta property="og:title" content="Our Products — TotalCloudAI | Homeal, VedIQ & RestroVision">
+<meta property="og:description" content="Three innovative SaaS products built by TotalCloudAI: home-cooked food delivery, AI-powered Vedic maths tutor, and restaurant operations platform.">
+<meta property="og:image" content="https://totalcloudai.com/assets/favicon-source.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#050A18">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":"TotalCloudAI Products","description":"Innovative SaaS products built and operated by TotalCloudAI Limited","numberOfItems":3,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Homeal","applicationCategory":"FoodEstablishmentReservation","description":"Home-cooked food marketplace connecting home chefs with customers across the UK."}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"VedIQ","applicationCategory":"EducationApplication","description":"AI-powered Vedic Mathematics tutor for children aged 6-16."}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"RestroVision","applicationCategory":"BusinessApplication","description":"AI-driven restaurant operating system with embedded UK compliance."}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="css/style.min.css">
+<style>
+/* ══════════════════════════════════════════════
+   PAGE HERO
+   ══════════════════════════════════════════════ */
+.products-hero {
+  padding: 160px 0 60px; text-align: center; position: relative; z-index: 2;
+}
+.products-hero .breadcrumb {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted);
+}
+.products-hero .breadcrumb a { color: var(--accent-1); }
+.products-hero .breadcrumb a:hover { text-decoration: underline; }
+.products-hero .eyebrow {
+  display: inline-block; font-family: var(--mono), monospace; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 3px; color: var(--accent-1);
+  padding: 6px 18px; border-radius: 100px;
+  background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2);
+  margin-bottom: 20px;
+}
+.products-hero h1 {
+  font-family: var(--font-display); font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  font-weight: 800; letter-spacing: -0.03em; margin-bottom: 18px; line-height: 1.1;
+}
+.products-hero p {
+  font-size: 1.15rem; color: var(--text-secondary); max-width: 720px; margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════════
+   PRODUCT SHOWCASE
+   ══════════════════════════════════════════════ */
+.product-showcase {
+  position: relative; padding: 80px 0; z-index: 2;
+}
+.product-showcase:nth-child(odd) .product-inner { direction: ltr; }
+.product-showcase:nth-child(even) .product-inner { direction: rtl; }
+.product-showcase:nth-child(even) .product-inner > * { direction: ltr; }
+
+.product-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  max-width: 1200px; margin: 0 auto; padding: 0 32px; align-items: center;
+}
+@media (max-width: 968px) {
+  .product-inner { grid-template-columns: 1fr; gap: 40px; direction: ltr !important; }
+  .product-showcase:nth-child(even) .product-inner { direction: ltr; }
+}
+
+/* Product visual card */
+.product-visual {
+  position: relative; border-radius: 24px; overflow: hidden;
+  aspect-ratio: 4/3; background: var(--bg-card); border: 1px solid var(--border);
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1), box-shadow 0.6s ease;
+}
+.product-visual:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 40px 80px rgba(59,130,246,0.2), 0 0 0 1px rgba(59,130,246,0.25);
+}
+.product-visual img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.product-visual .visual-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(135deg, transparent 40%, rgba(5,10,24,0.8) 100%);
+  display: flex; flex-direction: column; justify-content: flex-end; padding: 32px;
+}
+.product-visual .visual-badges {
+  position: absolute; top: 24px; left: 24px; z-index: 3;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.product-visual .visual-badge {
+  padding: 6px 14px; border-radius: 100px;
+  background: rgba(255,255,255,0.14); backdrop-filter: blur(12px);
+  color: #fff; font-size: 0.72rem; font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* CSS-only product visual for RestroVision (no hero image) */
+.product-visual.css-visual {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(245,129,66,0.35), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(168,85,247,0.35), transparent 45%),
+    linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+  display: flex; align-items: center; justify-content: center; padding: 40px;
+  text-align: center;
+}
+.product-visual.css-visual .big-icon {
+  width: 140px; height: 140px; border-radius: 32px;
+  background: linear-gradient(135deg, #f58142, #ea580c);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 30px 60px rgba(245,129,66,0.35);
+  margin-bottom: 28px;
+}
+.product-visual.css-visual .big-icon svg { width: 70px; height: 70px; stroke: #fff; fill: none; stroke-width: 2.5; }
+.product-visual.css-visual .hero-title { color: #fff; font-family: var(--font-display); font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
+.product-visual.css-visual .hero-sub { color: rgba(255,255,255,0.8); font-size: 0.95rem; max-width: 340px; }
+.product-visual.css-visual .mini-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 28px; width: 100%; max-width: 380px;
+}
+.product-visual.css-visual .mini-stat {
+  padding: 14px 10px; border-radius: 12px;
+  background: rgba(255,255,255,0.08); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.product-visual.css-visual .mini-stat-num { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: #fff; }
+.product-visual.css-visual .mini-stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
+
+/* Product info */
+.product-info .eyebrow {
+  display: inline-block; font-family: var(--mono), monospace; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 2.5px; padding: 5px 14px;
+  border-radius: 100px; margin-bottom: 16px;
+}
+.product-info h2 {
+  font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800; line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.02em;
+}
+.product-info .tagline {
+  font-size: 1.1rem; color: var(--accent-1); font-weight: 600; margin-bottom: 20px;
+}
+.product-info p.desc {
+  font-size: 1.02rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 28px;
+}
+
+/* Feature pills */
+.feature-pills {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;
+}
+.feature-pills .pill {
+  font-size: 0.78rem; padding: 7px 14px; border-radius: 100px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text-secondary); font-weight: 500;
+  transition: all 0.3s ease;
+}
+.feature-pills .pill:hover {
+  color: var(--accent-1); border-color: rgba(59,130,246,0.4);
+  background: rgba(59,130,246,0.08);
+}
+
+/* Impact grid */
+.impact-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px;
+}
+.impact-box {
+  padding: 18px 16px; border-radius: 14px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  text-align: center;
+}
+.impact-box .impact-num {
+  font-family: var(--font-display); font-size: 1.6rem; font-weight: 800;
+  background: var(--gradient-hero); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text; display: block;
+  line-height: 1;
+}
+.impact-box .impact-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Actions */
+.product-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.product-actions .btn-ghost {
+  padding: 12px 24px; border-radius: 10px;
+  color: var(--text-primary); border: 1px solid var(--border);
+  background: var(--bg-card); font-size: 0.9rem; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.3s ease;
+}
+.product-actions .btn-ghost:hover {
+  border-color: var(--accent-1); color: var(--accent-1);
+}
+
+/* Product themes */
+.theme-homeal .product-info .eyebrow { color: #f97316; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2); }
+.theme-homeal .product-info .tagline { color: #fb923c; }
+
+.theme-vediq .product-info .eyebrow { color: #a855f7; background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.2); }
+.theme-vediq .product-info .tagline { color: #c084fc; }
+
+.theme-restro .product-info .eyebrow { color: #f58142; background: rgba(245,129,66,0.1); border: 1px solid rgba(245,129,66,0.2); }
+.theme-restro .product-info .tagline { color: #fdba74; }
+
+/* Impact section */
+.combined-impact {
+  padding: 80px 0; position: relative; z-index: 2;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  margin: 40px 0;
+}
+.combined-impact .container { text-align: center; }
+.combined-impact .section-label { display: inline-block; }
+.combined-impact h2 {
+  font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 700; margin: 12px 0 40px;
+}
+.impact-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  max-width: 1100px; margin: 0 auto; padding: 0 32px;
+}
+.impact-stat .impact-stat-num {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  background: var(--gradient-hero); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text; display: block;
+}
+.impact-stat .impact-stat-label {
+  font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px; font-weight: 500;
+}
+@media (max-width: 768px) { .impact-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
+
+/* Page CTA */
+.page-cta {
+  text-align: center; padding: 80px 24px 100px; position: relative; z-index: 2;
+}
+.page-cta h2 {
+  font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700; margin-bottom: 16px;
+}
+.page-cta p {
+  font-size: 1.05rem; color: var(--text-secondary); max-width: 580px;
+  margin: 0 auto 28px; line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .impact-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .impact-box { padding: 14px 8px; }
+  .impact-box .impact-num { font-size: 1.3rem; }
+  .product-visual { aspect-ratio: 16/10; }
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Aurora / Prism Background -->
+<div class="aurora-container" aria-hidden="true">
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+  <div class="aurora-blob"></div>
+</div>
+<div class="noise-overlay" aria-hidden="true"></div>
+<div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Page scroll progress"></div>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <button class="mobile-close" onclick="closeMobile()" aria-label="Close navigation menu">✕</button>
+  <a href="/" onclick="closeMobile()">Home</a>
+  <a href="/services" onclick="closeMobile()">Services</a>
+  <a href="/products" onclick="closeMobile()">Products</a>
+  <a href="/platforms" onclick="closeMobile()">Platforms</a>
+  <a href="/about" onclick="closeMobile()">About</a>
+  <a href="/team" onclick="closeMobile()">Team</a>
+  <a href="/pricing" onclick="closeMobile()">Pricing</a>
+  <a href="/blog" onclick="closeMobile()">Blog</a>
+  <a href="/contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="TotalCloudAI Home">
+      <img src="assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/services" class="nav-link">Services</a>
+      <a href="/products" class="nav-link active">Products</a>
+      <a href="/platforms" class="nav-link">Platforms</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/team" class="nav-link">Team</a>
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="/blog" class="nav-link">Blog</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="toggle-icon" id="toggleIcon">☀️</span>
+      </button>
+      <a href="/contact" class="btn btn-glow" style="padding:10px 24px;font-size:13px;">Get Started →</a>
+      <button class="menu-toggle" onclick="openMobile()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- Hero -->
+<section class="products-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> <span>/</span> <span>Products</span>
+    </div>
+    <span class="eyebrow">// Built by TotalCloudAI</span>
+    <h1>Products That Transform <span class="gradient-text">Everyday Life</span></h1>
+    <p>From home kitchens to classrooms to high-street restaurants — we build cloud-native, AI-powered SaaS products that empower people, strengthen communities, and redefine industries.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     PRODUCT 1: HOMEAL
+     ════════════════════════════════════════════════ -->
+<section class="product-showcase theme-homeal" id="homeal">
+  <div class="product-inner">
+    <div class="product-visual reveal">
+      <div class="visual-badges">
+        <span class="visual-badge">Food-Tech</span>
+        <span class="visual-badge">Marketplace</span>
+        <span class="visual-badge">UK</span>
+      </div>
+      <img src="/assets/products/homeal-hero.jpg" alt="Homeal — home-cooked food marketplace" loading="lazy">
+      <div class="visual-overlay"></div>
+    </div>
+    <div class="product-info reveal">
+      <span class="eyebrow">Product 01 · Homeal</span>
+      <h2>Healthy Food, <span class="gradient-text">From Home</span></h2>
+      <p class="tagline">The UK's home-cooked food marketplace for everyone.</p>
+      <p class="desc">Homeal connects talented home chefs with customers craving fresh, authentic, home-cooked meals. We remove every barrier that keeps passionate cooks out of the food economy — no commercial kitchen rental, no huge capital, no complex licensing maze — so anyone with a skill for cooking can build a sustainable food business from their own home.</p>
+
+      <div class="feature-pills">
+        <span class="pill">Home Maker Dashboard</span>
+        <span class="pill">Real-Time Orders</span>
+        <span class="pill">Subscription Tiffin</span>
+        <span class="pill">Catering & Events</span>
+        <span class="pill">Allergen Transparency</span>
+        <span class="pill">Mobile Apps</span>
+        <span class="pill">Stripe Payouts</span>
+      </div>
+
+      <div class="impact-grid">
+        <div class="impact-box">
+          <span class="impact-num">0£</span>
+          <div class="impact-label">Capital to start</div>
+        </div>
+        <div class="impact-box">
+          <span class="impact-num">100%</span>
+          <div class="impact-label">UK food-safety compliant</div>
+        </div>
+        <div class="impact-box">
+          <span class="impact-num">∞</span>
+          <div class="impact-label">Home chefs empowered</div>
+        </div>
+      </div>
+
+      <div class="product-actions">
+        <a href="https://homeal.co.uk" target="_blank" rel="noopener" class="btn btn-glow">Visit Homeal →</a>
+        <a href="/contact" class="btn-ghost">Partnership Enquiries</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     PRODUCT 2: VEDIQ
+     ════════════════════════════════════════════════ -->
+<section class="product-showcase theme-vediq" id="vediq">
+  <div class="product-inner">
+    <div class="product-visual reveal">
+      <div class="visual-badges">
+        <span class="visual-badge">EdTech</span>
+        <span class="visual-badge">AI Tutor</span>
+        <span class="visual-badge">Ages 6–16</span>
+      </div>
+      <img src="/assets/products/vediq-hero.jpg" alt="VedIQ — AI-powered Vedic Mathematics tutor" loading="lazy">
+      <div class="visual-overlay"></div>
+    </div>
+    <div class="product-info reveal">
+      <span class="eyebrow">Product 02 · VedIQ</span>
+      <h2>Ancient Wisdom. <span class="gradient-text">AI Speed.</span></h2>
+      <p class="tagline">The world's first AI tutor built around Vedic Mathematics.</p>
+      <p class="desc">VedIQ teaches children aged 6–16 lightning-fast mental-math techniques from India's 2,500-year-old mathematical heritage. With an intelligent AI tutor named "Veda" (powered by Azure OpenAI), voice interaction, an animated chalkboard, and 828,000+ dynamically generated problems, VedIQ makes personalised tutoring <strong>93% cheaper</strong> than a private tutor — democratising excellence in mathematics education.</p>
+
+      <div class="feature-pills">
+        <span class="pill">Veda AI Tutor</span>
+        <span class="pill">Voice Learning</span>
+        <span class="pill">828K+ Problems</span>
+        <span class="pill">6 Age-Based Levels</span>
+        <span class="pill">Animated Chalkboard</span>
+        <span class="pill">Gamified XP & Streaks</span>
+        <span class="pill">COPPA-Compliant</span>
+      </div>
+
+      <div class="impact-grid">
+        <div class="impact-box">
+          <span class="impact-num">16</span>
+          <div class="impact-label">Vedic Sutras taught</div>
+        </div>
+        <div class="impact-box">
+          <span class="impact-num">£8.99</span>
+          <div class="impact-label">Per month vs £40+/hr</div>
+        </div>
+        <div class="impact-box">
+          <span class="impact-num">SDG 4</span>
+          <div class="impact-label">Quality education</div>
+        </div>
+      </div>
+
+      <div class="product-actions">
+        <a href="https://vediq.online" target="_blank" rel="noopener" class="btn btn-glow">Try VedIQ Free →</a>
+        <a href="/contact" class="btn-ghost">School Enquiries</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     PRODUCT 3: RESTROVISION
+     ════════════════════════════════════════════════ -->
+<section class="product-showcase theme-restro" id="restrovision">
+  <div class="product-inner">
+    <div class="product-visual css-visual reveal">
+      <div class="visual-badges" style="top:24px;left:24px;">
+        <span class="visual-badge">Restaurant-Tech</span>
+        <span class="visual-badge">Compliance AI</span>
+        <span class="visual-badge">UK</span>
+      </div>
+      <div style="text-align:center;">
+        <div class="big-icon">
+          <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+        </div>
+        <div class="hero-title">RestroVision</div>
+        <div class="hero-sub">AI restaurant operating system with built-in UK compliance, POS, KDS, inventory, labour &amp; delivery.</div>
+        <div class="mini-grid">
+          <div class="mini-stat"><div class="mini-stat-num">8</div><div class="mini-stat-label">Modules</div></div>
+          <div class="mini-stat"><div class="mini-stat-num">HACCP</div><div class="mini-stat-label">Auto-compliance</div></div>
+          <div class="mini-stat"><div class="mini-stat-num">AI</div><div class="mini-stat-label">Weekly briefs</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-info reveal">
+      <span class="eyebrow">Product 03 · RestroVision</span>
+      <h2>One Platform. <span class="gradient-text">Every Restaurant Workflow.</span></h2>
+      <p class="tagline">The restaurant operating system built for modern UK hospitality.</p>
+      <p class="desc">RestroVision is a unified, AI-driven SaaS platform that replaces a dozen disconnected tools with a single intelligent operating system. From POS and kitchen display to labour scheduling, delivery integrations, loyalty, accounting, and an embedded UK regulatory compliance suite — RestroVision automates the paperwork so restaurateurs can focus on what matters: their food, their team, and their customers.</p>
+
+      <div class="feature-pills">
+        <span class="pill">POS & KDS</span>
+        <span class="pill">Inventory & Purchasing</span>
+        <span class="pill">Labour & HR</span>
+        <span class="pill">HACCP &amp; Allergens</span>
+        <span class="pill">VAT / MTD</span>
+        <span class="pill">CRM &amp; Loyalty</span>
+        <span class="pill">Deliveroo / Uber Eats</span>
+        <span class="pill">AI Weekly Briefs</span>
+      </div>
+
+      <div class="impact-grid">
+        <div class="impact-box">
+          <span class="impact-num">10+</span>
+          <div class="impact-label">Tools replaced</div>
+        </div>
+        <div class="impact-box">
+          <span class="impact-num">RIDDOR</span>
+          <div class="impact-label">Reporting ready</div>
+        </div>
+        <div class="impact-box">
+          <span class="impact-num">GDPR</span>
+          <div class="impact-label">Compliance first</div>
+        </div>
+      </div>
+
+      <div class="product-actions">
+        <a href="/contact" class="btn btn-glow">Request Demo →</a>
+        <a href="/contact" class="btn-ghost">Enterprise Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     COMBINED IMPACT
+     ════════════════════════════════════════════════ -->
+<section class="combined-impact">
+  <div class="container">
+    <span class="section-label">// Collective Impact</span>
+    <h2>Built for <span class="gradient-text">Real People</span>, Not Just KPIs</h2>
+    <div class="impact-stats">
+      <div class="impact-stat">
+        <span class="impact-stat-num">3</span>
+        <div class="impact-stat-label">Products in production</div>
+      </div>
+      <div class="impact-stat">
+        <span class="impact-stat-num">100%</span>
+        <div class="impact-stat-label">Cloud-native on Azure</div>
+      </div>
+      <div class="impact-stat">
+        <span class="impact-stat-num">AI-First</span>
+        <div class="impact-stat-label">Every product</div>
+      </div>
+      <div class="impact-stat">
+        <span class="impact-stat-num">UK</span>
+        <div class="impact-stat-label">Engineered &amp; compliant</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="page-cta">
+  <span class="eyebrow" style="display:inline-block;font-family:var(--mono),monospace;font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--accent-1);padding:6px 18px;border-radius:100px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);margin-bottom:18px;">// Build With Us</span>
+  <h2>Have a Product Idea? <span class="gradient-text">Let's Build It Together.</span></h2>
+  <p>We turn bold ideas into production-ready, AI-powered SaaS products — from strategy and architecture to launch and scale. If you can imagine it, our team can ship it on Azure, AWS, or GCP.</p>
+  <a href="/contact" class="btn btn-glow">Start a Conversation →</a>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="/" class="nav-logo" aria-label="TotalCloudAI Home">
+          <img src="assets/favicon-source.png" alt="" class="logo-icon"><span><span class="logo-total">Total</span><span class="logo-cloud">Cloud</span><span class="logo-ai">AI</span></span>
+        </a>
+        <p>Total Cloud AI guides businesses through cloud transformation with expert consultancy and innovative SaaS products built on Azure, AWS, and GCP.</p>
+        <div class="footer-social">
+          <a href="#">in</a><a href="#">𝕏</a><a href="#">⌥</a><a href="#">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="/products#homeal">Homeal</a>
+        <a href="/products#vediq">VedIQ</a>
+        <a href="/products#restrovision">RestroVision</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/">Home</a><a href="/about">About Us</a>
+        <a href="/team">Our Team</a><a href="/services">Services</a>
+        <a href="/blog">Blog &amp; News</a><a href="/contact">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Info@totalcloudai.com">Info@totalcloudai.com</a>
+        <a href="tel:+447487681898">+44-(0)7487681898</a>
+        <a href="https://wa.me/447487681898" target="_blank" rel="noopener">WhatsApp Us</a>
+        <a href="/contact">Maxi House, Halesfield 20</a>
+        <a href="/contact">Telford TF7 4QU, UK</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 TotalCloudAI Limited. All rights reserved.</span>
+      <span>Registered in England &amp; Wales</span><span><a href="/privacy" style="color:var(--text-muted);text-decoration:underline">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.min.js"></script>
+</body>
+</html>
