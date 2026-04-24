@@ -76,8 +76,9 @@
 /* Product visual card */
 .product-visual {
   position: relative; border-radius: 24px; overflow: hidden;
-  aspect-ratio: 4/3; background: var(--bg-card); border: 1px solid var(--border);
+  aspect-ratio: 3/4; background: var(--bg-card); border: 1px solid var(--border);
   transition: transform 0.6s cubic-bezier(0.22,1,0.36,1), box-shadow 0.6s ease;
+  max-width: 460px; margin: 0 auto;
 }
 .product-visual:hover {
   transform: translateY(-8px) scale(1.01);
@@ -85,15 +86,16 @@
 }
 .product-visual img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  object-position: top center;
 }
 .product-visual .visual-overlay {
   position: absolute; inset: 0; z-index: 2;
-  background: linear-gradient(135deg, transparent 40%, rgba(5,10,24,0.8) 100%);
-  display: flex; flex-direction: column; justify-content: flex-end; padding: 32px;
+  background: linear-gradient(180deg, rgba(5,10,24,0.25) 0%, transparent 15%);
+  pointer-events: none;
 }
 .product-visual .visual-badges {
-  position: absolute; top: 24px; left: 24px; z-index: 3;
-  display: flex; flex-wrap: wrap; gap: 8px;
+  position: absolute; top: 20px; left: 20px; z-index: 3;
+  display: flex; flex-wrap: wrap; gap: 6px;
 }
 .product-visual .visual-badge {
   padding: 6px 14px; border-radius: 100px;
@@ -105,32 +107,38 @@
 /* CSS-only product visual for RestroVision (no hero image) */
 .product-visual.css-visual {
   background:
-    radial-gradient(circle at 20% 20%, rgba(245,129,66,0.35), transparent 45%),
+    radial-gradient(circle at 20% 20%, rgba(245,129,66,0.4), transparent 45%),
     radial-gradient(circle at 80% 80%, rgba(168,85,247,0.35), transparent 45%),
     linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-  display: flex; align-items: center; justify-content: center; padding: 40px;
-  text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 48px 36px; text-align: center;
+}
+.product-visual.css-visual .cv-badge {
+  display: inline-block; font-family: var(--mono), monospace; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 3px; color: #fdba74;
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 28px;
+  background: rgba(245,129,66,0.12); border: 1px solid rgba(245,129,66,0.28);
 }
 .product-visual.css-visual .big-icon {
   width: 140px; height: 140px; border-radius: 32px;
   background: linear-gradient(135deg, #f58142, #ea580c);
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 30px 60px rgba(245,129,66,0.35);
+  box-shadow: 0 30px 60px rgba(245,129,66,0.4);
   margin-bottom: 28px;
 }
-.product-visual.css-visual .big-icon svg { width: 70px; height: 70px; stroke: #fff; fill: none; stroke-width: 2.5; }
-.product-visual.css-visual .hero-title { color: #fff; font-family: var(--font-display); font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
-.product-visual.css-visual .hero-sub { color: rgba(255,255,255,0.8); font-size: 0.95rem; max-width: 340px; }
+.product-visual.css-visual .big-icon svg { width: 68px; height: 68px; stroke: #fff; fill: none; stroke-width: 2.5; }
+.product-visual.css-visual .hero-title { color: #fff; font-family: var(--font-display); font-size: 2rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+.product-visual.css-visual .hero-sub { color: rgba(255,255,255,0.82); font-size: 0.95rem; max-width: 340px; line-height: 1.55; }
 .product-visual.css-visual .mini-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 28px; width: 100%; max-width: 380px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 32px; width: 100%; max-width: 360px;
 }
 .product-visual.css-visual .mini-stat {
-  padding: 14px 10px; border-radius: 12px;
+  padding: 14px 10px; border-radius: 14px;
   background: rgba(255,255,255,0.08); backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.12);
 }
-.product-visual.css-visual .mini-stat-num { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: #fff; }
-.product-visual.css-visual .mini-stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
+.product-visual.css-visual .mini-stat-num { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: #fff; line-height: 1.1; }
+.product-visual.css-visual .mini-stat-label { font-size: 0.68rem; color: rgba(255,255,255,0.75); margin-top: 4px; }
 
 /* Product info */
 .product-info .eyebrow {
@@ -194,6 +202,26 @@
   border-color: var(--accent-1); color: var(--accent-1);
 }
 
+/* Social icons */
+.product-socials {
+  display: flex; align-items: center; gap: 10px; margin-top: 20px;
+}
+.product-socials .soc {
+  width: 38px; height: 38px; border-radius: 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text-muted); transition: all 0.3s ease;
+}
+.product-socials .soc svg { width: 18px; height: 18px; }
+.product-socials .soc.youtube:hover { color: #fff; background: #ff0000; border-color: #ff0000; }
+.product-socials .soc.facebook:hover { color: #fff; background: #1877f2; border-color: #1877f2; }
+.product-socials .soc.instagram:hover {
+  color: #fff;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: transparent;
+}
+.product-socials .soc:hover { transform: translateY(-2px); }
+
 /* Product themes */
 .theme-homeal .product-info .eyebrow { color: #f97316; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2); }
 .theme-homeal .product-info .tagline { color: #fb923c; }
@@ -248,7 +276,7 @@
   .impact-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .impact-box { padding: 14px 8px; }
   .impact-box .impact-num { font-size: 1.3rem; }
-  .product-visual { aspect-ratio: 16/10; }
+  .product-visual { max-width: 380px; }
 }
 </style>
 </head>
@@ -332,13 +360,7 @@
 <section class="product-showcase theme-homeal" id="homeal">
   <div class="product-inner">
     <div class="product-visual reveal">
-      <div class="visual-badges">
-        <span class="visual-badge">Food-Tech</span>
-        <span class="visual-badge">Marketplace</span>
-        <span class="visual-badge">UK</span>
-      </div>
-      <img src="/assets/products/homeal-hero.jpg" alt="Homeal — home-cooked food marketplace" loading="lazy">
-      <div class="visual-overlay"></div>
+      <img src="/assets/products/homeal-hero.jpg" alt="Homeal — home-cooked food marketplace for home makers" loading="lazy">
     </div>
     <div class="product-info reveal">
       <span class="eyebrow">Product 01 · Homeal</span>
@@ -375,6 +397,17 @@
         <a href="https://homeal.co.uk" target="_blank" rel="noopener" class="btn btn-glow">Visit Homeal →</a>
         <a href="/contact" class="btn-ghost">Partnership Enquiries</a>
       </div>
+      <div class="product-socials" aria-label="Homeal on social media">
+        <a href="https://www.youtube.com/@homealuk" target="_blank" rel="noopener" aria-label="Homeal on YouTube" class="soc youtube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/UK.homeal" target="_blank" rel="noopener" aria-label="Homeal on Facebook" class="soc facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692V11.09h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.617h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/homeal.uk" target="_blank" rel="noopener" aria-label="Homeal on Instagram" class="soc instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -385,13 +418,7 @@
 <section class="product-showcase theme-vediq" id="vediq">
   <div class="product-inner">
     <div class="product-visual reveal">
-      <div class="visual-badges">
-        <span class="visual-badge">EdTech</span>
-        <span class="visual-badge">AI Tutor</span>
-        <span class="visual-badge">Ages 6–16</span>
-      </div>
-      <img src="/assets/products/vediq-hero.jpg" alt="VedIQ — AI-powered Vedic Mathematics tutor" loading="lazy">
-      <div class="visual-overlay"></div>
+      <img src="/assets/products/vediq-hero.jpg" alt="VedIQ — AI-powered Vedic Mathematics platform" loading="lazy">
     </div>
     <div class="product-info reveal">
       <span class="eyebrow">Product 02 · VedIQ</span>
@@ -438,22 +465,16 @@
 <section class="product-showcase theme-restro" id="restrovision">
   <div class="product-inner">
     <div class="product-visual css-visual reveal">
-      <div class="visual-badges" style="top:24px;left:24px;">
-        <span class="visual-badge">Restaurant-Tech</span>
-        <span class="visual-badge">Compliance AI</span>
-        <span class="visual-badge">UK</span>
+      <div class="cv-badge">// Restaurant-Tech &middot; UK</div>
+      <div class="big-icon">
+        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
       </div>
-      <div style="text-align:center;">
-        <div class="big-icon">
-          <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
-        </div>
-        <div class="hero-title">RestroVision</div>
-        <div class="hero-sub">AI restaurant operating system with built-in UK compliance, POS, KDS, inventory, labour &amp; delivery.</div>
-        <div class="mini-grid">
-          <div class="mini-stat"><div class="mini-stat-num">8</div><div class="mini-stat-label">Modules</div></div>
-          <div class="mini-stat"><div class="mini-stat-num">HACCP</div><div class="mini-stat-label">Auto-compliance</div></div>
-          <div class="mini-stat"><div class="mini-stat-num">AI</div><div class="mini-stat-label">Weekly briefs</div></div>
-        </div>
+      <div class="hero-title">RestroVision</div>
+      <div class="hero-sub">AI restaurant operating system with built-in UK compliance, POS, KDS, inventory, labour &amp; delivery.</div>
+      <div class="mini-grid">
+        <div class="mini-stat"><div class="mini-stat-num">8</div><div class="mini-stat-label">Modules</div></div>
+        <div class="mini-stat"><div class="mini-stat-num">HACCP</div><div class="mini-stat-label">Compliance</div></div>
+        <div class="mini-stat"><div class="mini-stat-num">AI</div><div class="mini-stat-label">Briefs</div></div>
       </div>
     </div>
     <div class="product-info reveal">
