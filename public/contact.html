@@ -249,15 +249,23 @@
           <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" placeholder="Your Company"></div>
           <div class="form-group"><label for="service">Service</label>
             <select id="service" name="service">
-              <option>Cloud Infrastructure (IaaS)</option>
-              <option>Managed Cloud Services</option>
-              <option>Cloud Migration Services</option>
-              <option>DevOps &amp; Automation</option>
-              <option>Security &amp; Compliance</option>
-              <option>Backup &amp; Disaster Recovery</option>
-              <option>AI &amp; Machine Learning</option>
-              <option>Cloud Strategy &amp; Advisory</option>
-              <option>Web Development &amp; Cloud Hosting</option>
+              <optgroup label="Cloud &amp; AI Services">
+                <option>Cloud Infrastructure (IaaS)</option>
+                <option>Managed Cloud Services</option>
+                <option>Cloud Migration Services</option>
+                <option>DevOps &amp; Automation</option>
+                <option>Security &amp; Compliance</option>
+                <option>Backup &amp; Disaster Recovery</option>
+                <option>AI &amp; Machine Learning</option>
+                <option>Cloud Strategy &amp; Advisory</option>
+                <option>Web Development &amp; Cloud Hosting</option>
+              </optgroup>
+              <optgroup label="Our Products">
+                <option>Homeal — Partnership Enquiry</option>
+                <option>VedIQ — School / Education Enquiry</option>
+                <option>RestroVision — Demo Request</option>
+                <option>New Product Idea — Build With Us</option>
+              </optgroup>
             </select>
           </div>
         </div>
@@ -412,6 +420,23 @@
   </div>
 </footer>
 
+<script>
+// Pre-select service from ?service= query string (used by /products CTAs)
+(function(){
+  try {
+    var p = new URLSearchParams(location.search);
+    var s = p.get('service');
+    if (!s) return;
+    var sel = document.getElementById('service');
+    if (!sel) return;
+    var match = Array.from(sel.options).find(function(o){ return o.text === s || o.value === s; });
+    if (match) {
+      sel.value = match.value || match.text;
+      sel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  } catch(e) {}
+})();
+</script>
 <script src="js/main.min.js?v=20260425a"></script>
 </body>
 </html>
