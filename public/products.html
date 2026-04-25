@@ -88,15 +88,19 @@
 .product-visual img {
   display: block; width: 100%; height: auto; max-width: 100%;
 }
+.product-visual.css-visual { aspect-ratio: auto; }
 
-/* CSS-only product visual for RestroVision (no hero image) */
+/* CSS-composed product visual cards (used for all 3 products) */
+.product-visual.css-visual {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 48px 36px; text-align: center; min-height: 540px;
+}
+/* Default theme (RestroVision orange) */
 .product-visual.css-visual {
   background:
     radial-gradient(circle at 20% 20%, rgba(245,129,66,0.4), transparent 45%),
     radial-gradient(circle at 80% 80%, rgba(168,85,247,0.35), transparent 45%),
     linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 48px 36px; text-align: center;
 }
 .product-visual.css-visual .cv-badge {
   display: inline-block; font-family: var(--mono), monospace; font-size: 10px;
@@ -112,6 +116,7 @@
   margin-bottom: 28px;
 }
 .product-visual.css-visual .big-icon svg { width: 68px; height: 68px; stroke: #fff; fill: none; stroke-width: 2.5; }
+.product-visual.css-visual .big-icon img { width: 80%; height: 80%; object-fit: contain; }
 .product-visual.css-visual .hero-title { color: #fff; font-family: var(--font-display); font-size: 2rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
 .product-visual.css-visual .hero-sub { color: rgba(255,255,255,0.82); font-size: 0.95rem; max-width: 340px; line-height: 1.55; }
 .product-visual.css-visual .mini-grid {
@@ -124,6 +129,81 @@
 }
 .product-visual.css-visual .mini-stat-num { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: #fff; line-height: 1.1; }
 .product-visual.css-visual .mini-stat-label { font-size: 0.68rem; color: rgba(255,255,255,0.75); margin-top: 4px; }
+
+/* Homeal theme — warm green & orange (food, home) */
+.product-visual.css-visual.theme-card-homeal {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(34,197,94,0.4), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(249,115,22,0.4), transparent 45%),
+    linear-gradient(135deg, #0c1f17 0%, #1e3a2f 100%);
+}
+.product-visual.css-visual.theme-card-homeal .cv-badge {
+  color: #fdba74; background: rgba(249,115,22,0.14); border-color: rgba(249,115,22,0.3);
+}
+.product-visual.css-visual.theme-card-homeal .big-icon {
+  background: linear-gradient(135deg, #16a34a, #f97316);
+  box-shadow: 0 30px 60px rgba(249,115,22,0.4);
+}
+
+/* VedIQ theme — purple/indigo (education, AI) */
+.product-visual.css-visual.theme-card-vediq {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(168,85,247,0.45), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(59,130,246,0.4), transparent 45%),
+    linear-gradient(135deg, #0c0a25 0%, #2a1e5f 100%);
+}
+.product-visual.css-visual.theme-card-vediq .cv-badge {
+  color: #c4b5fd; background: rgba(168,85,247,0.16); border-color: rgba(168,85,247,0.32);
+}
+.product-visual.css-visual.theme-card-vediq .big-icon {
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  box-shadow: 0 30px 60px rgba(168,85,247,0.45);
+}
+
+/* Expandable product details */
+.product-details {
+  margin-top: 24px; border: 1px solid var(--border); border-radius: 14px;
+  background: var(--bg-card); overflow: hidden;
+}
+.product-details summary {
+  list-style: none; cursor: pointer; padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+  transition: background 0.3s ease;
+}
+.product-details summary::-webkit-details-marker { display: none; }
+.product-details summary:hover { background: var(--bg-card-hover); }
+.product-details summary::after {
+  content: '+'; font-size: 1.4rem; font-weight: 400; color: var(--accent-1);
+  transition: transform 0.3s ease;
+}
+.product-details[open] summary::after { content: '−'; }
+.product-details .details-body {
+  padding: 4px 20px 20px; border-top: 1px solid var(--border);
+}
+.product-details .details-body h4 {
+  font-family: var(--font-display); font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent-1);
+  margin: 18px 0 10px;
+}
+.product-details .details-body ul {
+  list-style: none; padding: 0; margin: 0;
+}
+.product-details .details-body ul li {
+  padding: 5px 0; font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6;
+}
+.product-details .details-body ul li::before {
+  content: '✓'; color: var(--accent-1); margin-right: 8px; font-weight: 700;
+}
+.product-details .details-body .stack-tags {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px;
+}
+.product-details .details-body .stack-tags span {
+  font-size: 0.72rem; padding: 4px 10px; border-radius: 100px;
+  background: var(--bg-secondary); color: var(--text-muted);
+  border: 1px solid var(--border);
+  font-family: var(--mono), monospace;
+}
 
 /* Product info */
 .product-info .eyebrow {
@@ -344,8 +424,22 @@
      ════════════════════════════════════════════════ -->
 <section class="product-showcase theme-homeal" id="homeal">
   <div class="product-inner">
-    <div class="product-visual">
-      <img src="/assets/products/homeal-hero.jpg" alt="Homeal — home-cooked food marketplace for home makers" loading="lazy">
+    <div class="product-visual css-visual theme-card-homeal">
+      <div class="cv-badge">// Food-Tech &middot; UK</div>
+      <div class="big-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 28c-4 0-8-3-8-8s4-8 8-8c1 0 2 0 3 1 1-3 4-5 9-5s8 2 9 5c1-1 2-1 3-1 4 0 8 3 8 8s-4 8-8 8"/>
+          <path d="M18 28h28v6c0 2-2 4-4 4H22c-2 0-4-2-4-4v-6z"/>
+          <path d="M16 44h32c2 0 4 2 4 4v4H12v-4c0-2 2-4 4-4z"/>
+        </svg>
+      </div>
+      <div class="hero-title">Homeal</div>
+      <div class="hero-sub">Where Every Meal Feels Like Home — connecting talented home chefs with hungry customers across the UK.</div>
+      <div class="mini-grid">
+        <div class="mini-stat"><div class="mini-stat-num">500+</div><div class="mini-stat-label">Home Makers</div></div>
+        <div class="mini-stat"><div class="mini-stat-num">£0</div><div class="mini-stat-label">To start</div></div>
+        <div class="mini-stat"><div class="mini-stat-num">FSA</div><div class="mini-stat-label">Compliant</div></div>
+      </div>
     </div>
     <div class="product-info reveal">
       <span class="eyebrow">Product 01 · Homeal</span>
@@ -382,6 +476,41 @@
         <a href="https://homeal.co.uk" target="_blank" rel="noopener" class="btn btn-glow">Visit Homeal →</a>
         <a href="/contact" class="btn-ghost">Partnership Enquiries</a>
       </div>
+
+      <details class="product-details">
+        <summary>See full product details</summary>
+        <div class="details-body">
+          <h4>What Home Makers Sell</h4>
+          <ul>
+            <li>Daily home-cooked meals, tiffins, and subscription plans</li>
+            <li>Cakes, bakery items, sweets, masalas, pickles &amp; baked goods</li>
+            <li>Catering for weddings, birthdays, and corporate events</li>
+            <li>Custom party orders with delivery or self-pickup</li>
+          </ul>
+          <h4>Platform Capabilities</h4>
+          <ul>
+            <li>Home Maker dashboard with menu, stock &amp; vacation modes</li>
+            <li>Real-time order management with accept/reject &amp; status tracking</li>
+            <li>Stripe Connect payouts, configurable delivery radius &amp; fees</li>
+            <li>Customer ratings, badges, performance analytics &amp; earnings reports</li>
+            <li>Native iOS &amp; Android apps via React Native (Expo)</li>
+            <li>Allergen transparency, prep time &amp; serving size disclosure</li>
+          </ul>
+          <h4>Built On</h4>
+          <div class="stack-tags">
+            <span>Azure</span><span>Next.js 15</span><span>React Native</span><span>Node.js</span>
+            <span>MySQL</span><span>Redis</span><span>Stripe</span><span>Firebase Auth</span>
+          </div>
+          <h4>Society Impact</h4>
+          <ul>
+            <li>Removes capital, kitchen rental &amp; licensing barriers for home cooks</li>
+            <li>Empowers women-led, immigrant, and stay-at-home entrepreneurs</li>
+            <li>Promotes traceable, healthier food alternatives to fast-food chains</li>
+            <li>Strengthens local food economies &amp; community food security</li>
+          </ul>
+        </div>
+      </details>
+
       <div class="product-socials" aria-label="Homeal on social media">
         <a href="https://www.youtube.com/@homealuk" target="_blank" rel="noopener" aria-label="Homeal on YouTube" class="soc youtube">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -402,8 +531,23 @@
      ════════════════════════════════════════════════ -->
 <section class="product-showcase theme-vediq" id="vediq">
   <div class="product-inner">
-    <div class="product-visual">
-      <img src="/assets/products/vediq-hero.jpg" alt="VedIQ — AI-powered Vedic Mathematics platform" loading="lazy">
+    <div class="product-visual css-visual theme-card-vediq">
+      <div class="cv-badge">// EdTech &middot; Ages 6–16</div>
+      <div class="big-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 8L8 20l24 12 24-12L32 8z"/>
+          <path d="M14 24v14c0 5 8 10 18 10s18-5 18-10V24"/>
+          <path d="M56 22v18"/>
+          <circle cx="56" cy="44" r="2.5" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="hero-title">VedIQ</div>
+      <div class="hero-sub">Ancient Wisdom. AI Speed. — the world's first AI tutor built around Vedic Mathematics.</div>
+      <div class="mini-grid">
+        <div class="mini-stat"><div class="mini-stat-num">828K+</div><div class="mini-stat-label">Problems</div></div>
+        <div class="mini-stat"><div class="mini-stat-num">16</div><div class="mini-stat-label">Sutras</div></div>
+        <div class="mini-stat"><div class="mini-stat-num">AI</div><div class="mini-stat-label">Tutor "Veda"</div></div>
+      </div>
     </div>
     <div class="product-info reveal">
       <span class="eyebrow">Product 02 · VedIQ</span>
@@ -440,6 +584,42 @@
         <a href="https://vediq.online" target="_blank" rel="noopener" class="btn btn-glow">Try VedIQ Free →</a>
         <a href="/contact" class="btn-ghost">School Enquiries</a>
       </div>
+
+      <details class="product-details">
+        <summary>See full product details</summary>
+        <div class="details-body">
+          <h4>How VedIQ Teaches</h4>
+          <ul>
+            <li>"Veda" — an AI tutor that uses Socratic questioning, never just gives answers</li>
+            <li>Animated chalkboard with synchronised text-to-speech narration</li>
+            <li>Voice input &amp; output in 12 AI voices (US, UK, Indian accents)</li>
+            <li>Adaptive curriculum across 6 age-based levels and 68 lessons</li>
+            <li>828,000+ procedurally generated practice problems across 14 categories</li>
+            <li>Gamification: XP, levels, daily streaks, badges, confetti rewards</li>
+          </ul>
+          <h4>Pricing</h4>
+          <ul>
+            <li>Free Plan — 10 lessons, unlimited AI Tutor, 5 problems/session</li>
+            <li>Premium — £8.99/month or £89.90/year (full access to all 68 lessons)</li>
+            <li>Student / School — £5.99/month with verified .edu / .ac.uk / .sch.uk email</li>
+          </ul>
+          <h4>Built On</h4>
+          <div class="stack-tags">
+            <span>Azure</span><span>Azure OpenAI GPT-4o</span><span>Next.js 16</span>
+            <span>React 19</span><span>PostgreSQL</span><span>Prisma 7</span>
+            <span>Cognitive Services Speech</span><span>Stripe</span><span>NextAuth</span>
+          </div>
+          <h4>Society Impact</h4>
+          <ul>
+            <li>Reduces math anxiety with multiple Vedic solution paths</li>
+            <li>Democratises private tutoring — 93% cheaper than £40+/hr human tutors</li>
+            <li>Preserves and digitises 2,500-year-old Vedic mathematical heritage</li>
+            <li>Supports neurodivergent learners (dyscalculia, ADHD) via adaptive pacing</li>
+            <li>Aligned with UN SDG 4 (Quality Education) &amp; SDG 10 (Reduced Inequalities)</li>
+            <li>COPPA-compliant: no ads, no data sale, no external links — child-safe</li>
+          </ul>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -498,6 +678,37 @@
         <a href="/contact" class="btn btn-glow">Request Demo →</a>
         <a href="/contact" class="btn-ghost">Enterprise Pricing</a>
       </div>
+
+      <details class="product-details">
+        <summary>See full product details</summary>
+        <div class="details-body">
+          <h4>Eight Bounded Modules</h4>
+          <ul>
+            <li><strong>POS &amp; KDS</strong> — order capture, kitchen display, payment processing</li>
+            <li><strong>Inventory</strong> — stock, purchase orders, invoice OCR, supplier management</li>
+            <li><strong>Labour &amp; HR</strong> — scheduling, attendance, payroll, right-to-work, training matrix</li>
+            <li><strong>Compliance</strong> — HACCP, allergen matrix, RIDDOR, GDPR, licensing tracker</li>
+            <li><strong>CRM &amp; Loyalty</strong> — customer database, bookings, deals, loyalty programmes</li>
+            <li><strong>Analytics</strong> — real-time KPIs, compliance scoring, AI weekly briefs</li>
+            <li><strong>Delivery</strong> — Deliveroo, Uber Eats, Just Eat integrations</li>
+            <li><strong>AI Layer</strong> — policy RAG, auto-task creation, predictive insights</li>
+          </ul>
+          <h4>Built On</h4>
+          <div class="stack-tags">
+            <span>Azure</span><span>React 19</span><span>Vite</span><span>Express</span>
+            <span>MySQL</span><span>Redux Toolkit</span><span>Stripe</span><span>Razorpay</span>
+            <span>Nginx</span><span>GitHub Actions</span>
+          </div>
+          <h4>Society Impact</h4>
+          <ul>
+            <li>Automates UK food-safety compliance, protecting public health</li>
+            <li>Enforces Working Time Directive &amp; RIDDOR — safeguards staff rights</li>
+            <li>Reduces audit risk via continuous HACCP &amp; allergen tracking</li>
+            <li>GDPR-first with consent tracking and subject-access workflows</li>
+            <li>Cuts paperwork burden so independent restaurateurs can compete with chains</li>
+          </ul>
+        </div>
+      </details>
     </div>
   </div>
 </section>
