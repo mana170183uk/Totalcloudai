@@ -1949,9 +1949,13 @@ window.addEventListener('scroll', function() {
   var unmatchedCount = 0;
 
   // ── Session persistence (chat survives page navigation) ──
+  // Bump CHAT_VERSION when the bot's knowledge base changes — old sessions
+  // will be invalidated automatically so users see fresh quick-buttons & info.
+  var CHAT_VERSION = '2026-04-25-products';
+
   function saveChat() {
     try {
-      var chatData = { open: win.classList.contains('open'), html: msgs.innerHTML };
+      var chatData = { v: CHAT_VERSION, open: win.classList.contains('open'), html: msgs.innerHTML };
       sessionStorage.setItem('tcai_chat', JSON.stringify(chatData));
     } catch(e) {}
   }
@@ -1961,6 +1965,11 @@ window.addEventListener('scroll', function() {
       var saved = sessionStorage.getItem('tcai_chat');
       if (!saved) return false;
       var data = JSON.parse(saved);
+      // Stale chat from a previous deploy — drop it so the new welcome shows.
+      if (data.v !== CHAT_VERSION) {
+        sessionStorage.removeItem('tcai_chat');
+        return false;
+      }
       if (data.html) msgs.innerHTML = data.html;
       if (data.open) {
         win.classList.add('open');
@@ -2014,10 +2023,10 @@ window.addEventListener('scroll', function() {
       response = 'Hello! Welcome to TotalCloudAI. I can help you with:<br><br>'
         + '<div class="chat-quick-btns">'
         + '<button class="chat-quick-btn">Our Services</button>'
+        + '<button class="chat-quick-btn">Our Products</button>'
         + '<button class="chat-quick-btn">Platforms</button>'
         + '<button class="chat-quick-btn">Pricing</button>'
         + '<button class="chat-quick-btn">Contact Us</button>'
-        + '<button class="chat-quick-btn">Download Brochure</button>'
         + '</div>';
       unmatchedCount = 0;
       showTyping();
