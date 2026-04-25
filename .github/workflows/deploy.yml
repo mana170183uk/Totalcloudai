@@ -35,3 +35,11 @@ jobs:
         with:
           app-name: totalcloudai-green
           resource-group-name: rg-totalcloudai
+
+      # Wait for the new deployment to be reachable, then ping search engines
+      - name: Wait for site to settle
+        run: sleep 30
+
+      - name: Ping IndexNow (Bing, Yandex, Naver, Seznam)
+        run: npm run indexnow
+        continue-on-error: true

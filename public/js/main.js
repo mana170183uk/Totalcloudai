@@ -1,3 +1,50 @@
+// ══════════════════════════════════════════════════════════════════
+//  ANALYTICS BOOTSTRAP — replace the placeholder IDs below to enable.
+//  Each block runs only if its ID is set, so leaving them empty is safe.
+// ══════════════════════════════════════════════════════════════════
+window.TCAI_SEO = {
+  GA4_ID:     '',  // e.g. 'G-XXXXXXXXXX'  (Google Analytics 4)
+  GTM_ID:     '',  // e.g. 'GTM-XXXXXXX'   (Google Tag Manager)
+  CLARITY_ID: '',  // e.g. 'abc123xyz'     (Microsoft Clarity — free)
+  LINKEDIN_ID: '', // e.g. '1234567'       (LinkedIn Insight Tag)
+};
+(function bootstrapAnalytics(c) {
+  // Google Tag Manager
+  if (c.GTM_ID) {
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',c.GTM_ID);
+  }
+  // GA4 direct (use only if you don't have GTM)
+  if (c.GA4_ID && !c.GTM_ID) {
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + c.GA4_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', c.GA4_ID, { anonymize_ip: true });
+  }
+  // Microsoft Clarity (free heatmaps + session replay, no cookie banner needed)
+  if (c.CLARITY_ID) {
+    (function(w,d,t,i){w[t]=w[t]||function(){(w[t].q=w[t].q||[]).push(arguments)};
+    var s=d.createElement('script');s.async=1;s.src='https://www.clarity.ms/tag/'+i;
+    var f=d.getElementsByTagName(t)[0];f.parentNode.insertBefore(s,f);
+    })(window,document,'script',c.CLARITY_ID);
+  }
+  // LinkedIn Insight Tag (B2B retargeting)
+  if (c.LINKEDIN_ID) {
+    window._linkedin_partner_id = c.LINKEDIN_ID;
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(c.LINKEDIN_ID);
+    (function(){var s=document.getElementsByTagName('script')[0];var b=document.createElement('script');
+    b.type='text/javascript';b.async=true;b.src='https://snap.licdn.com/li.lms-analytics/insight.min.js';
+    s.parentNode.insertBefore(b,s);})();
+  }
+})(window.TCAI_SEO);
+
 // ── Service Detail Modal Data ──
 const serviceDetails = {
   'cloud-infra': {

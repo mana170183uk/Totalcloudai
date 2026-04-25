@@ -7,7 +7,9 @@
     "dev": "node -r dotenv/config server.js",
     "build:css": "cleancss -o public/css/style.min.css public/css/style.css && cleancss -o public/css/blog-article.min.css public/css/blog-article.css && cleancss -o public/css/service-page.min.css public/css/service-page.css",
     "build:js": "terser public/js/main.js -o public/js/main.min.js -c -m",
-    "build": "npm run build:css && npm run build:js",
+    "build:sitemap": "node scripts/build-sitemap.js",
+    "build": "npm run build:css && npm run build:js && npm run build:sitemap",
+    "indexnow": "node scripts/indexnow-ping.js",
     "prestart": "npm run build"
   },
   "dependencies": {
