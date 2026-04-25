@@ -1720,18 +1720,18 @@ window.addEventListener('scroll', function() {
       +   '</div>'
       +   '<div class="chat-messages" id="chatMessages">'
       +     '<div class="chat-msg bot">'
-      +       'Hi! I\'m the TotalCloudAI assistant. How can I help you today?'
+      +       'Hi! I\'m the TotalCloudAI assistant. Ask me about our services, products (Homeal, VedIQ, RestroVision), pricing, or anything else.'
       +       '<div class="chat-quick-btns">'
       +         '<button class="chat-quick-btn">Our Services</button>'
+      +         '<button class="chat-quick-btn">Our Products</button>'
       +         '<button class="chat-quick-btn">Platforms</button>'
       +         '<button class="chat-quick-btn">Pricing</button>'
       +         '<button class="chat-quick-btn">Contact Us</button>'
-      +         '<button class="chat-quick-btn">Download Brochure</button>'
       +       '</div>'
       +     '</div>'
       +   '</div>'
       +   '<div class="chat-input-area">'
-      +     '<input type="text" class="chat-input" id="chatInput" placeholder="Ask about services, pricing, architecture..." autocomplete="off">'
+      +     '<input type="text" class="chat-input" id="chatInput" placeholder="Ask about services, products, pricing..." autocomplete="off">'
       +     '<button class="chat-send" id="chatSend" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>'
       +   '</div>'
       + '</div>';
@@ -1816,6 +1816,56 @@ window.addEventListener('scroll', function() {
     // Alibaba Cloud
     { keywords: ['alibaba', 'alibaba cloud', 'china', 'cross-border', 'uk-china'],
       response: '<strong>Alibaba Cloud — UK-China Solutions</strong><br><br>We specialise in cross-border e-commerce and UK-China digital operations on Alibaba Cloud.<br><br><strong>Key capabilities:</strong><br>• ECS Compute & Container Service (ACK)<br>• MaxCompute & DataWorks (big data)<br>• PAI Machine Learning Platform<br>• CDN & DCDN for China delivery<br>• ICP Filing & China Compliance<br>• Cloud Enterprise Network (cross-region)<br><br><strong>Certifications:</strong> Alibaba Cloud Certified Professional — Cloud Computing, Big Data, Security, Networking<br><br><strong>Case Study:</strong> UK Luxury Brand — 97% faster page loads in China, 340% revenue growth Year 1<br><br><a href="/platforms/alibaba-cloud">Explore Alibaba Cloud services →</a>' },
+
+    // ═══ OUR PRODUCTS ═══
+
+    // Products overview
+    { keywords: ['products', 'our products', 'your products', 'what products', 'product portfolio', 'saas', 'apps', 'applications'],
+      response: '<strong>Our SaaS Products</strong><br><br>TotalCloudAI builds and operates three production SaaS products:<br><br>• <strong>Homeal</strong> — UK home-cooked food marketplace connecting home chefs with customers. <a href="/products#homeal">Learn more →</a><br>• <strong>VedIQ</strong> — AI-powered Vedic Mathematics tutor for children aged 6–16. <a href="/products#vediq">Learn more →</a><br>• <strong>RestroVision</strong> — AI restaurant operating system with embedded UK compliance. <a href="/products#restrovision">Learn more →</a><br><br><a href="/products">See all products →</a>' },
+
+    // Homeal
+    { keywords: ['homeal', 'home cooked', 'home-cooked', 'home chef', 'home maker', 'tiffin', 'home food', 'home kitchen', 'food marketplace'],
+      response: '<strong>Homeal — Where Every Meal Feels Like Home</strong><br><br>Homeal is the UK\'s home-cooked food marketplace, connecting talented Home Makers with customers who want fresh, authentic, home-prepared meals.<br><br><strong>Who it\'s for:</strong> Home chefs, bakers, tiffin providers, caterers, and anyone who wants to monetise their cooking skills from home — and quality-conscious customers who prefer authentic home cooking over commercial chains.<br><br><strong>What Home Makers can sell:</strong> Daily meals, tiffins, subscription plans, cakes, sweets, masalas, pickles, baked goods, and full catering for events.<br><br><strong>Key features:</strong><br>• Home Maker dashboard with menu, stock &amp; vacation modes<br>• Real-time order management with accept/reject &amp; status tracking<br>• Stripe Connect payouts &amp; configurable delivery fees<br>• Subscription tiffin plans with recurring billing<br>• Native iOS &amp; Android apps<br>• Allergen transparency, prep time &amp; serving size disclosure<br>• UK Food Standards Agency (FSA) compliant<br><br><strong>Why it matters:</strong> Removes capital, kitchen rental &amp; licensing barriers — anyone with a skill for cooking can build a sustainable food business from home.<br><br><strong>Cost to start:</strong> £0 — free to join<br><br><a href="https://homeal.uk" target="_blank">Visit Homeal →</a> · <a href="/products#homeal">Read more on our site →</a>' },
+
+    // Homeal — how to join / sign up
+    { keywords: ['homeal join', 'sign up homeal', 'register homeal', 'become home maker', 'sell on homeal', 'how to join homeal'],
+      response: '<strong>How to Join Homeal as a Home Maker</strong><br><br>1. Sign up at <a href="https://homeal.uk" target="_blank">homeal.uk</a> — free to register<br>2. Verify your identity &amp; food-hygiene certification<br>3. Set up your kitchen profile, menu, and pricing<br>4. Start receiving orders in your area<br><br><strong>Requirements:</strong> UK-based, valid food hygiene certificate (Level 2+), kitchen registered with your local council.<br><br><strong>Need help getting set up?</strong> Drop us a line at <a href="mailto:Info@totalcloudai.com">Info@totalcloudai.com</a> and our team will guide you through the process.' },
+
+    // Homeal — customer
+    { keywords: ['order homeal', 'buy homeal', 'homeal customer', 'order food', 'find home maker', 'home cooked near me'],
+      response: '<strong>Order Home-Cooked Food from Homeal</strong><br><br>Browse Home Makers in your area, view their menus and customer ratings, and order directly. Choose delivery (within 15 miles) or self-pickup.<br><br><strong>What you can order:</strong> Daily meals, weekly tiffin subscriptions, custom catering, cakes, pickles &amp; baked goods.<br><br><strong>Why customers love Homeal:</strong><br>• Fresh, authentic, home-cooked food<br>• Full ingredient &amp; allergen transparency<br>• Support local home-based businesses<br>• Often cheaper than restaurant takeaway<br><br><a href="https://homeal.uk" target="_blank">Browse Home Makers →</a>' },
+
+    // VedIQ
+    { keywords: ['vediq', 'vedic maths', 'vedic math', 'vedic mathematics', 'maths tutor', 'math tutor', 'maths app', 'math app', 'kids learning', 'children maths', 'mental math', 'mental maths'],
+      response: '<strong>VedIQ — Ancient Wisdom. AI Speed.</strong><br><br>VedIQ is the world\'s first AI tutor built around Vedic Mathematics. It teaches children aged 6–16 lightning-fast mental-math techniques from India\'s 2,500-year-old mathematical heritage.<br><br><strong>Meet "Veda" — your AI tutor:</strong><br>• Uses Socratic questioning (never just gives answers)<br>• Animated chalkboard with synchronised text-to-speech<br>• Voice input &amp; output in 12 AI voices (US, UK, Indian accents)<br>• Adaptive across 6 age-based levels and 68 lessons<br>• 828,000+ procedurally generated problems across 14 categories<br>• 4 difficulty tiers (Easy → Expert)<br><br><strong>All 16 Vedic Sutras taught</strong> with multiple solution paths — great for neurodivergent learners (dyscalculia, ADHD).<br><br><strong>Pricing:</strong><br>• Free Plan — 10 lessons, unlimited AI Tutor<br>• Premium — £8.99/month or £89.90/year<br>• Student/School — £5.99/month with verified .edu / .ac.uk / .sch.uk email<br><br>That\'s <strong>93% cheaper</strong> than a private maths tutor (typically £40+/hr).<br><br><strong>Child safety:</strong> COPPA-compliant, no ads, no data sale, no external links, math-only AI.<br><br><a href="https://vediq.online" target="_blank">Try VedIQ Free →</a> · <a href="/products#vediq">Read more on our site →</a>' },
+
+    // VedIQ — pricing detail
+    { keywords: ['vediq pricing', 'vediq cost', 'vediq price', 'vediq subscription', 'vediq school', 'vediq student'],
+      response: '<strong>VedIQ Pricing</strong><br><br>• <strong>Free Plan</strong> — Always free. 10 lessons, 25% of full content, 5 problems per session, unlimited AI Tutor.<br>• <strong>Premium</strong> — £8.99/month or £89.90/year. Full access to all 68 lessons, 50 problems/session, all 4 difficulty tiers.<br>• <strong>Student / School Discount</strong> — £5.99/month or £59.90/year. Same full access, requires verified .edu / .ac.uk / .sch.uk email.<br><br><strong>Compare:</strong> A private maths tutor in the UK costs £40–80 per hour. VedIQ Premium is roughly the cost of one tutoring session — for a whole month of unlimited AI tutoring.<br><br><a href="https://vediq.online" target="_blank">Subscribe at vediq.online →</a>' },
+
+    // VedIQ — schools
+    { keywords: ['vediq for schools', 'school deployment', 'vediq school plan', 'classroom maths', 'edtech school'],
+      response: '<strong>VedIQ for Schools</strong><br><br>VedIQ is deployable in primary and secondary schools as a supplemental maths tool. The school plan gives every student full Premium access for £5.99/month.<br><br><strong>Benefits for educators:</strong><br>• Data-driven insights into individual student gaps<br>• Targeted intervention for struggling learners<br>• Engagement tools (XP, streaks, badges) keep students practising<br>• Aligned with UK national curriculum at every age band<br><br>Email <a href="mailto:Info@totalcloudai.com">Info@totalcloudai.com</a> to set up a school trial or pilot.' },
+
+    // RestroVision
+    { keywords: ['restrovision', 'restro vision', 'restaurant software', 'restaurant pos', 'kitchen display', 'kds', 'haccp', 'restaurant management', 'pos system', 'restaurant operations'],
+      response: '<strong>RestroVision — One Platform. Every Restaurant Workflow.</strong><br><br>RestroVision is a unified, AI-driven SaaS platform that replaces a dozen disconnected restaurant tools with a single intelligent operating system.<br><br><strong>Who it\'s for:</strong> Independent restaurants, gastro pubs, cafés, takeaways, and QSR chains in the UK — from single-site to multi-location.<br><br><strong>Eight bounded modules:</strong><br>1. <strong>POS &amp; KDS</strong> — order capture, kitchen display, payment processing<br>2. <strong>Inventory</strong> — stock, purchase orders, invoice OCR, supplier management<br>3. <strong>Labour &amp; HR</strong> — scheduling, attendance, payroll, right-to-work, training matrix<br>4. <strong>Compliance</strong> — HACCP, allergen matrix, RIDDOR, GDPR, licensing<br>5. <strong>CRM &amp; Loyalty</strong> — customer database, bookings, deals, loyalty programmes<br>6. <strong>Analytics</strong> — real-time KPIs, compliance scoring, AI weekly briefs<br>7. <strong>Delivery</strong> — Deliveroo, Uber Eats, Just Eat integrations<br>8. <strong>AI Layer</strong> — policy RAG, auto-task creation, predictive insights<br><br><strong>Why it matters:</strong> Automates UK food-safety compliance, enforces Working Time Directive &amp; RIDDOR, and frees restaurateurs from paperwork so they can focus on food, team, and customers.<br><br><a href="/contact">Request a demo →</a> · <a href="/products#restrovision">Read more on our site →</a>' },
+
+    // RestroVision — compliance
+    { keywords: ['restrovision compliance', 'haccp software', 'food safety software', 'allergen tracking', 'riddor', 'food compliance uk'],
+      response: '<strong>RestroVision Compliance Suite</strong><br><br>RestroVision is the only restaurant OS with full UK regulatory compliance built-in:<br><br>• <strong>HACCP</strong> — automated daily food-safety checks &amp; record keeping<br>• <strong>Allergen matrix</strong> — Natasha\'s Law compliant labelling<br>• <strong>RIDDOR</strong> — incident &amp; accident reporting workflows<br>• <strong>GDPR</strong> — consent tracking &amp; subject-access requests<br>• <strong>VAT / MTD</strong> — Making Tax Digital ready accounting<br>• <strong>Licensing tracker</strong> — premises &amp; alcohol licence renewal alerts<br>• <strong>Working Time Regulations</strong> — auto-enforced shift limits<br><br>For UK restaurants, this typically replaces 5–10 separate tools and dramatically reduces audit risk.<br><br><a href="/contact">Request a demo →</a>' },
+
+    // RestroVision — pricing / demo
+    { keywords: ['restrovision pricing', 'restrovision cost', 'restrovision demo', 'pos pricing', 'restaurant software cost'],
+      response: '<strong>RestroVision — Pricing &amp; Demo</strong><br><br>RestroVision is offered on a per-site monthly subscription with tiered pricing based on the number of locations and modules required. Multi-site enterprises receive custom volume pricing.<br><br>Every demo includes:<br>• 30-minute personalised walkthrough<br>• Compliance gap assessment for your restaurant<br>• ROI projection vs your current tool stack<br><br><a href="/contact">Request a demo →</a> or email <a href="mailto:Info@totalcloudai.com">Info@totalcloudai.com</a>' },
+
+    // Society / impact across products
+    { keywords: ['social impact', 'society impact', 'mission', 'ethical', 'sdg', 'sustainability'],
+      response: '<strong>Building Products for Real People</strong><br><br>Every product TotalCloudAI builds has a measurable social impact:<br><br>• <strong>Homeal</strong> — empowers women-led, immigrant, and stay-at-home entrepreneurs by removing capital &amp; licensing barriers to food entrepreneurship.<br>• <strong>VedIQ</strong> — democratises private tutoring (93% cheaper) and supports neurodivergent learners. Aligned with UN SDG 4 (Quality Education) &amp; SDG 10 (Reduced Inequalities).<br>• <strong>RestroVision</strong> — automates UK food-safety compliance to protect public health and enforces working-time regulations to safeguard staff rights.<br><br><a href="/products">See all products →</a>' },
+
+    // Partnership / investor / build with us
+    { keywords: ['build with you', 'build product', 'product idea', 'investor', 'partner with totalcloudai', 'startup partnership'],
+      response: '<strong>Have a Product Idea? Let\'s Build It Together.</strong><br><br>We turn bold ideas into production-ready, AI-powered SaaS products — from strategy and architecture to launch and scale. We can build on Azure, AWS, or GCP.<br><br><strong>How we work:</strong><br>• Validate the idea with a paid discovery sprint<br>• Architect a cloud-native, AI-first MVP<br>• Build, launch, and operate together<br>• Optional: TotalCloudAI co-invests in the right opportunities<br><br><a href="/contact">Start a conversation →</a><br>' + CONTACT_BLOCK },
 
     // ═══ PRICING ═══
     { keywords: ['pricing', 'price', 'how much', 'cost', 'plan', 'starter', 'professional', 'enterprise', 'package', 'quote', 'budget'],
